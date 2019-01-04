@@ -1,0 +1,49 @@
+[0m[[0m[31merror[0m] [0m[0mC:\Users\limor\OneDrive\Documents\uni\Final Project\play-java-seed\play-java-seed\app\views\Visualizations\calculateDataLayout.scala.html:9:73: not enough arguments for method versioned: (path: String, file: controllers.Assets.Asset)play.api.mvc.Call.[0m
+[0m[[0m[31merror[0m] [0m[0mUnspecified value parameter file.[0m
+[0m[[0m[31merror[0m] [0m[0m    <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">[0m
+[0m[[0m[31merror[0m] [0m[0m                                                                        ^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\limor\OneDrive\Documents\uni\Final Project\play-java-seed\play-java-seed\app\views\Visualizations\calculateDataLayout.scala.html:10:78: not enough arguments for method versioned: (path: String, file: controllers.Assets.Asset)play.api.mvc.Call.[0m
+[0m[[0m[31merror[0m] [0m[0mUnspecified value parameter file.[0m
+[0m[[0m[31merror[0m] [0m[0m    <link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("images/favicon.png")">[0m
+[0m[[0m[31merror[0m] [0m[0m                                                                             ^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\limor\OneDrive\Documents\uni\Final Project\play-java-seed\play-java-seed\app\views\Visualizations\calculateDataLayout.scala.html:12:58: not enough arguments for method versioned: (path: String, file: controllers.Assets.Asset)play.api.mvc.Call.[0m
+[0m[[0m[31merror[0m] [0m[0mUnspecified value parameter file.[0m
+[0m[[0m[31merror[0m] [0m[0m    <link rel="stylesheet" href="@routes.Assets.versioned("outsiders/bootstrap-4.2.1-dist/css/bootstrap.min.css")" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">[0m
+[0m[[0m[31merror[0m] [0m[0m                                                         ^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\limor\OneDrive\Documents\uni\Final Project\play-java-seed\play-java-seed\app\views\Visualizations\calculateDataLayout.scala.html:54:42: not enough arguments for method versioned: (path: String, file: controllers.Assets.Asset)play.api.mvc.Call.[0m
+[0m[[0m[31merror[0m] [0m[0mUnspecified value parameter file.[0m
+[0m[[0m[31merror[0m] [0m[0m    <script src="@routes.Assets.versioned("javascripts/main.js")" type="text/javascript"></script>[0m
+[0m[[0m[31merror[0m] [0m[0m                                         ^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\limor\OneDrive\Documents\uni\Final Project\play-java-seed\play-java-seed\app\views\Visualizations\calculateDataLayout.scala.html:55:42: not enough arguments for method versioned: (path: String, file: controllers.Assets.Asset)play.api.mvc.Call.[0m
+[0m[[0m[31merror[0m] [0m[0mUnspecified value parameter file.[0m
+[0m[[0m[31merror[0m] [0m[0m    <script src="@routes.Assets.versioned("outsiders/jquery-3.3.1.slim.min.js")"></script>[0m
+[0m[[0m[31merror[0m] [0m[0m                                         ^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\limor\OneDrive\Documents\uni\Final Project\play-java-seed\play-java-seed\app\views\Visualizations\calculateDataLayout.scala.html:56:42: not enough arguments for method versioned: (path: String, file: controllers.Assets.Asset)play.api.mvc.Call.[0m
+[0m[[0m[31merror[0m] [0m[0mUnspecified value parameter file.[0m
+[0m[[0m[31merror[0m] [0m[0m    <script src="@routes.Assets.versioned("outsiders/bootstrap-4.2.1-dist/js/bootstrap.min.js")"  integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>[0m
+[0m[[0m[31merror[0m] [0m[0m                                         ^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\limor\OneDrive\Documents\uni\Final Project\play-java-seed\play-java-seed\app\views\main.scala.html:14:77: not enough arguments for method versioned: (path: String, file: controllers.Assets.Asset)play.api.mvc.Call.[0m
+[0m[[0m[31merror[0m] [0m[0mUnspecified value parameter file.[0m
+[0m[[0m[31merror[0m] [0m[0m        <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">[0m
+[0m[[0m[31merror[0m] [0m[0m                                                                            ^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\limor\OneDrive\Documents\uni\Final Project\play-java-seed\play-java-seed\app\views\main.scala.html:15:86: not enough arguments for method versioned: (path: String, file: controllers.Assets.Asset)play.api.mvc.Call.[0m
+[0m[[0m[31merror[0m] [0m[0mUnspecified value parameter file.[0m
+[0m[[0m[31merror[0m] [0m[0m        <!--<link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("images/favicon.png")">-->[0m
+[0m[[0m[31merror[0m] [0m[0m                                                                                     ^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\limor\OneDrive\Documents\uni\Final Project\play-java-seed\play-java-seed\app\views\main.scala.html:17:62: not enough arguments for method versioned: (path: String, file: controllers.Assets.Asset)play.api.mvc.Call.[0m
+[0m[[0m[31merror[0m] [0m[0mUnspecified value parameter file.[0m
+[0m[[0m[31merror[0m] [0m[0m        <link rel="stylesheet" href="@routes.Assets.versioned("outsiders/bootstrap-4.2.1-dist/css/bootstrap.min.css")" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">[0m
+[0m[[0m[31merror[0m] [0m[0m                                                             ^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\limor\OneDrive\Documents\uni\Final Project\play-java-seed\play-java-seed\app\views\main.scala.html:54:46: not enough arguments for method versioned: (path: String, file: controllers.Assets.Asset)play.api.mvc.Call.[0m
+[0m[[0m[31merror[0m] [0m[0mUnspecified value parameter file.[0m
+[0m[[0m[31merror[0m] [0m[0m        <script src="@routes.Assets.versioned("javascripts/main.js")" type="text/javascript"></script>[0m
+[0m[[0m[31merror[0m] [0m[0m                                             ^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\limor\OneDrive\Documents\uni\Final Project\play-java-seed\play-java-seed\app\views\main.scala.html:55:46: not enough arguments for method versioned: (path: String, file: controllers.Assets.Asset)play.api.mvc.Call.[0m
+[0m[[0m[31merror[0m] [0m[0mUnspecified value parameter file.[0m
+[0m[[0m[31merror[0m] [0m[0m        <script src="@routes.Assets.versioned("outsiders/jquery-3.3.1.slim.min.js")"></script>[0m
+[0m[[0m[31merror[0m] [0m[0m                                             ^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\limor\OneDrive\Documents\uni\Final Project\play-java-seed\play-java-seed\app\views\main.scala.html:56:46: not enough arguments for method versioned: (path: String, file: controllers.Assets.Asset)play.api.mvc.Call.[0m
+[0m[[0m[31merror[0m] [0m[0mUnspecified value parameter file.[0m
+[0m[[0m[31merror[0m] [0m[0m        <script src="@routes.Assets.versioned("outsiders/bootstrap-4.2.1-dist/js/bootstrap.min.js")"  integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>[0m
+[0m[[0m[31merror[0m] [0m[0m                                             ^[0m
+[0m[[0m[31merror[0m] [0m[0m12 errors found[0m
