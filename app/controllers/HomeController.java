@@ -19,6 +19,7 @@ public class HomeController extends Controller {
         return ok(views.html.index.render());
     }
     public Result passengersCount() {
-        return ok(views.html.Visualizations.passengersCount.render());    }
+        return ok(views.html.Visualizations.passengersCount.render());
+    }
 
 }

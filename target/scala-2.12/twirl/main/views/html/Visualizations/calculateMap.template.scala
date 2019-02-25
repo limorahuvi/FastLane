@@ -37,33 +37,34 @@ Seq[Any](format.raw/*2.1*/("""<script type="text/javascript" src=""""),_display_
         """),format.raw/*6.9*/("""container: 'map',
         style: 'mapbox://styles/mapbox/streets-v9',
         center: [34.798256,31.260114],
-        zoom: 13
-    """),format.raw/*10.5*/("""}"""),format.raw/*10.6*/(""");
+        zoom: 13,
+        trackResize: true
+    """),format.raw/*11.5*/("""}"""),format.raw/*11.6*/(""");
 
-    map.on('load', function()"""),format.raw/*12.30*/("""{"""),format.raw/*12.31*/("""
-        """),format.raw/*13.9*/("""addStations();
-    """),format.raw/*14.5*/("""}"""),format.raw/*14.6*/(""");
+    map.on('load', function()"""),format.raw/*13.30*/("""{"""),format.raw/*13.31*/("""
+        """),format.raw/*14.9*/("""addStations();
+    """),format.raw/*15.5*/("""}"""),format.raw/*15.6*/(""");
 
     //add all stations to map
-    function addStations() """),format.raw/*17.28*/("""{"""),format.raw/*17.29*/("""
-        """),format.raw/*18.9*/("""map.addLayer("""),format.raw/*18.22*/("""{"""),format.raw/*18.23*/("""
-            """),format.raw/*19.13*/(""""id": "stationsLayer",
+    function addStations() """),format.raw/*18.28*/("""{"""),format.raw/*18.29*/("""
+        """),format.raw/*19.9*/("""map.addLayer("""),format.raw/*19.22*/("""{"""),format.raw/*19.23*/("""
+            """),format.raw/*20.13*/(""""id": "stationsLayer",
             "type": "symbol",
-            "source": """),format.raw/*21.23*/("""{"""),format.raw/*21.24*/("""
-                """),format.raw/*22.17*/(""""type": "geojson",
+            "source": """),format.raw/*22.23*/("""{"""),format.raw/*22.24*/("""
+                """),format.raw/*23.17*/(""""type": "geojson",
                 "data": stations
-            """),format.raw/*24.13*/("""}"""),format.raw/*24.14*/(""",
-            "layout": """),format.raw/*25.23*/("""{"""),format.raw/*25.24*/("""
-                """),format.raw/*26.17*/(""""icon-image": "bus-15",
-            """),format.raw/*27.13*/("""}"""),format.raw/*27.14*/("""
-        """),format.raw/*28.9*/("""}"""),format.raw/*28.10*/(""")
-    """),format.raw/*29.5*/("""}"""),format.raw/*29.6*/(""";
+            """),format.raw/*25.13*/("""}"""),format.raw/*25.14*/(""",
+            "layout": """),format.raw/*26.23*/("""{"""),format.raw/*26.24*/("""
+                """),format.raw/*27.17*/(""""icon-image": "bus-15",
+            """),format.raw/*28.13*/("""}"""),format.raw/*28.14*/("""
+        """),format.raw/*29.9*/("""}"""),format.raw/*29.10*/(""")
+    """),format.raw/*30.5*/("""}"""),format.raw/*30.6*/(""";
 
     //handle selection of area
     var points = [];
-    map.on('click',function(e)"""),format.raw/*33.31*/("""{"""),format.raw/*33.32*/("""
-        """),format.raw/*34.9*/("""if (points.length < 2) """),format.raw/*34.32*/("""{"""),format.raw/*34.33*/("""
-            """),format.raw/*35.13*/("""var coordinates = [e.lngLat.lng,e.lngLat.lat];
+    map.on('click',function(e)"""),format.raw/*34.31*/("""{"""),format.raw/*34.32*/("""
+        """),format.raw/*35.9*/("""if (points.length < 2) """),format.raw/*35.32*/("""{"""),format.raw/*35.33*/("""
+            """),format.raw/*36.13*/("""var coordinates = [e.lngLat.lng,e.lngLat.lat];
             // var description = e.features[0].properties.name;
             //
             points.push(coordinates);
@@ -72,46 +73,46 @@ Seq[Any](format.raw/*2.1*/("""<script type="text/javascript" src=""""),_display_
                 .addTo(map);
 
 
-        """),format.raw/*44.9*/("""}"""),format.raw/*44.10*/("""
-        """),format.raw/*45.9*/("""else alert("You have already choose 2 points");
-    """),format.raw/*46.5*/("""}"""),format.raw/*46.6*/(""");
+        """),format.raw/*45.9*/("""}"""),format.raw/*45.10*/("""
+        """),format.raw/*46.9*/("""else alert("You have already choose 2 points");
+    """),format.raw/*47.5*/("""}"""),format.raw/*47.6*/(""");
 
-    function addNewLayerWithSelectedPoint(coordinates)"""),format.raw/*48.55*/("""{"""),format.raw/*48.56*/("""
-        """),format.raw/*49.9*/("""map.addLayer("""),format.raw/*49.22*/("""{"""),format.raw/*49.23*/("""
-            """),format.raw/*50.13*/(""""id": "point"+points.length,
+    function addNewLayerWithSelectedPoint(coordinates)"""),format.raw/*49.55*/("""{"""),format.raw/*49.56*/("""
+        """),format.raw/*50.9*/("""map.addLayer("""),format.raw/*50.22*/("""{"""),format.raw/*50.23*/("""
+            """),format.raw/*51.13*/(""""id": "point"+points.length,
             "type": "symbol",
-            "source": """),format.raw/*52.23*/("""{"""),format.raw/*52.24*/("""
-                """),format.raw/*53.17*/(""""type": "geojson",
-                "data": """),format.raw/*54.25*/("""{"""),format.raw/*54.26*/("""
-                    """),format.raw/*55.21*/(""""type": "FeatureCollection",
-                    "features": ["""),format.raw/*56.34*/("""{"""),format.raw/*56.35*/("""
-                        """),format.raw/*57.25*/(""""type": "Feature",
-                        "geometry": """),format.raw/*58.37*/("""{"""),format.raw/*58.38*/("""
-                            """),format.raw/*59.29*/(""""type": "Point",
+            "source": """),format.raw/*53.23*/("""{"""),format.raw/*53.24*/("""
+                """),format.raw/*54.17*/(""""type": "geojson",
+                "data": """),format.raw/*55.25*/("""{"""),format.raw/*55.26*/("""
+                    """),format.raw/*56.21*/(""""type": "FeatureCollection",
+                    "features": ["""),format.raw/*57.34*/("""{"""),format.raw/*57.35*/("""
+                        """),format.raw/*58.25*/(""""type": "Feature",
+                        "geometry": """),format.raw/*59.37*/("""{"""),format.raw/*59.38*/("""
+                            """),format.raw/*60.29*/(""""type": "Point",
                             "coordinates":coordinates
-                        """),format.raw/*61.25*/("""}"""),format.raw/*61.26*/("""
-                    """),format.raw/*62.21*/("""}"""),format.raw/*62.22*/("""]
-                """),format.raw/*63.17*/("""}"""),format.raw/*63.18*/("""
-            """),format.raw/*64.13*/("""}"""),format.raw/*64.14*/(""",
-            "layout": """),format.raw/*65.23*/("""{"""),format.raw/*65.24*/("""
-                """),format.raw/*66.17*/(""""icon-image": "monument",
+                        """),format.raw/*62.25*/("""}"""),format.raw/*62.26*/("""
+                    """),format.raw/*63.21*/("""}"""),format.raw/*63.22*/("""]
+                """),format.raw/*64.17*/("""}"""),format.raw/*64.18*/("""
+            """),format.raw/*65.13*/("""}"""),format.raw/*65.14*/(""",
+            "layout": """),format.raw/*66.23*/("""{"""),format.raw/*66.24*/("""
+                """),format.raw/*67.17*/(""""icon-image": "monument",
                 "icon-size": 0.25
-            """),format.raw/*68.13*/("""}"""),format.raw/*68.14*/("""
-        """),format.raw/*69.9*/("""}"""),format.raw/*69.10*/(""");
-    """),format.raw/*70.5*/("""}"""),format.raw/*70.6*/("""
+            """),format.raw/*69.13*/("""}"""),format.raw/*69.14*/("""
+        """),format.raw/*70.9*/("""}"""),format.raw/*70.10*/(""");
+    """),format.raw/*71.5*/("""}"""),format.raw/*71.6*/("""
 
-    """),format.raw/*72.5*/("""function addPopupOfSelectesPoint(coordinates)"""),format.raw/*72.50*/("""{"""),format.raw/*72.51*/("""
-        """),format.raw/*73.9*/("""while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) """),format.raw/*73.63*/("""{"""),format.raw/*73.64*/("""
-            """),format.raw/*74.13*/("""coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-        """),format.raw/*75.9*/("""}"""),format.raw/*75.10*/("""
+    """),format.raw/*73.5*/("""function addPopupOfSelectesPoint(coordinates)"""),format.raw/*73.50*/("""{"""),format.raw/*73.51*/("""
+        """),format.raw/*74.9*/("""while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) """),format.raw/*74.63*/("""{"""),format.raw/*74.64*/("""
+            """),format.raw/*75.13*/("""coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+        """),format.raw/*76.9*/("""}"""),format.raw/*76.10*/("""
 
-        """),format.raw/*77.9*/("""new mapboxgl.Popup()
+        """),format.raw/*78.9*/("""new mapboxgl.Popup()
             .setLngLat(coordinates)
             .setHTML(description)
             .addTo(map);
-    """),format.raw/*81.5*/("""}"""),format.raw/*81.6*/("""
+    """),format.raw/*82.5*/("""}"""),format.raw/*82.6*/("""
 
-    """),format.raw/*83.5*/("""</script>"""))
+    """),format.raw/*84.5*/("""</script>"""))
       }
     }
   }
@@ -127,11 +128,11 @@ Seq[Any](format.raw/*2.1*/("""<script type="text/javascript" src=""""),_display_
 
               /*
                   -- GENERATED --
-                  DATE: Fri Jan 04 18:14:29 IST 2019
-                  SOURCE: C:/Users/limor/OneDrive/Documents/uni/Final Project/play-java-seed/play-java-seed/app/views/Visualizations/calculateMap.scala.html
-                  HASH: d5123533a8bbeb15f3e51c675c268fa551ab8cf3
-                  MATRIX: 1052->2|1115->39|1129->45|1191->87|1392->261|1420->262|1456->272|1617->406|1645->407|1708->442|1737->443|1774->453|1821->473|1849->474|1941->538|1970->539|2007->549|2048->562|2077->563|2119->577|2224->654|2253->655|2299->673|2393->739|2422->740|2475->765|2504->766|2550->784|2615->821|2644->822|2681->832|2710->833|2744->840|2772->841|2889->930|2918->931|2955->941|3006->964|3035->965|3077->979|3403->1278|3432->1279|3469->1289|3549->1342|3577->1343|3665->1403|3694->1404|3731->1414|3772->1427|3801->1428|3843->1442|3954->1525|3983->1526|4029->1544|4101->1588|4130->1589|4180->1611|4271->1674|4300->1675|4354->1701|4438->1757|4467->1758|4525->1788|4650->1885|4679->1886|4729->1908|4758->1909|4805->1928|4834->1929|4876->1943|4905->1944|4958->1969|4987->1970|5033->1988|5135->2062|5164->2063|5201->2073|5230->2074|5265->2082|5293->2083|5328->2091|5401->2136|5430->2137|5467->2147|5549->2201|5578->2202|5620->2216|5718->2287|5747->2288|5786->2300|5937->2424|5965->2425|6000->2433
-                  LINES: 33->2|33->2|33->2|33->2|36->5|36->5|37->6|41->10|41->10|43->12|43->12|44->13|45->14|45->14|48->17|48->17|49->18|49->18|49->18|50->19|52->21|52->21|53->22|55->24|55->24|56->25|56->25|57->26|58->27|58->27|59->28|59->28|60->29|60->29|64->33|64->33|65->34|65->34|65->34|66->35|75->44|75->44|76->45|77->46|77->46|79->48|79->48|80->49|80->49|80->49|81->50|83->52|83->52|84->53|85->54|85->54|86->55|87->56|87->56|88->57|89->58|89->58|90->59|92->61|92->61|93->62|93->62|94->63|94->63|95->64|95->64|96->65|96->65|97->66|99->68|99->68|100->69|100->69|101->70|101->70|103->72|103->72|103->72|104->73|104->73|104->73|105->74|106->75|106->75|108->77|112->81|112->81|114->83
+                  DATE: Mon Feb 25 09:35:43 IST 2019
+                  SOURCE: C:/Users/limor/OneDrive/Documents/uni/Final Project/play-java-seed/app/views/Visualizations/calculateMap.scala.html
+                  HASH: 8a60b233ab4490a81b3ba5ff528e1c4fdabdd32f
+                  MATRIX: 1052->2|1115->39|1129->45|1191->87|1392->261|1420->262|1456->272|1645->434|1673->435|1736->470|1765->471|1802->481|1849->501|1877->502|1969->566|1998->567|2035->577|2076->590|2105->591|2147->605|2252->682|2281->683|2327->701|2421->767|2450->768|2503->793|2532->794|2578->812|2643->849|2672->850|2709->860|2738->861|2772->868|2800->869|2917->958|2946->959|2983->969|3034->992|3063->993|3105->1007|3431->1306|3460->1307|3497->1317|3577->1370|3605->1371|3693->1431|3722->1432|3759->1442|3800->1455|3829->1456|3871->1470|3982->1553|4011->1554|4057->1572|4129->1616|4158->1617|4208->1639|4299->1702|4328->1703|4382->1729|4466->1785|4495->1786|4553->1816|4678->1913|4707->1914|4757->1936|4786->1937|4833->1956|4862->1957|4904->1971|4933->1972|4986->1997|5015->1998|5061->2016|5163->2090|5192->2091|5229->2101|5258->2102|5293->2110|5321->2111|5356->2119|5429->2164|5458->2165|5495->2175|5577->2229|5606->2230|5648->2244|5746->2315|5775->2316|5814->2328|5965->2452|5993->2453|6028->2461
+                  LINES: 33->2|33->2|33->2|33->2|36->5|36->5|37->6|42->11|42->11|44->13|44->13|45->14|46->15|46->15|49->18|49->18|50->19|50->19|50->19|51->20|53->22|53->22|54->23|56->25|56->25|57->26|57->26|58->27|59->28|59->28|60->29|60->29|61->30|61->30|65->34|65->34|66->35|66->35|66->35|67->36|76->45|76->45|77->46|78->47|78->47|80->49|80->49|81->50|81->50|81->50|82->51|84->53|84->53|85->54|86->55|86->55|87->56|88->57|88->57|89->58|90->59|90->59|91->60|93->62|93->62|94->63|94->63|95->64|95->64|96->65|96->65|97->66|97->66|98->67|100->69|100->69|101->70|101->70|102->71|102->71|104->73|104->73|104->73|105->74|105->74|105->74|106->75|107->76|107->76|109->78|113->82|113->82|115->84
                   -- GENERATED --
               */
           
