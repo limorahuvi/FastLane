@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:C:/Users/limor/OneDrive/Documents/uni/Final Project/play-java-seed/play-java-seed/conf/routes
-// @DATE:Fri Jan 04 18:08:04 IST 2019
+// @SOURCE:C:/Users/limor/OneDrive/Documents/uni/Final Project/play-java-seed/conf/routes
+// @DATE:Mon Feb 25 12:36:00 IST 2019
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -10,6 +10,26 @@ import _root_.play.libs.F
 
 // @LINE:6
 package controllers.javascript {
+
+  // @LINE:8
+  class ReverseVisualizationController(_prefix: => String) {
+
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:8
+    def calculatePassengersCount: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.VisualizationController.calculatePassengersCount",
+      """
+        function(i0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "PassengersCount/Result/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("i", i0))})
+        }
+      """
+    )
+  
+  }
 
   // @LINE:6
   class ReverseHomeController(_prefix: => String) {

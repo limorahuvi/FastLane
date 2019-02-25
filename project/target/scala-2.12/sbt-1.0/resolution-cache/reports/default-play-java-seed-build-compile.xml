@@ -9,15 +9,15 @@
 		extra-sbtVersion="1.0"
 		conf="compile"
 		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, pom, scala-tool"
-		date="20190104101138"/>
+		date="20190225093512"/>
 	<dependencies>
 		<module organisation="org.foundweekends.giter8" name="sbt-giter8-scaffold">
-			<revision name="0.11.0" status="release" pubdate="20180713151356" resolver="sbt-plugin-releases" artresolver="sbt-plugin-releases" homepage="http://www.foundweekends.org/giter8/" extra-scalaVersion="2.12" extra-sbtVersion="1.0" downloaded="true" searched="true" default="false" conf="compile, default(compile)" position="124">
+			<revision name="0.11.0" status="release" pubdate="20180713151356" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.foundweekends.org/giter8/" extra-scalaVersion="2.12" extra-sbtVersion="1.0" downloaded="false" searched="false" default="false" conf="compile, default(compile)" position="124">
 				<license name="Apache-2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
-				<metadata-artifact status="successful" details="" size="1753" time="1664" location="C:\Users\limor\.ivy2\cache\scala_2.12\sbt_1.0\org.foundweekends.giter8\sbt-giter8-scaffold\ivy-0.11.0.xml" searched="true" original-local-location="C:\Users\limor\.ivy2\cache\scala_2.12\sbt_1.0\org.foundweekends.giter8\sbt-giter8-scaffold\ivy-0.11.0.xml.original" origin-is-local="false" origin-location="https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.foundweekends.giter8/sbt-giter8-scaffold/scala_2.12/sbt_1.0/0.11.0/ivys/ivy.xml"/>
+				<metadata-artifact status="no" details="" size="1755" time="0" location="C:\Users\limor\.ivy2\cache\scala_2.12\sbt_1.0\org.foundweekends.giter8\sbt-giter8-scaffold\ivy-0.11.0.xml" searched="false" origin-is-local="false" origin-location="https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.foundweekends.giter8/sbt-giter8-scaffold/scala_2.12/sbt_1.0/0.11.0/ivys/ivy.xml"/>
 				<caller organisation="default" name="play-java-seed-build" conf="compile" rev="0.11.0" rev-constraint-default="0.11.0" rev-constraint-dynamic="0.11.0" callerrev="0.1.0-SNAPSHOT" extra-scalaVersion="2.12" extra-sbtVersion="1.0"/>
 				<artifacts>
-					<artifact name="sbt-giter8-scaffold" type="jar" ext="jar" status="successful" details="" size="9899" time="3278" location="C:\Users\limor\.ivy2\cache\scala_2.12\sbt_1.0\org.foundweekends.giter8\sbt-giter8-scaffold\jars\sbt-giter8-scaffold-0.11.0.jar">
+					<artifact name="sbt-giter8-scaffold" type="jar" ext="jar" status="no" details="" size="9899" time="0" location="C:\Users\limor\.ivy2\cache\scala_2.12\sbt_1.0\org.foundweekends.giter8\sbt-giter8-scaffold\jars\sbt-giter8-scaffold-0.11.0.jar">
 						<origin-location is-local="false" location="https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.foundweekends.giter8/sbt-giter8-scaffold/scala_2.12/sbt_1.0/0.11.0/jars/sbt-giter8-scaffold.jar"/>
 					</artifact>
 				</artifacts>

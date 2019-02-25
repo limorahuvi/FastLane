@@ -79,7 +79,19 @@ Minimum for public lane:</br>
 </br>
 </br>
 </br>
-<button type="button" onclick="">Calculate</button>
+<button type="button" onclick=calculate()>Calculate</button>
+
+<script>
+    var d, h, m;
+    document.getElementById("days").onchange = function() """),format.raw/*54.59*/("""{"""),format.raw/*54.60*/("""
+        """),format.raw/*55.9*/("""if (this.selectedIndex!==0) """),format.raw/*55.37*/("""{"""),format.raw/*55.38*/("""
+            """),format.raw/*56.13*/("""d = this.value;
+        """),format.raw/*57.9*/("""}"""),format.raw/*57.10*/("""
+    """),format.raw/*58.5*/("""}"""),format.raw/*58.6*/(""";
+    function calculate()"""),format.raw/*59.25*/("""{"""),format.raw/*59.26*/("""
+        """),format.raw/*60.9*/("""window.location.href="""),_display_(/*60.31*/routes/*60.37*/.VisualizationController.calculatePassengersCount(d)),format.raw/*60.89*/(""";
+    """),format.raw/*61.5*/("""}"""),format.raw/*61.6*/("""
+"""),format.raw/*62.1*/("""</script>
 """)))}))
       }
     }
@@ -96,11 +108,11 @@ Minimum for public lane:</br>
 
               /*
                   -- GENERATED --
-                  DATE: Fri Jan 04 18:18:49 IST 2019
-                  SOURCE: C:/Users/limor/OneDrive/Documents/uni/Final Project/play-java-seed/play-java-seed/app/views/Visualizations/passengersCount.scala.html
-                  HASH: fdc3526312cc6f59fe94646d8c18bd3946be6833
-                  MATRIX: 966->1|1062->3|1092->8|1139->47|1177->48|1209->54|1280->108|1317->109|1345->111
-                  LINES: 28->1|33->1|35->3|35->3|35->3|36->4|37->5|37->5|38->6
+                  DATE: Mon Feb 25 12:55:35 IST 2019
+                  SOURCE: C:/Users/limor/OneDrive/Documents/uni/Final Project/play-java-seed/app/views/Visualizations/passengersCount.scala.html
+                  HASH: 81ff132e3da64ddcdb946df794c82d19a08614ae
+                  MATRIX: 966->1|1062->3|1092->8|1139->47|1177->48|1209->54|1280->108|1317->109|1345->111|3172->1910|3201->1911|3238->1921|3294->1949|3323->1950|3365->1964|3417->1989|3446->1990|3479->1996|3507->1997|3562->2024|3591->2025|3628->2035|3677->2057|3692->2063|3765->2115|3799->2122|3827->2123|3856->2125
+                  LINES: 28->1|33->1|35->3|35->3|35->3|36->4|37->5|37->5|38->6|86->54|86->54|87->55|87->55|87->55|88->56|89->57|89->57|90->58|90->58|91->59|91->59|92->60|92->60|92->60|92->60|93->61|93->61|94->62
                   -- GENERATED --
               */
           

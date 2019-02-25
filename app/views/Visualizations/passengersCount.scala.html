@@ -47,5 +47,17 @@ Minimum for public lane:</br>
 </br>
 </br>
 </br>
-<button type="button" onclick="">Calculate</button>
+<button type="button" onclick=calculate()>Calculate</button>
+
+<script>
+    var d, h, m;
+    document.getElementById("days").onchange = function() {
+        if (this.selectedIndex!==0) {
+            d = this.value;
+        }
+    };
+    function calculate(){
+        window.location.href=@routes.VisualizationController.calculatePassengersCount(d);
+    }
+</script>
 }

@@ -83,8 +83,8 @@ Seq[Any](format.raw/*1.1*/("""<nav class="navbar navbar-expand-lg navbar-light b
 
               /*
                   -- GENERATED --
-                  DATE: Fri Jan 04 16:17:51 IST 2019
-                  SOURCE: C:/Users/limor/OneDrive/Documents/uni/Final Project/play-java-seed/play-java-seed/app/views/navigationbar.scala.html
+                  DATE: Mon Feb 25 09:35:43 IST 2019
+                  SOURCE: C:/Users/limor/OneDrive/Documents/uni/Final Project/play-java-seed/app/views/navigationbar.scala.html
                   HASH: 54d98d95c8378dc8d787e02769edf4e6147882a9
                   MATRIX: 1038->0|1160->96|1174->102|1215->123|2215->1096|2230->1102|2282->1133
                   LINES: 33->1|34->2|34->2|34->2|49->17|49->17|49->17
