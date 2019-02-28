@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/limor/OneDrive/Documents/uni/Final Project/play-java-seed/conf/routes
-// @DATE:Mon Feb 25 12:36:00 IST 2019
+// @DATE:Mon Feb 25 22:22:59 IST 2019
 
 package router
 
@@ -18,7 +18,7 @@ class Routes(
   HomeController_0: controllers.HomeController,
   // @LINE:8
   VisualizationController_1: controllers.VisualizationController,
-  // @LINE:11
+  // @LINE:12
   Assets_2: controllers.Assets,
   val prefix: String
 ) extends GeneratedRouter {
@@ -29,7 +29,7 @@ class Routes(
     HomeController_0: controllers.HomeController,
     // @LINE:8
     VisualizationController_1: controllers.VisualizationController,
-    // @LINE:11
+    // @LINE:12
     Assets_2: controllers.Assets
   ) = this(errorHandler, HomeController_0, VisualizationController_1, Assets_2, "/")
 
@@ -45,7 +45,8 @@ class Routes(
   def documentation = List(
     ("""GET""", this.prefix, """controllers.HomeController.index"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """PassengersCount""", """controllers.HomeController.passengersCount"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """PassengersCount/Result/""" + "$" + """i<[^/]+>""", """controllers.VisualizationController.calculatePassengersCount(i:String)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """PassengersCount/Result""", """controllers.VisualizationController.calculatePassengersCount"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """PassengersCount/Result/""" + "$" + """day<[^/]+>/""" + "$" + """startTime<[^/]+>/""" + "$" + """endTime<[^/]+>/""" + "$" + """min<[^/]+>/""" + "$" + """result<[^/]+>""", """controllers.VisualizationController.showPassengersCountResult(day:String, startTime:String, endTime:String, min:Int, result:String)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """assets/""" + "$" + """file<.+>""", """controllers.Assets.versioned(path:String = "/public", file:Asset)"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
@@ -92,27 +93,45 @@ class Routes(
 
   // @LINE:8
   private[this] lazy val controllers_VisualizationController_calculatePassengersCount2_route = Route("GET",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("PassengersCount/Result/"), DynamicPart("i", """[^/]+""",true)))
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("PassengersCount/Result")))
   )
   private[this] lazy val controllers_VisualizationController_calculatePassengersCount2_invoker = createInvoker(
-    VisualizationController_1.calculatePassengersCount(fakeValue[String]),
+    VisualizationController_1.calculatePassengersCount,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.VisualizationController",
       "calculatePassengersCount",
-      Seq(classOf[String]),
+      Nil,
       "GET",
-      this.prefix + """PassengersCount/Result/""" + "$" + """i<[^/]+>""",
+      this.prefix + """PassengersCount/Result""",
       """""",
       Seq()
     )
   )
 
-  // @LINE:11
-  private[this] lazy val controllers_Assets_versioned3_route = Route("GET",
+  // @LINE:9
+  private[this] lazy val controllers_VisualizationController_showPassengersCountResult3_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("PassengersCount/Result/"), DynamicPart("day", """[^/]+""",true), StaticPart("/"), DynamicPart("startTime", """[^/]+""",true), StaticPart("/"), DynamicPart("endTime", """[^/]+""",true), StaticPart("/"), DynamicPart("min", """[^/]+""",true), StaticPart("/"), DynamicPart("result", """[^/]+""",true)))
+  )
+  private[this] lazy val controllers_VisualizationController_showPassengersCountResult3_invoker = createInvoker(
+    VisualizationController_1.showPassengersCountResult(fakeValue[String], fakeValue[String], fakeValue[String], fakeValue[Int], fakeValue[String]),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.VisualizationController",
+      "showPassengersCountResult",
+      Seq(classOf[String], classOf[String], classOf[String], classOf[Int], classOf[String]),
+      "GET",
+      this.prefix + """PassengersCount/Result/""" + "$" + """day<[^/]+>/""" + "$" + """startTime<[^/]+>/""" + "$" + """endTime<[^/]+>/""" + "$" + """min<[^/]+>/""" + "$" + """result<[^/]+>""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:12
+  private[this] lazy val controllers_Assets_versioned4_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("assets/"), DynamicPart("file", """.+""",false)))
   )
-  private[this] lazy val controllers_Assets_versioned3_invoker = createInvoker(
+  private[this] lazy val controllers_Assets_versioned4_invoker = createInvoker(
     Assets_2.versioned(fakeValue[String], fakeValue[Asset]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -143,14 +162,20 @@ class Routes(
   
     // @LINE:8
     case controllers_VisualizationController_calculatePassengersCount2_route(params@_) =>
-      call(params.fromPath[String]("i", None)) { (i) =>
-        controllers_VisualizationController_calculatePassengersCount2_invoker.call(VisualizationController_1.calculatePassengersCount(i))
+      call { 
+        controllers_VisualizationController_calculatePassengersCount2_invoker.call(VisualizationController_1.calculatePassengersCount)
       }
   
-    // @LINE:11
-    case controllers_Assets_versioned3_route(params@_) =>
+    // @LINE:9
+    case controllers_VisualizationController_showPassengersCountResult3_route(params@_) =>
+      call(params.fromPath[String]("day", None), params.fromPath[String]("startTime", None), params.fromPath[String]("endTime", None), params.fromPath[Int]("min", None), params.fromPath[String]("result", None)) { (day, startTime, endTime, min, result) =>
+        controllers_VisualizationController_showPassengersCountResult3_invoker.call(VisualizationController_1.showPassengersCountResult(day, startTime, endTime, min, result))
+      }
+  
+    // @LINE:12
+    case controllers_Assets_versioned4_route(params@_) =>
       call(Param[String]("path", Right("/public")), params.fromPath[Asset]("file", None)) { (path, file) =>
-        controllers_Assets_versioned3_invoker.call(Assets_2.versioned(path, file))
+        controllers_Assets_versioned4_invoker.call(Assets_2.versioned(path, file))
       }
   }
 }
