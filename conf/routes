@@ -5,7 +5,8 @@
 # An example controller showing a sample home page
 GET     /                           controllers.HomeController.index
 GET     /PassengersCount            controllers.HomeController.passengersCount
-GET     /PassengersCount/Result/:i     controllers.VisualizationController.calculatePassengersCount(i: String)
+GET     /PassengersCount/Result     controllers.VisualizationController.calculatePassengersCount
+GET     /PassengersCount/Result/:day/:startTime/:endTime/:min/:result     controllers.VisualizationController.showPassengersCountResult(day: String, startTime: String, endTime: String, min: Int, result: String)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
