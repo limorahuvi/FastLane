@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/limor/OneDrive/Documents/uni/Final Project/play-java-seed/conf/routes
-// @DATE:Mon Feb 25 22:22:59 IST 2019
+// @DATE:Thu Feb 28 11:21:15 IST 2019
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -18,16 +18,6 @@ package controllers.javascript {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
-  
-    // @LINE:9
-    def showPassengersCountResult: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.VisualizationController.showPassengersCountResult",
-      """
-        function(day0,startTime1,endTime2,min3,result4) {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "PassengersCount/Result/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("day", day0)) + "/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("startTime", startTime1)) + "/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("endTime", endTime2)) + "/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[Int]].javascriptUnbind + """)("min", min3)) + "/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("result", result4))})
-        }
-      """
-    )
   
     // @LINE:8
     def calculatePassengersCount: JavaScriptReverseRoute = JavaScriptReverseRoute(
@@ -71,7 +61,7 @@ package controllers.javascript {
   
   }
 
-  // @LINE:12
+  // @LINE:11
   class ReverseAssets(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -79,7 +69,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:12
+    // @LINE:11
     def versioned: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Assets.versioned",
       """
