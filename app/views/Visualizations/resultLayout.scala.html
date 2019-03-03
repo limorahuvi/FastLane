@@ -1,10 +1,10 @@
-@(parameters : String)
+@(form: VisualizationForm)(map: Html)(index: Html)
 
 <html>
     <head>
         <title>result</title>
     </head>
     <body>
-        @parameters
+        @form.getParametersList();
     </body>
 </html>

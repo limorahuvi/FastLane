@@ -32,8 +32,8 @@ object passengersCount extends _root_.play.twirl.api.BaseScalaTemplate[play.twir
 
 Seq[Any](format.raw/*1.36*/("""
 
-"""),format.raw/*3.1*/("""<!--TODO add onClick to map ?to calculate map?-->
-<!--TODO change hour to select-->
+"""),format.raw/*3.1*/("""<!--TODO change hour to select-->
+<!--TODO add multiple dates selection-->
 """),_display_(/*5.2*/calculateDataLayout("Passengers Count")/*5.41*/{_display_(Seq[Any](format.raw/*5.42*/("""
 """),format.raw/*6.1*/("""<h4>Passengers count visualization description</h4>
 """)))}/*7.2*/{_display_(Seq[Any](format.raw/*7.3*/("""
@@ -70,10 +70,10 @@ Seq[Any](format.raw/*1.36*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Mon Feb 25 22:23:50 IST 2019
+                  DATE: Sun Mar 03 10:28:37 IST 2019
                   SOURCE: C:/Users/limor/OneDrive/Documents/uni/Final Project/play-java-seed/app/views/Visualizations/passengersCount.scala.html
-                  HASH: 630c3dc93828087a31174d149aad203935de0a1f
-                  MATRIX: 992->1|1121->35|1151->39|1263->126|1310->165|1348->166|1376->168|1447->222|1484->223|1512->226|1525->232|1606->305|1644->306|1676->313|1690->319|1988->596|2021->603|2036->609|2111->663|2144->670|2159->676|2230->726|2263->733|2278->739|2391->830|2426->838|2498->880
+                  HASH: 9b0b8a380891497d1ee00e88841136bb1f2d7842
+                  MATRIX: 992->1|1121->35|1151->39|1254->117|1301->156|1339->157|1367->159|1438->213|1475->214|1503->217|1516->223|1597->296|1635->297|1667->304|1681->310|1979->587|2012->594|2027->600|2102->654|2135->661|2150->667|2221->717|2254->724|2269->730|2382->821|2417->829|2489->871
                   LINES: 28->1|33->1|35->3|37->5|37->5|37->5|38->6|39->7|39->7|40->8|40->8|40->8|40->8|41->9|41->9|48->16|49->17|49->17|49->17|50->18|50->18|50->18|51->19|51->19|51->19|53->21|54->22
                   -- GENERATED --
               */
