@@ -22,31 +22,31 @@ import play.mvc.Http.Context.Implicit._
 import play.data._
 import play.core.j.PlayFormsMagicForJava._
 
-object resultLayout extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template1[String,play.twirl.api.HtmlFormat.Appendable] {
+object resultLayout extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template3[VisualizationForm,Html,Html,play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*1.2*/(parameters : String):play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*1.2*/(form: VisualizationForm)(map: Html)(index: Html):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 
 
-Seq[Any](format.raw/*1.23*/("""
+Seq[Any](format.raw/*1.51*/("""
 
 """),format.raw/*3.1*/("""<html>
     <head>
         <title>result</title>
     </head>
     <body>
-        """),_display_(/*8.10*/parameters),format.raw/*8.20*/("""
-    """),format.raw/*9.5*/("""</body>
+        """),_display_(/*8.10*/form/*8.14*/.getParametersList()),format.raw/*8.34*/(""";
+    </body>
 </html>"""))
       }
     }
   }
 
-  def render(parameters:String): play.twirl.api.HtmlFormat.Appendable = apply(parameters)
+  def render(form:VisualizationForm,map:Html,index:Html): play.twirl.api.HtmlFormat.Appendable = apply(form)(map)(index)
 
-  def f:((String) => play.twirl.api.HtmlFormat.Appendable) = (parameters) => apply(parameters)
+  def f:((VisualizationForm) => (Html) => (Html) => play.twirl.api.HtmlFormat.Appendable) = (form) => (map) => (index) => apply(form)(map)(index)
 
   def ref: this.type = this
 
@@ -55,11 +55,11 @@ Seq[Any](format.raw/*1.23*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Mon Feb 25 12:36:00 IST 2019
+                  DATE: Sun Mar 03 10:30:51 IST 2019
                   SOURCE: C:/Users/limor/OneDrive/Documents/uni/Final Project/play-java-seed/app/views/Visualizations/resultLayout.scala.html
-                  HASH: 4500e56c20214d1aba4f167dcf50a2ab53f2c64d
-                  MATRIX: 970->1|1086->22|1116->26|1227->111|1257->121|1289->127
-                  LINES: 28->1|33->1|35->3|40->8|40->8|41->9
+                  HASH: a343ececd3c1dbfbf04e1a8a101e58e2f2aa4fa8
+                  MATRIX: 991->1|1135->50|1165->54|1276->139|1288->143|1328->163
+                  LINES: 28->1|33->1|35->3|40->8|40->8|40->8
                   -- GENERATED --
               */
           
