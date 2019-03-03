@@ -1,8 +1,2 @@
-[0m[[0m[31merror[0m] [0m[0mC:\Users\limor\OneDrive\Documents\uni\Final Project\play-java-seed\app\controllers\HomeController.java:19:1: cannot find symbol[0m
-[0m[[0m[31merror[0m] [0m[0m  symbol:   class FormFactory[0m
-[0m[[0m[31merror[0m] [0m[0m  location: class controllers.HomeController[0m
-[0m[[0m[31merror[0m] [0m[0m    FormFactory formFactory;[0m
-[0m[[0m[31merror[0m] [0m[0mC:\Users\limor\OneDrive\Documents\uni\Final Project\play-java-seed\app\controllers\HomeController.java:24:1: cannot find symbol[0m
-[0m[[0m[31merror[0m] [0m[0m  symbol:   class Form[0m
-[0m[[0m[31merror[0m] [0m[0m  location: class controllers.HomeController[0m
-[0m[[0m[31merror[0m] [0m[0m        Form<PassengersCountForm> form = formFactory.form(PassengersCountForm.class);[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\limor\OneDrive\Documents\uni\Final Project\play-java-seed\app\controllers\VisualizationController.java:36:1: incompatible types: com.fasterxml.jackson.databind.JsonNode cannot be converted to play.libs.Json[0m
+[0m[[0m[31merror[0m] [0m[0mrequest.result=json;[0m

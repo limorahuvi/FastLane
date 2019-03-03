@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/limor/OneDrive/Documents/uni/Final Project/play-java-seed/conf/routes
-// @DATE:Mon Feb 25 22:22:59 IST 2019
+// @DATE:Thu Feb 28 11:21:15 IST 2019
 
 import play.api.mvc.Call
 
@@ -17,12 +17,6 @@ package controllers {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
-  
-    // @LINE:9
-    def showPassengersCountResult(day:String, startTime:String, endTime:String, min:Int, result:String): Call = {
-      
-      Call("GET", _prefix + { _defaultPrefix } + "PassengersCount/Result/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("day", day)) + "/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("startTime", startTime)) + "/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("endTime", endTime)) + "/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Int]].unbind("min", min)) + "/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("result", result)))
-    }
   
     // @LINE:8
     def calculatePassengersCount(): Call = {
@@ -53,14 +47,14 @@ package controllers {
   
   }
 
-  // @LINE:12
+  // @LINE:11
   class ReverseAssets(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:12
+    // @LINE:11
     def versioned(file:Asset): Call = {
       implicit lazy val _rrc = new play.core.routing.ReverseRouteContext(Map(("path", "/public"))); _rrc
       Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[play.api.mvc.PathBindable[Asset]].unbind("file", file))

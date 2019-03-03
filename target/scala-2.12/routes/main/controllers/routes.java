@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/limor/OneDrive/Documents/uni/Final Project/play-java-seed/conf/routes
-// @DATE:Mon Feb 25 22:22:59 IST 2019
+// @DATE:Thu Feb 28 11:21:15 IST 2019
 
 package controllers;
 
