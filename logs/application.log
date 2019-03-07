@@ -1,9 +1,0 @@
-2019-03-07 12:54:04,979 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in play-dev-mode-akka.actor.default-dispatcher-7 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
-2019-03-07 12:54:05,171 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-7 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
-
-    play.filters.csrf.CSRFFilter
-    play.filters.hosts.AllowedHostsFilter
-
-2019-03-07 12:54:05,176 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-7 - Application started (Dev)
-2019-03-07 12:54:12,945 [WARN] from play in application-akka.actor.default-dispatcher-10 - You are using status code '400' with flashing, which should only be used with a redirect status!
-2019-03-07 12:54:16,629 [WARN] from play in application-akka.actor.default-dispatcher-6 - You are using status code '200' with flashing, which should only be used with a redirect status!

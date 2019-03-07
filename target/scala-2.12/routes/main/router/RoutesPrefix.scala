@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:C:/Users/limor/OneDrive/Documents/uni/Final Project/play-java-seed/conf/routes
-// @DATE:Thu Mar 07 12:53:48 IST 2019
+// @SOURCE:C:/Users/user/workspace/final project/FastLane/conf/routes
+// @DATE:Thu Mar 07 20:58:30 IST 2019
 
 
 package router {

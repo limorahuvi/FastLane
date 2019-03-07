@@ -4,7 +4,7 @@
 		module="play-java-seed_2.12"
 		revision="1.0-SNAPSHOT"
 		status="integration"
-		publication="20190307125338"
+		publication="20190307205804"
 	>
 		<description>
 		play-java-seed
@@ -41,7 +41,9 @@
 	<dependencies>
 		<dependency org="org.scala-lang" name="scala-compiler" rev="2.12.7" conf="scala-tool->default,optional(default)"/>
 		<dependency org="org.scala-lang" name="scala-library" rev="2.12.7" conf="scala-tool->default,optional(default);compile->default(compile)"/>
+		<dependency org="com.typesafe.play" name="play-enhancer" rev="1.2.2" conf="compile->default(compile)"/>
 		<dependency org="com.typesafe.play" name="twirl-api_2.12" rev="1.3.15" conf="compile->default(compile)"/>
+		<dependency org="com.typesafe.play" name="play-ebean_2.12" rev="4.1.0" conf="compile->default(compile)"/>
 		<dependency org="com.typesafe.play" name="play-server_2.12" rev="2.6.20" conf="compile->default(compile)"/>
 		<dependency org="com.typesafe.play" name="play-test_2.12" rev="2.6.20" conf="test->default(compile)"/>
 		<dependency org="com.typesafe.play" name="play-omnidoc_2.12" rev="2.6.20" conf="docs->default(compile)"/>
@@ -49,6 +51,10 @@
 		<dependency org="com.typesafe.play" name="filters-helpers_2.12" rev="2.6.20" conf="compile->default(compile)"/>
 		<dependency org="com.typesafe.play" name="play-logback_2.12" rev="2.6.20" conf="compile->default(compile)"/>
 		<dependency org="com.typesafe.play" name="play-akka-http-server_2.12" rev="2.6.20" conf="compile->default(compile)"/>
+		<dependency org="org.postgresql" name="postgresql" rev="42.1.4" conf="compile->default(compile)"/>
 		<dependency org="com.typesafe.play" name="play-guice_2.12" rev="2.6.20" conf="compile->default(compile)"/>
+		<dependency org="com.typesafe.play" name="play-java-jdbc_2.12" rev="2.6.20" conf="compile->default(compile)"/>
+		<dependency org="org.avaje" name="ebean" rev="2.7.3" conf="compile->default(compile)"/>
+		<dependency org="javax.persistence" name="persistence-api" rev="1.0.2" conf="compile->default(compile)"/>
 	</dependencies>
 </ivy-module>
