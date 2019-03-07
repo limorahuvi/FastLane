@@ -86,31 +86,32 @@ Seq[Any](format.raw/*1.74*/("""
     """),format.raw/*54.5*/("""</style>
     <!--<script src = "node_modules/clientside-require/dist/bundle.js"></script>-->
     <!--<script type="text/javascript" src="DemoData.js"></script>-->
-    <link rel="stylesheet" href="https://js.arcgis.com/3.27/dijit/themes/claro/claro.css">
-    <link rel="stylesheet" href="https://js.arcgis.com/3.27/esri/css/esri.css" />
-    <script src="https://js.arcgis.com/3.27/"></script>
+    <!--<link rel="stylesheet" href="https://js.arcgis.com/3.27/dijit/themes/claro/claro.css">-->
+    <!--<link rel="stylesheet" href="https://js.arcgis.com/3.27/esri/css/esri.css" />-->
+    <!--<script src="https://js.arcgis.com/3.27/"></script>-->
     """),_display_(/*60.6*/styles),format.raw/*60.12*/("""
 """),format.raw/*61.1*/("""</head>
     <body>
     """),_display_(/*63.6*/navigationbar()),format.raw/*63.21*/("""
-    """),format.raw/*64.5*/("""<div class="grid-container">
+    """),_display_(/*64.6*/description),format.raw/*64.17*/("""
+    """),format.raw/*65.5*/("""<div class="grid-container">
         <div class="map"> <div id='map'><!--<pre id='info'></pre>--></div></div>
-        """),_display_(/*66.10*/index),format.raw/*66.15*/("""
-    """),format.raw/*67.5*/("""</div>
+        """),_display_(/*67.10*/index),format.raw/*67.15*/("""
+    """),format.raw/*68.5*/("""</div>
     <script>
         // var bounds = [
         //     [34.78471565, 31.2546456], // Southwest coordinates
         //     [34.8160659,31.27190740]  // Northeast coordinates
         // ];
-        """),_display_(/*73.10*/map),format.raw/*73.13*/("""
+        """),_display_(/*74.10*/map),format.raw/*74.13*/("""
 
 
 
-    """),format.raw/*77.5*/("""</script>
+    """),format.raw/*78.5*/("""</script>
 
-    <script src=""""),_display_(/*79.19*/routes/*79.25*/.Assets.versioned("javascripts/main.js")),format.raw/*79.65*/("""" type="text/javascript"></script>
-    <script src=""""),_display_(/*80.19*/routes/*80.25*/.Assets.versioned("outsiders/jquery-3.3.1.slim.min.js")),format.raw/*80.80*/(""""></script>
-    <script src=""""),_display_(/*81.19*/routes/*81.25*/.Assets.versioned("outsiders/bootstrap-4.2.1-dist/js/bootstrap.min.js")),format.raw/*81.96*/(""""  integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script src=""""),_display_(/*80.19*/routes/*80.25*/.Assets.versioned("javascripts/main.js")),format.raw/*80.65*/("""" type="text/javascript"></script>
+    <script src=""""),_display_(/*81.19*/routes/*81.25*/.Assets.versioned("outsiders/jquery-3.3.1.slim.min.js")),format.raw/*81.80*/(""""></script>
+    <script src=""""),_display_(/*82.19*/routes/*82.25*/.Assets.versioned("outsiders/bootstrap-4.2.1-dist/js/bootstrap.min.js")),format.raw/*82.96*/(""""  integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 </body>
 </html>"""))
       }
@@ -128,11 +129,11 @@ Seq[Any](format.raw/*1.74*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Sun Mar 03 11:49:34 IST 2019
+                  DATE: Thu Mar 07 12:00:24 IST 2019
                   SOURCE: C:/Users/limor/OneDrive/Documents/uni/Final Project/play-java-seed/app/views/Visualizations/resultLayout.scala.html
-                  HASH: 1506b1afefe9caafb641526ad2860437f671160a
-                  MATRIX: 990->1|1157->73|1187->77|1480->343|1495->349|1590->422|1971->775|2000->776|2029->777|2082->802|2111->803|2156->820|2185->821|2214->822|2283->863|2312->864|2349->874|2393->890|2422->891|2464->905|2674->1088|2703->1089|2742->1101|2894->1225|2923->1226|2965->1240|3118->1366|3147->1367|3184->1377|3224->1389|3253->1390|3295->1404|3448->1530|3477->1531|3512->1539|3593->1592|3622->1593|3664->1607|4013->1929|4042->1930|4075->1936|4504->2339|4531->2345|4560->2347|4612->2373|4648->2388|4681->2394|4829->2515|4855->2520|4888->2526|5123->2734|5147->2737|5186->2749|5244->2780|5259->2786|5320->2826|5401->2880|5416->2886|5492->2941|5550->2972|5565->2978|5657->3049
-                  LINES: 28->1|33->1|35->3|42->10|42->10|42->10|47->15|47->15|47->15|47->15|47->15|48->16|48->16|48->16|48->16|48->16|49->17|49->17|49->17|50->18|55->23|55->23|57->25|58->26|58->26|59->27|63->31|63->31|64->32|64->32|64->32|65->33|69->37|69->37|71->39|73->41|73->41|74->42|85->53|85->53|86->54|92->60|92->60|93->61|95->63|95->63|96->64|98->66|98->66|99->67|105->73|105->73|109->77|111->79|111->79|111->79|112->80|112->80|112->80|113->81|113->81|113->81
+                  HASH: 2a6df3c31e371e7f4f552712620e31cef1329d3f
+                  MATRIX: 990->1|1157->73|1187->77|1480->343|1495->349|1590->422|1971->775|2000->776|2029->777|2082->802|2111->803|2156->820|2185->821|2214->822|2283->863|2312->864|2349->874|2393->890|2422->891|2464->905|2674->1088|2703->1089|2742->1101|2894->1225|2923->1226|2965->1240|3118->1366|3147->1367|3184->1377|3224->1389|3253->1390|3295->1404|3448->1530|3477->1531|3512->1539|3593->1592|3622->1593|3664->1607|4013->1929|4042->1930|4075->1936|4525->2360|4552->2366|4581->2368|4633->2394|4669->2409|4702->2416|4734->2427|4767->2433|4915->2554|4941->2559|4974->2565|5209->2773|5233->2776|5272->2788|5330->2819|5345->2825|5406->2865|5487->2919|5502->2925|5578->2980|5636->3011|5651->3017|5743->3088
+                  LINES: 28->1|33->1|35->3|42->10|42->10|42->10|47->15|47->15|47->15|47->15|47->15|48->16|48->16|48->16|48->16|48->16|49->17|49->17|49->17|50->18|55->23|55->23|57->25|58->26|58->26|59->27|63->31|63->31|64->32|64->32|64->32|65->33|69->37|69->37|71->39|73->41|73->41|74->42|85->53|85->53|86->54|92->60|92->60|93->61|95->63|95->63|96->64|96->64|97->65|99->67|99->67|100->68|106->74|106->74|110->78|112->80|112->80|112->80|113->81|113->81|113->81|114->82|114->82|114->82
                   -- GENERATED --
               */
           

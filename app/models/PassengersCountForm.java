@@ -1,18 +1,16 @@
 package models;
 import com.fasterxml.jackson.databind.JsonNode;
-import  play.libs.Json;
 import models.VisualizationForm;
 public class PassengersCountForm extends VisualizationForm{
 
     /* TODO add constraintes*/
     public String day;
+//    TODO start<=end
     public String startTime;
     public String endTime;
     public int minPassengersForPublicLane;
     public String coor1;
     public String coor2;
-    public JsonNode result;
-    public String resultString;
 
     public PassengersCountForm(){
 
@@ -59,17 +57,7 @@ public class PassengersCountForm extends VisualizationForm{
                 ;
     }
 
-    public JsonNode getResult(){
-        return result;
-    }
 
-    public void setResult(JsonNode result){
-        this.result=result;
-    }
-
-    public String getResultString(){
-        return resultString;
-    }
 
 
 
