@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/limor/OneDrive/Documents/uni/Final Project/play-java-seed/conf/routes
-// @DATE:Thu Feb 28 11:21:15 IST 2019
+// @DATE:Thu Mar 07 12:53:48 IST 2019
 
 import play.api.routing.JavaScriptReverseRoute
 
