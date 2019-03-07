@@ -25,6 +25,9 @@ public class HomeController extends Controller {
         Form<PassengersCountForm> form = formFactory.form(PassengersCountForm.class);
         return ok(views.html.Visualizations.passengersCount.render(form));
     }
+    public Result deviationSched() {
+        Form<DevSchedForm> form = formFactory.form(DevSchedForm.class);
+        return ok(views.html.Visualizations.deviationSched.render(form));    }
 
 
 }
