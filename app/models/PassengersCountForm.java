@@ -9,8 +9,6 @@ public class PassengersCountForm extends VisualizationForm{
     public String startTime;
     public String endTime;
     public int minPassengersForPublicLane;
-    public String coor1;
-    public String coor2;
 
     public PassengersCountForm(){
 
@@ -51,10 +49,8 @@ public class PassengersCountForm extends VisualizationForm{
     public String getParametersList(){
         return "Day: "+day+", "+
                 "Start Time: "+startTime+", "+
-                "Start Time: "+startTime+", "+
                 "End Time: "+endTime+", "+
-                "Min Passengers For Public Lane: "+minPassengersForPublicLane+"\n"
-                ;
+                "Minimum Passengers For Public Lane: "+minPassengersForPublicLane;
     }
 
 

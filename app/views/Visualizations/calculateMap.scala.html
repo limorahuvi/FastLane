@@ -1,7 +1,7 @@
-
+<!--TODO receive stations from server-->
+<!--TODO print stations id???-->
 <script type="text/javascript" src="@routes.Assets.versioned("demo-data/DemoData.js")"></script>
 <script>
-<!--TODO make map larger-->
     mapboxgl.accessToken = 'pk.eyJ1IjoiYWh1dmlsIiwiYSI6ImNqcHdjdmN1bDA1bjY0OXVqb2pucWo5b2oifQ.DlCUMxPJ6c3TD2eLq3OCEQ';
     var map = new mapboxgl.Map({
         container: 'map',
@@ -14,8 +14,7 @@
     map.on('load', function(){
         addStations();
     });
-<!--TODO recieve stations from server-->
-<!--TODO print stations id???-->
+
     //add all stations to map
     function addStations() {
         map.addLayer({
