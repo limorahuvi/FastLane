@@ -37,21 +37,74 @@ Seq[Any](format.raw/*1.36*/("""
 """),_display_(/*5.2*/calculateDataLayout("Passengers Count")/*5.41*/{_display_(Seq[Any](format.raw/*5.42*/("""
 """),format.raw/*6.1*/("""<h4>Passengers count visualization description</h4>
 """)))}/*7.2*/{_display_(Seq[Any](format.raw/*7.3*/("""
-"""),_display_(/*8.2*/helper/*8.8*/.form(action = routes.VisualizationController.calculatePassengersCount())/*8.81*/{_display_(Seq[Any](format.raw/*8.82*/("""
-    """),_display_(/*9.6*/helper/*9.12*/.select(form("day"), options=Seq(
+
+"""),_display_(/*9.2*/helper/*9.8*/.form(action = routes.VisualizationController.calculatePassengersCount())/*9.81*/{_display_(Seq[Any](format.raw/*9.82*/("""
+    """),_display_(/*10.6*/helper/*10.12*/.select(form("day"), options=Seq(
         ("Sunday","Sunday"),
         ("Monday","Monday"),
         ("Tuesday","Tuesday"),
         ("Wednesday","Wednesday"),
         ("Thursday","Thursday"),
         ("Friday","Friday"),
-        ("Saturday","Saturday")),'_label -> "Day")),format.raw/*16.51*/("""
-    """),_display_(/*17.6*/helper/*17.12*/.inputText(form("startTime"), '_label -> "Start Time")),format.raw/*17.66*/("""
-    """),_display_(/*18.6*/helper/*18.12*/.inputText(form("endTime"), '_label -> "End Time")),format.raw/*18.62*/("""
-    """),_display_(/*19.6*/helper/*19.12*/.inputText(form("minPassengersForPublicLane"), '_label -> "Min Passengers For Public Lane")),format.raw/*19.103*/("""
+        ("Saturday","Saturday")),'_label -> "Day")),format.raw/*17.51*/("""
+    """),_display_(/*18.6*/helper/*18.12*/.select(form("startTime"),options=Seq(
+        ("h0", "00"),
+        ("h1", "01"),
+        ("h2", "02"),
+        ("h3", "03"),
+        ("h4", "04"),
+        ("h5", "05"),
+        ("h6", "06"),
+        ("h7", "07"),
+        ("h8", "08"),
+        ("h9", "09"),
+        ("h10", "10"),
+        ("h11", "11"),
+        ("h12", "12"),
+        ("h13", "13"),
+        ("h14", "14"),
+        ("h15", "15"),
+        ("h16", "16"),
+        ("h17", "17"),
+        ("h18", "18"),
+        ("h19", "19"),
+        ("h20", "20"),
+        ("h21", "21"),
+        ("h22", "22"),
+        ("h23", "23")
 
-    """),format.raw/*21.5*/("""<input type="submit" value="Calculate">
-""")))}),format.raw/*22.2*/("""
+        ), '_label -> "Start Time")),format.raw/*44.36*/("""
+    """),_display_(/*45.6*/helper/*45.12*/.select(form("endTime"),options=Seq(
+        ("h0", "00"),
+        ("h1", "01"),
+        ("h2", "02"),
+        ("h3", "03"),
+        ("h4", "04"),
+        ("h5", "05"),
+        ("h6", "06"),
+        ("h7", "07"),
+        ("h8", "08"),
+        ("h9", "09"),
+        ("h10", "10"),
+        ("h11", "11"),
+        ("h12", "12"),
+        ("h13", "13"),
+        ("h14", "14"),
+        ("h15", "15"),
+        ("h16", "16"),
+        ("h17", "17"),
+        ("h18", "18"),
+        ("h19", "19"),
+        ("h20", "20"),
+        ("h21", "21"),
+        ("h22", "22"),
+        ("h23", "23")
+
+        ), '_label -> "End Time")),format.raw/*71.34*/("""
+    """),_display_(/*72.6*/helper/*72.12*/.inputText(form("minPassengersForPublicLane"), '_label -> "Min Passengers For Public Lane")),format.raw/*72.103*/("""
+
+    """),format.raw/*74.5*/("""<input type="submit" value="Calculate">
+""")))}),format.raw/*75.2*/("""
 
 
 """)))}))
@@ -70,11 +123,11 @@ Seq[Any](format.raw/*1.36*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Sun Mar 03 10:28:37 IST 2019
+                  DATE: Thu Mar 07 12:42:23 IST 2019
                   SOURCE: C:/Users/limor/OneDrive/Documents/uni/Final Project/play-java-seed/app/views/Visualizations/passengersCount.scala.html
-                  HASH: 9b0b8a380891497d1ee00e88841136bb1f2d7842
-                  MATRIX: 992->1|1121->35|1151->39|1254->117|1301->156|1339->157|1367->159|1438->213|1475->214|1503->217|1516->223|1597->296|1635->297|1667->304|1681->310|1979->587|2012->594|2027->600|2102->654|2135->661|2150->667|2221->717|2254->724|2269->730|2382->821|2417->829|2489->871
-                  LINES: 28->1|33->1|35->3|37->5|37->5|37->5|38->6|39->7|39->7|40->8|40->8|40->8|40->8|41->9|41->9|48->16|49->17|49->17|49->17|50->18|50->18|50->18|51->19|51->19|51->19|53->21|54->22
+                  HASH: ebdbc2cfa8a99dff86f127dd61ffb7709e0a6441
+                  MATRIX: 992->1|1121->35|1151->39|1254->117|1301->156|1339->157|1367->159|1438->213|1475->214|1505->219|1518->225|1599->298|1637->299|1670->306|1685->312|1983->589|2016->596|2031->602|2694->1244|2727->1251|2742->1257|3401->1895|3434->1902|3449->1908|3562->1999|3597->2007|3669->2049
+                  LINES: 28->1|33->1|35->3|37->5|37->5|37->5|38->6|39->7|39->7|41->9|41->9|41->9|41->9|42->10|42->10|49->17|50->18|50->18|76->44|77->45|77->45|103->71|104->72|104->72|104->72|106->74|107->75
                   -- GENERATED --
               */
           

@@ -32,39 +32,41 @@ object calculateMap extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.a
 
 Seq[Any](format.raw/*2.1*/("""<script type="text/javascript" src=""""),_display_(/*2.38*/routes/*2.44*/.Assets.versioned("demo-data/DemoData.js")),format.raw/*2.86*/(""""></script>
 <script>
+<!--TODO make map larger-->
     mapboxgl.accessToken = 'pk.eyJ1IjoiYWh1dmlsIiwiYSI6ImNqcHdjdmN1bDA1bjY0OXVqb2pucWo5b2oifQ.DlCUMxPJ6c3TD2eLq3OCEQ';
-    var map = new mapboxgl.Map("""),format.raw/*5.32*/("""{"""),format.raw/*5.33*/("""
-        """),format.raw/*6.9*/("""container: 'map',
+    var map = new mapboxgl.Map("""),format.raw/*6.32*/("""{"""),format.raw/*6.33*/("""
+        """),format.raw/*7.9*/("""container: 'map',
         style: 'mapbox://styles/mapbox/streets-v9',
         center: [34.798256,31.260114],
         zoom: 13,
         trackResize: true
-    """),format.raw/*11.5*/("""}"""),format.raw/*11.6*/(""");
+    """),format.raw/*12.5*/("""}"""),format.raw/*12.6*/(""");
 
-    map.on('load', function()"""),format.raw/*13.30*/("""{"""),format.raw/*13.31*/("""
-        """),format.raw/*14.9*/("""addStations();
-    """),format.raw/*15.5*/("""}"""),format.raw/*15.6*/(""");
+    map.on('load', function()"""),format.raw/*14.30*/("""{"""),format.raw/*14.31*/("""
+        """),format.raw/*15.9*/("""addStations();
+    """),format.raw/*16.5*/("""}"""),format.raw/*16.6*/(""");
 <!--TODO recieve stations from server-->
+<!--TODO print stations id???-->
     //add all stations to map
-    function addStations() """),format.raw/*18.28*/("""{"""),format.raw/*18.29*/("""
-        """),format.raw/*19.9*/("""map.addLayer("""),format.raw/*19.22*/("""{"""),format.raw/*19.23*/("""
-            """),format.raw/*20.13*/(""""id": "stationsLayer",
+    function addStations() """),format.raw/*20.28*/("""{"""),format.raw/*20.29*/("""
+        """),format.raw/*21.9*/("""map.addLayer("""),format.raw/*21.22*/("""{"""),format.raw/*21.23*/("""
+            """),format.raw/*22.13*/(""""id": "stationsLayer",
             "type": "symbol",
-            "source": """),format.raw/*22.23*/("""{"""),format.raw/*22.24*/("""
-                """),format.raw/*23.17*/(""""type": "geojson",
+            "source": """),format.raw/*24.23*/("""{"""),format.raw/*24.24*/("""
+                """),format.raw/*25.17*/(""""type": "geojson",
                 "data": stations
-            """),format.raw/*25.13*/("""}"""),format.raw/*25.14*/(""",
-            "layout": """),format.raw/*26.23*/("""{"""),format.raw/*26.24*/("""
-                """),format.raw/*27.17*/(""""icon-image": "bus-15",
-            """),format.raw/*28.13*/("""}"""),format.raw/*28.14*/("""
-        """),format.raw/*29.9*/("""}"""),format.raw/*29.10*/(""")
-    """),format.raw/*30.5*/("""}"""),format.raw/*30.6*/(""";
+            """),format.raw/*27.13*/("""}"""),format.raw/*27.14*/(""",
+            "layout": """),format.raw/*28.23*/("""{"""),format.raw/*28.24*/("""
+                """),format.raw/*29.17*/(""""icon-image": "bus-15",
+            """),format.raw/*30.13*/("""}"""),format.raw/*30.14*/("""
+        """),format.raw/*31.9*/("""}"""),format.raw/*31.10*/(""")
+    """),format.raw/*32.5*/("""}"""),format.raw/*32.6*/(""";
 
     //handle selection of area
     var points = [];
-    map.on('click',function(e)"""),format.raw/*34.31*/("""{"""),format.raw/*34.32*/("""
-        """),format.raw/*35.9*/("""if (points.length < 2) """),format.raw/*35.32*/("""{"""),format.raw/*35.33*/("""
-            """),format.raw/*36.13*/("""var coordinates = [e.lngLat.lng,e.lngLat.lat];
+    map.on('click',function(e)"""),format.raw/*36.31*/("""{"""),format.raw/*36.32*/("""
+        """),format.raw/*37.9*/("""if (points.length < 2) """),format.raw/*37.32*/("""{"""),format.raw/*37.33*/("""
+            """),format.raw/*38.13*/("""var coordinates = [e.lngLat.lng,e.lngLat.lat];
             // var description = e.features[0].properties.name;
             //
             points.push(coordinates);
@@ -73,46 +75,46 @@ Seq[Any](format.raw/*2.1*/("""<script type="text/javascript" src=""""),_display_
                 .addTo(map);
 
 
-        """),format.raw/*45.9*/("""}"""),format.raw/*45.10*/("""
-        """),format.raw/*46.9*/("""else alert("You have already choose 2 points");
-    """),format.raw/*47.5*/("""}"""),format.raw/*47.6*/(""");
+        """),format.raw/*47.9*/("""}"""),format.raw/*47.10*/("""
+        """),format.raw/*48.9*/("""else alert("You have already choose 2 points");
+    """),format.raw/*49.5*/("""}"""),format.raw/*49.6*/(""");
 
-    function addNewLayerWithSelectedPoint(coordinates)"""),format.raw/*49.55*/("""{"""),format.raw/*49.56*/("""
-        """),format.raw/*50.9*/("""map.addLayer("""),format.raw/*50.22*/("""{"""),format.raw/*50.23*/("""
-            """),format.raw/*51.13*/(""""id": "point"+points.length,
+    function addNewLayerWithSelectedPoint(coordinates)"""),format.raw/*51.55*/("""{"""),format.raw/*51.56*/("""
+        """),format.raw/*52.9*/("""map.addLayer("""),format.raw/*52.22*/("""{"""),format.raw/*52.23*/("""
+            """),format.raw/*53.13*/(""""id": "point"+points.length,
             "type": "symbol",
-            "source": """),format.raw/*53.23*/("""{"""),format.raw/*53.24*/("""
-                """),format.raw/*54.17*/(""""type": "geojson",
-                "data": """),format.raw/*55.25*/("""{"""),format.raw/*55.26*/("""
-                    """),format.raw/*56.21*/(""""type": "FeatureCollection",
-                    "features": ["""),format.raw/*57.34*/("""{"""),format.raw/*57.35*/("""
-                        """),format.raw/*58.25*/(""""type": "Feature",
-                        "geometry": """),format.raw/*59.37*/("""{"""),format.raw/*59.38*/("""
-                            """),format.raw/*60.29*/(""""type": "Point",
+            "source": """),format.raw/*55.23*/("""{"""),format.raw/*55.24*/("""
+                """),format.raw/*56.17*/(""""type": "geojson",
+                "data": """),format.raw/*57.25*/("""{"""),format.raw/*57.26*/("""
+                    """),format.raw/*58.21*/(""""type": "FeatureCollection",
+                    "features": ["""),format.raw/*59.34*/("""{"""),format.raw/*59.35*/("""
+                        """),format.raw/*60.25*/(""""type": "Feature",
+                        "geometry": """),format.raw/*61.37*/("""{"""),format.raw/*61.38*/("""
+                            """),format.raw/*62.29*/(""""type": "Point",
                             "coordinates":coordinates
-                        """),format.raw/*62.25*/("""}"""),format.raw/*62.26*/("""
-                    """),format.raw/*63.21*/("""}"""),format.raw/*63.22*/("""]
-                """),format.raw/*64.17*/("""}"""),format.raw/*64.18*/("""
-            """),format.raw/*65.13*/("""}"""),format.raw/*65.14*/(""",
-            "layout": """),format.raw/*66.23*/("""{"""),format.raw/*66.24*/("""
-                """),format.raw/*67.17*/(""""icon-image": "monument",
+                        """),format.raw/*64.25*/("""}"""),format.raw/*64.26*/("""
+                    """),format.raw/*65.21*/("""}"""),format.raw/*65.22*/("""]
+                """),format.raw/*66.17*/("""}"""),format.raw/*66.18*/("""
+            """),format.raw/*67.13*/("""}"""),format.raw/*67.14*/(""",
+            "layout": """),format.raw/*68.23*/("""{"""),format.raw/*68.24*/("""
+                """),format.raw/*69.17*/(""""icon-image": "monument",
                 "icon-size": 0.25
-            """),format.raw/*69.13*/("""}"""),format.raw/*69.14*/("""
-        """),format.raw/*70.9*/("""}"""),format.raw/*70.10*/(""");
-    """),format.raw/*71.5*/("""}"""),format.raw/*71.6*/("""
+            """),format.raw/*71.13*/("""}"""),format.raw/*71.14*/("""
+        """),format.raw/*72.9*/("""}"""),format.raw/*72.10*/(""");
+    """),format.raw/*73.5*/("""}"""),format.raw/*73.6*/("""
 
-    """),format.raw/*73.5*/("""function addPopupOfSelectesPoint(coordinates)"""),format.raw/*73.50*/("""{"""),format.raw/*73.51*/("""
-        """),format.raw/*74.9*/("""while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) """),format.raw/*74.63*/("""{"""),format.raw/*74.64*/("""
-            """),format.raw/*75.13*/("""coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-        """),format.raw/*76.9*/("""}"""),format.raw/*76.10*/("""
+    """),format.raw/*75.5*/("""function addPopupOfSelectesPoint(coordinates)"""),format.raw/*75.50*/("""{"""),format.raw/*75.51*/("""
+        """),format.raw/*76.9*/("""while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) """),format.raw/*76.63*/("""{"""),format.raw/*76.64*/("""
+            """),format.raw/*77.13*/("""coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+        """),format.raw/*78.9*/("""}"""),format.raw/*78.10*/("""
 
-        """),format.raw/*78.9*/("""new mapboxgl.Popup()
+        """),format.raw/*80.9*/("""new mapboxgl.Popup()
             .setLngLat(coordinates)
             .setHTML(description)
             .addTo(map);
-    """),format.raw/*82.5*/("""}"""),format.raw/*82.6*/("""
+    """),format.raw/*84.5*/("""}"""),format.raw/*84.6*/("""
 
-    """),format.raw/*84.5*/("""</script>"""))
+    """),format.raw/*86.5*/("""</script>"""))
       }
     }
   }
@@ -128,11 +130,11 @@ Seq[Any](format.raw/*2.1*/("""<script type="text/javascript" src=""""),_display_
 
               /*
                   -- GENERATED --
-                  DATE: Sun Mar 03 11:26:58 IST 2019
+                  DATE: Thu Mar 07 12:31:48 IST 2019
                   SOURCE: C:/Users/limor/OneDrive/Documents/uni/Final Project/play-java-seed/app/views/Visualizations/calculateMap.scala.html
-                  HASH: 798e17f1149eac8b930c293eeba7b276b0a1d03f
-                  MATRIX: 1052->2|1115->39|1129->45|1191->87|1392->261|1420->262|1456->272|1645->434|1673->435|1736->470|1765->471|1802->481|1849->501|1877->502|2009->606|2038->607|2075->617|2116->630|2145->631|2187->645|2292->722|2321->723|2367->741|2461->807|2490->808|2543->833|2572->834|2618->852|2683->889|2712->890|2749->900|2778->901|2812->908|2840->909|2957->998|2986->999|3023->1009|3074->1032|3103->1033|3145->1047|3471->1346|3500->1347|3537->1357|3617->1410|3645->1411|3733->1471|3762->1472|3799->1482|3840->1495|3869->1496|3911->1510|4022->1593|4051->1594|4097->1612|4169->1656|4198->1657|4248->1679|4339->1742|4368->1743|4422->1769|4506->1825|4535->1826|4593->1856|4718->1953|4747->1954|4797->1976|4826->1977|4873->1996|4902->1997|4944->2011|4973->2012|5026->2037|5055->2038|5101->2056|5203->2130|5232->2131|5269->2141|5298->2142|5333->2150|5361->2151|5396->2159|5469->2204|5498->2205|5535->2215|5617->2269|5646->2270|5688->2284|5786->2355|5815->2356|5854->2368|6005->2492|6033->2493|6068->2501
-                  LINES: 33->2|33->2|33->2|33->2|36->5|36->5|37->6|42->11|42->11|44->13|44->13|45->14|46->15|46->15|49->18|49->18|50->19|50->19|50->19|51->20|53->22|53->22|54->23|56->25|56->25|57->26|57->26|58->27|59->28|59->28|60->29|60->29|61->30|61->30|65->34|65->34|66->35|66->35|66->35|67->36|76->45|76->45|77->46|78->47|78->47|80->49|80->49|81->50|81->50|81->50|82->51|84->53|84->53|85->54|86->55|86->55|87->56|88->57|88->57|89->58|90->59|90->59|91->60|93->62|93->62|94->63|94->63|95->64|95->64|96->65|96->65|97->66|97->66|98->67|100->69|100->69|101->70|101->70|102->71|102->71|104->73|104->73|104->73|105->74|105->74|105->74|106->75|107->76|107->76|109->78|113->82|113->82|115->84
+                  HASH: bd203efc1000369653f50a6deff0e76a7b392005
+                  MATRIX: 1052->2|1115->39|1129->45|1191->87|1421->290|1449->291|1485->301|1674->463|1702->464|1765->499|1794->500|1831->510|1878->530|1906->531|2072->669|2101->670|2138->680|2179->693|2208->694|2250->708|2355->785|2384->786|2430->804|2524->870|2553->871|2606->896|2635->897|2681->915|2746->952|2775->953|2812->963|2841->964|2875->971|2903->972|3020->1061|3049->1062|3086->1072|3137->1095|3166->1096|3208->1110|3534->1409|3563->1410|3600->1420|3680->1473|3708->1474|3796->1534|3825->1535|3862->1545|3903->1558|3932->1559|3974->1573|4085->1656|4114->1657|4160->1675|4232->1719|4261->1720|4311->1742|4402->1805|4431->1806|4485->1832|4569->1888|4598->1889|4656->1919|4781->2016|4810->2017|4860->2039|4889->2040|4936->2059|4965->2060|5007->2074|5036->2075|5089->2100|5118->2101|5164->2119|5266->2193|5295->2194|5332->2204|5361->2205|5396->2213|5424->2214|5459->2222|5532->2267|5561->2268|5598->2278|5680->2332|5709->2333|5751->2347|5849->2418|5878->2419|5917->2431|6068->2555|6096->2556|6131->2564
+                  LINES: 33->2|33->2|33->2|33->2|37->6|37->6|38->7|43->12|43->12|45->14|45->14|46->15|47->16|47->16|51->20|51->20|52->21|52->21|52->21|53->22|55->24|55->24|56->25|58->27|58->27|59->28|59->28|60->29|61->30|61->30|62->31|62->31|63->32|63->32|67->36|67->36|68->37|68->37|68->37|69->38|78->47|78->47|79->48|80->49|80->49|82->51|82->51|83->52|83->52|83->52|84->53|86->55|86->55|87->56|88->57|88->57|89->58|90->59|90->59|91->60|92->61|92->61|93->62|95->64|95->64|96->65|96->65|97->66|97->66|98->67|98->67|99->68|99->68|100->69|102->71|102->71|103->72|103->72|104->73|104->73|106->75|106->75|106->75|107->76|107->76|107->76|108->77|109->78|109->78|111->80|115->84|115->84|117->86
                   -- GENERATED --
               */
           
