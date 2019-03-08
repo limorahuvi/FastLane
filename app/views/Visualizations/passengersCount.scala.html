@@ -5,9 +5,14 @@
 <!--TODO description-->
 <h3>Passengers count visualization description</h3>
 }{
-
+<!--TODO set default dates to today-->
 @helper.form(action = routes.VisualizationController.calculatePassengersCount()){
-    @helper.select(form("day"), options=Seq(
+    @helper.inputDate(form("startDate"), '_label -> "Start Date")
+    @helper.inputDate(form("endDate"), '_label -> "End Date")
+
+
+@helper.select(form("day"), options=Seq(
+        ("All","All"),
         ("Sunday","Sunday"),
         ("Monday","Monday"),
         ("Tuesday","Tuesday"),
