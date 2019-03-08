@@ -30,7 +30,8 @@ object index extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.Html
       {
 
 
-Seq[Any](format.raw/*2.1*/("""
+Seq[Any](format.raw/*1.4*/("""
+
 """),_display_(/*3.2*/main("Fast Lane")/*3.19*/ {_display_(Seq[Any](format.raw/*3.21*/("""
   """),format.raw/*4.3*/("""<h1>Welcome to Fast Lane!</h1>
 """)))}),format.raw/*5.2*/("""
@@ -50,11 +51,11 @@ Seq[Any](format.raw/*2.1*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Thu Mar 07 21:20:41 IST 2019
-                  SOURCE: C:/Users/user/workspace/final project/FastLane/app/views/index.scala.html
-                  HASH: b5e939f566ac23310087078bd6d468afa894bd1d
-                  MATRIX: 941->1|1037->4|1064->6|1089->23|1128->25|1157->28|1218->60
-                  LINES: 28->1|33->2|34->3|34->3|34->3|35->4|36->5
+                  DATE: Thu Mar 07 21:40:42 IST 2019
+                  SOURCE: C:/Users/hshidlov/Desktop/private/Project/FastLane/app/views/index.scala.html
+                  HASH: 1d6aa11f25a9be9cacff8f2424e8b316546e7d3c
+                  MATRIX: 941->1|1037->3|1067->8|1092->25|1131->27|1161->31|1223->64
+                  LINES: 28->1|33->1|35->3|35->3|35->3|36->4|37->5
                   -- GENERATED --
               */
           

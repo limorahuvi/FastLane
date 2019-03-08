@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:C:/Users/user/workspace/final project/FastLane/conf/routes
-// @DATE:Thu Mar 07 20:58:30 IST 2019
+// @SOURCE:C:/Users/hshidlov/Desktop/private/Project/FastLane/conf/routes
+// @DATE:Thu Mar 07 21:40:42 IST 2019
 
 package controllers;
 

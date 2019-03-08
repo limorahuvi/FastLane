@@ -1,12 +1,13 @@
 package models.entities;
 
-import java.util.*;
-import javax.persistence.*;
-
+import com.avaje.ebean.*;
 import io.ebean.*;
 import play.data.format.*;
 import play.data.validation.*;
-import com.avaje.ebean.*;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 @Entity
 public class Agency extends Model{
