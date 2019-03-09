@@ -1,19 +1,38 @@
 package models;
 import com.fasterxml.jackson.databind.JsonNode;
 import models.VisualizationForm;
+import java.util.Date;
+import play.data.validation.Constraints;
+import play.data.validation.Constraints.Validate;
+
 public class PassengersCountForm extends VisualizationForm{
 
     /* TODO add constraintes*/
+    public Date startDate;
+    public Date endDate;
     public String day;
-//    TODO start<=end
     public String startTime;
     public String endTime;
     public int minPassengersForPublicLane;
-    public String coor1;
-    public String coor2;
 
     public PassengersCountForm(){
 
+    }
+
+    public Date getStartDate() {
+        return startDate;
+    }
+
+    public Date getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
+    }
+
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
     }
 
     public String getDay(){
@@ -48,13 +67,14 @@ public class PassengersCountForm extends VisualizationForm{
         this.minPassengersForPublicLane=minPassengersForPublicLane;
     }
 
+//    TODO print dates without time
     public String getParametersList(){
-        return "Day: "+day+", "+
-                "Start Time: "+startTime+", "+
+        return "Start Date: "+startDate+", "+
+                "End Date: "+endDate+", "+
+                "Day: "+day+", "+
                 "Start Time: "+startTime+", "+
                 "End Time: "+endTime+", "+
-                "Min Passengers For Public Lane: "+minPassengersForPublicLane+"\n"
-                ;
+                "Minimum Passengers For Public Lane: "+minPassengersForPublicLane;
     }
 
 
