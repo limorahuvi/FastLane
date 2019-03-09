@@ -3,10 +3,9 @@ package models.entities;
 import io.ebean.Model;
 import play.data.validation.Constraints;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
+@Entity
 public class Routes extends Model {
 
     @Id

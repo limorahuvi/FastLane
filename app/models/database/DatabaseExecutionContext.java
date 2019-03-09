@@ -2,7 +2,6 @@ package models.database;
 import akka.actor.ActorSystem;
 import play.libs.concurrent.CustomExecutionContext;
 
-
 import javax.inject.Inject;
 
 /**

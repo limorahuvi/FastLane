@@ -3,10 +3,9 @@ package models.entities;
 import io.ebean.Model;
 import play.data.validation.Constraints;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 
+@Entity
 public class Calendar extends Model {
 
     @Id
