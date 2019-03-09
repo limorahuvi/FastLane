@@ -1,0 +1,5 @@
+<root>
+    <item name='play.libs.concurrent.CustomExecutionContext'>
+        <annotation name='java.lang.Deprecated'/>
+    </item>
+</root>

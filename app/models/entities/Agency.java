@@ -1,16 +1,12 @@
 package models.entities;
 
-import com.avaje.ebean.*;
-import io.ebean.*;
-import play.data.format.*;
-import play.data.validation.*;
+import io.ebean.Model;
+import play.data.validation.Constraints;
+import javax.persistence.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
 
 @Entity
-public class Agency extends Model{
+public class Agency extends Model {
 
     @Id
     @Constraints.Min(10)

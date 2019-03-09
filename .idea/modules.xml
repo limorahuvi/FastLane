@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/FastLane.iml" filepath="$PROJECT_DIR$/FastLane.iml" />
       <module fileurl="file://$PROJECT_DIR$/.g8/form/form.iml" filepath="$PROJECT_DIR$/.g8/form/form.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/play-java-seed.iml" filepath="$PROJECT_DIR$/.idea/modules/play-java-seed.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/play-java-seed-build.iml" filepath="$PROJECT_DIR$/.idea/modules/play-java-seed-build.iml" />
       <module fileurl="file://$PROJECT_DIR$/target/scala-2.12/routes/routes.iml" filepath="$PROJECT_DIR$/target/scala-2.12/routes/routes.iml" />
     </modules>
   </component>
