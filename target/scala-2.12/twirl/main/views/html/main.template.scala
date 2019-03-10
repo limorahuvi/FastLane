@@ -44,7 +44,7 @@ Seq[Any](format.raw/*8.1*/("""
         <link rel="stylesheet" media="screen" href=""""),_display_(/*14.54*/routes/*14.60*/.Assets.versioned("stylesheets/main.css")),format.raw/*14.101*/("""">
         <!--<link rel="shortcut icon" type="image/png" href=""""),_display_(/*15.63*/routes/*15.69*/.Assets.versioned("images/favicon.png")),format.raw/*15.108*/("""">-->
         <!--BOOTSTRAP-->
-        <link rel="stylesheet" href=""""),_display_(/*17.39*/routes/*17.45*/.Assets.versioned("outsiders/bootstrap-4.2.1-dist/css/bootstrap.min.css")),format.raw/*17.118*/("""" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <link rel="stylesheet" href=""""),_display_(/*17.39*/routes/*17.45*/.Assets.versioned("outsiders/bootstrap-4.2.1-dist/css/bootstrap.min.css")),format.raw/*17.118*/("""">
         <!--MAPBOX-->
         <!--<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.js'></script>-->
         <!--<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.css' rel='stylesheet' />-->
@@ -82,7 +82,7 @@ Seq[Any](format.raw/*8.1*/("""
 
         """),format.raw/*54.9*/("""<script src=""""),_display_(/*54.23*/routes/*54.29*/.Assets.versioned("javascripts/main.js")),format.raw/*54.69*/("""" type="text/javascript"></script>
         <script src=""""),_display_(/*55.23*/routes/*55.29*/.Assets.versioned("outsiders/jquery-3.3.1.slim.min.js")),format.raw/*55.84*/(""""></script>
-        <script src=""""),_display_(/*56.23*/routes/*56.29*/.Assets.versioned("outsiders/bootstrap-4.2.1-dist/js/bootstrap.min.js")),format.raw/*56.100*/(""""  integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+        <script src=""""),_display_(/*56.23*/routes/*56.29*/.Assets.versioned("outsiders/bootstrap-4.2.1-dist/js/bootstrap.min.js")),format.raw/*56.100*/("""" ></script>
     </body>
 </html>
 """))
@@ -101,10 +101,10 @@ Seq[Any](format.raw/*8.1*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Thu Mar 07 21:20:41 IST 2019
+                  DATE: Sun Mar 10 11:07:32 IST 2019
                   SOURCE: C:/Users/user/workspace/final project/FastLane/app/views/main.scala.html
-                  HASH: ce0964662f9208b2e5d31e6215870f694563d466
-                  MATRIX: 1206->260|1330->291|1357->292|1437->397|1473->406|1508->414|1534->419|1623->481|1638->487|1701->528|1793->593|1808->599|1869->638|1965->707|1980->713|2075->786|2496->1179|2525->1180|2554->1181|2607->1206|2636->1207|2691->1234|2720->1235|2749->1236|2818->1277|2847->1278|2902->1305|2931->1306|2960->1307|3046->1365|3075->1366|3141->1404|3170->1405|3455->1662|3484->1663|3667->1818|3696->1819|3914->2009|3943->2010|4003->2042|4032->2043|4250->2233|4279->2234|4366->2294|4402->2309|4439->2408|4476->2418|4504->2425|4541->2435|4582->2449|4597->2455|4658->2495|4742->2552|4757->2558|4833->2613|4894->2647|4909->2653|5002->2724
+                  HASH: e028034ded775bc814346979e018f335c43b4b35
+                  MATRIX: 1206->260|1330->291|1357->292|1437->397|1473->406|1508->414|1534->419|1623->481|1638->487|1701->528|1793->593|1808->599|1869->638|1965->707|1980->713|2075->786|2388->1071|2417->1072|2446->1073|2499->1098|2528->1099|2583->1126|2612->1127|2641->1128|2710->1169|2739->1170|2794->1197|2823->1198|2852->1199|2938->1257|2967->1258|3033->1296|3062->1297|3347->1554|3376->1555|3559->1710|3588->1711|3806->1901|3835->1902|3895->1934|3924->1935|4142->2125|4171->2126|4258->2186|4294->2201|4331->2300|4368->2310|4396->2317|4433->2327|4474->2341|4489->2347|4550->2387|4634->2444|4649->2450|4725->2505|4786->2539|4801->2545|4894->2616
                   LINES: 33->7|38->8|39->9|42->12|43->13|43->13|43->13|44->14|44->14|44->14|45->15|45->15|45->15|47->17|47->17|47->17|52->22|52->22|52->22|52->22|52->22|53->23|53->23|53->23|53->23|53->23|54->24|54->24|54->24|54->24|54->24|55->25|55->25|61->31|61->31|64->34|64->34|69->39|69->39|70->40|70->40|75->45|75->45|79->49|79->49|80->51|81->52|81->52|83->54|83->54|83->54|83->54|84->55|84->55|84->55|85->56|85->56|85->56
                   -- GENERATED --
               */

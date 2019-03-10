@@ -12,15 +12,11 @@ import com.avaje.ebean.*;
 public class Agency extends Model{
 
     @Id
-    @Constraints.Min(10)
-    public Integer agency_id;
-
-    @Column
-    @Constraints.Required
-    public String agency_name;
-
-    @Column
-    public String agency_url;
+    private Integer agency_id;
+    @Column(columnDefinition = "varchar(50) not null")
+    private String agency_name;
+    @Column(columnDefinition = "varchar")
+    private String agency_url;
 
     // public static final Finder<Long, Task> find = new Finder<>(Task.class);
 }

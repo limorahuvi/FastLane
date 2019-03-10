@@ -7,8 +7,32 @@
 		revision="1.0-SNAPSHOT"
 		conf="runtime"
 		confs="compile, runtime, test, provided, optional, universal, universal-docs, universal-src, windows, docker, linux, rpm, debian, compile-internal, runtime-internal, test-internal, plugin, pom, scala-tool, docs"
-		date="20190307205804"/>
+		date="20190310145229"/>
 	<dependencies>
+		<module organisation="io.ebean" name="ebean-postgis">
+			<revision name="11.1.1" status="release" pubdate="20180802025155" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="88">
+				<license name="The Apache Software License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="5427" time="0" location="C:\Users\user\.ivy2\cache\io.ebean\ebean-postgis\ivy-11.1.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/io/ebean/ebean-postgis/11.1.1/ebean-postgis-11.1.1.pom"/>
+				<caller organisation="com.example" name="play-java-seed_2.12" conf="compile, runtime" rev="11.1.1" rev-constraint-default="11.1.1" rev-constraint-dynamic="11.1.1" callerrev="1.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="ebean-postgis" type="jar" ext="jar" status="no" details="" size="20905" time="0" location="C:\Users\user\.ivy2\cache\io.ebean\ebean-postgis\jars\ebean-postgis-11.1.1.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/io/ebean/ebean-postgis/11.1.1/ebean-postgis-11.1.1.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="net.postgis" name="postgis-jdbc">
+			<revision name="2.2.1" status="release" pubdate="20160728212826" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="89">
+				<license name="GNU Lesser General Public License" url="http://www.gnu.org/licenses/lgpl-2.1.txt"/>
+				<metadata-artifact status="no" details="" size="9141" time="0" location="C:\Users\user\.ivy2\cache\net.postgis\postgis-jdbc\ivy-2.2.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/net/postgis/postgis-jdbc/2.2.1/postgis-jdbc-2.2.1.pom"/>
+				<caller organisation="io.ebean" name="ebean-postgis" conf="default, compile, runtime, master" rev="2.2.1" rev-constraint-default="2.2.1" rev-constraint-dynamic="2.2.1" callerrev="11.1.1"/>
+				<artifacts>
+					<artifact name="postgis-jdbc" type="jar" ext="jar" status="no" details="" size="55351" time="0" location="C:\Users\user\.ivy2\cache\net.postgis\postgis-jdbc\jars\postgis-jdbc-2.2.1.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/net/postgis/postgis-jdbc/2.2.1/postgis-jdbc-2.2.1.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
 		<module organisation="javax.persistence" name="persistence-api">
 			<revision name="1.0.2" status="release" pubdate="20070724011331" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master, runtime(*), master(compile), compile(*)" position="87">
 				<metadata-artifact status="no" details="" size="2361" time="0" location="C:\Users\user\.ivy2\cache\javax.persistence\persistence-api\ivy-1.0.2.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/javax/persistence/persistence-api/1.0.2/persistence-api-1.0.2.pom"/>
@@ -367,14 +391,21 @@
 			</revision>
 		</module>
 		<module organisation="org.postgresql" name="postgresql">
-			<revision name="42.1.4" status="release" pubdate="20170801201537" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/pgjdbc/pgjdbc" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="81">
+			<revision name="42.1.4" status="release" pubdate="20170801201537" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/pgjdbc/pgjdbc" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master, runtime(*), master(compile), compile(*)" position="81">
 				<license name="BSD-2-Clause" url="https://jdbc.postgresql.org/about/license.html"/>
 				<metadata-artifact status="no" details="" size="6020" time="0" location="C:\Users\user\.ivy2\cache\org.postgresql\postgresql\ivy-42.1.4.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/postgresql/postgresql/42.1.4/postgresql-42.1.4.pom"/>
 				<caller organisation="com.example" name="play-java-seed_2.12" conf="compile, runtime" rev="42.1.4" rev-constraint-default="42.1.4" rev-constraint-dynamic="42.1.4" callerrev="1.0-SNAPSHOT"/>
+				<caller organisation="net.postgis" name="postgis-jdbc" conf="compile, runtime" rev="9.4.1208.jre7" rev-constraint-default="9.4.1208.jre7" rev-constraint-dynamic="9.4.1208.jre7" callerrev="2.2.1"/>
 				<artifacts>
 					<artifact name="postgresql" type="bundle" ext="jar" status="no" details="" size="713037" time="0" location="C:\Users\user\.ivy2\cache\org.postgresql\postgresql\bundles\postgresql-42.1.4.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/postgresql/postgresql/42.1.4/postgresql-42.1.4.jar"/>
 					</artifact>
+				</artifacts>
+			</revision>
+			<revision name="9.4.1208.jre7" evicted="latest-revision" evicted-reason="" downloaded="false" searched="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="-1">
+				<evicted-by rev="42.1.4"/>
+				<caller organisation="net.postgis" name="postgis-jdbc" conf="compile, runtime" rev="9.4.1208.jre7" rev-constraint-default="9.4.1208.jre7" rev-constraint-dynamic="9.4.1208.jre7" callerrev="2.2.1"/>
+				<artifacts>
 				</artifacts>
 			</revision>
 		</module>
