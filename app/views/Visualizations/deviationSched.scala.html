@@ -4,6 +4,9 @@
 <!--TODO add multiple dates selection-->
 @calculateDataLayout("Dev sched"){
 <h4>Deviation in schedule visualization description</h4>
+<style>
+     #map { position:relative; width:90%; height: 120%}
+</style>
 }{
 @helper.form(action = routes.VisualizationController.calculateDevSched()){
 @helper.select(form("day"), options=Seq(
@@ -68,6 +71,7 @@
 ("h23", "23")
 
 ), '_label -> "End Time")
+
 
 <input type="submit" value="Calculate">
 }
