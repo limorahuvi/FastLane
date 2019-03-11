@@ -1,4 +1,6 @@
 package controllers;
+import models.DevSchedForm;
+import models.PassengersCountForm;
 import play.data.Form;
 import play.data.FormFactory;
 import javax.inject.Inject;
