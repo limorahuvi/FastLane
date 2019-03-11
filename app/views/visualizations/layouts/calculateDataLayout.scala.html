@@ -2,14 +2,8 @@
 <!--TODO receive form-->
 <!--TODO save coors to form-->
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    @* Here's where we render the page title `String`. *@
-    <title>@title</title>
-    <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">
+@main(title){
     <link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("images/favicon.png")">
-    @imports.bootstrap()
     @imports.mapbox()
     <style>
         #map { position:absolute; width:60%; height: 70%}
@@ -37,10 +31,7 @@
         }
 
      </style>
-</head>
-<body>
-
-    @navigationbar()
+}{
     </br>
     <div><h4>@description</h4></div>
     </br>
@@ -48,6 +39,6 @@
         <div class="map"> <div id='map'><!--<pre id='info'></pre>--></div></div>
         <div class="parameters"> @parameters</div>
     </div>
-   @calculateMap()
-</body>
-</html>
+    @calculateMap()
+}
+
