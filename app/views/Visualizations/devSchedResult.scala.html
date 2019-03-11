@@ -18,6 +18,7 @@
         .mapboxgl-popup-content {
             text-align: center;
             font-family: 'Open Sans', sans-serif;
+
         }
         .marker2 {
             background-size: cover;
@@ -28,6 +29,7 @@
             border-right: 30px solid transparent;
 
         }
+
     </style>
 }{
 @result.getParametersList();
@@ -39,6 +41,59 @@ style: 'mapbox://styles/mapbox/streets-v9',
 center: [34.798256,31.260114],
 zoom: 13
 });
+
+var geojson = {//for late
+"type": "FeatureCollection",
+"features": [{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [34.798256,31.260114]
+},
+"properties": {
+"average":2,
+"description": "line 3: 2 minutes, line 4 :2 minutes"
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [34.798262,31.265114]
+},
+"properties": {
+"average":5,
+"description":"line 3: 5 minutes, line 4 :5 minutes"
+}
+}]
+};
+
+var geojson2=//for pre
+{
+type: 'FeatureCollection',
+features: [{
+type: 'Feature',
+geometry: {
+type: 'Point',
+coordinates: [34.798256,31.260114]
+},
+properties: {
+average:0,
+description: ''
+}
+},
+{
+type: 'Feature',
+geometry: {
+type: 'Point',
+coordinates: [34.798262,31.265114]
+},
+properties: {
+average:1,
+description: 'line 3: 2 minutes, line 4 :2 minutes'
+}
+}]
+};
 
 var index=0;
 // add markers to map
@@ -56,12 +111,17 @@ el.style.borderLeft=radius+'px solid transparent';
 new mapboxgl.Marker(el)
 .setLngLat(marker.geometry.coordinates)
 .setPopup(new mapboxgl.Popup({ offset: 0}) // add popups
-.setHTML('<h3> ' + 'Average preliminaries:' + geojson2.features[index].properties.average + '</h3><p>' + geojson2.features[index].properties.description + '</p>'+
-'<h3>' + 'Average lateness:' + marker.properties.average + '</h3><p>' + marker.properties.description + '</p>'
+.setHTML('<h6> ' + 'Average preliminaries:' + geojson2.features[index].properties.average + '</h6><p>' + geojson2.features[index].properties.description + '</p>'+
+'<h6>' + 'Average lateness:' + marker.properties.average + '</h6><p>' + marker.properties.description + '</p>'
 ))
 .addTo(map);
 index++;
 });
+
+
+
+
+
 
 var index=0;
 geojson2.features.forEach(function(marker2) {
@@ -80,8 +140,8 @@ el.style.borderRight=radius+'px solid transparent';
 new mapboxgl.Marker(el)
 .setLngLat(marker2.geometry.coordinates)
 .setPopup(new mapboxgl.Popup({ offset: 0}) // add popups
-.setHTML('<h3> ' + 'Average preliminaries:' + marker2.properties.average + '</h3><p>' + marker2.properties.description + '</p>'+
-'<h3>' + 'Average lateness:' + geojson.features[index].properties.average + '</h3><p>' + geojson.features[index].properties.description + '</p>'
+.setHTML('<h6> ' + 'Average preliminaries:' + marker2.properties.average + '</h6><p>' + marker2.properties.description + '</p>'+
+'<h6>' + 'Average lateness:' + geojson.features[index].properties.average + '</h6><p>' + geojson.features[index].properties.description + '</p>'
 ))
 .addTo(map);
 index++;
