@@ -1,4 +1,6 @@
 package controllers;
+import models.DevSchedForm;
+import models.PassengersCountForm;
 import play.data.Form;
 import play.data.FormFactory;
 import javax.inject.Inject;
@@ -27,19 +29,19 @@ public class VisualizationController extends Controller {
         form = formFactory.form(PassengersCountForm.class).bindFromRequest();
         if(form.hasErrors()){
             flash("danger","Please Correct the Form Below");
-            return badRequest(views.html.Visualizations.passengersCount.render(form));
+            return badRequest(views.html.visualizations.passengersCount.passengersCount.render(form));
         }
         PassengersCountForm request = form.get();
 //        TODO calculate visualization data
         flash("success","Form Sent Successfully");
-        return ok(views.html.Visualizations.passengersCountResult.render(request));
+        return ok(views.html.visualizations.passengersCount.passengersCountResult.render(request));
     }
 
     public Result calculateDevSched() throws java.io.IOException{
         form2 = formFactory.form(DevSchedForm.class).bindFromRequest();
         if(form2.hasErrors()){
             flash("danger","Please Correct the Form Below");
-            return badRequest(views.html.Visualizations.deviationSched.render(form2));
+            return badRequest(views.html.visualizations.deviationSched.deviationSched.render(form2));
         }
         DevSchedForm request = form2.get();
 //        TODO calculate visualization data
@@ -58,7 +60,7 @@ public class VisualizationController extends Controller {
         request.resultString_late=json_late;
         request.result_early=Json.parse(json_early);
         request.result_late=Json.parse(json_late);
-        return ok(views.html.Visualizations.devSchedResult.render(request));
+        return ok(views.html.visualizations.deviationSched.devSchedResult.render(request));
     }
 
 

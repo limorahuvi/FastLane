@@ -23,11 +23,11 @@ public class HomeController extends Controller {
     }
     public Result passengersCount() {
         Form<PassengersCountForm> form = formFactory.form(PassengersCountForm.class);
-        return ok(views.html.Visualizations.passengersCount.render(form));
+        return ok(views.html.visualizations.passengersCount.passengersCount.render(form));
     }
     public Result deviationSched() {
         Form<DevSchedForm> form = formFactory.form(DevSchedForm.class);
-        return ok(views.html.Visualizations.deviationSched.render(form));    }
+        return ok(views.html.visualizations.deviationSched.deviationSched.render(form));    }
 
 
 }

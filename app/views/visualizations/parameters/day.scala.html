@@ -1,0 +1,11 @@
+@(form : Form[VisualizationForm],field: String, label:String)
+
+@helper.select(form(field), options=Seq(
+("All","All"),
+("Sunday","Sunday"),
+("Monday","Monday"),
+("Tuesday","Tuesday"),
+("Wednesday","Wednesday"),
+("Thursday","Thursday"),
+("Friday","Friday"),
+("Saturday","Saturday")),'_label -> label)

@@ -1,0 +1,18 @@
+@(form : Form[DevSchedForm])
+
+@visualizations.layouts.calculateDataLayout("Dev sched"){
+    Deviation in schedule visualization description
+    <!--<style>-->
+         <!--#map { position:relative; width:90%; height: 130%}-->
+    <!--</style>-->
+}{
+    @helper.form(action = routes.VisualizationController.calculateDevSched()){
+        @visualizations.parameters.date(form.asInstanceOf[play.data.Form[models.VisualizationForm]], "startDate", "Start Date")
+        @visualizations.parameters.date(form.asInstanceOf[play.data.Form[models.VisualizationForm]], "endDate", "End Date")
+        @visualizations.parameters.day(form.asInstanceOf[play.data.Form[models.VisualizationForm]], "day", "Day")
+        @visualizations.parameters.hour(form.asInstanceOf[play.data.Form[models.VisualizationForm]], "startHour", "Start Hour")
+        @visualizations.parameters.hour(form.asInstanceOf[play.data.Form[models.VisualizationForm]], "endHour", "End Hour")
+
+        <input type="submit" value="Calculate">
+    }
+}
