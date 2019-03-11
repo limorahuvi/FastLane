@@ -1,8 +1,17 @@
 package models;
 import com.fasterxml.jackson.databind.JsonNode;
+import java.util.Date;
 
 
 public abstract class VisualizationForm{
+
+    // Time
+    public Date startDate;
+    public Date endDate;
+    public String day;
+    public String startHour;
+    public String endHour;
+
     // Result
     public JsonNode result = null;
     public String resultString = "";
@@ -12,12 +21,34 @@ public abstract class VisualizationForm{
     public String[] points = null;
     private int number_of_points_inserted;
 
-    //    public String coor1;
-    //    public String coor2;
-    //TODO get&set coors
 
     //  abstract
     public abstract String getParametersList();
+
+    //time
+    public String getDay(){
+        return day;
+    }
+
+    public void setDay(String day){
+        this.day=day;
+    }
+
+    public String getStartHour(){
+        return startHour;
+    }
+
+    public void setStartHour(String startHour){
+        this.startHour=startHour;
+    }
+
+    public String getEndHour(){
+        return endHour;
+    }
+
+    public void setEndHour(String endHoure){
+        this.endHour=endHour;
+    }
 
     // result
     public JsonNode getResult(){
