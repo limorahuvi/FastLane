@@ -14,10 +14,3 @@ libraryDependencies ++= Seq(
   "org.avaje" % "ebean" % "2.7.3",
    "javax.persistence" % "persistence-api" % "1.0.2"
 )
-
-//Problem1
-libraryDependencies ++= Seq(
-  "io.ebean" % "ebean" % "11.26.1",
-  "io.ebean" % "ebean-agent" % "11.26.1",
-  "io.ebean" % "ebean-migration" % "11.11.1"
-)
