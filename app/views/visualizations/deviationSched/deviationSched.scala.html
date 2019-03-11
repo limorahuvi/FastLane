@@ -9,6 +9,8 @@
 </style>
 }{
 @helper.form(action = routes.VisualizationController.calculateDevSched()){
+@helper.inputDate(form("startDate"), '_label -> "Start Date")
+@helper.inputDate(form("endDate"), '_label -> "End Date")
 @helper.select(form("day"), options=Seq(
 ("Sunday","Sunday"),
 ("Monday","Monday"),
