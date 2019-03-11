@@ -46,7 +46,7 @@ public abstract class VisualizationForm{
         return endHour;
     }
 
-    public void setEndHour(String endHoure){
+    public void setEndHour(String endHour){
         this.endHour=endHour;
     }
 

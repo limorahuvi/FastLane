@@ -26,8 +26,8 @@ public class PassengersCountForm extends VisualizationForm{
         return "Start Date: "+startDate+", "+
                 "End Date: "+endDate+", "+
                 "Day: "+day+", "+
-                "Start Time: "+startHour+", "+
-                "End Time: "+endHour+", "+
+                "Start Hour: "+startHour+", "+
+                "End Hour: "+endHour+", "+
                 "Minimum Passengers For Public Lane: "+minPassengersForPublicLane;
     }
 

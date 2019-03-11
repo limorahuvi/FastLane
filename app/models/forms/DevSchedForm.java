@@ -17,8 +17,8 @@ public class DevSchedForm extends VisualizationForm{
         return "Start Date: "+startDate+", "+
                 "End Date: "+endDate+", "+
                 "Day: "+day+", "+
-                "Start Time: "+startHour+", "+
-                "End Time: "+endHour;
+                "Start Hour: "+startHour+", "+
+                "End Hour: "+endHour;
     }
 
     public JsonNode getResultEarly(){
