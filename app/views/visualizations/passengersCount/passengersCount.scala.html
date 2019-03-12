@@ -1,5 +1,6 @@
 @(form : Form[PassengersCountForm])
 
+
 @visualizations.layouts.calculateDataLayout("Passengers Count"){
     <!--TODO description-->
     Passengers count visualization description
@@ -14,7 +15,9 @@
         @visualizations.parameters.hour(form.asInstanceOf[play.data.Form[models.VisualizationForm]], "endHour", "End Hour")
         @helper.inputText(form("minPassengersForPublicLane"), '_label -> "Minimum Passengers For Public Lane")
 
-        <input type="submit" value="Calculate">
-    }
+    <input type="submit" value="Calculate" id="submit"  onclick="showDiv()">
+
+
+}
 
 }

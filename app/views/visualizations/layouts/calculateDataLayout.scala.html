@@ -31,14 +31,30 @@
         }
 
      </style>
+    <script>
+    function showDiv() {
+      document.getElementById('loadingGif').style.display = "block";
+      setTimeout(function() {
+        document.getElementById('loadingGif').style.display = "none";
+        document.getElementById('showme').style.display = "block";
+      },120000);
+
+    }</script>
 }{
     </br>
     <div><h4>@description</h4></div>
     </br>
     <div class="grid-container">
         <div class="map"> <div id='map'><!--<pre id='info'></pre>--></div></div>
-        <div class="parameters"> @parameters</div>
+
+        <div class="parameters"> @parameters
+            <div id="showme" style="display:none;"></div>
+            <div id="loadingGif" style="display:none; size:1px;"  ><img src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif" height="110" width="110"></div>
+        </div>
     </div>
     @calculateMap()
 }
+    <br></br>
+    <br></br>
+
 

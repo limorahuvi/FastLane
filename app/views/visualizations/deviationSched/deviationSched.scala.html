@@ -13,6 +13,7 @@
         @visualizations.parameters.hour(form.asInstanceOf[play.data.Form[models.VisualizationForm]], "startHour", "Start Hour")
         @visualizations.parameters.hour(form.asInstanceOf[play.data.Form[models.VisualizationForm]], "endHour", "End Hour")
 
-        <input type="submit" value="Calculate">
-    }
+    <input type="submit" value="Calculate" id="submit"  onclick="showDiv()">
+
+}
 }
