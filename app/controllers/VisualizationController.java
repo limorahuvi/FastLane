@@ -22,11 +22,10 @@ public class VisualizationController extends Controller {
      */
     @Inject
     FormFactory formFactory;
-    private Form<PassengersCountForm> form;
-    private Form<DevSchedForm> form2;
+
 
     public Result calculatePassengersCount() throws java.io.IOException{
-        form = formFactory.form(PassengersCountForm.class).bindFromRequest();
+        Form<PassengersCountForm> form = formFactory.form(PassengersCountForm.class).bindFromRequest();
         if(form.hasErrors()){
             flash("danger","Please Correct the Form Below");
             return badRequest(views.html.visualizations.passengersCount.passengersCount.render(form));
@@ -38,7 +37,7 @@ public class VisualizationController extends Controller {
     }
 
     public Result calculateDevSched() throws java.io.IOException{
-        form2 = formFactory.form(DevSchedForm.class).bindFromRequest();
+        Form<DevSchedForm> form2 = formFactory.form(DevSchedForm.class).bindFromRequest();
         if(form2.hasErrors()){
             flash("danger","Please Correct the Form Below");
             return badRequest(views.html.visualizations.deviationSched.deviationSched.render(form2));
