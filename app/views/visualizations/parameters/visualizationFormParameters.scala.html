@@ -1,0 +1,9 @@
+@(form : Form[VisualizationForm])
+
+@visualizations.parameters.date(form, "startDate", "Start Date")
+@visualizations.parameters.date(form, "endDate", "End Date")
+@visualizations.parameters.day(form, "day", "Day")
+@visualizations.parameters.hour(form, "startHour", "Start Hour")
+@visualizations.parameters.hour(form, "endHour", "End Hour")
+@visualizations.parameters.coordinates(form, "coor1", "First Coordinate")
+@visualizations.parameters.coordinates(form, "coor2", "Second Coordinate")

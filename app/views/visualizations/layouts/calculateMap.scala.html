@@ -30,21 +30,24 @@
     };
 
     //handle selection of area
-    var points = [];
     map.on('click',function(e){
-        if (points.length < 2) {
-            var coordinates = [e.lngLat.lng,e.lngLat.lat];
-            // var description = e.features[0].properties.name;
-            //
-            points.push(coordinates);
+        var coordinates = [e.lngLat.lng,e.lngLat.lat];
+        if(!addCoordinate(coordinates,"coor1") && !addCoordinate(coordinates,"coor2"))
+            alert("You have already choose 2 points");
+    });
+
+    function addCoordinate(coordinates,label){
+        if(document.getElementById(label).value==""){
+            document.getElementById(label).value = coordinates;
             var marker = new mapboxgl.Marker()
                 .setLngLat(coordinates)
                 .addTo(map);
-
-
+            return true;
         }
-        else alert("You have already choose 2 points");
-    });
+        else{
+            return false;
+        }
+    }
 
     function addNewLayerWithSelectedPoint(coordinates){
         map.addLayer({

@@ -1,0 +1,6 @@
+@(form : Form[VisualizationForm],field: String, label:String)
+
+<!--TODO add on change - when changing manually the field, change the marker as well-->
+<!--TODO add delete button-->
+
+@helper.inputText(form(field), '_label -> label)
