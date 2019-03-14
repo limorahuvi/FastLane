@@ -2,6 +2,8 @@
 <!--TODO print stations id???-->
 <script type="text/javascript" src="@routes.Assets.versioned("demo-data/DemoData.js")"></script>
 <script>
+     var markers=new Array();
+
     mapboxgl.accessToken = 'pk.eyJ1IjoiYWh1dmlsIiwiYSI6ImNqcHdjdmN1bDA1bjY0OXVqb2pucWo5b2oifQ.DlCUMxPJ6c3TD2eLq3OCEQ';
     var map = new mapboxgl.Map({
         container: 'map',
@@ -12,7 +14,30 @@
     });
 
     map.on('load', function(){
-        addStations();
+        if(document.getElementById("coor1").value!=""){
+            var coor_value=document.getElementById("coor1").value;
+            var coor_arr=coor_value.split(",");
+            var coor=new Array();
+            coor[0]=coor_arr[0];
+            coor[1]=coor_arr[1];
+             var marker = new mapboxgl.Marker()
+                    .setLngLat(coor)
+                    .addTo(map);
+              markers.push(marker);
+        }
+         if(document.getElementById("coor2").value!=""){
+            var coor_value=document.getElementById("coor2").value;
+            var coor_arr=coor_value.split(",");
+            var coor=new Array();
+            coor[0]=coor_arr[0];
+            coor[1]=coor_arr[1];
+             var marker = new mapboxgl.Marker()
+                    .setLngLat(coor)
+                    .addTo(map);
+               markers.push(marker);
+        }
+
+         addStations();
     });
     //add all stations to map
     function addStations() {
@@ -32,8 +57,10 @@
     //handle selection of area
     map.on('click',function(e){
         var coordinates = [e.lngLat.lng,e.lngLat.lat];
-        if(!addCoordinate(coordinates,"coor1") && !addCoordinate(coordinates,"coor2"))
+        if(!addCoordinate(coordinates,"coor1") && !addCoordinate(coordinates,"coor2")){
             alert("You have already choose 2 points");
+            }
+
     });
 
     function addCoordinate(coordinates,label){
@@ -42,11 +69,31 @@
             var marker = new mapboxgl.Marker()
                 .setLngLat(coordinates)
                 .addTo(map);
+            markers.push(marker);
             return true;
         }
         else{
             return false;
         }
+    }
+
+
+     function removeCordinates(){
+        document.getElementById("coor1").value = "";
+        document.getElementById("coor2").value = "";
+        var i;
+        for (i=0;i<markers.length;i=i+1)
+        {
+           markers[i].remove();
+
+        }
+        for (i=0;i<markers.length;i=i+1)
+        {
+          markers.pop();
+        }
+
+
+
     }
 
     function addNewLayerWithSelectedPoint(coordinates){
