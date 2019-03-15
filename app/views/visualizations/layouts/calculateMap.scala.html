@@ -2,7 +2,9 @@
 <!--TODO print stations id???-->
 <script type="text/javascript" src="@routes.Assets.versioned("demo-data/DemoData.js")"></script>
 <script>
-     var markers=new Array();
+     var markers={};
+
+
 
     mapboxgl.accessToken = 'pk.eyJ1IjoiYWh1dmlsIiwiYSI6ImNqcHdjdmN1bDA1bjY0OXVqb2pucWo5b2oifQ.DlCUMxPJ6c3TD2eLq3OCEQ';
     var map = new mapboxgl.Map({
@@ -14,16 +16,27 @@
     });
 
     map.on('load', function(){
+
         if(document.getElementById("coor1").value!=""){
             var coor_value=document.getElementById("coor1").value;
             var coor_arr=coor_value.split(",");
             var coor=new Array();
             coor[0]=coor_arr[0];
             coor[1]=coor_arr[1];
-             var marker = new mapboxgl.Marker()
+              var el = document.createElement('div');
+              el.className = 'marker';
+              el.id = 'marker';
+
+                // create the marker
+                var marker =new mapboxgl.Marker(el)
                     .setLngLat(coor)
                     .addTo(map);
-              markers.push(marker);
+                document.getElementById('marker').addEventListener('click', function(e) {
+
+                     var elem = document.getElementById('marker');
+                    elem.parentNode.removeChild(elem);
+                });
+                     markers["coor1"]=marker;
         }
          if(document.getElementById("coor2").value!=""){
             var coor_value=document.getElementById("coor2").value;
@@ -31,11 +44,22 @@
             var coor=new Array();
             coor[0]=coor_arr[0];
             coor[1]=coor_arr[1];
-             var marker = new mapboxgl.Marker()
+              var el = document.createElement('div');
+              el.className = 'marker';
+              el.id = 'marker';
+
+                // create the marker
+                var marker =new mapboxgl.Marker(el)
                     .setLngLat(coor)
                     .addTo(map);
-               markers.push(marker);
+                document.getElementById('marker').addEventListener('click', function(e) {
+
+                     var elem = document.getElementById('marker');
+                    elem.parentNode.removeChild(elem);
+                });
+                     markers["coor2"]=marker;
         }
+
 
          addStations();
     });
@@ -63,13 +87,34 @@
 
     });
 
+
+
     function addCoordinate(coordinates,label){
         if(document.getElementById(label).value==""){
             document.getElementById(label).value = coordinates;
-            var marker = new mapboxgl.Marker()
-                .setLngLat(coordinates)
-                .addTo(map);
-            markers.push(marker);
+                document.getElementById(label).value = coordinates;
+                var el = document.createElement('div');
+                el.className = 'marker';
+                el.id = 'marker';
+
+                // create the marker
+                var marker =new mapboxgl.Marker(el)
+                    .setLngLat(coordinates)
+                    .addTo(map);
+                document.getElementById('marker').addEventListener('click', function(e) {
+                document.getElementById(label).value = "";
+                if(markers["coor1"]!=undefined){
+                    markers["coor1"].remove();
+                    delete markers["coor1"];
+                }
+                if(markers["coor2"]!=undefined){
+                    markers["coor2"].remove();
+                    delete markers["coor2"];
+                }
+
+                });
+
+                     markers[label]=marker;
             return true;
         }
         else{
@@ -78,22 +123,87 @@
     }
 
 
+
+
      function removeCordinates(){
         document.getElementById("coor1").value = "";
         document.getElementById("coor2").value = "";
-        var i;
-        for (i=0;i<markers.length;i=i+1)
-        {
-           markers[i].remove();
-
+        if(markers["coor1"]!=undefined){
+            markers["coor1"].remove();
+            delete markers["coor1"];
         }
-        for (i=0;i<markers.length;i=i+1)
-        {
-          markers.pop();
+        if(markers["coor2"]!=undefined){
+            markers["coor2"].remove();
+            delete markers["coor2"];
         }
+    }
+
+    function update_label(){
+         if(document.getElementById("coor1").value=="" && markers["coor1"]!=undefined){
+            markers["coor1"].remove();
+            delete markers["coor1"];
+         }
+          if(document.getElementById("coor2").value=="" && markers["coor2"]!=undefined){
+             markers["coor2"].remove();
+            delete markers["coor2"];
+         }
+          if(document.getElementById("coor1").value!="" ){
+
+             if(markers["coor1"]!=undefined){
+                markers["coor1"].remove();
+                delete markers["coor1"];
+            }
+
+              var coor_value=document.getElementById("coor1").value;
+            var coor_arr=coor_value.split(",");
+            var coor=new Array();
+            coor[0]=coor_arr[0];
+            coor[1]=coor_arr[1];
+
+              var el = document.createElement('div');
+              el.className = 'marker';
+              el.id = 'marker';
+
+                // create the marker
+                var marker =new mapboxgl.Marker(el)
+                    .setLngLat(coor)
+                    .addTo(map);
+                document.getElementById('marker').addEventListener('click', function(e) {
+
+                     var elem = document.getElementById('marker');
+                    elem.parentNode.removeChild(elem);
+                });
+                     markers["coor1"]=marker;
+
+         }
+          if(document.getElementById("coor2").value!=""){
+            if(markers["coor2"]!=undefined){
+                markers["coor2"].remove();
+                delete markers["coor2"];
+            }
+
+              var coor_value=document.getElementById("coor2").value;
+            var coor_arr=coor_value.split(",");
+            var coor=new Array();
+            coor[0]=coor_arr[0];
+            coor[1]=coor_arr[1];
+                var el = document.createElement('div');
+              el.className = 'marker';
+              el.id = 'marker';
+
+                // create the marker
+                var marker =new mapboxgl.Marker(el)
+                    .setLngLat(coor)
+                    .addTo(map);
+                document.getElementById('marker').addEventListener('click', function(e) {
+
+                     var elem = document.getElementById('marker');
+                    elem.parentNode.removeChild(elem);
+                });
+                     markers["coor2"]=marker;
 
 
-
+         }
     }
 
     function addNewLayerWithSelectedPoint(coordinates){
