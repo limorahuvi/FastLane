@@ -24,11 +24,23 @@
             grid-row-end: 4;
         }
         .parameters {
-            grid-column-start: 4;
-            grid-column-end: 5;
+            grid-column-start: 5.5;
+            grid-column-end: 7;
             grid-row-start: 1;
             grid-row-end: 4;
         }
+
+        .same-row {
+            display: inline-block;
+        }
+        .marker {
+          background-image: url("@routes.Assets.versioned("images/mapbox-icon.png")");
+          background-size: cover;
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          cursor: pointer;
+    }
 
      </style>
     <script>
@@ -39,7 +51,9 @@
         document.getElementById('showme').style.display = "block";
       },120000);
 
-    }</script>
+    }
+
+</script>
 }{
     </br>
     <div><h4>@description</h4></div>
