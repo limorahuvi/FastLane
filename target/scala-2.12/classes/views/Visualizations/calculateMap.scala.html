@@ -1,0 +1,86 @@
+
+<script type="text/javascript" src="@routes.Assets.versioned("demo-data/DemoData.js")"></script>
+<script>
+<!--TODO make map larger-->
+    mapboxgl.accessToken = 'pk.eyJ1IjoiYWh1dmlsIiwiYSI6ImNqcHdjdmN1bDA1bjY0OXVqb2pucWo5b2oifQ.DlCUMxPJ6c3TD2eLq3OCEQ';
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v9',
+        center: [34.798256,31.260114],
+        zoom: 13,
+        trackResize: true
+    });
+
+    map.on('load', function(){
+        addStations();
+    });
+<!--TODO recieve stations from server-->
+<!--TODO print stations id???-->
+    //add all stations to map
+    function addStations() {
+        map.addLayer({
+            "id": "stationsLayer",
+            "type": "symbol",
+            "source": {
+                "type": "geojson",
+                "data": stations
+            },
+            "layout": {
+                "icon-image": "bus-15",
+            }
+        })
+    };
+
+    //handle selection of area
+    var points = [];
+    map.on('click',function(e){
+        if (points.length < 2) {
+            var coordinates = [e.lngLat.lng,e.lngLat.lat];
+            // var description = e.features[0].properties.name;
+            //
+            points.push(coordinates);
+            var marker = new mapboxgl.Marker()
+                .setLngLat(coordinates)
+                .addTo(map);
+
+
+        }
+        else alert("You have already choose 2 points");
+    });
+
+    function addNewLayerWithSelectedPoint(coordinates){
+        map.addLayer({
+            "id": "point"+points.length,
+            "type": "symbol",
+            "source": {
+                "type": "geojson",
+                "data": {
+                    "type": "FeatureCollection",
+                    "features": [{
+                        "type": "Feature",
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates":coordinates
+                        }
+                    }]
+                }
+            },
+            "layout": {
+                "icon-image": "monument",
+                "icon-size": 0.25
+            }
+        });
+    }
+
+    function addPopupOfSelectesPoint(coordinates){
+        while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+            coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+        }
+
+        new mapboxgl.Popup()
+            .setLngLat(coordinates)
+            .setHTML(description)
+            .addTo(map);
+    }
+
+    </script>

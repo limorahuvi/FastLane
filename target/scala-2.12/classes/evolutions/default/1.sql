@@ -41,7 +41,7 @@ create table stop (
   stop_code                     integer,
   privatestop_name              varchar(255),
   stop_desc                     varchar(255),
-  loction                       geometry(point,4326),
+  location                      geometry(point,4326),
   location_type                 integer not null,
   parent_station                integer,
   constraint pk_stop primary key (stop_id)

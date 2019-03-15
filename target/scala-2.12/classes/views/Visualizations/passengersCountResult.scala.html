@@ -1,0 +1,134 @@
+@(result: PassengersCountForm)
+
+@resultLayout("Passengers count result"){
+<style>
+        div.l1 {
+            background-color: #ed6498;
+            opacity: 0.1;
+            filter: alpha(opacity=10); /* For IE8 and earlier */
+        }
+
+        div.l2 {
+            background-color: #ed6498;
+            opacity: 0.2;
+            filter: alpha(opacity=20); /* For IE8 and earlier */
+        }
+
+        div.l3 {
+            background-color: #ed6498;
+            opacity: 0.3;
+            filter: alpha(opacity=30); /* For IE8 and earlier */
+        }
+        div.l4 {
+            background-color: #ed6498;
+            opacity: 0.4;
+            filter: alpha(opacity=40); /* For IE8 and earlier */
+        }
+        div.l5 {
+            background-color: #ed6498;
+            opacity: 0.5;
+            filter: alpha(opacity=50); /* For IE8 and earlier */
+        }
+        div.l6 {
+            background-color: #ed6498;
+            opacity: 0.6;
+            filter: alpha(opacity=60); /* For IE8 and earlier */
+        }
+        div.l7 {
+            background-color: #ed6498;
+            opacity: 0.7;
+            filter: alpha(opacity=70); /* For IE8 and earlier */
+        }
+        div.l8 {
+            background-color: #ed6498;
+            opacity: 0.8;
+            filter: alpha(opacity=80); /* For IE8 and earlier */
+        }
+        div.l9 {
+            background-color: #ed6498;
+            opacity: 0.9;
+            filter: alpha(opacity=90); /* For IE8 and earlier */
+        }
+        div.l10 {
+            background-color: #ed6498;
+            opacity: 1;
+            filter: alpha(opacity=100); /* For IE8 and earlier */
+        }
+    </style>
+}{
+@result.getParametersList();
+}{
+    mapboxgl.accessToken = 'pk.eyJ1IjoiYWh1dmlsIiwiYSI6ImNqcHdjdmN1bDA1bjY0OXVqb2pucWo5b2oifQ.DlCUMxPJ6c3TD2eLq3OCEQ';
+    var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/light-v9',
+    center: [34.798256,31.260114],
+    zoom: 14,
+    maxZoom:15,
+    minZoom:13,
+    // maxBounds: bounds
+    });
+
+    map.on('load', function () {
+        addLoadLayer();
+    });
+    var json = {"type":"FeatureCollection","features":[{"type":"Feature","properties":{"load":1},"geometry":{"type":"LineString","coordinates":[[34.798108,31.23819],[34.808931,31.226122]]}}]}
+    <!--var json = Json.parse(@result.resultString);-->
+    function addLoadLayer() {
+        map.addLayer({
+            'id': 'loadLater',
+            'type': 'line',
+            'source': {
+            'type': 'geojson',
+            'data': json
+            },
+            'layout': {
+            'line-cap': 'round',
+            'line-join': 'round'
+            },
+            'paint': {
+            'line-color': '#ed6498',
+            'line-width': 5,
+            'line-opacity': ['get', 'load']
+            },
+        });
+    }
+
+    map.on('click','stationsLayer',function(e){
+        var coordinates = e.features[0].geometry.coordinates.slice();
+        var description  = e.features[0].properties.id+": "+e.features[0].properties.name;
+        while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+        coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+    }
+
+    new mapboxgl.Popup()
+        .setLngLat(coordinates)
+        .setHTML(description)
+        .addTo(map);
+    });
+
+    map.on('mousemove', function (e) {
+        document.getElementById('info').innerHTML =
+        // e.point is the x, y coordinates of the mousemove event relative
+        // to the top-left corner of the map
+        JSON.stringify(e.point) + '<br />' +
+        // e.lngLat is the longitude, latitude geographical position of the event
+        JSON.stringify(e.lngLat);
+    });
+
+}{
+<div class="parameters">
+    <div class="l1"> <10 passengers </div>
+    <div class="l2"> 20 passengers </div>
+    <div class="l3"> 30 passengers </div>
+    <div class="l4"> 40 passengers </div>
+    <div class="l5"> 50 passengers </div>
+    <div class="l6"> 60 passengers </div>
+    <div class="l7"> 70 passengers </div>
+    <div class="l8"> 80 passengers </div>
+    <div class="l9"> 90 passengers </div>
+    <div class="l10"> >100 passengers </div>
+
+</div>
+}
+

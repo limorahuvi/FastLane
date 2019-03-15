@@ -20,8 +20,8 @@
         <entry key="root">
           <value>
             <ProjectSettingsEntry>
-              <option name="sourceDir" value="C:\Users\user\workspace\final project\FastLane\app" />
-              <option name="confDir" value="C:\Users\user\workspace\final project\FastLane\app" />
+              <option name="sourceDir" value="C:\Users\hshidlov\Desktop\private\Project\FastLane\app" />
+              <option name="confDir" value="C:\Users\hshidlov\Desktop\private\Project\FastLane\app" />
               <option name="templateImports">
                 <list>
                   <option value="_root_.play.twirl.api.TwirlFeatureImports._" />
@@ -52,7 +52,7 @@
                   <option value="play.libs.F" />
                 </list>
               </option>
-              <option name="uri" value="/C:/Users/user/workspace/final%20project/FastLane" />
+              <option name="uri" value="/C:/Users/hshidlov/Desktop/private/Project/FastLane" />
             </ProjectSettingsEntry>
           </value>
         </entry>

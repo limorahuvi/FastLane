@@ -1,0 +1,93 @@
+@(result: DevSchedForm)
+
+@resultLayout("Deviation in schedule visualization result"){
+<style>
+
+        .marker {
+            background-size: cover;
+            cursor: pointer;
+            width: 0;
+            height: 0;
+            border-top: 20px solid red;
+            border-left: 20px solid transparent;
+
+        }
+        .mapboxgl-popup {
+            max-width: 200px;
+        }
+        .mapboxgl-popup-content {
+            text-align: center;
+            font-family: 'Open Sans', sans-serif;
+        }
+        .marker2 {
+            background-size: cover;
+            cursor: pointer;
+            width: 0;
+            height: 0;
+            border-bottom: 30px solid green;
+            border-right: 30px solid transparent;
+
+        }
+    </style>
+}{
+@result.getParametersList();
+}{
+mapboxgl.accessToken = 'pk.eyJ1IjoiYWh1dmlsIiwiYSI6ImNqcHdjdmN1bDA1bjY0OXVqb2pucWo5b2oifQ.DlCUMxPJ6c3TD2eLq3OCEQ';
+var map = new mapboxgl.Map({
+container: 'map',
+style: 'mapbox://styles/mapbox/streets-v9',
+center: [34.798256,31.260114],
+zoom: 13
+});
+
+var index=0;
+// add markers to map
+geojson.features.forEach(function(marker) {
+
+// create a HTML element for each feature
+var el = document.createElement('div');
+el.className = 'marker';
+
+var radius=(marker.properties.average * 10);
+el.style.borderTop= radius+'px solid red';
+el.style.borderLeft=radius+'px solid transparent';
+
+// make a marker for each feature and add to the map
+new mapboxgl.Marker(el)
+.setLngLat(marker.geometry.coordinates)
+.setPopup(new mapboxgl.Popup({ offset: 0}) // add popups
+.setHTML('<h3> ' + 'Average preliminaries:' + geojson2.features[index].properties.average + '</h3><p>' + geojson2.features[index].properties.description + '</p>'+
+'<h3>' + 'Average lateness:' + marker.properties.average + '</h3><p>' + marker.properties.description + '</p>'
+))
+.addTo(map);
+index++;
+});
+
+var index=0;
+geojson2.features.forEach(function(marker2) {
+
+
+// create a HTML element for each feature
+var el = document.createElement('div');
+el.className = 'marker2';
+
+var radius=(marker2.properties.average * 10);
+el.style.borderBottom= radius+'px solid green';
+el.style.borderRight=radius+'px solid transparent';
+
+
+// make a marker for each feature and add to the map
+new mapboxgl.Marker(el)
+.setLngLat(marker2.geometry.coordinates)
+.setPopup(new mapboxgl.Popup({ offset: 0}) // add popups
+.setHTML('<h3> ' + 'Average preliminaries:' + marker2.properties.average + '</h3><p>' + marker2.properties.description + '</p>'+
+'<h3>' + 'Average lateness:' + geojson.features[index].properties.average + '</h3><p>' + geojson.features[index].properties.description + '</p>'
+))
+.addTo(map);
+index++;
+});
+
+}{
+
+}
+

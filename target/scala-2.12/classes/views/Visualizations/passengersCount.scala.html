@@ -1,0 +1,78 @@
+@(form : Form[PassengersCountForm])
+
+<!--TODO change hour to select-->
+<!--TODO add multiple dates selection-->
+@calculateDataLayout("Passengers Count"){
+<h4>Passengers count visualization description</h4>
+}{
+
+@helper.form(action = routes.VisualizationController.calculatePassengersCount()){
+    @helper.select(form("day"), options=Seq(
+        ("Sunday","Sunday"),
+        ("Monday","Monday"),
+        ("Tuesday","Tuesday"),
+        ("Wednesday","Wednesday"),
+        ("Thursday","Thursday"),
+        ("Friday","Friday"),
+        ("Saturday","Saturday")),'_label -> "Day")
+    @helper.select(form("startTime"),options=Seq(
+        ("h0", "00"),
+        ("h1", "01"),
+        ("h2", "02"),
+        ("h3", "03"),
+        ("h4", "04"),
+        ("h5", "05"),
+        ("h6", "06"),
+        ("h7", "07"),
+        ("h8", "08"),
+        ("h9", "09"),
+        ("h10", "10"),
+        ("h11", "11"),
+        ("h12", "12"),
+        ("h13", "13"),
+        ("h14", "14"),
+        ("h15", "15"),
+        ("h16", "16"),
+        ("h17", "17"),
+        ("h18", "18"),
+        ("h19", "19"),
+        ("h20", "20"),
+        ("h21", "21"),
+        ("h22", "22"),
+        ("h23", "23")
+
+        ), '_label -> "Start Time")
+    @helper.select(form("endTime"),options=Seq(
+        ("h0", "00"),
+        ("h1", "01"),
+        ("h2", "02"),
+        ("h3", "03"),
+        ("h4", "04"),
+        ("h5", "05"),
+        ("h6", "06"),
+        ("h7", "07"),
+        ("h8", "08"),
+        ("h9", "09"),
+        ("h10", "10"),
+        ("h11", "11"),
+        ("h12", "12"),
+        ("h13", "13"),
+        ("h14", "14"),
+        ("h15", "15"),
+        ("h16", "16"),
+        ("h17", "17"),
+        ("h18", "18"),
+        ("h19", "19"),
+        ("h20", "20"),
+        ("h21", "21"),
+        ("h22", "22"),
+        ("h23", "23")
+
+        ), '_label -> "End Time")
+    @helper.inputText(form("minPassengersForPublicLane"), '_label -> "Min Passengers For Public Lane")
+
+    <input type="submit" value="Calculate">
+}
+
+
+}

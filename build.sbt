@@ -16,3 +16,5 @@ libraryDependencies ++= Seq(
   "io.ebean" % "ebean-postgis" % "11.1.1"
 
 )
+//dependency for test DB
+libraryDependencies += javaJdbc % Test
