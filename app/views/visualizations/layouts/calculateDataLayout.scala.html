@@ -1,6 +1,4 @@
 @(title: String)(description: Html)(parameters: Html)
-<!--TODO receive form-->
-<!--TODO save coors to form-->
 
 @main(title){
     <link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("images/favicon.png")">
@@ -33,14 +31,7 @@
         .same-row {
             display: inline-block;
         }
-        .marker {
-          background-image: url("@routes.Assets.versioned("images/mapbox-icon.png")");
-          background-size: cover;
-          width: 50px;
-          height: 50px;
-          border-radius: 50%;
-          cursor: pointer;
-    }
+
 
      </style>
     <script>
