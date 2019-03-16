@@ -1,10 +1,8 @@
 <!--TODO print stations id???-->
 <script type="text/javascript" src="@routes.Assets.versioned("demo-data/DemoData.js")"></script>
 <script>
+
      var markers={};
-
-
-
     mapboxgl.accessToken = 'pk.eyJ1IjoiYWh1dmlsIiwiYSI6ImNqcHdjdmN1bDA1bjY0OXVqb2pucWo5b2oifQ.DlCUMxPJ6c3TD2eLq3OCEQ';
     var map = new mapboxgl.Map({
         container: 'map',
@@ -40,37 +38,15 @@
         if(!addCoordinate(coordinates,"coor1") && !addCoordinate(coordinates,"coor2")){
             alert("You have already choose 2 points");
             }
-
     });
 
-
-
-    function addCoordinate(coordinates,label){
+ function addCoordinate(coordinates,label){
         if(document.getElementById(label).value==""){
             document.getElementById(label).value = coordinates;
-                document.getElementById(label).value = coordinates;
-                var el = document.createElement('div');
-                el.className = 'marker';
-                el.id = 'marker';
-
-                // create the marker
-                var marker =new mapboxgl.Marker(el)
-                    .setLngLat(coordinates)
-                    .addTo(map);
-                document.getElementById('marker').addEventListener('click', function(e) {
-                document.getElementById(label).value = "";
-                if(markers["coor1"]!=undefined){
-                    markers["coor1"].remove();
-                    delete markers["coor1"];
-                }
-                if(markers["coor2"]!=undefined){
-                    markers["coor2"].remove();
-                    delete markers["coor2"];
-                }
-
-                });
-
-                     markers[label]=marker;
+            var marker = new mapboxgl.Marker()
+                .setLngLat(coordinates)
+                .addTo(map);
+            markers[label]=marker;
             return true;
         }
         else{
@@ -78,10 +54,7 @@
         }
     }
 
-
-
-
-     function removeCordinates(){
+     function removeCoordinates(){
         document.getElementById("coor1").value = "";
         document.getElementById("coor2").value = "";
         if(markers["coor1"]!=undefined){
@@ -115,22 +88,10 @@
             var coor=new Array();
             coor[0]=coor_arr[0];
             coor[1]=coor_arr[1];
-
-              var el = document.createElement('div');
-              el.className = 'marker';
-              el.id = 'marker';
-
-                // create the marker
-                var marker =new mapboxgl.Marker(el)
-                    .setLngLat(coor)
-                    .addTo(map);
-                document.getElementById('marker').addEventListener('click', function(e) {
-
-                     var elem = document.getElementById('marker');
-                    elem.parentNode.removeChild(elem);
-                });
-                     markers["coor1"]=marker;
-
+             var marker = new mapboxgl.Marker()
+                .setLngLat(coor)
+                .addTo(map);
+            markers["coor1"]=marker;
          }
           if(document.getElementById("coor2").value!=""){
             if(markers["coor2"]!=undefined){
@@ -138,26 +99,15 @@
                 delete markers["coor2"];
             }
 
-              var coor_value=document.getElementById("coor2").value;
+            var coor_value=document.getElementById("coor2").value;
             var coor_arr=coor_value.split(",");
             var coor=new Array();
             coor[0]=coor_arr[0];
             coor[1]=coor_arr[1];
-                var el = document.createElement('div');
-              el.className = 'marker';
-              el.id = 'marker';
-
-                // create the marker
-                var marker =new mapboxgl.Marker(el)
-                    .setLngLat(coor)
-                    .addTo(map);
-                document.getElementById('marker').addEventListener('click', function(e) {
-
-                     var elem = document.getElementById('marker');
-                    elem.parentNode.removeChild(elem);
-                });
-                     markers["coor2"]=marker;
-
+              var marker = new mapboxgl.Marker()
+                .setLngLat(coor)
+                .addTo(map);
+             markers["coor2"]=marker;
 
          }
     }
