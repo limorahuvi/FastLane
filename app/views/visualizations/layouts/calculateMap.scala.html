@@ -1,4 +1,3 @@
-<!--TODO receive stations from server-->
 <!--TODO print stations id???-->
 <script type="text/javascript" src="@routes.Assets.versioned("demo-data/DemoData.js")"></script>
 <script>
@@ -16,53 +15,10 @@
     });
 
     map.on('load', function(){
-
-        if(document.getElementById("coor1").value!=""){
-            var coor_value=document.getElementById("coor1").value;
-            var coor_arr=coor_value.split(",");
-            var coor=new Array();
-            coor[0]=coor_arr[0];
-            coor[1]=coor_arr[1];
-              var el = document.createElement('div');
-              el.className = 'marker';
-              el.id = 'marker';
-
-                // create the marker
-                var marker =new mapboxgl.Marker(el)
-                    .setLngLat(coor)
-                    .addTo(map);
-                document.getElementById('marker').addEventListener('click', function(e) {
-
-                     var elem = document.getElementById('marker');
-                    elem.parentNode.removeChild(elem);
-                });
-                     markers["coor1"]=marker;
-        }
-         if(document.getElementById("coor2").value!=""){
-            var coor_value=document.getElementById("coor2").value;
-            var coor_arr=coor_value.split(",");
-            var coor=new Array();
-            coor[0]=coor_arr[0];
-            coor[1]=coor_arr[1];
-              var el = document.createElement('div');
-              el.className = 'marker';
-              el.id = 'marker';
-
-                // create the marker
-                var marker =new mapboxgl.Marker(el)
-                    .setLngLat(coor)
-                    .addTo(map);
-                document.getElementById('marker').addEventListener('click', function(e) {
-
-                     var elem = document.getElementById('marker');
-                    elem.parentNode.removeChild(elem);
-                });
-                     markers["coor2"]=marker;
-        }
-
-
+        update_label();
          addStations();
     });
+
     //add all stations to map
     function addStations() {
         map.addLayer({
@@ -154,7 +110,7 @@
                 delete markers["coor1"];
             }
 
-              var coor_value=document.getElementById("coor1").value;
+            var coor_value=document.getElementById("coor1").value;
             var coor_arr=coor_value.split(",");
             var coor=new Array();
             coor[0]=coor_arr[0];
