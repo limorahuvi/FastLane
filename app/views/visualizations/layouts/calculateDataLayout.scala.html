@@ -1,6 +1,4 @@
 @(title: String)(description: Html)(parameters: Html)
-<!--TODO receive form-->
-<!--TODO save coors to form-->
 
 @main(title){
     <link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("images/favicon.png")">
@@ -25,8 +23,8 @@
             padding-left: 20%;
         }
         .parameters {
-            grid-column-start: 4;
-            grid-column-end: 5;
+            grid-column-start: 5.5;
+            grid-column-end: 7;
             grid-row-start: 1;
             grid-row-end: 4;
             padding-right: 20%;
@@ -35,6 +33,12 @@
         div#description{
             padding-left: 5%;
         }
+
+
+        .same-row {
+            display: inline-block;
+        }
+
 
 
      </style>
@@ -46,7 +50,9 @@
         document.getElementById('showme').style.display = "block";
       },120000);
 
-    }</script>
+    }
+
+</script>
 }{
     </br>
     <div align="center">
