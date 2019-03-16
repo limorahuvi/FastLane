@@ -1,12 +1,18 @@
 package models;
 import com.fasterxml.jackson.databind.JsonNode;
+import play.data.validation.Constraints;
 import java.util.Date;
+import play.data.validation.ValidationError;
+import play.data.validation.Constraints.Validatable;
+import play.data.validation.Constraints.Validate;
 
-
-public abstract class VisualizationForm{
+@Validate
+public abstract class VisualizationForm implements Validatable<ValidationError>{
 
     // Time
+    @Constraints.Required
     public Date startDate;
+    @Constraints.Required
     public Date endDate;
     public String day;
     public String startHour;
@@ -17,10 +23,10 @@ public abstract class VisualizationForm{
     public String resultString = "";
 
     // Coordinates
-//    public final int NumberOfPointsNeeded = 2;
-//    public Object[] points = null;
-//    private int number_of_points_inserted;
+//    TODO check valid coordinate
+    @Constraints.Required
     public String coor1="";
+    @Constraints.Required
     public String coor2="";
 
 
@@ -74,35 +80,16 @@ public abstract class VisualizationForm{
 
     public void setCoor2(String coor){this.coor2=coor;}
 
-//    public int getNumberOfPointsNeeded(){return NumberOfPointsNeeded;};
-//
-//    public Object[] getPoints(){return points;}
-//
-//    public void setPoints(Object[] points){this.points=points;}
-
-//    public boolean addPoint(String point){
-//        if(points==null){
-//            points = new String[NumberOfPointsNeeded];
-//        }
-//        if(number_of_points_inserted>=NumberOfPointsNeeded){
-//            return false;
-//        }
-//        points[number_of_points_inserted++] = point;
-//        return true;
-//    }
-//
-//    public boolean removePoint(int index){
-//        points[index]=points[--number_of_points_inserted];
-//        return true;
-//    }
-//
-//    public boolean removePoint(String coor){
-//        for (int i=0; i<number_of_points_inserted; i++) {
-//            if(points[i].equals(coor)){
-//                return removePoint(i);
-//            }
-//        }
-//        return false;
-//    }
+    @Override
+    public ValidationError validate() {
+        if (endDate!=null&&startDate!=null&&endDate.before(startDate)) {
+            return new ValidationError("endDate", "start date should be before end date");
+        }
+        if (Integer.parseInt(startHour)>Integer.parseInt(endHour)) {
+            // Error will be displayed for the email field:
+            return new ValidationError("endHour", "start hour should be before end hour");
+        }
+        return null;
+    }
 }
 
