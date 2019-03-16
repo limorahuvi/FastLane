@@ -5,7 +5,8 @@ import play.data.validation.Constraints;
 import play.data.validation.Constraints.Validate;
 
 public class PassengersCountForm extends VisualizationForm{
-
+    @Constraints.Required
+    @Constraints.Min(0)
     public int minPassengersForPublicLane;
 
     public PassengersCountForm(){
