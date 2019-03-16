@@ -26,6 +26,15 @@
                 grid-row-start: 1;
                 grid-row-end: 4;
             }
+            .btn {
+              background-color: gray;
+              border: none;
+              color: white;
+              padding: 12px 30px;
+              cursor: pointer;
+              font-size: 20px;
+            }
+
 
         </style>
     <style type='text/css'>
@@ -43,6 +52,7 @@
                 background: #fff;
             }
         </style>
+
     <!--<script src = "node_modules/clientside-require/dist/bundle.js"></script>-->
     <!--<script type="text/javascript" src="DemoData.js"></script>-->
     <!--<link rel="stylesheet" href="https://js.arcgis.com/3.27/dijit/themes/claro/claro.css">-->
@@ -51,11 +61,79 @@
     @styles
 }{
     @description
-    <div class="grid-container">
+    <div class="grid-container" id="grid">
         <div class="map"> <div id='map'><!--<pre id='info'></pre>--></div></div>
-        @index
+        <div class="parameters" id="parameters">
+            @index
+            </br>
+            <a href='#' onclick='downloadCSV({ filename: "data.csv" });'>
+                <button>
+                    Download data as CSV
+                </button>
+            </a>
+        </div>
+
+
     </div>
+
     <script>
         @map
+
+        <!--EXPORT TO CSV-->
+        function convertArrayOfObjectsToCSV(args) {
+            var result, ctr, keys, columnDelimiter, lineDelimiter, data;
+
+            data = args.data || null;
+            if (data == null || !data.length) {
+                return null;
+            }
+
+            columnDelimiter = args.columnDelimiter || ',';
+            lineDelimiter = args.lineDelimiter || '\n';
+
+            keys = Object.keys(data[0]);
+
+            result = '';
+            result += keys.join(columnDelimiter);
+
+            result += lineDelimiter;
+
+            data.forEach(function(item) {
+                ctr = 0;
+                keys.forEach(function(key) {
+                    if (ctr > 0) result += columnDelimiter;
+
+                    result += item[key];
+                    ctr++;
+                });
+                result += lineDelimiter;
+            });
+
+            return result;
+        }
+        function flatten(data) {
+        var result = {};
+
+        function recurse(cur, prop) {
+            if (Object(cur) !== cur) {
+                result[prop] = cur;
+            } else if (Array.isArray(cur)) {
+                for (var i = 0, l = cur.length; i < l; i++)
+                recurse(cur[i], prop + "[" + i + "]");
+                if (l == 0) result[prop] = [];
+            } else {
+                var isEmpty = true;
+                for (var p in cur) {
+                    isEmpty = false;
+                    recurse(cur[p], prop ? prop + "." + p : p);
+                }
+                if (isEmpty && prop) result[prop] = {};
+            }
+            <!--ELSE END-->
+        }
+        <!--RECURSE END-->
+        recurse(data, "");
+        return result;
+    };
     </script>
 }

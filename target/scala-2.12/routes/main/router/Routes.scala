@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:C:/Users/user/workspace/final project/FastLane/conf/routes
-// @DATE:Thu Mar 07 20:58:30 IST 2019
+// @SOURCE:C:/Users/limor/OneDrive/Documents/uni/Final Project/play-java-seed/conf/routes
+// @DATE:Thu Mar 07 12:58:53 IST 2019
 
 package router
 
@@ -18,7 +18,7 @@ class Routes(
   HomeController_0: controllers.HomeController,
   // @LINE:8
   VisualizationController_1: controllers.VisualizationController,
-  // @LINE:13
+  // @LINE:11
   Assets_2: controllers.Assets,
   val prefix: String
 ) extends GeneratedRouter {
@@ -29,7 +29,7 @@ class Routes(
     HomeController_0: controllers.HomeController,
     // @LINE:8
     VisualizationController_1: controllers.VisualizationController,
-    // @LINE:13
+    // @LINE:11
     Assets_2: controllers.Assets
   ) = this(errorHandler, HomeController_0, VisualizationController_1, Assets_2, "/")
 
@@ -46,8 +46,6 @@ class Routes(
     ("""GET""", this.prefix, """controllers.HomeController.index"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """PassengersCount""", """controllers.HomeController.passengersCount"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """PassengersCount/Result""", """controllers.VisualizationController.calculatePassengersCount"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """DevSched""", """controllers.HomeController.deviationSched"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """DevSched/Result""", """controllers.VisualizationController.calculateDevSched"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """assets/""" + "$" + """file<.+>""", """controllers.Assets.versioned(path:String = "/public", file:Asset)"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
@@ -110,47 +108,11 @@ class Routes(
     )
   )
 
-  // @LINE:9
-  private[this] lazy val controllers_HomeController_deviationSched3_route = Route("GET",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("DevSched")))
-  )
-  private[this] lazy val controllers_HomeController_deviationSched3_invoker = createInvoker(
-    HomeController_0.deviationSched,
-    play.api.routing.HandlerDef(this.getClass.getClassLoader,
-      "router",
-      "controllers.HomeController",
-      "deviationSched",
-      Nil,
-      "GET",
-      this.prefix + """DevSched""",
-      """""",
-      Seq()
-    )
-  )
-
-  // @LINE:10
-  private[this] lazy val controllers_VisualizationController_calculateDevSched4_route = Route("GET",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("DevSched/Result")))
-  )
-  private[this] lazy val controllers_VisualizationController_calculateDevSched4_invoker = createInvoker(
-    VisualizationController_1.calculateDevSched,
-    play.api.routing.HandlerDef(this.getClass.getClassLoader,
-      "router",
-      "controllers.VisualizationController",
-      "calculateDevSched",
-      Nil,
-      "GET",
-      this.prefix + """DevSched/Result""",
-      """""",
-      Seq()
-    )
-  )
-
-  // @LINE:13
-  private[this] lazy val controllers_Assets_versioned5_route = Route("GET",
+  // @LINE:11
+  private[this] lazy val controllers_Assets_versioned3_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("assets/"), DynamicPart("file", """.+""",false)))
   )
-  private[this] lazy val controllers_Assets_versioned5_invoker = createInvoker(
+  private[this] lazy val controllers_Assets_versioned3_invoker = createInvoker(
     Assets_2.versioned(fakeValue[String], fakeValue[Asset]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -185,22 +147,10 @@ class Routes(
         controllers_VisualizationController_calculatePassengersCount2_invoker.call(VisualizationController_1.calculatePassengersCount)
       }
   
-    // @LINE:9
-    case controllers_HomeController_deviationSched3_route(params@_) =>
-      call { 
-        controllers_HomeController_deviationSched3_invoker.call(HomeController_0.deviationSched)
-      }
-  
-    // @LINE:10
-    case controllers_VisualizationController_calculateDevSched4_route(params@_) =>
-      call { 
-        controllers_VisualizationController_calculateDevSched4_invoker.call(VisualizationController_1.calculateDevSched)
-      }
-  
-    // @LINE:13
-    case controllers_Assets_versioned5_route(params@_) =>
+    // @LINE:11
+    case controllers_Assets_versioned3_route(params@_) =>
       call(Param[String]("path", Right("/public")), params.fromPath[Asset]("file", None)) { (path, file) =>
-        controllers_Assets_versioned5_invoker.call(Assets_2.versioned(path, file))
+        controllers_Assets_versioned3_invoker.call(Assets_2.versioned(path, file))
       }
   }
 }

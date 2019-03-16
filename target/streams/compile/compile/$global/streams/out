@@ -1,0 +1,4 @@
+[0m[[0m[31merror[0m] [0m[0mC:\Users\limor\OneDrive\Documents\uni\Final Project\play-java-seed\app\views\Visualizations\passengersCount.scala.html:46:39: not found: value options[0m
+[0m[[0m[31merror[0m] [0m[0m    @helper.inputText(form("endTime"),options=Seq([0m
+[0m[[0m[31merror[0m] [0m[0m                                      ^[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m

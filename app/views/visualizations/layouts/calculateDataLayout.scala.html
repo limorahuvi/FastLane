@@ -4,7 +4,7 @@
     <link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("images/favicon.png")">
     @imports.mapbox()
     <style>
-        #map { position:absolute; width:60%; height: 70%}
+        #map { position:absolute; width:60%; height: 72%}
 
         .grid-container {
             display: grid;
@@ -20,17 +20,25 @@
             grid-column-end: 2;
             grid-row-start: 1;
             grid-row-end: 4;
+            padding-left: 20%;
         }
         .parameters {
             grid-column-start: 5.5;
             grid-column-end: 7;
             grid-row-start: 1;
             grid-row-end: 4;
+            padding-right: 20%;
+
         }
+        div#description{
+            padding-left: 5%;
+        }
+
 
         .same-row {
             display: inline-block;
         }
+
 
 
      </style>
@@ -47,19 +55,37 @@
 </script>
 }{
     </br>
-    <div><h4>@description</h4></div>
+    <div align="center">
+        <h3>@title Visualization</h3>
+    </div>
     </br>
     <div class="grid-container">
         <div class="map"> <div id='map'><!--<pre id='info'></pre>--></div></div>
-
         <div class="parameters"> @parameters
-            <div id="showme" style="display:none;"></div>
-            <div id="loadingGif" style="display:none; size:1px;"  ><img src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif" height="110" width="110"></div>
+            <!--<div id="showme" style="display:none;"></div>-->
+            <!--<div id="loadingGif" style="display:none; size:1px;"  ><img src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif" height="110" width="110"></div>-->
         </div>
     </div>
     @calculateMap()
+    </br>
+    </br>
+    <div id="description">
+        <h5>Instructions:</h5>
+        1. Choose period of dates with start date and end date.
+        </br>
+        2. Choose the day to be calculated in the chosen period.
+        </br>
+        3. Choose range of hours to by calculated with start time and end time.
+        </br>
+        4. Choose the area to be calculated by clicking on 2 points on the map. The selected points will be described in first coordinate and second coordinate.
+        </br>
+        @description
+        </br>
+        </br>
+        </br>
+
+    </div>
 }
-    <br></br>
-    <br></br>
+
 
 

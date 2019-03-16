@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:C:/Users/user/workspace/final project/FastLane/conf/routes
-// @DATE:Thu Mar 07 20:58:30 IST 2019
+// @SOURCE:C:/Users/limor/OneDrive/Documents/uni/Final Project/play-java-seed/conf/routes
+// @DATE:Thu Mar 07 12:58:53 IST 2019
 
 import play.api.mvc.Call
 
@@ -24,12 +24,6 @@ package controllers {
       Call("GET", _prefix + { _defaultPrefix } + "PassengersCount/Result")
     }
   
-    // @LINE:10
-    def calculateDevSched(): Call = {
-      
-      Call("GET", _prefix + { _defaultPrefix } + "DevSched/Result")
-    }
-  
   }
 
   // @LINE:6
@@ -45,12 +39,6 @@ package controllers {
       Call("GET", _prefix + { _defaultPrefix } + "PassengersCount")
     }
   
-    // @LINE:9
-    def deviationSched(): Call = {
-      
-      Call("GET", _prefix + { _defaultPrefix } + "DevSched")
-    }
-  
     // @LINE:6
     def index(): Call = {
       
@@ -59,14 +47,14 @@ package controllers {
   
   }
 
-  // @LINE:13
+  // @LINE:11
   class ReverseAssets(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:13
+    // @LINE:11
     def versioned(file:Asset): Call = {
       implicit lazy val _rrc = new play.core.routing.ReverseRouteContext(Map(("path", "/public"))); _rrc
       Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[play.api.mvc.PathBindable[Asset]].unbind("file", file))

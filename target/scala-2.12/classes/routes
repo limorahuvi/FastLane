@@ -6,8 +6,6 @@
 GET     /                           controllers.HomeController.index
 GET     /PassengersCount            controllers.HomeController.passengersCount
 GET     /PassengersCount/Result     controllers.VisualizationController.calculatePassengersCount
-GET     /DevSched                   controllers.HomeController.deviationSched
-GET     /DevSched/Result                controllers.VisualizationController.calculateDevSched
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)

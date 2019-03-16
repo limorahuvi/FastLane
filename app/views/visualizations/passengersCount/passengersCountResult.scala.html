@@ -72,7 +72,7 @@
     map.on('load', function () {
         addLoadLayer();
     });
-    var json = {"type":"FeatureCollection","features":[{"type":"Feature","properties":{"load":1},"geometry":{"type":"LineString","coordinates":[[34.798108,31.23819],[34.808931,31.226122]]}}]}
+    var json = {"type":"FeatureCollection","features":[{"type":"Feature","properties":{"load":1},"geometry":{"type":"LineString","coordinates":[[34.798108,31.23819],[34.808931,31.226122]]}},{"type":"Feature","properties":{"load":1},"geometry":{"type":"LineString","coordinates":[[34.798108,31.23819],[34.808931,31.226122]]}}]}
     <!--var json = Json.parse(@result.resultString);-->
     function addLoadLayer() {
         map.addLayer({
@@ -107,28 +107,56 @@
         .addTo(map);
     });
 
-    map.on('mousemove', function (e) {
-        document.getElementById('info').innerHTML =
-        // e.point is the x, y coordinates of the mousemove event relative
-        // to the top-left corner of the map
-        JSON.stringify(e.point) + '<br />' +
-        // e.lngLat is the longitude, latitude geographical position of the event
-        JSON.stringify(e.lngLat);
-    });
+    <!--map.on('mousemove', function (e) {-->
+        <!--document.getElementById('info').innerHTML =-->
+        <!--// e.point is the x, y coordinates of the mousemove event relative-->
+        <!--// to the top-left corner of the map-->
+        <!--JSON.stringify(e.point) + '<br />' +-->
+        <!--// e.lngLat is the longitude, latitude geographical position of the event-->
+        <!--JSON.stringify(e.lngLat);-->
+    <!--});-->
+
 
 }{
-<div class="parameters">
-    <div class="l1"> <10 passengers </div>
-    <div class="l2"> 20 passengers </div>
-    <div class="l3"> 30 passengers </div>
-    <div class="l4"> 40 passengers </div>
-    <div class="l5"> 50 passengers </div>
-    <div class="l6"> 60 passengers </div>
-    <div class="l7"> 70 passengers </div>
-    <div class="l8"> 80 passengers </div>
-    <div class="l9"> 90 passengers </div>
-    <div class="l10"> >100 passengers </div>
+    <div class="parameters">
+        <div class="l1"> <10 passengers </div>
+        <div class="l2"> 20 passengers </div>
+        <div class="l3"> 30 passengers </div>
+        <div class="l4"> 40 passengers </div>
+        <div class="l5"> 50 passengers </div>
+        <div class="l6"> 60 passengers </div>
+        <div class="l7"> 70 passengers </div>
+        <div class="l8"> 80 passengers </div>
+        <div class="l9"> 90 passengers </div>
+        <div class="l10"> >100 passengers </div>
 
-</div>
+    </div>
+
+    <script type="text/javascript">
+
+        function downloadCSV(args) {
+            var data, filename, link;
+            var newJson = [];
+            json["features"].forEach(line=>newJson.push(flatten(line)));
+            <!--TODO change to result from server-->
+            var csv = convertArrayOfObjectsToCSV({
+                data: newJson
+            });
+            if (csv == null) return;
+
+            filename = args.filename || 'export.csv';
+
+            if (!csv.match(/^data:text\/csv/i)) {
+                csv = 'data:text/csv;charset=utf-8,' + csv;
+            }
+            data = encodeURI(csv);
+
+            link = document.createElement('a');
+            link.setAttribute('href', data);
+            link.setAttribute('download', filename);
+            link.click();
+        }
+
+    </script>
 }
 

@@ -31,47 +31,62 @@ object calculateDataLayout extends _root_.play.twirl.api.BaseScalaTemplate[play.
 
 
 Seq[Any](format.raw/*1.54*/("""
+"""),format.raw/*2.1*/("""<!--TODO receive form-->
+<!--TODO save coors to form-->
 
-
-"""),format.raw/*4.1*/("""<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    """),format.raw/*7.58*/("""
-    """),format.raw/*8.5*/("""<title>"""),_display_(/*8.13*/title),format.raw/*8.18*/("""</title>
-    <link rel="stylesheet" media="screen" href=""""),_display_(/*9.50*/routes/*9.56*/.Assets.versioned("stylesheets/main.css")),format.raw/*9.97*/("""">
-    <link rel="shortcut icon" type="image/png" href=""""),_display_(/*10.55*/routes/*10.61*/.Assets.versioned("images/favicon.png")),format.raw/*10.100*/("""">
+    """),format.raw/*8.58*/("""
+    """),format.raw/*9.5*/("""<title>"""),_display_(/*9.13*/title),format.raw/*9.18*/("""</title>
+    <link rel="stylesheet" media="screen" href=""""),_display_(/*10.50*/routes/*10.56*/.Assets.versioned("stylesheets/main.css")),format.raw/*10.97*/("""">
+    <link rel="shortcut icon" type="image/png" href=""""),_display_(/*11.55*/routes/*11.61*/.Assets.versioned("images/favicon.png")),format.raw/*11.100*/("""">
     <!--BOOTSTRAP-->
-    <link rel="stylesheet" href=""""),_display_(/*12.35*/routes/*12.41*/.Assets.versioned("outsiders/bootstrap-4.2.1-dist/css/bootstrap.min.css")),format.raw/*12.114*/("""" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href=""""),_display_(/*13.35*/routes/*13.41*/.Assets.versioned("outsiders/bootstrap-4.2.1-dist/css/bootstrap.min.css")),format.raw/*13.114*/("""" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <!--MAPBOX-->
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.css' rel='stylesheet' />
     <style>
-            /*body """),format.raw/*17.20*/("""{"""),format.raw/*17.21*/(""" """),format.raw/*17.22*/("""margin:50%; padding:10%; """),format.raw/*17.47*/("""}"""),format.raw/*17.48*/("""*/
-            #map """),format.raw/*18.18*/("""{"""),format.raw/*18.19*/(""" """),format.raw/*18.20*/("""position:absolute; width:90%; height: 100%"""),format.raw/*18.62*/("""}"""),format.raw/*18.63*/("""
-            """),format.raw/*19.13*/("""/*#map """),format.raw/*19.20*/("""{"""),format.raw/*19.21*/(""" """),format.raw/*19.22*/("""position:absolute; top:0; bottom:0; width:50%; height: 50%"""),format.raw/*19.80*/("""}"""),format.raw/*19.81*/("""*/
+        #map """),format.raw/*18.14*/("""{"""),format.raw/*18.15*/(""" """),format.raw/*18.16*/("""position:absolute; width:60%; height: 70%"""),format.raw/*18.57*/("""}"""),format.raw/*18.58*/("""
 
-        </style>
+        """),format.raw/*20.9*/(""".grid-container """),format.raw/*20.25*/("""{"""),format.raw/*20.26*/("""
+            """),format.raw/*21.13*/("""display: grid;
+            grid-column-gap: 10%;
+            grid-template-columns: auto auto auto;
+            /*background-color: #2196F3;*/
+            padding: 10px;
+        """),format.raw/*26.9*/("""}"""),format.raw/*26.10*/("""
+
+        """),format.raw/*28.9*/("""/*https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout#Grid_lines*/
+        .map """),format.raw/*29.14*/("""{"""),format.raw/*29.15*/("""
+            """),format.raw/*30.13*/("""grid-column-start: 1;
+            grid-column-end: 2;
+            grid-row-start: 1;
+            grid-row-end: 4;
+        """),format.raw/*34.9*/("""}"""),format.raw/*34.10*/("""
+        """),format.raw/*35.9*/(""".parameters """),format.raw/*35.21*/("""{"""),format.raw/*35.22*/("""
+            """),format.raw/*36.13*/("""grid-column-start: 4;
+            grid-column-end: 5;
+            grid-row-start: 1;
+            grid-row-end: 4;
+        """),format.raw/*40.9*/("""}"""),format.raw/*40.10*/("""
+
+     """),format.raw/*42.6*/("""</style>
 </head>
 <body>
-    """),_display_(/*24.6*/navigationbar()),format.raw/*24.21*/("""
-    """),format.raw/*25.5*/("""</br>
-    <div>"""),_display_(/*26.11*/description),format.raw/*26.22*/("""</div>
+    """),_display_(/*45.6*/navigationbar()),format.raw/*45.21*/("""
+    """),format.raw/*46.5*/("""</br>
+    <div>"""),_display_(/*47.11*/description),format.raw/*47.22*/("""</div>
     </br>
-    <div class="container">
-        <div class="row">
-            <div class="col-8" >
-                <div id='map'></div>
-            </div>
-            <div class="col">
-                """),_display_(/*34.18*/parameters),format.raw/*34.28*/("""
-            """),format.raw/*35.13*/("""</div>
-        </div>
-    </div>
+    <div class="grid-container">
+        <div class="map"> <div id='map'><!--<pre id='info'></pre>--></div></div>
+        <div class="parameters"> """),_display_(/*51.35*/parameters),format.raw/*51.45*/("""</div>
 
-   """),_display_(/*39.5*/calculateMap()),format.raw/*39.19*/("""
-    """),format.raw/*40.5*/("""<script src=""""),_display_(/*40.19*/routes/*40.25*/.Assets.versioned("javascripts/main.js")),format.raw/*40.65*/("""" type="text/javascript"></script>
-    <script src=""""),_display_(/*41.19*/routes/*41.25*/.Assets.versioned("outsiders/jquery-3.3.1.slim.min.js")),format.raw/*41.80*/(""""></script>
-    <script src=""""),_display_(/*42.19*/routes/*42.25*/.Assets.versioned("outsiders/bootstrap-4.2.1-dist/js/bootstrap.min.js")),format.raw/*42.96*/(""""  integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    </div>
+   """),_display_(/*54.5*/calculateMap()),format.raw/*54.19*/("""
+    """),format.raw/*55.5*/("""<script src=""""),_display_(/*55.19*/routes/*55.25*/.Assets.versioned("javascripts/main.js")),format.raw/*55.65*/("""" type="text/javascript"></script>
+    <script src=""""),_display_(/*56.19*/routes/*56.25*/.Assets.versioned("outsiders/jquery-3.3.1.slim.min.js")),format.raw/*56.80*/(""""></script>
+    <script src=""""),_display_(/*57.19*/routes/*57.25*/.Assets.versioned("outsiders/bootstrap-4.2.1-dist/js/bootstrap.min.js")),format.raw/*57.96*/(""""  integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 </body>
 </html>
 """))
@@ -90,11 +105,11 @@ Seq[Any](format.raw/*1.54*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Thu Mar 07 20:58:30 IST 2019
-                  SOURCE: C:/Users/user/workspace/final project/FastLane/app/views/Visualizations/calculateDataLayout.scala.html
-                  HASH: a9cb6d0e523b1cf5d5cb1f5cd593e07bcf510960
-                  MATRIX: 987->1|1134->53|1166->59|1240->159|1272->165|1306->173|1331->178|1416->237|1430->243|1491->284|1576->342|1591->348|1652->387|1739->447|1754->453|1849->526|2234->883|2263->884|2292->885|2345->910|2374->911|2423->932|2452->933|2481->934|2551->976|2580->977|2622->991|2657->998|2686->999|2715->1000|2801->1058|2830->1059|2902->1105|2938->1120|2971->1126|3015->1143|3047->1154|3289->1369|3320->1379|3362->1393|3430->1435|3465->1449|3498->1455|3539->1469|3554->1475|3615->1515|3696->1569|3711->1575|3787->1630|3845->1661|3860->1667|3952->1738
-                  LINES: 28->1|33->1|36->4|39->7|40->8|40->8|40->8|41->9|41->9|41->9|42->10|42->10|42->10|44->12|44->12|44->12|49->17|49->17|49->17|49->17|49->17|50->18|50->18|50->18|50->18|50->18|51->19|51->19|51->19|51->19|51->19|51->19|56->24|56->24|57->25|58->26|58->26|66->34|66->34|67->35|71->39|71->39|72->40|72->40|72->40|72->40|73->41|73->41|73->41|74->42|74->42|74->42
+                  DATE: Thu Mar 07 13:14:38 IST 2019
+                  SOURCE: C:/Users/limor/OneDrive/Documents/uni/Final Project/play-java-seed/app/views/Visualizations/calculateDataLayout.scala.html
+                  HASH: 285589a97dafaecdb7b01fb42dad33a416b2dc7f
+                  MATRIX: 987->1|1134->53|1162->55|1296->215|1328->221|1362->229|1387->234|1473->293|1488->299|1550->340|1635->398|1650->404|1711->443|1798->503|1813->509|1908->582|2287->933|2316->934|2345->935|2414->976|2443->977|2482->989|2526->1005|2555->1006|2597->1020|2807->1203|2836->1204|2875->1216|3027->1340|3056->1341|3098->1355|3251->1481|3280->1482|3317->1492|3357->1504|3386->1505|3428->1519|3581->1645|3610->1646|3646->1655|3704->1687|3740->1702|3773->1708|3817->1725|3849->1736|4045->1905|4076->1915|4128->1941|4163->1955|4196->1961|4237->1975|4252->1981|4313->2021|4394->2075|4409->2081|4485->2136|4543->2167|4558->2173|4650->2244
+                  LINES: 28->1|33->1|34->2|40->8|41->9|41->9|41->9|42->10|42->10|42->10|43->11|43->11|43->11|45->13|45->13|45->13|50->18|50->18|50->18|50->18|50->18|52->20|52->20|52->20|53->21|58->26|58->26|60->28|61->29|61->29|62->30|66->34|66->34|67->35|67->35|67->35|68->36|72->40|72->40|74->42|77->45|77->45|78->46|79->47|79->47|83->51|83->51|86->54|86->54|87->55|87->55|87->55|87->55|88->56|88->56|88->56|89->57|89->57|89->57
                   -- GENERATED --
               */
           
