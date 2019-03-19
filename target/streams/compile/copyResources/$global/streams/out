@@ -1,4 +1,7 @@
 [0m[[0m[0mdebug[0m] [0m[0mCopy resource mappings: [0m
 [0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\limor\OneDrive\Documents\uni\Final Project\play-java-seed\conf\application.conf,C:\Users\limor\OneDrive\Documents\uni\Final Project\play-java-seed\target\scala-2.12\classes\application.conf)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\limor\OneDrive\Documents\uni\Final Project\play-java-seed\conf\evolutions,C:\Users\limor\OneDrive\Documents\uni\Final Project\play-java-seed\target\scala-2.12\classes\evolutions)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\limor\OneDrive\Documents\uni\Final Project\play-java-seed\conf\evolutions\default,C:\Users\limor\OneDrive\Documents\uni\Final Project\play-java-seed\target\scala-2.12\classes\evolutions\default)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\limor\OneDrive\Documents\uni\Final Project\play-java-seed\conf\evolutions\default\1.sql,C:\Users\limor\OneDrive\Documents\uni\Final Project\play-java-seed\target\scala-2.12\classes\evolutions\default\1.sql)[0m
 [0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\limor\OneDrive\Documents\uni\Final Project\play-java-seed\conf\logback.xml,C:\Users\limor\OneDrive\Documents\uni\Final Project\play-java-seed\target\scala-2.12\classes\logback.xml)[0m
 [0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\limor\OneDrive\Documents\uni\Final Project\play-java-seed\conf\routes,C:\Users\limor\OneDrive\Documents\uni\Final Project\play-java-seed\target\scala-2.12\classes\routes)[0m
