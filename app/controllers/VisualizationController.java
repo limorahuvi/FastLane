@@ -46,7 +46,7 @@ public class VisualizationController extends Controller {
 //        TODO calculate visualization data
         flash("success","Form Sent Successfully");
 
-
+/*
 
         String json_late="{                \"type\": \"FeatureCollection\",                 \"features\": [{             \"type\": \"Feature\",                     \"geometry\": {                 \"type\": \"Point\",                         \"coordinates\": [34.798256,31.260114]             },             \"properties\": {                 \"average\":2,                         \"description\": \"line 3: 2 minutes, line 4 :2 minutes\"             }         }]}";
 
@@ -59,6 +59,7 @@ public class VisualizationController extends Controller {
         request.resultString_late=json_late;
         request.result_early=Json.parse(json_early);
         request.result_late=Json.parse(json_late);
+        */
         return ok(views.html.visualizations.deviationSched.devSchedResult.render(request));
     }
 
