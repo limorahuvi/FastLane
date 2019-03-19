@@ -6,10 +6,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 public class DevSchedForm extends VisualizationForm{
 
-    public JsonNode result_early;
-    public JsonNode result_late;
-    public String resultString_early;
-    public String resultString_late;
 
     public DevSchedForm(){
 
@@ -39,28 +35,6 @@ public class DevSchedForm extends VisualizationForm{
 
 
 
-    public JsonNode getResultEarly(){
-        return result_early;
-    }
-
-    public JsonNode getResultLate(){
-        return result_late;
-    }
-
-    public void setResult_early(JsonNode result){
-        this.result_early=result;
-    }
-    public void setResult_late(JsonNode result){
-        this.result_late=result;
-    }
-
-    public String getResultString_early(){
-        return resultString_early;
-    }
-
-    public String getResultString_late(){
-        return resultString_late;
-    }
 
 
 
