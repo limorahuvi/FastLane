@@ -3,13 +3,18 @@
 
 @visualizations.layouts.calculateDataLayout("Passengers Count"){
     5. Enter the minimum number of passengers for turning a lane to public.
+    Passengers count visualization description
 }{
-<!--TODO set default dates to today-->
     @helper.form(action = routes.VisualizationController.calculatePassengersCount()){
         @visualizations.parameters.visualizationFormParameters(form.asInstanceOf[play.data.Form[models.VisualizationForm]])
         @helper.inputText(form("minPassengersForPublicLane"), '_label -> "Minimum Passengers For Public Lane")
 
     <input type="submit" value="Calculate" id="submit"  onclick="showDiv()">
+    <button type="button" onclick="removeCoordinates()">Clear coordinates</button>
+
+
+
+
 
 
 }
