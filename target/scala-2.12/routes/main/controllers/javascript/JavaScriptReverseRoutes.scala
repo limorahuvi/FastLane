@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/limor/OneDrive/Documents/uni/Final Project/play-java-seed/conf/routes
-// @DATE:Thu Mar 07 12:58:53 IST 2019
+// @DATE:Sat Mar 16 22:13:08 IST 2019
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -29,6 +29,16 @@ package controllers.javascript {
       """
     )
   
+    // @LINE:10
+    def calculateDevSched: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.VisualizationController.calculateDevSched",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "DevSched/Result"})
+        }
+      """
+    )
+  
   }
 
   // @LINE:6
@@ -49,6 +59,16 @@ package controllers.javascript {
       """
     )
   
+    // @LINE:9
+    def deviationSched: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.deviationSched",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "DevSched"})
+        }
+      """
+    )
+  
     // @LINE:6
     def index: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.index",
@@ -61,7 +81,7 @@ package controllers.javascript {
   
   }
 
-  // @LINE:11
+  // @LINE:13
   class ReverseAssets(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -69,7 +89,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:11
+    // @LINE:13
     def versioned: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Assets.versioned",
       """

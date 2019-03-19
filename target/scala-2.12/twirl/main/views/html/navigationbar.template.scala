@@ -47,17 +47,17 @@ Seq[Any](format.raw/*1.1*/("""<nav class="navbar navbar-expand-lg navbar-light b
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href=""""),_display_(/*17.53*/routes/*17.59*/.HomeController.passengersCount),format.raw/*17.90*/("""">Passengers count</a>
-                    <a class="dropdown-item" href="#">Historical real-time</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Old</a>
+                    <a class="dropdown-item" href=""""),_display_(/*18.53*/routes/*18.59*/.HomeController.deviationSched),format.raw/*18.89*/("""">Historical real-time</a>
+                    <!--<div class="dropdown-divider"></div>-->
+                    <!--<a class="dropdown-item" href="#">Old</a>-->
                 </div>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Upload new file</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Formulas</a>
-            </li>
+            <!--<li class="nav-item">-->
+                <!--<a class="nav-link" href="#">Upload new file</a>-->
+            <!--</li>-->
+            <!--<li class="nav-item">-->
+                <!--<a class="nav-link" href="#">Formulas</a>-->
+            <!--</li>-->
             <!--<li class="nav-item">-->
                 <!--<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>-->
             <!--</li>-->
@@ -66,7 +66,6 @@ Seq[Any](format.raw/*1.1*/("""<nav class="navbar navbar-expand-lg navbar-light b
             <!--<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">-->
             <!--<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
         <!--</form>-->
-
     </div>
 </nav>"""))
       }
@@ -84,11 +83,11 @@ Seq[Any](format.raw/*1.1*/("""<nav class="navbar navbar-expand-lg navbar-light b
 
               /*
                   -- GENERATED --
-                  DATE: Sun Mar 03 10:49:24 IST 2019
+                  DATE: Sat Mar 16 22:13:10 IST 2019
                   SOURCE: C:/Users/limor/OneDrive/Documents/uni/Final Project/play-java-seed/app/views/navigationbar.scala.html
-                  HASH: 788068f3ecc27557de93c83897b2005a0b5a8eb4
-                  MATRIX: 1038->0|1160->96|1174->102|1215->123|2215->1096|2230->1102|2282->1133
-                  LINES: 33->1|34->2|34->2|34->2|49->17|49->17|49->17
+                  HASH: 1a0b229f18689155ec20f6b433507df915a7272a
+                  MATRIX: 1038->0|1160->96|1174->102|1215->123|2215->1096|2230->1102|2282->1133|2385->1209|2400->1215|2451->1245
+                  LINES: 33->1|34->2|34->2|34->2|49->17|49->17|49->17|50->18|50->18|50->18
                   -- GENERATED --
               */
           

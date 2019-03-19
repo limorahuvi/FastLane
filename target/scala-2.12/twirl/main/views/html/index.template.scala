@@ -30,10 +30,19 @@ object index extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.Html
       {
 
 
-Seq[Any](format.raw/*2.1*/("""
+Seq[Any](format.raw/*1.4*/("""
+
 """),_display_(/*3.2*/main("Fast Lane")/*3.19*/ {_display_(Seq[Any](format.raw/*3.21*/("""
-  """),format.raw/*4.3*/("""<h1>Welcome to Fast Lane!</h1>
-""")))}),format.raw/*5.2*/("""
+""")))}/*4.2*/{_display_(Seq[Any](format.raw/*4.3*/("""
+
+"""),format.raw/*6.1*/("""<!-- Header -->
+  <br></br>
+<h1 align="center" style="color:#404040;"	><b>Welcome to Fast Lane!</b>
+    <span align="right"><i class="fa fa-bus" style="font-size:50px;" ></i></span></h1>
+<h2 align="center" style="color:#404040;"><b>Visualizing MOT Data</b></h2>
+<p style="text-align:center; font-size:50px;"><img src=""""),_display_(/*11.58*/routes/*11.64*/.Assets.versioned("images/main.jpg")),format.raw/*11.100*/("""" ></p>
+
+""")))}),format.raw/*13.2*/("""
 """))
       }
     }
@@ -50,11 +59,11 @@ Seq[Any](format.raw/*2.1*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Mon Feb 25 09:35:43 IST 2019
+                  DATE: Sat Mar 16 22:13:09 IST 2019
                   SOURCE: C:/Users/limor/OneDrive/Documents/uni/Final Project/play-java-seed/app/views/index.scala.html
-                  HASH: b5e939f566ac23310087078bd6d468afa894bd1d
-                  MATRIX: 941->1|1037->4|1064->6|1089->23|1128->25|1157->28|1218->60
-                  LINES: 28->1|33->2|34->3|34->3|34->3|35->4|36->5
+                  HASH: b77928a824349d27f60e9c13130996b61e51151d
+                  MATRIX: 941->1|1037->3|1067->8|1092->25|1131->27|1151->30|1188->31|1218->35|1569->359|1584->365|1642->401|1684->413
+                  LINES: 28->1|33->1|35->3|35->3|35->3|36->4|36->4|38->6|43->11|43->11|43->11|45->13
                   -- GENERATED --
               */
           
