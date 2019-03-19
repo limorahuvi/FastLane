@@ -1,27 +1,27 @@
 {
-  "id": "bc3b76b8-9d94-45d3-b81b-0724fa381b29",
+  "id": "5afa3ac9-f145-4e43-84f6-76a76651e2b9",
   "version": "2.0",
-  "name": "tests",
-  "url": "http://localhost:9000",
+  "name": "TestsFastlane",
+  "url": "http://localhost:9000/",
   "tests": [{
-    "id": "73f1cfde-0548-468d-aad7-573dca275ae0",
+    "id": "4d00c438-66ca-4be8-ae09-617789c5e4cf",
     "name": "E2E-1",
     "commands": [{
-      "id": "cf27eae8-51bb-486a-90ba-d1650127ff44",
+      "id": "9573b168-ad2f-4dd0-b0ea-61d9ce6e49f6",
       "comment": "",
       "command": "open",
-      "target": "/",
+      "target": "http://localhost:9000/",
       "targets": [],
       "value": ""
     }, {
-      "id": "cf9c3e0d-1642-424d-b558-4f5bbd5cff22",
+      "id": "62121e33-46cb-4e0b-ae17-eeb27e108327",
       "comment": "",
       "command": "setWindowSize",
       "target": "1280x680",
       "targets": [],
       "value": ""
     }, {
-      "id": "993d77c4-27eb-4f2c-81c9-32344f9cf67e",
+      "id": "23a22eb2-1f3d-4210-9ffd-7e69d1a64c28",
       "comment": "",
       "command": "click",
       "target": "id=navbarDropdown",
@@ -37,7 +37,7 @@
       ],
       "value": ""
     }, {
-      "id": "6dffb3bd-982c-4ac1-bd6e-3cb131cdaf46",
+      "id": "0cad5b08-a76e-4244-9b94-4c360668cc38",
       "comment": "",
       "command": "click",
       "target": "linkText=Passengers count",
@@ -52,7 +52,7 @@
       ],
       "value": ""
     }, {
-      "id": "b995a3fe-dd10-4331-b86a-7dc46ed06208",
+      "id": "b371aabd-4eed-40df-9080-68cd575cf4a3",
       "comment": "",
       "command": "click",
       "target": "css=.mapboxgl-canvas",
@@ -63,7 +63,7 @@
       ],
       "value": ""
     }, {
-      "id": "94687ec9-fcd9-4f49-aeee-d190602969b3",
+      "id": "d88a5ed5-dc9f-47fb-a237-dca45666d75b",
       "comment": "",
       "command": "click",
       "target": "css=.mapboxgl-canvas",
@@ -74,7 +74,7 @@
       ],
       "value": ""
     }, {
-      "id": "9b9e6418-8068-4db7-87c3-c2ec55654207",
+      "id": "793d90dc-1ac4-499f-8129-0e881b1ca599",
       "comment": "",
       "command": "click",
       "target": "id=startDate",
@@ -88,7 +88,63 @@
       ],
       "value": ""
     }, {
-      "id": "885190ff-f0d5-4b2c-a4f3-00afde4d0ce2",
+      "id": "8b902bd3-456e-45eb-9bd8-dde8c5e219f7",
+      "comment": "",
+      "command": "click",
+      "target": "id=startDate",
+      "targets": [
+        ["id=startDate", "id"],
+        ["name=startDate", "name"],
+        ["css=#startDate", "css:finder"],
+        ["xpath=//input[@id='startDate']", "xpath:attributes"],
+        ["xpath=//dl[@id='startDate_field']/dd/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "32ce97fa-d01f-4e65-9ec6-250d0e6c2cca",
+      "comment": "",
+      "command": "type",
+      "target": "id=startDate",
+      "targets": [
+        ["id=startDate", "id"],
+        ["name=startDate", "name"],
+        ["css=#startDate", "css:finder"],
+        ["xpath=//input[@id='startDate']", "xpath:attributes"],
+        ["xpath=//dl[@id='startDate_field']/dd/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "2019-03-19"
+    }, {
+      "id": "0a70bcb8-010c-43f5-8c96-05da870aaf60",
+      "comment": "",
+      "command": "click",
+      "target": "id=endDate",
+      "targets": [
+        ["id=endDate", "id"],
+        ["name=endDate", "name"],
+        ["css=#endDate", "css:finder"],
+        ["xpath=//input[@id='endDate']", "xpath:attributes"],
+        ["xpath=//dl[@id='endDate_field']/dd/input", "xpath:idRelative"],
+        ["xpath=//dl[2]/dd/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c364ed70-6554-4456-8b8d-bfe80fb44f84",
+      "comment": "",
+      "command": "type",
+      "target": "id=endDate",
+      "targets": [
+        ["id=endDate", "id"],
+        ["name=endDate", "name"],
+        ["css=#endDate", "css:finder"],
+        ["xpath=//input[@id='endDate']", "xpath:attributes"],
+        ["xpath=//dl[@id='endDate_field']/dd/input", "xpath:idRelative"],
+        ["xpath=//dl[2]/dd/input", "xpath:position"]
+      ],
+      "value": "2019-03-20"
+    }, {
+      "id": "597356e3-48d2-4e2a-bbc1-69a9a16e06b7",
       "comment": "",
       "command": "click",
       "target": "id=day",
@@ -102,14 +158,14 @@
       ],
       "value": ""
     }, {
-      "id": "a93f9552-3925-4260-891d-0ec7b2ff728d",
+      "id": "2e8e302b-5825-4830-92ed-7b9f4140e464",
       "comment": "",
       "command": "select",
       "target": "id=day",
       "targets": [],
-      "value": "label=Sunday"
+      "value": "label=Monday"
     }, {
-      "id": "2967350b-0291-4749-b21f-7eaffe6c84a4",
+      "id": "40b5cbd2-d56d-4ca6-88a4-e366e000099a",
       "comment": "",
       "command": "click",
       "target": "id=day",
@@ -123,7 +179,7 @@
       ],
       "value": ""
     }, {
-      "id": "9f825de7-4e45-43d9-b0b2-94da355b9f55",
+      "id": "8d1d6a87-ca95-4509-a8da-d1ea34bbdefd",
       "comment": "",
       "command": "click",
       "target": "id=startHour",
@@ -137,14 +193,14 @@
       ],
       "value": ""
     }, {
-      "id": "83e776c1-0895-4410-879a-f6d5b5824a5f",
+      "id": "caa98ffa-a3f4-47f9-b42d-1629b2c50c01",
       "comment": "",
       "command": "select",
       "target": "id=startHour",
       "targets": [],
-      "value": "label=02"
+      "value": "label=13"
     }, {
-      "id": "529de25f-7517-4ea9-868b-05630f221007",
+      "id": "83fbefae-dae5-4f81-8f87-0bfc7c700f3d",
       "comment": "",
       "command": "click",
       "target": "id=startHour",
@@ -158,7 +214,7 @@
       ],
       "value": ""
     }, {
-      "id": "1b653305-5f42-4541-9a67-ded3a1453157",
+      "id": "fa0156bc-b2ee-4176-b252-0b904940f8da",
       "comment": "",
       "command": "click",
       "target": "id=endHour",
@@ -172,14 +228,14 @@
       ],
       "value": ""
     }, {
-      "id": "ab039f0b-c7bb-4fed-b94d-7619fe8444ec",
+      "id": "a724c336-b44c-44f1-89c4-e23fa9d2defc",
       "comment": "",
       "command": "select",
       "target": "id=endHour",
       "targets": [],
-      "value": "label=03"
+      "value": "label=14"
     }, {
-      "id": "3cf3363c-2a36-4eb0-9a80-1fd24ec36617",
+      "id": "3872d3c0-4025-48db-aeab-1804052aa001",
       "comment": "",
       "command": "click",
       "target": "id=endHour",
@@ -193,7 +249,7 @@
       ],
       "value": ""
     }, {
-      "id": "8207f400-d123-49fb-ae46-e939c9a9e947",
+      "id": "714fa208-1386-4de9-8e9d-5fa324bc1387",
       "comment": "",
       "command": "click",
       "target": "id=minPassengersForPublicLane",
@@ -203,11 +259,11 @@
         ["css=#minPassengersForPublicLane", "css:finder"],
         ["xpath=//input[@id='minPassengersForPublicLane']", "xpath:attributes"],
         ["xpath=//dl[@id='minPassengersForPublicLane_field']/dd/input", "xpath:idRelative"],
-        ["xpath=//dl[6]/dd/input", "xpath:position"]
+        ["xpath=//dl[7]/dd/input", "xpath:position"]
       ],
       "value": ""
     }, {
-      "id": "23b5abf4-64ff-4d1e-b440-07e41a6ed047",
+      "id": "f293bffd-b0c4-4f69-bac4-707baf8bee41",
       "comment": "",
       "command": "type",
       "target": "id=minPassengersForPublicLane",
@@ -217,11 +273,11 @@
         ["css=#minPassengersForPublicLane", "css:finder"],
         ["xpath=//input[@id='minPassengersForPublicLane']", "xpath:attributes"],
         ["xpath=//dl[@id='minPassengersForPublicLane_field']/dd/input", "xpath:idRelative"],
-        ["xpath=//dl[6]/dd/input", "xpath:position"]
+        ["xpath=//dl[7]/dd/input", "xpath:position"]
       ],
-      "value": "10"
+      "value": "20"
     }, {
-      "id": "e7048387-e533-490b-80b6-85681e3e348c",
+      "id": "d45702d8-93fa-4469-a9fe-283afbb09052",
       "comment": "",
       "command": "click",
       "target": "css=.grid-container",
@@ -231,63 +287,7 @@
       ],
       "value": ""
     }, {
-      "id": "7b602ffe-5d37-4e90-9bb5-49f88b6f727e",
-      "comment": "",
-      "command": "click",
-      "target": "id=startDate",
-      "targets": [
-        ["id=startDate", "id"],
-        ["name=startDate", "name"],
-        ["css=#startDate", "css:finder"],
-        ["xpath=//input[@id='startDate']", "xpath:attributes"],
-        ["xpath=//dl[@id='startDate_field']/dd/input", "xpath:idRelative"],
-        ["xpath=//input", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "9add44bb-2c1d-4447-83f8-b2cd9ef4541c",
-      "comment": "",
-      "command": "type",
-      "target": "id=startDate",
-      "targets": [
-        ["id=startDate", "id"],
-        ["name=startDate", "name"],
-        ["css=#startDate", "css:finder"],
-        ["xpath=//input[@id='startDate']", "xpath:attributes"],
-        ["xpath=//dl[@id='startDate_field']/dd/input", "xpath:idRelative"],
-        ["xpath=//input", "xpath:position"]
-      ],
-      "value": "2019-03-12"
-    }, {
-      "id": "a54ef89d-a12b-4057-9e94-3db345d415a6",
-      "comment": "",
-      "command": "click",
-      "target": "id=endDate",
-      "targets": [
-        ["id=endDate", "id"],
-        ["name=endDate", "name"],
-        ["css=#endDate", "css:finder"],
-        ["xpath=//input[@id='endDate']", "xpath:attributes"],
-        ["xpath=//dl[@id='endDate_field']/dd/input", "xpath:idRelative"],
-        ["xpath=//dl[2]/dd/input", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "bd38cb09-1b9d-4e6c-b333-ffa10012a184",
-      "comment": "",
-      "command": "type",
-      "target": "id=endDate",
-      "targets": [
-        ["id=endDate", "id"],
-        ["name=endDate", "name"],
-        ["css=#endDate", "css:finder"],
-        ["xpath=//input[@id='endDate']", "xpath:attributes"],
-        ["xpath=//dl[@id='endDate_field']/dd/input", "xpath:idRelative"],
-        ["xpath=//dl[2]/dd/input", "xpath:position"]
-      ],
-      "value": "2019-03-13"
-    }, {
-      "id": "38d3dc83-d4c7-44c9-bcf3-f1993a3aac1d",
+      "id": "bd718d3c-898c-4b52-ae01-6afa4981b1f6",
       "comment": "",
       "command": "click",
       "target": "id=submit",
@@ -298,26 +298,8 @@
         ["xpath=//form/input", "xpath:position"]
       ],
       "value": ""
-    }]
-  }, {
-    "id": "7f16cadd-4ef6-46d4-a223-31d21bb4d286",
-    "name": "E2E-2",
-    "commands": [{
-      "id": "9ecd68bc-9c8b-41fd-88fa-f045bb231334",
-      "comment": "",
-      "command": "open",
-      "target": "/",
-      "targets": [],
-      "value": ""
     }, {
-      "id": "f34438ad-74ed-4b44-9cff-7d29ec1f86f1",
-      "comment": "",
-      "command": "setWindowSize",
-      "target": "1280x680",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "1d828ea1-d816-4bf9-bd4d-9e07a4cccea3",
+      "id": "a960cbf0-5fc5-4c22-919c-fd8d2b2aa970",
       "comment": "",
       "command": "click",
       "target": "id=navbarDropdown",
@@ -333,7 +315,251 @@
       ],
       "value": ""
     }, {
-      "id": "37818174-cbdb-47b7-aba4-8d56a7237606",
+      "id": "8667262a-d79a-4169-bb47-c9ac03cbeeee",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Historical real-time",
+      "targets": [
+        ["linkText=Historical real-time", "linkText"],
+        ["css=.dropdown-item:nth-child(2)", "css:finder"],
+        ["xpath=//a[contains(text(),'Historical real-time')]", "xpath:link"],
+        ["xpath=//div[@id='navbarSupportedContent']/ul/li/div/a[2]", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/DevSched')]", "xpath:href"],
+        ["xpath=//a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,'Historical real-time')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f6cb5c71-aaba-4b5d-8d0d-8676a5f72ca3",
+      "comment": "",
+      "command": "click",
+      "target": "css=.mapboxgl-canvas",
+      "targets": [
+        ["css=.mapboxgl-canvas", "css:finder"],
+        ["xpath=//div[@id='map']/div[2]/canvas", "xpath:idRelative"],
+        ["xpath=//canvas", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "95d2e198-3a41-49f7-b83c-5f072ad9c15b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.mapboxgl-canvas",
+      "targets": [
+        ["css=.mapboxgl-canvas", "css:finder"],
+        ["xpath=//div[@id='map']/div[2]/canvas", "xpath:idRelative"],
+        ["xpath=//canvas", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "07a4999c-775c-46ad-9e00-5dfb6b6b4b3b",
+      "comment": "",
+      "command": "click",
+      "target": "id=startDate",
+      "targets": [
+        ["id=startDate", "id"],
+        ["name=startDate", "name"],
+        ["css=#startDate", "css:finder"],
+        ["xpath=//input[@id='startDate']", "xpath:attributes"],
+        ["xpath=//dl[@id='startDate_field']/dd/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "07110d52-55cb-42be-acfe-db3f7470660f",
+      "comment": "",
+      "command": "type",
+      "target": "id=startDate",
+      "targets": [
+        ["id=startDate", "id"],
+        ["name=startDate", "name"],
+        ["css=#startDate", "css:finder"],
+        ["xpath=//input[@id='startDate']", "xpath:attributes"],
+        ["xpath=//dl[@id='startDate_field']/dd/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "2019-03-19"
+    }, {
+      "id": "caa76df8-a397-4190-91ef-4b7de847765d",
+      "comment": "",
+      "command": "click",
+      "target": "id=endDate",
+      "targets": [
+        ["id=endDate", "id"],
+        ["name=endDate", "name"],
+        ["css=#endDate", "css:finder"],
+        ["xpath=//input[@id='endDate']", "xpath:attributes"],
+        ["xpath=//dl[@id='endDate_field']/dd/input", "xpath:idRelative"],
+        ["xpath=//dl[2]/dd/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a7e445a4-dcce-474c-9c0c-1c7c1b0f1ca1",
+      "comment": "",
+      "command": "type",
+      "target": "id=endDate",
+      "targets": [
+        ["id=endDate", "id"],
+        ["name=endDate", "name"],
+        ["css=#endDate", "css:finder"],
+        ["xpath=//input[@id='endDate']", "xpath:attributes"],
+        ["xpath=//dl[@id='endDate_field']/dd/input", "xpath:idRelative"],
+        ["xpath=//dl[2]/dd/input", "xpath:position"]
+      ],
+      "value": "2019-03-20"
+    }, {
+      "id": "0a838405-ec1a-4bf2-adbf-2472f9aec9c2",
+      "comment": "",
+      "command": "click",
+      "target": "id=day",
+      "targets": [
+        ["id=day", "id"],
+        ["name=day", "name"],
+        ["css=#day", "css:finder"],
+        ["xpath=//select[@id='day']", "xpath:attributes"],
+        ["xpath=//dl[@id='day_field']/dd/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "18041a57-e12c-4c42-89b3-f1a4aec75dae",
+      "comment": "",
+      "command": "select",
+      "target": "id=day",
+      "targets": [],
+      "value": "label=Monday"
+    }, {
+      "id": "098e338b-7dc7-418d-a5f3-cd34190dd4f7",
+      "comment": "",
+      "command": "click",
+      "target": "id=day",
+      "targets": [
+        ["id=day", "id"],
+        ["name=day", "name"],
+        ["css=#day", "css:finder"],
+        ["xpath=//select[@id='day']", "xpath:attributes"],
+        ["xpath=//dl[@id='day_field']/dd/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "af1c1925-a75e-41a3-91f7-55eb4cf0848d",
+      "comment": "",
+      "command": "click",
+      "target": "id=startHour",
+      "targets": [
+        ["id=startHour", "id"],
+        ["name=startHour", "name"],
+        ["css=#startHour", "css:finder"],
+        ["xpath=//select[@id='startHour']", "xpath:attributes"],
+        ["xpath=//dl[@id='startHour_field']/dd/select", "xpath:idRelative"],
+        ["xpath=//dl[4]/dd/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8a1d4506-63a9-4d90-9e6e-7c7e14aba462",
+      "comment": "",
+      "command": "select",
+      "target": "id=startHour",
+      "targets": [],
+      "value": "label=14"
+    }, {
+      "id": "48fed681-9429-4679-96d4-61692d4b75d2",
+      "comment": "",
+      "command": "click",
+      "target": "id=startHour",
+      "targets": [
+        ["id=startHour", "id"],
+        ["name=startHour", "name"],
+        ["css=#startHour", "css:finder"],
+        ["xpath=//select[@id='startHour']", "xpath:attributes"],
+        ["xpath=//dl[@id='startHour_field']/dd/select", "xpath:idRelative"],
+        ["xpath=//dl[4]/dd/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "49dbd638-781d-462a-99b3-51d0c9aa5493",
+      "comment": "",
+      "command": "click",
+      "target": "id=endHour",
+      "targets": [
+        ["id=endHour", "id"],
+        ["name=endHour", "name"],
+        ["css=#endHour", "css:finder"],
+        ["xpath=//select[@id='endHour']", "xpath:attributes"],
+        ["xpath=//dl[@id='endHour_field']/dd/select", "xpath:idRelative"],
+        ["xpath=//dl[5]/dd/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a97661d4-1252-4b28-8e0e-c8483e6d30c6",
+      "comment": "",
+      "command": "select",
+      "target": "id=endHour",
+      "targets": [],
+      "value": "label=15"
+    }, {
+      "id": "a779674f-7645-488c-8ff1-2f351592e447",
+      "comment": "",
+      "command": "click",
+      "target": "id=endHour",
+      "targets": [
+        ["id=endHour", "id"],
+        ["name=endHour", "name"],
+        ["css=#endHour", "css:finder"],
+        ["xpath=//select[@id='endHour']", "xpath:attributes"],
+        ["xpath=//dl[@id='endHour_field']/dd/select", "xpath:idRelative"],
+        ["xpath=//dl[5]/dd/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "75723ba9-0772-4ed1-8087-bd04ab47d998",
+      "comment": "",
+      "command": "click",
+      "target": "id=submit",
+      "targets": [
+        ["id=submit", "id"],
+        ["css=#submit", "css:finder"],
+        ["xpath=//input[@id='submit']", "xpath:attributes"],
+        ["xpath=//form/input", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "c88a3117-7e64-4b1a-887a-271eb83705f8",
+    "name": "E2E-2",
+    "commands": [{
+      "id": "e732d8c2-ab4a-4ae4-ac66-c6df640966f2",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:9000/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "468a6530-78d6-4d76-89d5-3f0a09ab0004",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1280x680",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "984cd88b-3972-4772-a555-61ee059c53dd",
+      "comment": "",
+      "command": "click",
+      "target": "id=navbarDropdown",
+      "targets": [
+        ["id=navbarDropdown", "id"],
+        ["linkText=Calculate Data", "linkText"],
+        ["css=#navbarDropdown", "css:finder"],
+        ["xpath=//a[contains(text(),'Calculate Data')]", "xpath:link"],
+        ["xpath=//a[@id='navbarDropdown']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarSupportedContent']/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '#')]", "xpath:href"],
+        ["xpath=//li/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d11efd52-b307-411c-9e91-2a98d1da4dde",
       "comment": "",
       "command": "click",
       "target": "linkText=Passengers count",
@@ -348,7 +574,50 @@
       ],
       "value": ""
     }, {
-      "id": "ddf31938-cb50-4947-823e-e04267398971",
+      "id": "1aac8aec-1ab9-4865-8ac8-ba1cf0f85df5",
+      "comment": "",
+      "command": "click",
+      "target": "id=submit",
+      "targets": [
+        ["id=submit", "id"],
+        ["css=#submit", "css:finder"],
+        ["xpath=//input[@id='submit']", "xpath:attributes"],
+        ["xpath=//form/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e4cabf54-ff5a-4036-8fa6-97818e588c20",
+      "comment": "",
+      "command": "click",
+      "target": "id=navbarDropdown",
+      "targets": [
+        ["id=navbarDropdown", "id"],
+        ["linkText=Calculate Data", "linkText"],
+        ["css=#navbarDropdown", "css:finder"],
+        ["xpath=//a[contains(text(),'Calculate Data')]", "xpath:link"],
+        ["xpath=//a[@id='navbarDropdown']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarSupportedContent']/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '#')]", "xpath:href"],
+        ["xpath=//li/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e0a29ef9-9380-46ed-8761-cb5cb117a164",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Historical real-time",
+      "targets": [
+        ["linkText=Historical real-time", "linkText"],
+        ["css=.dropdown-item:nth-child(2)", "css:finder"],
+        ["xpath=//a[contains(text(),'Historical real-time')]", "xpath:link"],
+        ["xpath=//div[@id='navbarSupportedContent']/ul/li/div/a[2]", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/DevSched')]", "xpath:href"],
+        ["xpath=//a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,'Historical real-time')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "cb52d6a6-a90b-4cce-baa9-b6bb12656993",
       "comment": "",
       "command": "click",
       "target": "id=submit",
@@ -361,24 +630,24 @@
       "value": ""
     }]
   }, {
-    "id": "4d93d56a-e46f-4767-905f-4e533aa59d07",
+    "id": "14bf1c90-87d5-49c0-b22f-ccf5b0f9f06c",
     "name": "E2E-3",
     "commands": [{
-      "id": "160b2d10-44de-485b-8568-45a83410508b",
+      "id": "4b12dc8c-1507-4f17-8f07-c605aa9df207",
       "comment": "",
       "command": "open",
-      "target": "/",
+      "target": "http://localhost:9000/",
       "targets": [],
       "value": ""
     }, {
-      "id": "d13c1972-65e5-401a-88d1-d9226564f047",
+      "id": "0de1da56-348b-4403-a23a-c2fabac5f749",
       "comment": "",
       "command": "setWindowSize",
       "target": "1280x680",
       "targets": [],
       "value": ""
     }, {
-      "id": "c5c44dec-a5e6-4fa6-8fe7-00bb6a59ff30",
+      "id": "d5eeda40-8124-492d-82ef-45027e7a9c1b",
       "comment": "",
       "command": "click",
       "target": "id=navbarDropdown",
@@ -394,7 +663,60 @@
       ],
       "value": ""
     }, {
-      "id": "62e3eda9-db22-429c-9e33-31a2b6417eee",
+      "id": "d2599489-cfaf-460c-932f-840b439112cd",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Passengers count",
+      "targets": [
+        ["linkText=Passengers count", "linkText"],
+        ["css=.dropdown-item:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Passengers count')]", "xpath:link"],
+        ["xpath=//div[@id='navbarSupportedContent']/ul/li/div/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/PassengersCount')]", "xpath:href"],
+        ["xpath=//div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Passengers count')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "78fbf099-b609-4f82-9bbe-459a87b2e2f1",
+      "comment": "",
+      "command": "click",
+      "target": "css=.mapboxgl-canvas",
+      "targets": [
+        ["css=.mapboxgl-canvas", "css:finder"],
+        ["xpath=//div[@id='map']/div[2]/canvas", "xpath:idRelative"],
+        ["xpath=//canvas", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c648cd75-f922-489e-90a0-93dcef3ec88a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.mapboxgl-canvas",
+      "targets": [
+        ["css=.mapboxgl-canvas", "css:finder"],
+        ["xpath=//div[@id='map']/div[2]/canvas", "xpath:idRelative"],
+        ["xpath=//canvas", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "428f61b0-935c-48f1-ba59-0e8c74b3ae3b",
+      "comment": "",
+      "command": "click",
+      "target": "id=navbarDropdown",
+      "targets": [
+        ["id=navbarDropdown", "id"],
+        ["linkText=Calculate Data", "linkText"],
+        ["css=#navbarDropdown", "css:finder"],
+        ["xpath=//a[contains(text(),'Calculate Data')]", "xpath:link"],
+        ["xpath=//a[@id='navbarDropdown']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarSupportedContent']/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '#')]", "xpath:href"],
+        ["xpath=//li/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ee4d5d40-8bc2-4941-8f8b-cc8e4e6ced2c",
       "comment": "",
       "command": "click",
       "target": "linkText=Historical real-time",
@@ -409,7 +731,7 @@
       ],
       "value": ""
     }, {
-      "id": "68cb80ae-37c1-4056-a163-03eb1d1934e2",
+      "id": "014c9420-6387-468f-86c1-ee9936133a0b",
       "comment": "",
       "command": "click",
       "target": "css=.mapboxgl-canvas",
@@ -420,7 +742,7 @@
       ],
       "value": ""
     }, {
-      "id": "29f047cb-6012-48a9-ada4-43f01e0950fc",
+      "id": "5eb9a997-1847-4f23-9116-626b29d3beaf",
       "comment": "",
       "command": "click",
       "target": "css=.mapboxgl-canvas",
@@ -428,215 +750,28 @@
         ["css=.mapboxgl-canvas", "css:finder"],
         ["xpath=//div[@id='map']/div[2]/canvas", "xpath:idRelative"],
         ["xpath=//canvas", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "8c908799-9b42-49da-bcf3-cac779e2605f",
-      "comment": "",
-      "command": "click",
-      "target": "id=startDate",
-      "targets": [
-        ["id=startDate", "id"],
-        ["name=startDate", "name"],
-        ["css=#startDate", "css:finder"],
-        ["xpath=//input[@id='startDate']", "xpath:attributes"],
-        ["xpath=//dl[@id='startDate_field']/dd/input", "xpath:idRelative"],
-        ["xpath=//input", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "cf2e3a62-adb6-4b13-831f-7f459c1279b1",
-      "comment": "",
-      "command": "click",
-      "target": "id=startDate",
-      "targets": [
-        ["id=startDate", "id"],
-        ["name=startDate", "name"],
-        ["css=#startDate", "css:finder"],
-        ["xpath=//input[@id='startDate']", "xpath:attributes"],
-        ["xpath=//dl[@id='startDate_field']/dd/input", "xpath:idRelative"],
-        ["xpath=//input", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "74d3effd-6dc6-4851-9c9f-01ce9ea06a4b",
-      "comment": "",
-      "command": "type",
-      "target": "id=startDate",
-      "targets": [
-        ["id=startDate", "id"],
-        ["name=startDate", "name"],
-        ["css=#startDate", "css:finder"],
-        ["xpath=//input[@id='startDate']", "xpath:attributes"],
-        ["xpath=//dl[@id='startDate_field']/dd/input", "xpath:idRelative"],
-        ["xpath=//input", "xpath:position"]
-      ],
-      "value": "2019-03-12"
-    }, {
-      "id": "118f26d1-6acb-4825-87ba-349d2c066fb6",
-      "comment": "",
-      "command": "click",
-      "target": "id=endDate",
-      "targets": [
-        ["id=endDate", "id"],
-        ["name=endDate", "name"],
-        ["css=#endDate", "css:finder"],
-        ["xpath=//input[@id='endDate']", "xpath:attributes"],
-        ["xpath=//dl[@id='endDate_field']/dd/input", "xpath:idRelative"],
-        ["xpath=//dl[2]/dd/input", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "d729a510-051e-4d4c-8265-305bf8e4c9e4",
-      "comment": "",
-      "command": "type",
-      "target": "id=endDate",
-      "targets": [
-        ["id=endDate", "id"],
-        ["name=endDate", "name"],
-        ["css=#endDate", "css:finder"],
-        ["xpath=//input[@id='endDate']", "xpath:attributes"],
-        ["xpath=//dl[@id='endDate_field']/dd/input", "xpath:idRelative"],
-        ["xpath=//dl[2]/dd/input", "xpath:position"]
-      ],
-      "value": "2019-03-13"
-    }, {
-      "id": "63b806a4-cfa1-438c-9f85-8b5dd87d03a5",
-      "comment": "",
-      "command": "click",
-      "target": "id=day",
-      "targets": [
-        ["id=day", "id"],
-        ["name=day", "name"],
-        ["css=#day", "css:finder"],
-        ["xpath=//select[@id='day']", "xpath:attributes"],
-        ["xpath=//dl[@id='day_field']/dd/select", "xpath:idRelative"],
-        ["xpath=//select", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "2e7eacb1-fc5f-4478-9f54-e31040b2e138",
-      "comment": "",
-      "command": "select",
-      "target": "id=day",
-      "targets": [],
-      "value": "label=Monday"
-    }, {
-      "id": "fa0294f5-9dfd-446b-b77d-2db4db31bdc6",
-      "comment": "",
-      "command": "click",
-      "target": "id=day",
-      "targets": [
-        ["id=day", "id"],
-        ["name=day", "name"],
-        ["css=#day", "css:finder"],
-        ["xpath=//select[@id='day']", "xpath:attributes"],
-        ["xpath=//dl[@id='day_field']/dd/select", "xpath:idRelative"],
-        ["xpath=//select", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "72d76075-e953-4302-b402-dfc75d34be26",
-      "comment": "",
-      "command": "click",
-      "target": "id=startHour",
-      "targets": [
-        ["id=startHour", "id"],
-        ["name=startHour", "name"],
-        ["css=#startHour", "css:finder"],
-        ["xpath=//select[@id='startHour']", "xpath:attributes"],
-        ["xpath=//dl[@id='startHour_field']/dd/select", "xpath:idRelative"],
-        ["xpath=//dl[4]/dd/select", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "bd5acd9a-91e7-492d-8bb7-c91ef7da5884",
-      "comment": "",
-      "command": "select",
-      "target": "id=startHour",
-      "targets": [],
-      "value": "label=14"
-    }, {
-      "id": "3177d53b-23e4-425c-8a54-299564fdf276",
-      "comment": "",
-      "command": "click",
-      "target": "id=startHour",
-      "targets": [
-        ["id=startHour", "id"],
-        ["name=startHour", "name"],
-        ["css=#startHour", "css:finder"],
-        ["xpath=//select[@id='startHour']", "xpath:attributes"],
-        ["xpath=//dl[@id='startHour_field']/dd/select", "xpath:idRelative"],
-        ["xpath=//dl[4]/dd/select", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "3a127a05-643c-4903-8fd9-6c08fed073aa",
-      "comment": "",
-      "command": "click",
-      "target": "id=endHour",
-      "targets": [
-        ["id=endHour", "id"],
-        ["name=endHour", "name"],
-        ["css=#endHour", "css:finder"],
-        ["xpath=//select[@id='endHour']", "xpath:attributes"],
-        ["xpath=//dl[@id='endHour_field']/dd/select", "xpath:idRelative"],
-        ["xpath=//dl[5]/dd/select", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "d58d6d2d-b1a3-4792-86a5-2592e1d7095e",
-      "comment": "",
-      "command": "select",
-      "target": "id=endHour",
-      "targets": [],
-      "value": "label=15"
-    }, {
-      "id": "2c318617-66d4-47b2-9147-07a29fc07959",
-      "comment": "",
-      "command": "click",
-      "target": "id=endHour",
-      "targets": [
-        ["id=endHour", "id"],
-        ["name=endHour", "name"],
-        ["css=#endHour", "css:finder"],
-        ["xpath=//select[@id='endHour']", "xpath:attributes"],
-        ["xpath=//dl[@id='endHour_field']/dd/select", "xpath:idRelative"],
-        ["xpath=//dl[5]/dd/select", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "20c85f77-a713-404f-8a37-e8a20ed84913",
-      "comment": "",
-      "command": "click",
-      "target": "id=submit",
-      "targets": [
-        ["id=submit", "id"],
-        ["css=#submit", "css:finder"],
-        ["xpath=//input[@id='submit']", "xpath:attributes"],
-        ["xpath=//form/input", "xpath:position"]
       ],
       "value": ""
     }]
   }, {
-    "id": "c37b6f50-bd9a-4a1c-9185-bc31ef938c6c",
+    "id": "7eae93cb-4f93-4e27-a0db-802b864e6357",
     "name": "E2E-4",
     "commands": [{
-      "id": "ae0e8a30-4ac7-46fc-ba96-48c431c0a843",
+      "id": "a5cd24b2-d371-45a3-9bdf-bf6db640aca3",
       "comment": "",
       "command": "open",
-      "target": "/",
+      "target": "http://localhost:9000/",
       "targets": [],
       "value": ""
     }, {
-      "id": "34385581-ff81-4edc-bda9-5c4c84bb2e7f",
+      "id": "1b1a802a-2a41-4ab5-ad59-2c2c8586acfd",
       "comment": "",
       "command": "setWindowSize",
       "target": "1280x680",
       "targets": [],
       "value": ""
     }, {
-      "id": "eb1901af-5de3-4580-aebf-a258276b6e8d",
+      "id": "21ba4980-d570-4559-a5ae-1add6e2af9bb",
       "comment": "",
       "command": "click",
       "target": "id=navbarDropdown",
@@ -652,7 +787,78 @@
       ],
       "value": ""
     }, {
-      "id": "903f390c-4a00-467b-9a08-77be2b921c99",
+      "id": "839cde00-0cd0-424d-b66b-ba69b9c5c591",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Passengers count",
+      "targets": [
+        ["linkText=Passengers count", "linkText"],
+        ["css=.dropdown-item:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Passengers count')]", "xpath:link"],
+        ["xpath=//div[@id='navbarSupportedContent']/ul/li/div/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/PassengersCount')]", "xpath:href"],
+        ["xpath=//div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Passengers count')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f11c7447-3785-417e-9451-87b45f1fe3e3",
+      "comment": "",
+      "command": "click",
+      "target": "css=.mapboxgl-canvas",
+      "targets": [
+        ["css=.mapboxgl-canvas", "css:finder"],
+        ["xpath=//div[@id='map']/div[2]/canvas", "xpath:idRelative"],
+        ["xpath=//canvas", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "efee8924-3f37-403d-a4e8-68c2df3142eb",
+      "comment": "",
+      "command": "click",
+      "target": "css=.mapboxgl-canvas",
+      "targets": [
+        ["css=.mapboxgl-canvas", "css:finder"],
+        ["xpath=//div[@id='map']/div[2]/canvas", "xpath:idRelative"],
+        ["xpath=//canvas", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1167eead-a576-4356-95fb-7998ede44f4a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.mapboxgl-canvas",
+      "targets": [
+        ["css=.mapboxgl-canvas", "css:finder"],
+        ["xpath=//div[@id='map']/div[2]/canvas", "xpath:idRelative"],
+        ["xpath=//canvas", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "df2e5d74-c741-4825-8499-619c75631f0e",
+      "comment": "",
+      "command": "assertAlert",
+      "target": "You have already choose 2 points",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d90ea34e-b8c4-4200-86c7-882cc0410c45",
+      "comment": "",
+      "command": "click",
+      "target": "id=navbarDropdown",
+      "targets": [
+        ["id=navbarDropdown", "id"],
+        ["linkText=Calculate Data", "linkText"],
+        ["css=#navbarDropdown", "css:finder"],
+        ["xpath=//a[contains(text(),'Calculate Data')]", "xpath:link"],
+        ["xpath=//a[@id='navbarDropdown']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarSupportedContent']/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '#')]", "xpath:href"],
+        ["xpath=//li/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "92f07e11-bb8b-4c02-a083-04f68c8294b9",
       "comment": "",
       "command": "click",
       "target": "linkText=Historical real-time",
@@ -667,7 +873,7 @@
       ],
       "value": ""
     }, {
-      "id": "3334945d-59f1-444e-8ab7-c4664946f95b",
+      "id": "7f0bb3c6-b6f8-4616-9673-bf222c212191",
       "comment": "",
       "command": "click",
       "target": "css=.mapboxgl-canvas",
@@ -678,7 +884,7 @@
       ],
       "value": ""
     }, {
-      "id": "94f63da0-93ef-4fa8-9cc2-415eb0037e16",
+      "id": "54f16ea3-4256-4d98-8e97-0eaefcf5ad26",
       "comment": "",
       "command": "click",
       "target": "css=.mapboxgl-canvas",
@@ -689,7 +895,7 @@
       ],
       "value": ""
     }, {
-      "id": "ed98b652-939e-4c75-87b9-c48036583388",
+      "id": "95d2434c-2b0b-4650-87d4-626f41849f1d",
       "comment": "",
       "command": "click",
       "target": "css=.mapboxgl-canvas",
@@ -700,7 +906,7 @@
       ],
       "value": ""
     }, {
-      "id": "3bcd66fc-e8e9-4596-b5e9-377e7fbd0a79",
+      "id": "3d5dae57-2e0e-4c59-a88d-66770265739c",
       "comment": "",
       "command": "assertAlert",
       "target": "You have already choose 2 points",
@@ -708,24 +914,24 @@
       "value": ""
     }]
   }, {
-    "id": "217c1cec-dfff-43e4-a7ab-0fae2a01ff0d",
+    "id": "da37d765-e286-4d68-8fcb-8f0b26088f81",
     "name": "E2E-5",
     "commands": [{
-      "id": "b0b970ce-5d29-49ee-93ee-9cc820616737",
+      "id": "0076faa0-91a2-4a84-8983-1bb1bc561b47",
       "comment": "",
       "command": "open",
-      "target": "/",
+      "target": "http://localhost:9000/",
       "targets": [],
       "value": ""
     }, {
-      "id": "c7796ccb-d72e-40dc-9012-678f5d9a143c",
+      "id": "bec80c40-81d8-4b05-810c-f1c71fa3f5e3",
       "comment": "",
       "command": "setWindowSize",
       "target": "1280x680",
       "targets": [],
       "value": ""
     }, {
-      "id": "fa4c455a-9ec3-40d6-a6a2-40e7d7088c7c",
+      "id": "5c6656f9-0af9-46f9-865f-a65b8981ea1e",
       "comment": "",
       "command": "click",
       "target": "id=navbarDropdown",
@@ -741,7 +947,7 @@
       ],
       "value": ""
     }, {
-      "id": "5b172b5c-0d89-467e-a33d-d03601645854",
+      "id": "099e3a85-db36-4bcc-a0d9-15794e3ca1c7",
       "comment": "",
       "command": "click",
       "target": "linkText=Passengers count",
@@ -756,7 +962,7 @@
       ],
       "value": ""
     }, {
-      "id": "cc11aaf3-3ff2-4b79-b79d-639c9e257aa8",
+      "id": "38608b8e-9771-4def-9d48-edf62d53bdfd",
       "comment": "",
       "command": "click",
       "target": "id=startDate",
@@ -770,7 +976,7 @@
       ],
       "value": ""
     }, {
-      "id": "69ab9eac-69b6-4ada-bc01-c33a9ff26682",
+      "id": "e0f1e414-ec69-4427-be7a-756a50e5a56a",
       "comment": "",
       "command": "type",
       "target": "id=startDate",
@@ -782,9 +988,9 @@
         ["xpath=//dl[@id='startDate_field']/dd/input", "xpath:idRelative"],
         ["xpath=//input", "xpath:position"]
       ],
-      "value": "2019-03-12"
+      "value": "2019-03-19"
     }, {
-      "id": "02e962c0-61c6-434c-9f34-f7cd5de5e345",
+      "id": "40c075a6-cc84-4c1b-ac57-1edcadf850cb",
       "comment": "",
       "command": "click",
       "target": "id=endDate",
@@ -798,7 +1004,7 @@
       ],
       "value": ""
     }, {
-      "id": "b8f60b59-ab12-4cbe-bf3b-0ea4c70d973f",
+      "id": "1d3f119c-5709-4ac9-96ed-b36c67333ecd",
       "comment": "",
       "command": "type",
       "target": "id=endDate",
@@ -810,9 +1016,43 @@
         ["xpath=//dl[@id='endDate_field']/dd/input", "xpath:idRelative"],
         ["xpath=//dl[2]/dd/input", "xpath:position"]
       ],
-      "value": "2019-03-14"
+      "value": "2019-03-20"
     }, {
-      "id": "4d589a92-5c48-43ef-ace0-b9641287b0ce",
+      "id": "23519652-2bed-4ed0-be2b-956b5f0afad4",
+      "comment": "",
+      "command": "click",
+      "target": "css=.mapboxgl-canvas",
+      "targets": [
+        ["css=.mapboxgl-canvas", "css:finder"],
+        ["xpath=//div[@id='map']/div[2]/canvas", "xpath:idRelative"],
+        ["xpath=//canvas", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e37f1ba8-bcd2-4231-b807-6083db741838",
+      "comment": "",
+      "command": "click",
+      "target": "css=.mapboxgl-canvas",
+      "targets": [
+        ["css=.mapboxgl-canvas", "css:finder"],
+        ["xpath=//div[@id='map']/div[2]/canvas", "xpath:idRelative"],
+        ["xpath=//canvas", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8b8a07f4-1d97-46cf-be2d-aa7b4b24113d",
+      "comment": "",
+      "command": "click",
+      "target": "css=#day_field > dt",
+      "targets": [
+        ["css=#day_field > dt", "css:finder"],
+        ["xpath=//dl[@id='day_field']/dt", "xpath:idRelative"],
+        ["xpath=//dl[3]/dt", "xpath:position"],
+        ["xpath=//dt[contains(.,'Day')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f95e7749-ea92-4a34-b9ea-f6f4bf7ade36",
       "comment": "",
       "command": "click",
       "target": "id=day",
@@ -826,14 +1066,14 @@
       ],
       "value": ""
     }, {
-      "id": "21552e68-23eb-4c2d-8888-bed1b3e223c7",
+      "id": "27321b01-cf4d-4fed-ba8e-c2739f21e536",
       "comment": "",
       "command": "select",
       "target": "id=day",
       "targets": [],
       "value": "label=Sunday"
     }, {
-      "id": "c3679b6a-f736-4b3b-a962-797ac7f8d834",
+      "id": "173bb1b0-b150-4530-887b-ab9760da7581",
       "comment": "",
       "command": "click",
       "target": "id=day",
@@ -847,7 +1087,7 @@
       ],
       "value": ""
     }, {
-      "id": "146ee943-8208-445e-a0d0-84640d9c5760",
+      "id": "7a1b75a7-5ac4-4d05-9cb9-0ab93fcc2aeb",
       "comment": "",
       "command": "click",
       "target": "id=startHour",
@@ -861,14 +1101,14 @@
       ],
       "value": ""
     }, {
-      "id": "ed4a39c9-f8ca-4224-a6a6-f13b8c6974cf",
+      "id": "90ead981-d929-4396-a516-7fbc0265fd7f",
       "comment": "",
       "command": "select",
       "target": "id=startHour",
       "targets": [],
-      "value": "label=09"
+      "value": "label=01"
     }, {
-      "id": "ee95d69e-bdb1-41ba-aa87-34f85116f113",
+      "id": "7fd82d0d-3bc1-4686-bf03-516a7da613bd",
       "comment": "",
       "command": "click",
       "target": "id=startHour",
@@ -882,7 +1122,7 @@
       ],
       "value": ""
     }, {
-      "id": "736100d8-7602-420f-ac21-552fadbe373f",
+      "id": "200661a1-f39e-457c-9e2b-288057ecb11a",
       "comment": "",
       "command": "click",
       "target": "id=endHour",
@@ -896,14 +1136,14 @@
       ],
       "value": ""
     }, {
-      "id": "cbd33837-f8a8-46ad-b5e6-0b1ff28f1a96",
+      "id": "a95ca961-c0e0-499e-a17b-ed378b92c4d6",
       "comment": "",
       "command": "select",
       "target": "id=endHour",
       "targets": [],
-      "value": "label=10"
+      "value": "label=06"
     }, {
-      "id": "6975524b-f1ef-4650-99ec-cdc3d348f51f",
+      "id": "a756d7b0-2e09-4550-9bc7-66d20adb9ade",
       "comment": "",
       "command": "click",
       "target": "id=endHour",
@@ -917,29 +1157,7 @@
       ],
       "value": ""
     }, {
-      "id": "68404176-0ae2-4cff-9e4e-e3611a2e1495",
-      "comment": "",
-      "command": "click",
-      "target": "css=.mapboxgl-canvas",
-      "targets": [
-        ["css=.mapboxgl-canvas", "css:finder"],
-        ["xpath=//div[@id='map']/div[2]/canvas", "xpath:idRelative"],
-        ["xpath=//canvas", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "d069a46d-b68f-4376-90d8-90d232e8a30d",
-      "comment": "",
-      "command": "click",
-      "target": "css=.mapboxgl-canvas",
-      "targets": [
-        ["css=.mapboxgl-canvas", "css:finder"],
-        ["xpath=//div[@id='map']/div[2]/canvas", "xpath:idRelative"],
-        ["xpath=//canvas", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "52b24431-4787-4aff-bf0e-3f35262b4b19",
+      "id": "58ff1238-3101-4d89-ba51-4a0bdc38cdcf",
       "comment": "",
       "command": "click",
       "target": "id=minPassengersForPublicLane",
@@ -949,11 +1167,11 @@
         ["css=#minPassengersForPublicLane", "css:finder"],
         ["xpath=//input[@id='minPassengersForPublicLane']", "xpath:attributes"],
         ["xpath=//dl[@id='minPassengersForPublicLane_field']/dd/input", "xpath:idRelative"],
-        ["xpath=//dl[6]/dd/input", "xpath:position"]
+        ["xpath=//dl[7]/dd/input", "xpath:position"]
       ],
       "value": ""
     }, {
-      "id": "6ac311c6-39ec-4121-a6ea-818a558437ed",
+      "id": "3bc4d850-68d7-43b3-af44-61b6a0d1fa25",
       "comment": "",
       "command": "type",
       "target": "id=minPassengersForPublicLane",
@@ -963,11 +1181,11 @@
         ["css=#minPassengersForPublicLane", "css:finder"],
         ["xpath=//input[@id='minPassengersForPublicLane']", "xpath:attributes"],
         ["xpath=//dl[@id='minPassengersForPublicLane_field']/dd/input", "xpath:idRelative"],
-        ["xpath=//dl[6]/dd/input", "xpath:position"]
+        ["xpath=//dl[7]/dd/input", "xpath:position"]
       ],
-      "value": "100"
+      "value": "20"
     }, {
-      "id": "d99b8c35-4a0c-4fb8-bcfc-81ea31637da0",
+      "id": "956a33ae-62c8-4e77-994f-d619b408353f",
       "comment": "",
       "command": "click",
       "target": "css=.grid-container",
@@ -977,7 +1195,7 @@
       ],
       "value": ""
     }, {
-      "id": "7465cb0c-01e4-43d2-9287-678e5aaacb28",
+      "id": "067190ec-e892-4666-8470-9d9b1426b0ef",
       "comment": "",
       "command": "click",
       "target": "id=submit",
@@ -989,150 +1207,7 @@
       ],
       "value": ""
     }, {
-      "id": "b7668642-b97f-4015-b52c-afad8fcd6ed7",
-      "comment": "",
-      "command": "mouseDownAt",
-      "target": "css=.mapboxgl-canvas",
-      "targets": [
-        ["css=.mapboxgl-canvas", "css:finder"],
-        ["xpath=//div[@id='map']/div[2]/canvas", "xpath:idRelative"],
-        ["xpath=//canvas", "xpath:position"]
-      ],
-      "value": "575.0115737915039,131.61341857910156"
-    }, {
-      "id": "cbedff6a-4178-4c9d-a7e9-1445fc7eed75",
-      "comment": "",
-      "command": "mouseMoveAt",
-      "target": "css=.mapboxgl-canvas",
-      "targets": [
-        ["css=.mapboxgl-canvas", "css:finder"],
-        ["xpath=//div[@id='map']/div[2]/canvas", "xpath:idRelative"],
-        ["xpath=//canvas", "xpath:position"]
-      ],
-      "value": "575.0115737915039,131.61341857910156"
-    }, {
-      "id": "f82184d6-616f-468c-80b3-a0dea9db1686",
-      "comment": "",
-      "command": "mouseUpAt",
-      "target": "css=.mapboxgl-canvas",
-      "targets": [
-        ["css=.mapboxgl-canvas", "css:finder"],
-        ["xpath=//div[@id='map']/div[2]/canvas", "xpath:idRelative"],
-        ["xpath=//canvas", "xpath:position"]
-      ],
-      "value": "575.0115737915039,131.61341857910156"
-    }, {
-      "id": "93974394-68c4-4229-9037-5c375905f889",
-      "comment": "",
-      "command": "mouseDownAt",
-      "target": "css=.mapboxgl-canvas",
-      "targets": [
-        ["css=.mapboxgl-canvas", "css:finder"],
-        ["xpath=//div[@id='map']/div[2]/canvas", "xpath:idRelative"],
-        ["xpath=//canvas", "xpath:position"]
-      ],
-      "value": "585.0115737915039,185.61341857910156"
-    }, {
-      "id": "caabe99c-0f07-4e17-b3bd-6687aa6a6796",
-      "comment": "",
-      "command": "mouseMoveAt",
-      "target": "css=.mapboxgl-canvas",
-      "targets": [
-        ["css=.mapboxgl-canvas", "css:finder"],
-        ["xpath=//div[@id='map']/div[2]/canvas", "xpath:idRelative"],
-        ["xpath=//canvas", "xpath:position"]
-      ],
-      "value": "585.0115737915039,185.61341857910156"
-    }, {
-      "id": "4d8f253b-3402-4dc4-8e14-948b9c6db3b9",
-      "comment": "",
-      "command": "mouseUpAt",
-      "target": "css=.mapboxgl-canvas",
-      "targets": [
-        ["css=.mapboxgl-canvas", "css:finder"],
-        ["xpath=//div[@id='map']/div[2]/canvas", "xpath:idRelative"],
-        ["xpath=//canvas", "xpath:position"]
-      ],
-      "value": "585.0115737915039,185.61341857910156"
-    }, {
-      "id": "bf5b5311-507d-4695-8ec5-daf7799dc38a",
-      "comment": "",
-      "command": "click",
-      "target": "css=.mapboxgl-canvas",
-      "targets": [
-        ["css=.mapboxgl-canvas", "css:finder"],
-        ["xpath=//div[@id='map']/div[2]/canvas", "xpath:idRelative"],
-        ["xpath=//canvas", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "4e6108cf-b286-4b89-b714-48ede1b378de",
-      "comment": "",
-      "command": "mouseDownAt",
-      "target": "css=.mapboxgl-canvas",
-      "targets": [
-        ["css=.mapboxgl-canvas", "css:finder"],
-        ["xpath=//div[@id='map']/div[2]/canvas", "xpath:idRelative"],
-        ["xpath=//canvas", "xpath:position"]
-      ],
-      "value": "564.0115737915039,312.61341857910156"
-    }, {
-      "id": "7d0d1b95-a895-4521-9aa1-e9e2a0ea87cf",
-      "comment": "",
-      "command": "mouseMoveAt",
-      "target": "css=.mapboxgl-canvas",
-      "targets": [
-        ["css=.mapboxgl-canvas", "css:finder"],
-        ["xpath=//div[@id='map']/div[2]/canvas", "xpath:idRelative"],
-        ["xpath=//canvas", "xpath:position"]
-      ],
-      "value": "564.0115737915039,312.61341857910156"
-    }, {
-      "id": "438fbe0b-d5a1-4fb1-ac63-bf688dfdd25a",
-      "comment": "",
-      "command": "mouseUpAt",
-      "target": "css=.mapboxgl-canvas",
-      "targets": [
-        ["css=.mapboxgl-canvas", "css:finder"],
-        ["xpath=//div[@id='map']/div[2]/canvas", "xpath:idRelative"],
-        ["xpath=//canvas", "xpath:position"]
-      ],
-      "value": "564.0115737915039,312.61341857910156"
-    }, {
-      "id": "9430e194-d306-4131-a19f-15b2d9b3452c",
-      "comment": "",
-      "command": "mouseDownAt",
-      "target": "css=.mapboxgl-canvas",
-      "targets": [
-        ["css=.mapboxgl-canvas", "css:finder"],
-        ["xpath=//div[@id='map']/div[2]/canvas", "xpath:idRelative"],
-        ["xpath=//canvas", "xpath:position"]
-      ],
-      "value": "522.0115737915039,295.61341857910156"
-    }, {
-      "id": "44ae7d43-7317-41f9-8152-a2d57588e61d",
-      "comment": "",
-      "command": "mouseMoveAt",
-      "target": "css=.mapboxgl-canvas",
-      "targets": [
-        ["css=.mapboxgl-canvas", "css:finder"],
-        ["xpath=//div[@id='map']/div[2]/canvas", "xpath:idRelative"],
-        ["xpath=//canvas", "xpath:position"]
-      ],
-      "value": "522.0115737915039,295.61341857910156"
-    }, {
-      "id": "ea134e55-0c85-44e0-8d8b-f8785a6a1d22",
-      "comment": "",
-      "command": "mouseUpAt",
-      "target": "css=.mapboxgl-canvas",
-      "targets": [
-        ["css=.mapboxgl-canvas", "css:finder"],
-        ["xpath=//div[@id='map']/div[2]/canvas", "xpath:idRelative"],
-        ["xpath=//canvas", "xpath:position"]
-      ],
-      "value": "522.0115737915039,295.61341857910156"
-    }, {
-      "id": "9b5879d6-b20d-4b73-8f84-960e09d141a4",
+      "id": "896a3917-c2fe-4270-843b-8e3bf96c2c88",
       "comment": "",
       "command": "click",
       "target": "id=navbarDropdown",
@@ -1148,7 +1223,7 @@
       ],
       "value": ""
     }, {
-      "id": "94f00eb5-de78-47d6-a74b-304f2a1825fe",
+      "id": "ca8bd886-3a32-45d1-a685-a2aa41b73cbd",
       "comment": "",
       "command": "click",
       "target": "linkText=Historical real-time",
@@ -1163,7 +1238,7 @@
       ],
       "value": ""
     }, {
-      "id": "9e26c4ad-64b5-4d6e-8707-5c4fb236f85d",
+      "id": "4f9f0cf8-5ab8-4c7a-924e-73a7f5fb86c7",
       "comment": "",
       "command": "click",
       "target": "css=.mapboxgl-canvas",
@@ -1174,7 +1249,7 @@
       ],
       "value": ""
     }, {
-      "id": "2b73ce32-96c8-4618-a8a9-3c45334f6326",
+      "id": "2626a42d-eb4a-45a7-ab43-fc020bdb71a2",
       "comment": "",
       "command": "click",
       "target": "css=.mapboxgl-canvas",
@@ -1185,7 +1260,7 @@
       ],
       "value": ""
     }, {
-      "id": "e1c09afd-c74c-40f8-b7d3-a169780dede9",
+      "id": "152ef686-9881-457c-afbd-9e9093c9e126",
       "comment": "",
       "command": "click",
       "target": "id=startDate",
@@ -1199,7 +1274,7 @@
       ],
       "value": ""
     }, {
-      "id": "aaf6679a-711d-4f6c-8b68-3f7cbfc0cea9",
+      "id": "6b0592b0-ddb0-40db-98b9-9701af40bda8",
       "comment": "",
       "command": "type",
       "target": "id=startDate",
@@ -1211,9 +1286,9 @@
         ["xpath=//dl[@id='startDate_field']/dd/input", "xpath:idRelative"],
         ["xpath=//input", "xpath:position"]
       ],
-      "value": "2019-03-14"
+      "value": "2019-03-19"
     }, {
-      "id": "895567e0-5b8b-46f0-bb38-076b70b57366",
+      "id": "7dedf787-6147-4382-9a8d-43c6fefeacab",
       "comment": "",
       "command": "click",
       "target": "id=endDate",
@@ -1227,7 +1302,7 @@
       ],
       "value": ""
     }, {
-      "id": "40855b91-bd28-4f46-be3f-260453b39d36",
+      "id": "296f0bdf-cd01-4dea-8728-705950b9f942",
       "comment": "",
       "command": "type",
       "target": "id=endDate",
@@ -1239,9 +1314,9 @@
         ["xpath=//dl[@id='endDate_field']/dd/input", "xpath:idRelative"],
         ["xpath=//dl[2]/dd/input", "xpath:position"]
       ],
-      "value": "2019-03-15"
+      "value": "2019-03-20"
     }, {
-      "id": "7d8ad245-7289-48b4-86a5-03c243aff4c1",
+      "id": "61fe5607-1d90-4510-864c-a7eeaf8451c7",
       "comment": "",
       "command": "click",
       "target": "id=day",
@@ -1255,14 +1330,14 @@
       ],
       "value": ""
     }, {
-      "id": "a8fc68df-7209-47e8-b0fc-872cfac39ff0",
+      "id": "311fdeaa-e8d0-479c-8784-23e73a442d71",
       "comment": "",
       "command": "select",
       "target": "id=day",
       "targets": [],
       "value": "label=Monday"
     }, {
-      "id": "a343cbc8-2878-4dfe-af96-a685b5085204",
+      "id": "81ae4967-ed08-474b-896b-35370e6d123c",
       "comment": "",
       "command": "click",
       "target": "id=day",
@@ -1276,7 +1351,7 @@
       ],
       "value": ""
     }, {
-      "id": "757c3411-abc0-421b-94f5-f559286e28df",
+      "id": "69cbbc85-882d-4078-82d6-8e5a2ac5d1f9",
       "comment": "",
       "command": "click",
       "target": "id=startHour",
@@ -1290,14 +1365,7 @@
       ],
       "value": ""
     }, {
-      "id": "ae274fab-fb1c-4d3d-99c4-51fb7dbcca12",
-      "comment": "",
-      "command": "select",
-      "target": "id=startHour",
-      "targets": [],
-      "value": "label=14"
-    }, {
-      "id": "6cde60b2-8782-481a-8898-e63efbf268f5",
+      "id": "54d645fe-2437-4f24-989d-7bc5584ebac7",
       "comment": "",
       "command": "click",
       "target": "id=startHour",
@@ -1311,7 +1379,28 @@
       ],
       "value": ""
     }, {
-      "id": "224043f6-396b-418d-bf85-cf20f51d688e",
+      "id": "17988b25-cfa1-40d0-8c10-931fa171b7cb",
+      "comment": "",
+      "command": "select",
+      "target": "id=startHour",
+      "targets": [],
+      "value": "label=03"
+    }, {
+      "id": "861c9b04-4d8d-4e48-bbd2-554b1224d326",
+      "comment": "",
+      "command": "click",
+      "target": "id=startHour",
+      "targets": [
+        ["id=startHour", "id"],
+        ["name=startHour", "name"],
+        ["css=#startHour", "css:finder"],
+        ["xpath=//select[@id='startHour']", "xpath:attributes"],
+        ["xpath=//dl[@id='startHour_field']/dd/select", "xpath:idRelative"],
+        ["xpath=//dl[4]/dd/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "de6166d8-9757-4914-a2ba-8bdfd32fed6f",
       "comment": "",
       "command": "click",
       "target": "id=endHour",
@@ -1325,14 +1414,14 @@
       ],
       "value": ""
     }, {
-      "id": "2386dba3-4b71-4824-b552-c22a9ce81eb3",
+      "id": "99643468-975c-4096-840f-822fdd173186",
       "comment": "",
       "command": "select",
       "target": "id=endHour",
       "targets": [],
-      "value": "label=15"
+      "value": "label=05"
     }, {
-      "id": "0524c320-3372-465c-9675-2a1fc12b100c",
+      "id": "08e0c214-5c07-43b0-af36-4b8053caf7de",
       "comment": "",
       "command": "click",
       "target": "id=endHour",
@@ -1346,7 +1435,7 @@
       ],
       "value": ""
     }, {
-      "id": "71669e8c-de06-46cf-844e-df8ddf58c3e7",
+      "id": "9a7f0dfb-fd57-429b-8164-df5596416f6b",
       "comment": "",
       "command": "click",
       "target": "id=submit",
@@ -1358,87 +1447,7 @@
       ],
       "value": ""
     }, {
-      "id": "71520ee8-ab47-4ccf-b178-5258d95e530e",
-      "comment": "",
-      "command": "click",
-      "target": "css=.marker:nth-child(3)",
-      "targets": [
-        ["css=.marker:nth-child(3)", "css:finder"],
-        ["xpath=//div[@id='map']/div[2]/div[2]", "xpath:idRelative"],
-        ["xpath=//div[2]/div[2]", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "2910d9bf-f8fa-4915-a21f-03f8fa9a2d02",
-      "comment": "",
-      "command": "click",
-      "target": "css=.mapboxgl-popup-close-button",
-      "targets": [
-        ["css=.mapboxgl-popup-close-button", "css:finder"],
-        ["xpath=(//button[@type='button'])[2]", "xpath:attributes"],
-        ["xpath=//div[@id='map']/div[4]/div[2]/button", "xpath:idRelative"],
-        ["xpath=//div[2]/button", "xpath:position"],
-        ["xpath=//button[contains(.,'×')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "934aa1a2-b192-4644-831a-b8594b656f5c",
-      "comment": "",
-      "command": "click",
-      "target": "css=.marker:nth-child(2)",
-      "targets": [
-        ["css=.marker:nth-child(2)", "css:finder"],
-        ["xpath=//div[@id='map']/div[2]/div", "xpath:idRelative"],
-        ["xpath=//div[2]/div", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "542ba424-9e10-421b-9d91-25610949ca45",
-      "comment": "",
-      "command": "click",
-      "target": "css=.mapboxgl-popup-close-button",
-      "targets": [
-        ["css=.mapboxgl-popup-close-button", "css:finder"],
-        ["xpath=(//button[@type='button'])[2]", "xpath:attributes"],
-        ["xpath=//div[@id='map']/div[4]/div[2]/button", "xpath:idRelative"],
-        ["xpath=//div[2]/button", "xpath:position"],
-        ["xpath=//button[contains(.,'×')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "7c19d20c-0101-4494-814e-50398c4f4426",
-      "comment": "",
-      "command": "click",
-      "target": "linkText=Fast Lane",
-      "targets": [
-        ["linkText=Fast Lane", "linkText"],
-        ["css=.navbar-brand", "css:finder"],
-        ["xpath=//a[contains(text(),'Fast Lane')]", "xpath:link"],
-        ["xpath=//a[contains(@href, '/')]", "xpath:href"],
-        ["xpath=//a", "xpath:position"],
-        ["xpath=//a[contains(.,'Fast Lane')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }]
-  }, {
-    "id": "8bc9d693-4f53-44fe-bf17-e227e6844cdb",
-    "name": "E2E-6",
-    "commands": [{
-      "id": "357e912e-fd37-4adf-a506-d144472005b3",
-      "comment": "",
-      "command": "open",
-      "target": "/",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "639c8de7-3bb4-45b8-b7da-1030b9724f86",
-      "comment": "",
-      "command": "setWindowSize",
-      "target": "1280x680",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "0519e119-6477-48ce-80e8-06db657cd481",
+      "id": "a8de19e1-3a9e-4064-afcb-8853f3f9ac2c",
       "comment": "",
       "command": "click",
       "target": "id=navbarDropdown",
@@ -1454,7 +1463,57 @@
       ],
       "value": ""
     }, {
-      "id": "3135d89a-0c15-4090-ba44-b4fc862dec85",
+      "id": "90b7e7de-812f-4631-bd53-21c94e449d4f",
+      "comment": "",
+      "command": "click",
+      "target": "id=navbarDropdown",
+      "targets": [
+        ["id=navbarDropdown", "id"],
+        ["linkText=Calculate Data", "linkText"],
+        ["css=#navbarDropdown", "css:finder"],
+        ["xpath=//a[contains(text(),'Calculate Data')]", "xpath:link"],
+        ["xpath=//a[@id='navbarDropdown']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarSupportedContent']/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '#')]", "xpath:href"],
+        ["xpath=//li/a", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "86b04b80-d83d-4bee-80cc-c3f89cb8093c",
+    "name": "E2E-6",
+    "commands": [{
+      "id": "64b4cddd-f805-4991-83d5-813d567fe55b",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:9000/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "848dc207-b8ab-4389-bcff-65a649cef99f",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1280x680",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a7a0ba6d-2068-4b25-8011-1cb91813dcee",
+      "comment": "",
+      "command": "click",
+      "target": "id=navbarDropdown",
+      "targets": [
+        ["id=navbarDropdown", "id"],
+        ["linkText=Calculate Data", "linkText"],
+        ["css=#navbarDropdown", "css:finder"],
+        ["xpath=//a[contains(text(),'Calculate Data')]", "xpath:link"],
+        ["xpath=//a[@id='navbarDropdown']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarSupportedContent']/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '#')]", "xpath:href"],
+        ["xpath=//li/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3efd5402-72c5-41fc-b792-f19ae5cf0ecd",
       "comment": "",
       "command": "click",
       "target": "linkText=Passengers count",
@@ -1469,7 +1528,7 @@
       ],
       "value": ""
     }, {
-      "id": "a03ba19d-69ab-4e3a-bbcd-10ac9e0155d9",
+      "id": "1171f354-3d3a-4d57-8ba1-787ad60a9e2a",
       "comment": "",
       "command": "click",
       "target": "css=.mapboxgl-canvas",
@@ -1480,7 +1539,7 @@
       ],
       "value": ""
     }, {
-      "id": "65602b90-ccec-499c-84d5-ec970810c131",
+      "id": "e7b38eb5-858c-4923-92e8-1026c48d5329",
       "comment": "",
       "command": "click",
       "target": "css=.mapboxgl-canvas",
@@ -1491,7 +1550,63 @@
       ],
       "value": ""
     }, {
-      "id": "de1c2d46-1e92-4a9a-99c7-12db9d53c120",
+      "id": "7f6afad9-d08f-491a-9bdb-6bd23c1534c6",
+      "comment": "",
+      "command": "click",
+      "target": "id=startDate",
+      "targets": [
+        ["id=startDate", "id"],
+        ["name=startDate", "name"],
+        ["css=#startDate", "css:finder"],
+        ["xpath=//input[@id='startDate']", "xpath:attributes"],
+        ["xpath=//dl[@id='startDate_field']/dd/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "009c493c-28a6-4615-aa60-4d8a9f210700",
+      "comment": "",
+      "command": "type",
+      "target": "id=startDate",
+      "targets": [
+        ["id=startDate", "id"],
+        ["name=startDate", "name"],
+        ["css=#startDate", "css:finder"],
+        ["xpath=//input[@id='startDate']", "xpath:attributes"],
+        ["xpath=//dl[@id='startDate_field']/dd/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "2019-03-19"
+    }, {
+      "id": "6d1b9ebf-9647-46bb-9e87-7e71cafc5f77",
+      "comment": "",
+      "command": "click",
+      "target": "id=endDate",
+      "targets": [
+        ["id=endDate", "id"],
+        ["name=endDate", "name"],
+        ["css=#endDate", "css:finder"],
+        ["xpath=//input[@id='endDate']", "xpath:attributes"],
+        ["xpath=//dl[@id='endDate_field']/dd/input", "xpath:idRelative"],
+        ["xpath=//dl[2]/dd/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4f7bdf7f-4be7-4e25-a640-ef0694c01cdc",
+      "comment": "",
+      "command": "type",
+      "target": "id=endDate",
+      "targets": [
+        ["id=endDate", "id"],
+        ["name=endDate", "name"],
+        ["css=#endDate", "css:finder"],
+        ["xpath=//input[@id='endDate']", "xpath:attributes"],
+        ["xpath=//dl[@id='endDate_field']/dd/input", "xpath:idRelative"],
+        ["xpath=//dl[2]/dd/input", "xpath:position"]
+      ],
+      "value": "2019-03-20"
+    }, {
+      "id": "3e11da57-4b00-47c9-aea3-004f91b1d384",
       "comment": "",
       "command": "click",
       "target": "id=day",
@@ -1505,14 +1620,14 @@
       ],
       "value": ""
     }, {
-      "id": "e5c8ae7b-5f15-4693-a638-e282bb1d36b6",
+      "id": "7f386898-0d32-4598-b7e8-ba1759c89616",
       "comment": "",
       "command": "select",
       "target": "id=day",
       "targets": [],
       "value": "label=Sunday"
     }, {
-      "id": "09384b3b-f4fd-4d3e-80f7-5df92781dcd4",
+      "id": "e5098364-0bc0-4ccb-b263-49554062ea06",
       "comment": "",
       "command": "click",
       "target": "id=day",
@@ -1526,7 +1641,7 @@
       ],
       "value": ""
     }, {
-      "id": "b0f4d6e2-d928-4852-b4cb-5ab0ff136955",
+      "id": "42fed992-b83b-4854-9f7e-c1013945e822",
       "comment": "",
       "command": "click",
       "target": "id=startHour",
@@ -1540,14 +1655,14 @@
       ],
       "value": ""
     }, {
-      "id": "e621b85f-935c-4a3e-8a46-d15a86fcf0b4",
+      "id": "46e75e70-2e8b-4ac4-b229-3dcb5d2789ac",
       "comment": "",
       "command": "select",
       "target": "id=startHour",
       "targets": [],
-      "value": "label=17"
+      "value": "label=04"
     }, {
-      "id": "327045c0-7256-4e1a-a5c7-1a534d7d102c",
+      "id": "e89a3c04-21e2-4e7e-8087-eca6b9bbf388",
       "comment": "",
       "command": "click",
       "target": "id=startHour",
@@ -1561,7 +1676,7 @@
       ],
       "value": ""
     }, {
-      "id": "6b1f09a1-9d93-42a7-aad3-f03ba39481fa",
+      "id": "2cf5cb1a-7caa-4286-8073-f2496f1373a0",
       "comment": "",
       "command": "click",
       "target": "id=endHour",
@@ -1575,14 +1690,14 @@
       ],
       "value": ""
     }, {
-      "id": "e395b274-2709-4c18-8af8-ca502025f9cb",
+      "id": "f2a9073e-c8f9-4597-bf36-ba3a013d11a9",
       "comment": "",
       "command": "select",
       "target": "id=endHour",
       "targets": [],
-      "value": "label=18"
+      "value": "label=05"
     }, {
-      "id": "f72e8f53-3aac-4412-b563-598c2984325e",
+      "id": "7c29df45-0e1d-419d-b014-a46c4e7bc698",
       "comment": "",
       "command": "click",
       "target": "id=endHour",
@@ -1596,7 +1711,7 @@
       ],
       "value": ""
     }, {
-      "id": "e00855bb-ba41-4075-8f3e-6518c0c94dd6",
+      "id": "b2fce44f-8078-42c1-8f38-ea8f174a273f",
       "comment": "",
       "command": "click",
       "target": "id=minPassengersForPublicLane",
@@ -1606,11 +1721,11 @@
         ["css=#minPassengersForPublicLane", "css:finder"],
         ["xpath=//input[@id='minPassengersForPublicLane']", "xpath:attributes"],
         ["xpath=//dl[@id='minPassengersForPublicLane_field']/dd/input", "xpath:idRelative"],
-        ["xpath=//dl[6]/dd/input", "xpath:position"]
+        ["xpath=//dl[7]/dd/input", "xpath:position"]
       ],
       "value": ""
     }, {
-      "id": "36e2c913-75af-434e-9ff4-d66fa6799cf5",
+      "id": "085f7fd6-a8bc-447d-8c00-11edf89b1ee6",
       "comment": "",
       "command": "type",
       "target": "id=minPassengersForPublicLane",
@@ -1620,21 +1735,21 @@
         ["css=#minPassengersForPublicLane", "css:finder"],
         ["xpath=//input[@id='minPassengersForPublicLane']", "xpath:attributes"],
         ["xpath=//dl[@id='minPassengersForPublicLane_field']/dd/input", "xpath:idRelative"],
-        ["xpath=//dl[6]/dd/input", "xpath:position"]
+        ["xpath=//dl[7]/dd/input", "xpath:position"]
       ],
-      "value": "100"
+      "value": "10"
     }, {
-      "id": "f24b792a-2edf-4b68-8ce0-3386a4062066",
+      "id": "2731ef55-151b-404b-b7ed-1bdbf1db01e5",
       "comment": "",
       "command": "click",
-      "target": "css=body",
+      "target": "css=.grid-container",
       "targets": [
-        ["css=body", "css:finder"],
-        ["xpath=//body", "xpath:position"]
+        ["css=.grid-container", "css:finder"],
+        ["xpath=//div[2]", "xpath:position"]
       ],
       "value": ""
     }, {
-      "id": "a462b047-6f20-4861-9e84-553ceef5d617",
+      "id": "c301deec-d3a8-4362-8d74-cd702e0e42c6",
       "comment": "",
       "command": "click",
       "target": "id=submit",
@@ -1646,7 +1761,7 @@
       ],
       "value": ""
     }, {
-      "id": "44f2a727-4a49-4bea-8e0c-e0e66fa8c988",
+      "id": "27f769f2-565d-4b28-8dbc-b0e07bcd1034",
       "comment": "",
       "command": "mouseDownAt",
       "target": "css=.mapboxgl-canvas",
@@ -1655,9 +1770,9 @@
         ["xpath=//div[@id='map']/div[2]/canvas", "xpath:idRelative"],
         ["xpath=//canvas", "xpath:position"]
       ],
-      "value": "535.0115737915039,120.61341857910156"
+      "value": "519.0115737915039,160.61341857910156"
     }, {
-      "id": "aeb2f410-ec8c-44f1-9bbd-2f22c9f8133e",
+      "id": "55e979af-5b03-43d4-9f14-9d55b523ed17",
       "comment": "",
       "command": "mouseMoveAt",
       "target": "css=.mapboxgl-canvas",
@@ -1666,9 +1781,9 @@
         ["xpath=//div[@id='map']/div[2]/canvas", "xpath:idRelative"],
         ["xpath=//canvas", "xpath:position"]
       ],
-      "value": "535.0115737915039,120.61341857910156"
+      "value": "519.0115737915039,160.61341857910156"
     }, {
-      "id": "4fb2b77c-ab6a-4d2e-9517-7c20a2b73f33",
+      "id": "fc4474a3-58da-4513-baf7-c75e9457fb91",
       "comment": "",
       "command": "mouseUpAt",
       "target": "css=.mapboxgl-canvas",
@@ -1677,9 +1792,9 @@
         ["xpath=//div[@id='map']/div[2]/canvas", "xpath:idRelative"],
         ["xpath=//canvas", "xpath:position"]
       ],
-      "value": "535.0115737915039,120.61341857910156"
+      "value": "519.0115737915039,160.61341857910156"
     }, {
-      "id": "bdc529f8-7b60-498d-904a-adf4ac33c3d2",
+      "id": "e33e93d1-3dd0-482b-8bf7-1e18d30d81ef",
       "comment": "",
       "command": "mouseDownAt",
       "target": "css=.mapboxgl-canvas",
@@ -1688,9 +1803,9 @@
         ["xpath=//div[@id='map']/div[2]/canvas", "xpath:idRelative"],
         ["xpath=//canvas", "xpath:position"]
       ],
-      "value": "658.0115737915039,158.61341857910156"
+      "value": "629.0115737915039,281.61341857910156"
     }, {
-      "id": "eb46c7ce-052c-4e81-bf4f-986ba5e6af4a",
+      "id": "2fbe34c2-9e3f-4829-9d35-387ee82b8491",
       "comment": "",
       "command": "mouseMoveAt",
       "target": "css=.mapboxgl-canvas",
@@ -1699,9 +1814,9 @@
         ["xpath=//div[@id='map']/div[2]/canvas", "xpath:idRelative"],
         ["xpath=//canvas", "xpath:position"]
       ],
-      "value": "658.0115737915039,158.61341857910156"
+      "value": "629.0115737915039,281.61341857910156"
     }, {
-      "id": "10a7a0a7-395d-41ac-866f-d0683a462b2b",
+      "id": "1cf86494-ddf8-4b27-b847-7d840e55a583",
       "comment": "",
       "command": "mouseUpAt",
       "target": "css=.mapboxgl-canvas",
@@ -1710,38 +1825,27 @@
         ["xpath=//div[@id='map']/div[2]/canvas", "xpath:idRelative"],
         ["xpath=//canvas", "xpath:position"]
       ],
-      "value": "658.0115737915039,158.61341857910156"
-    }, {
-      "id": "c84c3ea1-51ea-4807-b155-1d2a0ad063ec",
-      "comment": "",
-      "command": "click",
-      "target": "css=.mapboxgl-canvas",
-      "targets": [
-        ["css=.mapboxgl-canvas", "css:finder"],
-        ["xpath=//div[@id='map']/div[2]/canvas", "xpath:idRelative"],
-        ["xpath=//canvas", "xpath:position"]
-      ],
-      "value": ""
+      "value": "629.0115737915039,281.61341857910156"
     }]
   }, {
-    "id": "af8e8a5c-0e2c-4545-abad-ca59cc1c67bb",
+    "id": "62cd2353-41ee-4217-89ba-88774e5367e2",
     "name": "E2E-7",
     "commands": [{
-      "id": "c330b9d5-357d-40bc-b796-29f150955c42",
+      "id": "88867b36-b95b-4915-9515-a3cbe1f02f94",
       "comment": "",
       "command": "open",
-      "target": "/",
+      "target": "http://localhost:9000/",
       "targets": [],
       "value": ""
     }, {
-      "id": "9ca7b8ca-5238-4f02-a8b8-1cd28ab0d2c7",
+      "id": "cfef4528-5526-48d2-ad05-f6698af021b4",
       "comment": "",
       "command": "setWindowSize",
       "target": "1280x680",
       "targets": [],
       "value": ""
     }, {
-      "id": "c17cf774-f5a8-49d6-8108-2c926194b30f",
+      "id": "3e616bb4-6b3d-4284-b11d-2660a5d30719",
       "comment": "",
       "command": "click",
       "target": "id=navbarDropdown",
@@ -1757,7 +1861,7 @@
       ],
       "value": ""
     }, {
-      "id": "e748f691-5b14-4adf-883f-7ca5e51411ec",
+      "id": "d68d0988-f05c-4eee-91d5-a2ee67302d7e",
       "comment": "",
       "command": "click",
       "target": "linkText=Historical real-time",
@@ -1772,7 +1876,7 @@
       ],
       "value": ""
     }, {
-      "id": "19f66b5f-e915-4cd3-9e46-90ecb0e546ea",
+      "id": "7ee26bf8-b00c-49b7-a7cf-82d0efb7d657",
       "comment": "",
       "command": "click",
       "target": "css=.mapboxgl-canvas",
@@ -1783,7 +1887,7 @@
       ],
       "value": ""
     }, {
-      "id": "6b6d883b-284f-418a-aa7d-3e1edd1f0788",
+      "id": "9f9ecd3e-d5f0-44e4-82d8-fe5d225c8157",
       "comment": "",
       "command": "click",
       "target": "css=.mapboxgl-canvas",
@@ -1794,7 +1898,77 @@
       ],
       "value": ""
     }, {
-      "id": "c35bba8f-e302-41b9-baf5-923c0298c48e",
+      "id": "8428367c-b371-45b3-af8b-a5dfb6617321",
+      "comment": "",
+      "command": "click",
+      "target": "id=startDate",
+      "targets": [
+        ["id=startDate", "id"],
+        ["name=startDate", "name"],
+        ["css=#startDate", "css:finder"],
+        ["xpath=//input[@id='startDate']", "xpath:attributes"],
+        ["xpath=//dl[@id='startDate_field']/dd/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "86dbab44-7142-4df4-a1da-161986330229",
+      "comment": "",
+      "command": "type",
+      "target": "id=startDate",
+      "targets": [
+        ["id=startDate", "id"],
+        ["name=startDate", "name"],
+        ["css=#startDate", "css:finder"],
+        ["xpath=//input[@id='startDate']", "xpath:attributes"],
+        ["xpath=//dl[@id='startDate_field']/dd/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "2019-03-19"
+    }, {
+      "id": "ae0dddb4-88e2-44d8-ac37-241f4a1c0819",
+      "comment": "",
+      "command": "click",
+      "target": "id=endDate",
+      "targets": [
+        ["id=endDate", "id"],
+        ["name=endDate", "name"],
+        ["css=#endDate", "css:finder"],
+        ["xpath=//input[@id='endDate']", "xpath:attributes"],
+        ["xpath=//dl[@id='endDate_field']/dd/input", "xpath:idRelative"],
+        ["xpath=//dl[2]/dd/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "bd17b515-0ae9-4a40-abb2-252ba975d6e6",
+      "comment": "",
+      "command": "click",
+      "target": "id=endDate",
+      "targets": [
+        ["id=endDate", "id"],
+        ["name=endDate", "name"],
+        ["css=#endDate", "css:finder"],
+        ["xpath=//input[@id='endDate']", "xpath:attributes"],
+        ["xpath=//dl[@id='endDate_field']/dd/input", "xpath:idRelative"],
+        ["xpath=//dl[2]/dd/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "08962461-99af-47d9-9a44-31408fac337c",
+      "comment": "",
+      "command": "type",
+      "target": "id=endDate",
+      "targets": [
+        ["id=endDate", "id"],
+        ["name=endDate", "name"],
+        ["css=#endDate", "css:finder"],
+        ["xpath=//input[@id='endDate']", "xpath:attributes"],
+        ["xpath=//dl[@id='endDate_field']/dd/input", "xpath:idRelative"],
+        ["xpath=//dl[2]/dd/input", "xpath:position"]
+      ],
+      "value": "2019-03-20"
+    }, {
+      "id": "12d13023-aac7-4ae3-8e28-1e08332291da",
       "comment": "",
       "command": "click",
       "target": "id=day",
@@ -1808,14 +1982,14 @@
       ],
       "value": ""
     }, {
-      "id": "19abbc69-b5a5-4f59-b7f3-0ae4bb69323b",
+      "id": "3ce47081-9bfc-4522-bacd-642150a43dea",
       "comment": "",
       "command": "select",
       "target": "id=day",
       "targets": [],
-      "value": "label=Monday"
+      "value": "label=Sunday"
     }, {
-      "id": "5968eef2-85f4-41f6-9958-a1f8e5d83595",
+      "id": "7e1c3f9d-7762-47c3-aeb5-074111cdf35a",
       "comment": "",
       "command": "click",
       "target": "id=day",
@@ -1829,7 +2003,7 @@
       ],
       "value": ""
     }, {
-      "id": "961c1f8b-90ff-459c-8d94-eacfd0f51b18",
+      "id": "d5ab0359-c37f-464d-a457-3e13facb512e",
       "comment": "",
       "command": "click",
       "target": "id=startHour",
@@ -1843,14 +2017,14 @@
       ],
       "value": ""
     }, {
-      "id": "4289a031-29b5-436d-88d7-1288f2c9d28c",
+      "id": "320c439e-62ba-43e5-b0a9-10ff4b672ed4",
       "comment": "",
       "command": "select",
       "target": "id=startHour",
       "targets": [],
-      "value": "label=17"
+      "value": "label=02"
     }, {
-      "id": "42ea0a45-d13a-4f75-9e77-4edf79de4c3c",
+      "id": "fb0f538b-f7f5-4fe2-890b-731b79bd93f6",
       "comment": "",
       "command": "click",
       "target": "id=startHour",
@@ -1864,7 +2038,7 @@
       ],
       "value": ""
     }, {
-      "id": "0c9fe36a-0c12-4200-8d47-c732cd4450ab",
+      "id": "aaa76898-57bf-4a36-87a4-97729d0a2442",
       "comment": "",
       "command": "click",
       "target": "id=endHour",
@@ -1878,14 +2052,14 @@
       ],
       "value": ""
     }, {
-      "id": "a28817af-1721-48a2-b78b-cdef98490a4b",
+      "id": "cb4d5db3-a7a2-457f-97ad-cbe6e21edfa5",
       "comment": "",
       "command": "select",
       "target": "id=endHour",
       "targets": [],
-      "value": "label=18"
+      "value": "label=07"
     }, {
-      "id": "a3cb0b50-1671-4aa1-bfd9-85495aa00115",
+      "id": "5a2f1353-9bb9-4b8f-ab2b-bc622d64c729",
       "comment": "",
       "command": "click",
       "target": "id=endHour",
@@ -1899,7 +2073,7 @@
       ],
       "value": ""
     }, {
-      "id": "722b1ff7-2a6c-4eb3-a4ad-37f62f9fbbfa",
+      "id": "a23653aa-3746-4b5a-ab46-b67043e60083",
       "comment": "",
       "command": "click",
       "target": "id=submit",
@@ -1911,40 +2085,31 @@
       ],
       "value": ""
     }, {
-      "id": "bbb6256a-a0a4-495f-86f0-7f4d42251142",
+      "id": "8f875d85-bdd5-4048-9bdf-73d93aae3c43",
       "comment": "",
       "command": "click",
-      "target": "css=.marker:nth-child(3)",
+      "target": "css=.marker2:nth-child(5)",
       "targets": [
-        ["css=.marker:nth-child(3)", "css:finder"],
-        ["xpath=//div[@id='map']/div[2]/div[2]", "xpath:idRelative"],
-        ["xpath=//div[2]/div[2]", "xpath:position"]
+        ["css=.marker2:nth-child(5)", "css:finder"],
+        ["xpath=//div[@id='map']/div[2]/div[4]", "xpath:idRelative"],
+        ["xpath=//div[4]", "xpath:position"]
       ],
       "value": ""
     }, {
-      "id": "da65c23e-1d7a-4ecf-8d52-418a6b65b1b6",
+      "id": "2a9d0794-f885-4a59-8c94-a05c717aaf65",
       "comment": "",
       "command": "click",
-      "target": "css=.marker:nth-child(3)",
+      "target": "css=.mapboxgl-popup-close-button",
       "targets": [
-        ["css=.marker:nth-child(3)", "css:finder"],
-        ["xpath=//div[@id='map']/div[2]/div[2]", "xpath:idRelative"],
-        ["xpath=//div[2]/div[2]", "xpath:position"]
+        ["css=.mapboxgl-popup-close-button", "css:finder"],
+        ["xpath=(//button[@type='button'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='map']/div[4]/div[2]/button", "xpath:idRelative"],
+        ["xpath=//div[2]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'×')]", "xpath:innerText"]
       ],
       "value": ""
     }, {
-      "id": "5bd9788f-79db-4c41-abc2-13a4ef134848",
-      "comment": "",
-      "command": "click",
-      "target": "css=.mapboxgl-canvas",
-      "targets": [
-        ["css=.mapboxgl-canvas", "css:finder"],
-        ["xpath=//div[@id='map']/div[2]/canvas", "xpath:idRelative"],
-        ["xpath=//canvas", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "ef393fb6-7398-456f-bca3-3fedaa0ad016",
+      "id": "b1979e82-b9d9-4ef9-b9bb-f34b50a84b19",
       "comment": "",
       "command": "click",
       "target": "css=.marker:nth-child(2)",
@@ -1955,20 +2120,22 @@
       ],
       "value": ""
     }, {
-      "id": "cfa787e1-653c-4e2d-8bc5-912bee22bac3",
+      "id": "7d05bacc-d341-44e2-9f1c-6caa67dd8814",
       "comment": "",
       "command": "click",
-      "target": "css=.marker:nth-child(2)",
+      "target": "css=.mapboxgl-popup-close-button",
       "targets": [
-        ["css=.marker:nth-child(2)", "css:finder"],
-        ["xpath=//div[@id='map']/div[2]/div", "xpath:idRelative"],
-        ["xpath=//div[2]/div", "xpath:position"]
+        ["css=.mapboxgl-popup-close-button", "css:finder"],
+        ["xpath=(//button[@type='button'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='map']/div[4]/div[2]/button", "xpath:idRelative"],
+        ["xpath=//div[2]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'×')]", "xpath:innerText"]
       ],
       "value": ""
     }]
   }],
   "suites": [{
-    "id": "7fbc9b1a-5f80-43ad-8e66-abeef8ec183a",
+    "id": "9285e9fd-44d8-4612-8ff2-c6dc55088d1c",
     "name": "Default Suite",
     "persistSession": false,
     "parallel": false,
