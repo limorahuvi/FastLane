@@ -1,4 +1,4 @@
-@()
+@(stations: String)
 
 @main("Fast Lane") {
 }{
@@ -9,5 +9,7 @@
     <span align="right"><i class="fa fa-bus" style="font-size:50px;" ></i></span></h1>
 <h2 align="center" style="color:#404040;"><b>Visualizing MOT Data</b></h2>
 <p style="text-align:center; font-size:50px;"><img src="@routes.Assets.versioned("images/main.jpg")" ></p>
-
+<script type="text/javascript">
+    localStorage.setItem('stations','@stations');
+</script>
 }

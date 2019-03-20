@@ -58,6 +58,22 @@ public abstract class VisualizationForm implements Validatable<ValidationError>{
         this.endHour=endHour;
     }
 
+    public Date getEndDate() {
+        return endDate;
+    }
+
+    public Date getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
+
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
+    }
+
     // result
     public JsonNode getResult(){
         return result;
@@ -65,6 +81,7 @@ public abstract class VisualizationForm implements Validatable<ValidationError>{
 
     public void setResult(JsonNode result){
         this.result=result;
+        this.resultString=result.toString();
     }
 
     public String getResultString(){
@@ -86,7 +103,6 @@ public abstract class VisualizationForm implements Validatable<ValidationError>{
             return new ValidationError("endDate", "start date should be before end date");
         }
         if (Integer.parseInt(startHour)>Integer.parseInt(endHour)) {
-            // Error will be displayed for the email field:
             return new ValidationError("endHour", "start hour should be before end hour");
         }
         return null;

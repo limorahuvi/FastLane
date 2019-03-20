@@ -49,39 +49,7 @@ zoom: 13
 
 
 
-var geojson = {
-type: 'FeatureCollection',
-features: [{
-type: 'Feature',
-geometry: {
-type: 'Point',
-coordinates: [34.798256,31.260114]
-},
-properties: [{//pre
-average:2,
-description: ['line 3: 2 minutes', 'line 4 :2 minutes']
-},
-{ average:5,//late
-description: ['line 3: 5 minutes', 'line 4 :5 minutes']}]
-
-},
-{
-type: 'Feature',
-geometry: {
-type: 'Point',
-coordinates: [34.798262,31.265114]
-},
-properties: [{//pre
-average:3,
-description: ['line 3: 3 minutes', 'line 4 :3 minutes']
-},
-{ average:2,//late
-description: ['line 3: 2.2 minutes', 'line 4 :2.2 minutes']}]
-
-}
-
-]
-};
+var geojson = JSON.parse('@result.getResultString()'.replace(/&quot;/g,'"'));
 
 
 geojson.features.forEach(function(marker) {

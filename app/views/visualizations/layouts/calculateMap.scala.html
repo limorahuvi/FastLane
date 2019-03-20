@@ -24,7 +24,7 @@
             "type": "symbol",
             "source": {
                 "type": "geojson",
-                "data": stations
+                "data": JSON.parse(localStorage.getItem('stations').replace(/&quot;/g,'"'))
             },
             "layout": {
                 "icon-image": "bus-15",

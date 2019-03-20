@@ -1,4 +1,6 @@
 package controllers;
+import models.DevSchedForm;
+import models.PassengersCountForm;
 import play.data.Form;
 import play.data.FormFactory;
 import play.mvc.*;
@@ -19,9 +21,9 @@ public class HomeController extends Controller {
     @Inject
     FormFactory formFactory;
     public Result index() {
-        return ok(views.html.index.render());
+        return ok(views.html.index.render(models.queries.queries.getStations().toString()));
     }
-    public Result passengersCount() {
+    public Result passengersCount(){
         Form<PassengersCountForm> form = formFactory.form(PassengersCountForm.class);
         return ok(views.html.visualizations.passengersCount.passengersCount.render(form));
     }
