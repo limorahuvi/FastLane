@@ -1,8 +1,12 @@
 package models.entities;
 
-import io.ebean.Model;
 import org.postgis.Point;
+import java.util.*;
 
+import io.ebean.*;
+import play.data.format.*;
+import play.data.validation.*;
+import com.avaje.ebean.*;
 import javax.persistence.*;
 
 @Entity
@@ -29,4 +33,6 @@ public class Shape extends Model {
         this.point = point;
     }
 
+    public static final Finder<ShapeKey, Shape> find = new Finder<>(Shape.class);
+  //  public static final Finder_shapeID<Integer, Shape> find = new Finder<>(Shape.class);
 }

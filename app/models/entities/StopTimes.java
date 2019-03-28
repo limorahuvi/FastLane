@@ -7,6 +7,9 @@ import java.sql.Time;
 public class StopTimes {
 
     @EmbeddedId
+    @ManyToOne
+    @JoinColumn(name = "stop_id", referencedColumnName = "stop_id")
+    @JoinColumn(name = "trip_id", referencedColumnName = "trip_id")
     private StopTimesKey stKey;
     private Time departure_time;
     private Integer stop_sequence;

@@ -4,7 +4,7 @@
 		module="play-java-seed_2.12"
 		revision="1.0-SNAPSHOT"
 		status="integration"
-		publication="20190310145229"
+		publication="20190326115328"
 	>
 		<description>
 		play-java-seed
@@ -54,6 +54,8 @@
 		<dependency org="org.postgresql" name="postgresql" rev="42.1.4" conf="compile->default(compile)"/>
 		<dependency org="com.typesafe.play" name="play-guice_2.12" rev="2.6.20" conf="compile->default(compile)"/>
 		<dependency org="com.typesafe.play" name="play-java-jdbc_2.12" rev="2.6.20" conf="compile->default(compile)"/>
+		<dependency org="com.typesafe.play" name="play-jdbc-evolutions_2.12" rev="2.6.20" conf="compile->default(compile)"/>
+		<dependency org="com.typesafe.play" name="play-jdbc_2.12" rev="2.6.20" conf="compile->default(compile)"/>
 		<dependency org="org.avaje" name="ebean" rev="2.7.3" conf="compile->default(compile)"/>
 		<dependency org="javax.persistence" name="persistence-api" rev="1.0.2" conf="compile->default(compile)"/>
 		<dependency org="io.ebean" name="ebean-postgis" rev="11.1.1" conf="compile->default(compile)"/>
