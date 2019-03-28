@@ -7,6 +7,8 @@ public class ShapeKey {
     private Integer shape_id;
     private Integer shape_pt_sequence;
 
+    public ShapeKey() {}
+
     public ShapeKey(Integer s_id, Integer s_seq) {
         this.setShape_id(s_id);
         this.setShape_pt_sequence(s_seq);

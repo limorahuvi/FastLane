@@ -34,5 +34,4 @@ public class Shape extends Model {
     }
 
     public static final Finder<ShapeKey, Shape> find = new Finder<>(Shape.class);
-  //  public static final Finder_shapeID<Integer, Shape> find = new Finder<>(Shape.class);
 }

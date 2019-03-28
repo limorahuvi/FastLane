@@ -21,9 +21,7 @@ public class Trips extends Model{
     @JoinColumn(name = "service_id", referencedColumnName = "service_id")
     private Calendar service_id;
     private Boolean direction_id;
-    @ManyToOne
-    @JoinColumn(name = "shape_id", referencedColumnName = "shape_id")
-    private Shape shape_id;
+    private Integer shape_id;
 
     public static final Finder<Integer, Trips> find = new Finder<>(Trips.class);
 
@@ -59,11 +57,11 @@ public class Trips extends Model{
         this.direction_id = direction_id;
     }
 
-    public Shape getShape_id() {
+    public Integer getShape_id() {
         return shape_id;
     }
 
-    public void setShape_id(Shape shape_id) {
+    public void setShape_id(Integer shape_id) {
         this.shape_id = shape_id;
     }
 }

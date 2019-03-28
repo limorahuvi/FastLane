@@ -13,6 +13,7 @@ import java.io.IOException;
  */
 public class HomeController extends Controller {
 
+    Boolean once = true;
     /**
      * An action that renders an HTML page with a welcome message.
      * The configuration in the <code>routes</code> file means that
@@ -22,7 +23,10 @@ public class HomeController extends Controller {
     @Inject
     FormFactory formFactory;
     public Result index() {
-        initializeDB.insertDataToDB();
+        if (once) {
+            once=false;
+            initializeDB.insertDataToDB();
+        }
         return ok(views.html.index.render());
     }
     public Result passengersCount() {

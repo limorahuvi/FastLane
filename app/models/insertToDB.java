@@ -19,12 +19,14 @@ public class insertToDB {
 
     public insertToDB(String destDir) {
         try {
+            Logger.debug("starting to insert DB: ");
             isertToAgency(destDir);
             isertToRoutes(destDir);
             isertToStops(destDir);
             isertToCalendar(destDir);
             isertToShape(destDir);
             isertToTrips(destDir);
+            insertToStopTimes(destDir);
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -32,6 +34,7 @@ public class insertToDB {
     }
 
     private void isertToAgency(String URL) throws SQLException {
+        Logger.debug("strting insert to Agency table...");
         try {
             BufferedReader br = new BufferedReader(new InputStreamReader(
                     new FileInputStream(URL+"/agency.txt"), StandardCharsets.UTF_8));
@@ -55,9 +58,11 @@ public class insertToDB {
             e.printStackTrace();
 
         }
+        Logger.debug("Done insert to Agency table.");
     }
 
     private void isertToRoutes(String URL) throws SQLException{
+        Logger.debug("strting insert to Routes table...");
         try{
             BufferedReader br = new BufferedReader(new InputStreamReader(
                     new FileInputStream(URL+ "/routes.txt"), StandardCharsets.UTF_8));
@@ -85,16 +90,18 @@ public class insertToDB {
         } catch(IOException e){
             e.printStackTrace();
         }
+        Logger.debug("Done insert to Routes table.");
     }
 
     private void isertToStops(String URL) throws SQLException {
+        Logger.debug("strting insert to Stops table...");
+
         try{
             BufferedReader br = new BufferedReader(new InputStreamReader(
                     new FileInputStream(URL+ "/stops.txt"), StandardCharsets.UTF_8));
             String line = null;
             while ((line = br.readLine() )!=null)
             {
-                Logger.debug("INSERT TO STOP ###### line not null");
                 //Make sure the line is not null, not empty, and contains 2 comma char
                 if (line != null && !line.equals("") && line.matches(".*[,].*[,].*") && !line.contains("stop")) {
                     String tmp[] = line.split(",");
@@ -122,9 +129,11 @@ public class insertToDB {
             }
             br.close();
         } catch(IOException e) { e.printStackTrace(); }
+        Logger.debug("Done insert to Stops table.");
     }
 
     private void isertToCalendar(String URL) throws SQLException {
+        Logger.debug("strting insert to Calendar table...");
         try{
             BufferedReader br = new BufferedReader(new InputStreamReader(
                     new FileInputStream(URL+ "/calendar.txt"), StandardCharsets.UTF_8));
@@ -152,10 +161,13 @@ public class insertToDB {
         }
         catch(IOException e) { e.printStackTrace(); }
         catch (ParseException e) { e.printStackTrace();}
+        Logger.debug("Done insert to Calendar table.");
+
     }
 
-/*
+
     private void isertToTrips(String URL) throws SQLException {
+        Logger.debug("strting insert to Trips table...");
         try{
             BufferedReader br = new BufferedReader(new InputStreamReader(
                     new FileInputStream(URL+ "/trips.txt"), StandardCharsets.UTF_8));
@@ -172,8 +184,7 @@ public class insertToDB {
                     Calendar service_id = Calendar.find.byId(Integer.parseInt(tmp[1]));
                     trip.setService_id(service_id);
                     trip.setDirection_id(Boolean.parseBoolean(tmp[4]));
-                    Shape shape_id = Shape.Finder_shapeID.byId(Integer.parseInt(tmp[5]));
-                    trip.setShape_id(shape_id);
+                    trip.setShape_id(Integer.parseInt(tmp[5]));
                     if (Trips.find.byId(Integer.parseInt(tmp[2]))!=null)
                         trip.update();
                     else trip.save();
@@ -181,10 +192,11 @@ public class insertToDB {
             }
             br.close();
         } catch(IOException e) { e.printStackTrace(); }
+        Logger.debug("Done insert to Trips table.");
     }
 
-*/
     private void isertToShape(String URL) throws SQLException {
+        Logger.debug("strting insert to Shapes table...");
         try{
             BufferedReader br = new BufferedReader(new InputStreamReader(
                     new FileInputStream(URL+ "/shapes.txt"), StandardCharsets.UTF_8));
@@ -211,6 +223,47 @@ public class insertToDB {
             }
             br.close();
         } catch(IOException e) { e.printStackTrace(); }
+        Logger.debug("Done insert to Shapes table.");
+    }
+
+    private void insertToStopTimes(String URL) throws SQLException {
+        Logger.debug("strting insert to Stop Times table...");
+        try{
+            BufferedReader br = new BufferedReader(new InputStreamReader(
+                    new FileInputStream(URL+ "/stop_times.txt"), StandardCharsets.UTF_8));
+            String line = null;
+            while ((line = br.readLine() )!=null)
+            {
+                //Make sure the line is not null, not empty, and contains 2 comma char
+                if (line != null && !line.equals("") && line.matches(".*[,].*[,].*") && !line.contains("stop")) {
+                    String tmp[] = line.split(",");
+                    StopTimes stopTime = new StopTimes();
+                    StopTimesKey stKey = new StopTimesKey();
+                    Trips trip_id = Trips.find.byId(Integer.parseInt(tmp[0]));
+                    stKey.setTrip_id(trip_id);
+                    java.sql.Time arrival_time = new java.sql.Time(formatter.parse(tmp[1]));
+                    stKey.setArrival_time(arrival_time);
+                    Stop stop_id = Stop.find.byId(Integer.parseInt(tmp[3]));
+                    stkey.setStop_id(stop_id);
+                    stopTime.setStKey(stKey);
+                    java.sql.Time departure_time = new java.sql.Time(formatter.parse(tmp[2]));
+                    stopTime.setDeparture_time(departure_time);
+                    stopTime.setStop_sequence(Integer.parseInt(tmp[4]);
+                    stopTimes.setPickup_types(oolean.parseBoolean(tmp[5]));
+                    stopTimes.setDrop_off_type(oolean.parseBoolean(tmp[6]));
+                    stopTime.setShape_dist_traveled(Integer.parseInt(tmp[7]);
+
+                    if (StopTimes.find.byId(stKey) !=null)
+                        stopTimes.update();
+                    else stopTimes.save();
+                }
+            }
+            br.close();
+        }
+        catch(IOException e) { e.printStackTrace(); }
+        catch (ParseException e) { e.printStackTrace();}
+        Logger.debug("Done insert to Stop Times table.");
+
     }
 
 }
