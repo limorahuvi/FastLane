@@ -29,7 +29,12 @@ public class HomeController extends Controller {
     }
     public Result deviationSched() {
         Form<DevSchedForm> form = formFactory.form(DevSchedForm.class);
-        return ok(views.html.visualizations.deviationSched.deviationSched.render(form));    }
+        return ok(views.html.visualizations.deviationSched.deviationSched.render(form));
+    }
+
+    public Result instructions(){
+        return ok(views.html.visualizations.calculateDataInstructions.render());
+    }
 
 
 }
