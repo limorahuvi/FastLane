@@ -1,24 +1,32 @@
 package models.queries;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import models.*;
+import models.DevSchedForm;
+import models.PassengersCountForm;
+import models.queries.passengersCount.passengersCountQueryHandler;
 import play.libs.Json;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.io.IOException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class queries {
-    private static JsonNode stations = null;
+
+    static JsonNode stations = null;
+    public static ObjectMapper mapper = new ObjectMapper();
+
 
     public static JsonNode getStations(){
         return readJsonFromFile("stations");
     }
 
+    /* VISUALIZATIONS */
     public static JsonNode getResults(PassengersCountForm form){
-        return readJsonFromFile("passengersCount");
+        passengersCountQueryHandler handler = new passengersCountQueryHandler(form);
+        return handler.getResult();
+//        return readJsonFromFile("passengersCount");
     }
 
     public static JsonNode getResults(DevSchedForm form){
