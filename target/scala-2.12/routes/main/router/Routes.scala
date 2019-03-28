@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/hshidlov/Desktop/private/Project/FastLane/conf/routes
-// @DATE:Tue Mar 12 14:16:44 IST 2019
+// @DATE:Thu Mar 28 13:16:38 IST 2019
 
 package router
 

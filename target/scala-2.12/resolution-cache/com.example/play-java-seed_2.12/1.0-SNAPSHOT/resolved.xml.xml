@@ -4,7 +4,7 @@
 		module="play-java-seed_2.12"
 		revision="1.0-SNAPSHOT"
 		status="integration"
-		publication="20190315074433"
+		publication="20190328131538"
 	>
 		<description>
 		play-java-seed
@@ -57,5 +57,6 @@
 		<dependency org="org.avaje" name="ebean" rev="2.7.3" conf="compile->default(compile)"/>
 		<dependency org="javax.persistence" name="persistence-api" rev="1.0.2" conf="compile->default(compile)"/>
 		<dependency org="io.ebean" name="ebean-postgis" rev="11.1.1" conf="compile->default(compile)"/>
+		<dependency org="junit" name="junit" rev="4.12" conf="test->default(compile)"/>
 	</dependencies>
 </ivy-module>

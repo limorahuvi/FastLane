@@ -1,0 +1,25 @@
+@startuml
+class DatabaseExecutionContext extends CustomExecutionContext {
+    DatabaseExecutionContext(ActorSystem actorSystem)
+}
+
+class JavaApplicationDatabase {
+    Database db: private
+    DatabaseExecutionContext executionContext: private
+
+    JavaApplicationDatabase(Database db, DatabaseExecutionContext context)
+}
+
+class JavaJdbcConnection {
+    Database db: private
+    DatabaseExecutionContext executionContext: private
+
+    JavaJdbcConnection(Database db, DatabaseExecutionContext executionContext)
+
+    updateSomething(): CompletionStage<Void>
+}
+
+class MyServerConfigStartup implements ServerConfigStartup {
+    onStart(ServerConfig serverConfig): void
+}
+@enduml

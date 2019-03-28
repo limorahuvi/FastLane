@@ -1,8 +1,0 @@
-[0m[[0m[31merror[0m] [0m[0mC:\Users\user\workspace\final project\FastLane\app\models\entities\Shape.java:4:1:  error: package org.postgis does not exist[0m
-[0m[[0m[31merror[0m] [0m[0mimport org.postgis.Point;[0m
-[0m[[0m[31merror[0m] [0m[0m                  ^[0m
-[0m[[0m[31merror[0m] [0m[0mC:\Users\user\workspace\final project\FastLane\app\models\entities\Shape.java:17:1:  error: cannot find symbol[0m
-[0m[[0m[31merror[0m] [0m[0m    public Point point; //(shape_pt_lat	, shape_pt_lot)[0m
-[0m[[0m[31merror[0m] [0m[0m           ^  symbol:   class Point[0m
-[0m[[0m[31merror[0m] [0m[0m  location: class Shape[0m
-[0m[[0m[31merror[0m] [0m[0m2 errors[0m

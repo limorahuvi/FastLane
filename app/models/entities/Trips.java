@@ -2,6 +2,7 @@ package models.entities;
 
 import javax.persistence.*;
 
+
 @Entity
 public class Trips {
 
@@ -14,4 +15,6 @@ public class Trips {
     private Integer service_id;
     private Boolean direction_id;
     private Integer shape_id;
+    
+
 }

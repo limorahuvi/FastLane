@@ -16,5 +16,9 @@ libraryDependencies ++= Seq(
   "io.ebean" % "ebean-postgis" % "11.1.1"
 
 )
+// https://mvnrepository.com/artifact/junit/junit
+libraryDependencies += "junit" % "junit" % "4.12" % Test
+
 //dependency for test DB
 libraryDependencies += javaJdbc % Test
+

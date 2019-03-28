@@ -18,5 +18,6 @@ public class Agency extends Model{
     @Column(columnDefinition = "varchar")
     private String agency_url;
 
+
     // public static final Finder<Long, Task> find = new Finder<>(Task.class);
 }
