@@ -24,9 +24,9 @@ public class queries {
 
     /* VISUALIZATIONS */
     public static JsonNode getResults(PassengersCountForm form){
-        passengersCountQueryHandler handler = new passengersCountQueryHandler(form);
-        return handler.getResult();
-//        return readJsonFromFile("passengersCount");
+//        passengersCountQueryHandler handler = new passengersCountQueryHandler(form);
+//        return handler.getResult();
+        return readJsonFromFile("passengersCount");
     }
 
     public static JsonNode getResults(DevSchedForm form){
