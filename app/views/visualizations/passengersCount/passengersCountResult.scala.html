@@ -142,7 +142,7 @@
             for (var i=1; i<=10; i++){
                 var iDiv = document.createElement('div');
                 iDiv.className = 'l'+i;
-                iDiv.innerHTML += @result.getMinPassengersForPublicLane()/10*i +" passengers";
+                iDiv.innerHTML += parseInt(@result.getMinPassengersForPublicLane()/10*i) +" passengers";
                 myElement.appendChild(iDiv);
             }
         }
