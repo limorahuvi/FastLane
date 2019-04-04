@@ -47,13 +47,15 @@ create table stop (
 );
 
 create table stop_times (
+  trip_id                       varchar(255) not null,
+  stop_id                       integer not null,
   arrival_time                  time not null,
   departure_time                time,
   stop_sequence                 integer,
   pickup_types                  boolean,
   drop_off_type                 boolean,
   shape_dist_traveled           integer,
-  constraint pk_stop_times primary key (arrival_time)
+  constraint pk_stop_times primary key (trip_id,stop_id,arrival_time)
 );
 
 create table trips (
@@ -71,6 +73,12 @@ create index ix_routes_agency_id on routes (agency_id);
 alter table stop add constraint fk_stop_parent_station_id foreign key (parent_station_id) references stop (stop_id) on delete restrict on update restrict;
 create index ix_stop_parent_station_id on stop (parent_station_id);
 
+alter table stop_times add constraint fk_stop_times_trip_id foreign key (trip_id) references trips (trip_id) on delete restrict on update restrict;
+create index ix_stop_times_trip_id on stop_times (trip_id);
+
+alter table stop_times add constraint fk_stop_times_stop_id foreign key (stop_id) references stop (stop_id) on delete restrict on update restrict;
+create index ix_stop_times_stop_id on stop_times (stop_id);
+
 alter table trips add constraint fk_trips_route_id foreign key (route_id) references routes (route_id) on delete restrict on update restrict;
 create index ix_trips_route_id on trips (route_id);
 
@@ -85,6 +93,12 @@ drop index if exists ix_routes_agency_id;
 
 alter table if exists stop drop constraint if exists fk_stop_parent_station_id;
 drop index if exists ix_stop_parent_station_id;
+
+alter table if exists stop_times drop constraint if exists fk_stop_times_trip_id;
+drop index if exists ix_stop_times_trip_id;
+
+alter table if exists stop_times drop constraint if exists fk_stop_times_stop_id;
+drop index if exists ix_stop_times_stop_id;
 
 alter table if exists trips drop constraint if exists fk_trips_route_id;
 drop index if exists ix_trips_route_id;

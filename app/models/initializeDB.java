@@ -9,7 +9,22 @@ import java.util.zip.ZipInputStream;
 
 public class initializeDB {
 
-    public static void insertDataToDB(){
+    private static initializeDB single_instance = null;
+    private static Boolean is_initial = false;
+
+    private initializeDB() {
+        is_initial = true;
+        insertDataToDB();
+    }
+
+    public static initializeDB getInstance(){
+        if (single_instance == null && !is_initial) {
+            single_instance = new initializeDB();
+        }
+        return single_instance;
+    }
+
+    private static void insertDataToDB(){
         String destDir = "C:/Users/user/workspace/final project/output";
         try {
             unzip(destDir);
@@ -19,7 +34,7 @@ public class initializeDB {
         }
     }
 
-    public static void unzip(String destDir) throws IOException {
+    private static void unzip(String destDir) throws IOException {
         File dir = new File(destDir);
         // create output directory if it doesn't
         if(!dir.exists()) {

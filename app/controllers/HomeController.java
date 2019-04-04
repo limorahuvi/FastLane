@@ -23,10 +23,11 @@ public class HomeController extends Controller {
     @Inject
     FormFactory formFactory;
     public Result index() {
-        if (once) {
+       /* if (once) {
             once=false;
             initializeDB.insertDataToDB();
-        }
+        }*/
+        initializeDB initial_db= initializeDB.getInstance();
         return ok(views.html.index.render());
     }
     public Result passengersCount() {

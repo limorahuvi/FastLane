@@ -23,7 +23,7 @@ public class Trips extends Model{
     private Boolean direction_id;
     private Integer shape_id;
 
-    public static final Finder<Integer, Trips> find = new Finder<>(Trips.class);
+    public static final Finder<String, Trips> find = new Finder<>(Trips.class);
 
     public String getTrip_id() {
         return trip_id;

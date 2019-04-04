@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/user/workspace/final project/FastLane/conf/routes
-// @DATE:Tue Mar 19 19:43:59 IST 2019
+// @DATE:Wed Apr 03 16:33:33 IDT 2019
 
 import play.api.mvc.Call
 

@@ -1,4 +1,5 @@
 package models.entities;
+import play.Logger;
 
 import java.util.*;
 import javax.persistence.*;
@@ -13,10 +14,15 @@ import java.sql.Time;
 public class StopTimes extends Model{
 
     @EmbeddedId
-    @ManyToOne
-    @JoinColumn(name = "stop_id", referencedColumnName = "stop_id")
-    @JoinColumn(name = "trip_id", referencedColumnName = "trip_id")
     private StopTimesKey stKey;
+    @ManyToOne
+    @JoinColumn(name = "stop_id", insertable = false, updatable = false)
+    private Stop stop;
+    @ManyToOne
+    @JoinColumn(name = "trip_id", insertable = false, updatable = false)
+    private Trips trip;
+   /* @JoinColumn(name = "arrival_time", insertable = false, updatable = false)
+    private Time arrival_time;*/
     private Time departure_time;
     private Integer stop_sequence;
     private Boolean pickup_types;
@@ -25,12 +31,33 @@ public class StopTimes extends Model{
 
     public static final Finder<StopTimesKey, StopTimes> find = new Finder<>(StopTimes.class);
 
+
+    public StopTimes() {
+        stKey= new StopTimesKey();
+    }
+
     public StopTimesKey getStKey() {
         return stKey;
     }
 
     public void setStKey(StopTimesKey stKey) {
         this.stKey = stKey;
+    }
+
+    public Stop getStop() {
+        return stop;
+    }
+    public void setStop(Stop stop) {
+        this.stop = stop;
+        stKey.stop_id = stop.getStop_id();
+    }
+    public Trips getTrip() {
+        return trip;
+    }
+
+    public void setTrip(Trips trip) {
+        this.trip = trip;
+        stKey.trip_id = trip.getTrip_id();
     }
 
     public Time getDeparture_time() {
