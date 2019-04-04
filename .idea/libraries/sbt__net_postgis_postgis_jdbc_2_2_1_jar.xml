@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="sbt: net.postgis:postgis-jdbc:2.2.1:jar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/net.postgis/postgis-jdbc/jars/postgis-jdbc-2.2.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/net.postgis/postgis-jdbc/srcs/postgis-jdbc-2.2.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

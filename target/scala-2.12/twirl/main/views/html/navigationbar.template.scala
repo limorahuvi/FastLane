@@ -66,7 +66,6 @@ Seq[Any](format.raw/*1.1*/("""<nav class="navbar navbar-expand-lg navbar-light b
             <!--<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">-->
             <!--<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
         <!--</form>-->
-
     </div>
 </nav>"""))
       }
@@ -84,10 +83,10 @@ Seq[Any](format.raw/*1.1*/("""<nav class="navbar navbar-expand-lg navbar-light b
 
               /*
                   -- GENERATED --
-                  DATE: Sun Mar 03 10:49:24 IST 2019
-                  SOURCE: C:/Users/limor/OneDrive/Documents/uni/Final Project/play-java-seed/app/views/navigationbar.scala.html
-                  HASH: 788068f3ecc27557de93c83897b2005a0b5a8eb4
-                  MATRIX: 1038->0|1160->96|1174->102|1215->123|2215->1096|2230->1102|2282->1133
+                  DATE: Wed Apr 03 16:33:34 IDT 2019
+                  SOURCE: C:/Users/user/workspace/final project/FastLane/app/views/navigationbar.scala.html
+                  HASH: 04b26e121822fc1fe2b74b010553ca3c663fde14
+                  MATRIX: 1038->0|1159->95|1173->101|1214->122|2199->1080|2214->1086|2266->1117
                   LINES: 33->1|34->2|34->2|34->2|49->17|49->17|49->17
                   -- GENERATED --
               */
