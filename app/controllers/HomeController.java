@@ -24,12 +24,12 @@ public class HomeController extends Controller {
     @Inject
     FormFactory formFactory;
     public Result index() {
-<<<<<<< HEAD
+
         initializeDB initial_db= initializeDB.getInstance();
         return ok(views.html.index.render());
-=======
+
         return ok(views.html.index.render(models.queries.queries.getStations().toString()));
->>>>>>> master
+
     }
     public Result passengersCount(){
         Form<PassengersCountForm> form = formFactory.form(PassengersCountForm.class);
