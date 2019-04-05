@@ -1,4 +1,6 @@
 package controllers;
+import models.DevSchedForm;
+import models.PassengersCountForm;
 import play.data.Form;
 import play.data.FormFactory;
 import javax.inject.Inject;
@@ -20,45 +22,30 @@ public class VisualizationController extends Controller {
      */
     @Inject
     FormFactory formFactory;
-    private Form<PassengersCountForm> form;
-    private Form<DevSchedForm> form2;
+
 
     public Result calculatePassengersCount() throws java.io.IOException{
-        form = formFactory.form(PassengersCountForm.class).bindFromRequest();
+        Form<PassengersCountForm> form = formFactory.form(PassengersCountForm.class).bindFromRequest();
         if(form.hasErrors()){
             flash("danger","Please Correct the Form Below");
-            return badRequest(views.html.Visualizations.passengersCount.render(form));
+            return badRequest(views.html.visualizations.passengersCount.passengersCount.render(form));
         }
         PassengersCountForm request = form.get();
-//        TODO calculate visualization data
+        request.setResult(models.queries.queries.getResults(request));
         flash("success","Form Sent Successfully");
-        return ok(views.html.Visualizations.passengersCountResult.render(request));
+        return ok(views.html.visualizations.passengersCount.passengersCountResult.render(request));
     }
 
     public Result calculateDevSched() throws java.io.IOException{
-        form2 = formFactory.form(DevSchedForm.class).bindFromRequest();
-        if(form2.hasErrors()){
+        Form<DevSchedForm> form = formFactory.form(DevSchedForm.class).bindFromRequest();
+        if(form.hasErrors()){
             flash("danger","Please Correct the Form Below");
-            return badRequest(views.html.Visualizations.deviationSched.render(form2));
+            return badRequest(views.html.visualizations.deviationSched.deviationSched.render(form));
         }
-        DevSchedForm request = form2.get();
-//        TODO calculate visualization data
+        DevSchedForm request = form.get();
+        request.setResult(models.queries.queries.getResults(request));
         flash("success","Form Sent Successfully");
-
-
-
-        String json_late="{                \"type\": \"FeatureCollection\",                 \"features\": [{             \"type\": \"Feature\",                     \"geometry\": {                 \"type\": \"Point\",                         \"coordinates\": [34.798256,31.260114]             },             \"properties\": {                 \"average\":2,                         \"description\": \"line 3: 2 minutes, line 4 :2 minutes\"             }         }]}";
-
-
-
-        String json_early="{                \"type\": \"FeatureCollection\",                 \"features\": [{             \"type\": \"Feature\",                     \"geometry\": {                 \"type\": \"Point\",                         \"coordinates\": [34.798256,31.260114]             },             \"properties\": {                 \"average\":2,                         \"description\": \"line 3: 2 minutes, line 4 :2 minutes\"             }         }]}";
-
-
-        request.resultString_early = json_early;
-        request.resultString_late=json_late;
-        request.result_early=Json.parse(json_early);
-        request.result_late=Json.parse(json_late);
-        return ok(views.html.Visualizations.devSchedResult.render(request));
+        return ok(views.html.visualizations.deviationSched.devSchedResult.render(request));
     }
 
 

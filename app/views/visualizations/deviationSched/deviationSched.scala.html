@@ -1,0 +1,11 @@
+@(form : Form[DevSchedForm])
+
+@visualizations.layouts.calculateDataLayout("Dev sched"){
+<!--description-->
+}{
+    @helper.form(action = routes.VisualizationController.calculateDevSched()){
+        @visualizations.parameters.visualizationFormParameters(form.asInstanceOf[play.data.Form[models.VisualizationForm]])
+
+    <input type="submit" value="Calculate" id="submit"  onclick="showDiv()">
+    }
+}

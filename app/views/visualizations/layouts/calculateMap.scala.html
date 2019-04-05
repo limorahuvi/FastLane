@@ -1,0 +1,150 @@
+<!--TODO print stations id???-->
+<script type="text/javascript" src="@routes.Assets.versioned("demo-data/DemoData.js")"></script>
+<script>
+
+     var markers={};
+    mapboxgl.accessToken = 'pk.eyJ1IjoiYWh1dmlsIiwiYSI6ImNqcHdjdmN1bDA1bjY0OXVqb2pucWo5b2oifQ.DlCUMxPJ6c3TD2eLq3OCEQ';
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v9',
+        center: [34.798256,31.260114],
+        zoom: 13,
+        trackResize: true
+    });
+
+    map.on('load', function(){
+        update_label();
+         addStations();
+    });
+
+    //add all stations to map
+    function addStations() {
+        map.addLayer({
+            "id": "stationsLayer",
+            "type": "symbol",
+            "source": {
+                "type": "geojson",
+                "data": JSON.parse(localStorage.getItem('stations').replace(/&quot;/g,'"'))
+            },
+            "layout": {
+                "icon-image": "bus-15",
+            }
+        })
+    };
+
+    //handle selection of area
+    map.on('click',function(e){
+        var coordinates = [e.lngLat.lng,e.lngLat.lat];
+        if(!addCoordinate(coordinates,"coor1") && !addCoordinate(coordinates,"coor2")){
+            alert("You have already choose 2 points");
+            }
+    });
+
+ function addCoordinate(coordinates,label){
+        if(document.getElementById(label).value==""){
+            document.getElementById(label).value = coordinates;
+            var marker = new mapboxgl.Marker()
+                .setLngLat(coordinates)
+                .addTo(map);
+            markers[label]=marker;
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+     function removeCoordinates(){
+        document.getElementById("coor1").value = "";
+        document.getElementById("coor2").value = "";
+        if(markers["coor1"]!=undefined){
+            markers["coor1"].remove();
+            delete markers["coor1"];
+        }
+        if(markers["coor2"]!=undefined){
+            markers["coor2"].remove();
+            delete markers["coor2"];
+        }
+    }
+
+    function update_label(){
+         if(document.getElementById("coor1").value=="" && markers["coor1"]!=undefined){
+            markers["coor1"].remove();
+            delete markers["coor1"];
+         }
+          if(document.getElementById("coor2").value=="" && markers["coor2"]!=undefined){
+             markers["coor2"].remove();
+            delete markers["coor2"];
+         }
+          if(document.getElementById("coor1").value!="" ){
+
+             if(markers["coor1"]!=undefined){
+                markers["coor1"].remove();
+                delete markers["coor1"];
+            }
+
+            var coor_value=document.getElementById("coor1").value;
+            var coor_arr=coor_value.split(",");
+            var coor=new Array();
+            coor[0]=coor_arr[0];
+            coor[1]=coor_arr[1];
+             var marker = new mapboxgl.Marker()
+                .setLngLat(coor)
+                .addTo(map);
+            markers["coor1"]=marker;
+         }
+          if(document.getElementById("coor2").value!=""){
+            if(markers["coor2"]!=undefined){
+                markers["coor2"].remove();
+                delete markers["coor2"];
+            }
+
+            var coor_value=document.getElementById("coor2").value;
+            var coor_arr=coor_value.split(",");
+            var coor=new Array();
+            coor[0]=coor_arr[0];
+            coor[1]=coor_arr[1];
+              var marker = new mapboxgl.Marker()
+                .setLngLat(coor)
+                .addTo(map);
+             markers["coor2"]=marker;
+
+         }
+    }
+
+    function addNewLayerWithSelectedPoint(coordinates){
+        map.addLayer({
+            "id": "point"+points.length,
+            "type": "symbol",
+            "source": {
+                "type": "geojson",
+                "data": {
+                    "type": "FeatureCollection",
+                    "features": [{
+                        "type": "Feature",
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates":coordinates
+                        }
+                    }]
+                }
+            },
+            "layout": {
+                "icon-image": "monument",
+                "icon-size": 0.25
+            }
+        });
+    }
+
+    function addPopupOfSelectesPoint(coordinates){
+        while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+            coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+        }
+
+        new mapboxgl.Popup()
+            .setLngLat(coordinates)
+            .setHTML(description)
+            .addTo(map);
+    }
+
+    </script>

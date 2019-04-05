@@ -1,0 +1,142 @@
+@(result: DevSchedForm)
+
+@visualizations.layouts.resultLayout("Deviation in schedule visualization result"){
+<style>
+        .marker {
+            background-size: cover;
+            cursor: pointer;
+            width: 0;
+            height: 0;
+            border-top: 20px solid red;
+            border-left: 20px solid transparent;
+
+        }
+        .mapboxgl-popup {
+            max-width: 200px;
+        }
+        .mapboxgl-popup-content {
+            text-align: center;
+            font-family: 'Open Sans', sans-serif;
+
+        }
+        .marker2 {
+            background-size: cover;
+            cursor: pointer;
+            width: 0;
+            height: 0;
+            border-bottom: 30px solid green;
+            border-right: 30px solid transparent;
+
+        }
+
+
+
+
+
+
+
+    </style>
+}{
+@result.getParametersList()
+}{
+mapboxgl.accessToken = 'pk.eyJ1IjoiYWh1dmlsIiwiYSI6ImNqcHdjdmN1bDA1bjY0OXVqb2pucWo5b2oifQ.DlCUMxPJ6c3TD2eLq3OCEQ';
+var map = new mapboxgl.Map({
+container: 'map',
+style: 'mapbox://styles/mapbox/streets-v9',
+center: [34.798256,31.260114],
+zoom: 13
+});
+
+
+
+var geojson = JSON.parse('@result.getResultString()'.replace(/&quot;/g,'"'));
+
+
+geojson.features.forEach(function(marker) {
+
+
+// create a HTML element for each feature
+var el = document.createElement('div');
+el.className = 'marker';
+
+var radius=(marker.properties[1].average * 10);
+el.style.borderTop= radius+'px solid red';
+el.style.borderLeft=radius+'px solid transparent';
+
+// make a marker for each feature and add to the map
+new mapboxgl.Marker(el)
+.setLngLat(marker.geometry.coordinates)
+.setPopup(new mapboxgl.Popup({ offset: 0}) // add popups
+.setHTML('<h6> ' + 'Average preliminaries:' + marker.properties[0].average + '</h6><p>' +  marker.properties[0].description + '</p>'+
+'<h6>' + 'Average lateness:' + marker.properties[1].average + '</h6><p>' + marker.properties[1].description + '</p>'
+))
+.addTo(map);
+
+
+
+// create a HTML element for each feature
+var el = document.createElement('div');
+el.className = 'marker2';
+
+var radius=(marker.properties[0].average * 10);
+el.style.borderBottom= radius+'px solid green';
+el.style.borderRight=radius+'px solid transparent';
+
+
+// make a marker for each feature and add to the map
+new mapboxgl.Marker(el)
+.setLngLat(marker.geometry.coordinates)
+.setPopup(new mapboxgl.Popup({ offset: 0}) // add popups
+.setHTML('<h6> ' + 'Average preliminaries:' + marker.properties[0].average + '</h6><p>' +  marker.properties[0].description + '</p>'+
+'<h6>' + 'Average lateness:' + marker.properties[1].average + '</h6><p>' + marker.properties[1].description + '</p>'
+))
+.addTo(map);
+
+
+});
+
+}{
+<div class="parameters">
+    <div class="l1"> Red triangular-</div>
+    <div class="l1"> Average lateness </div>
+    <div class="l1"> Green triangular- </div>
+    <div class="l1"> Average preliminaries </div>
+</div>
+
+
+
+
+<!--TODO add index-->
+<!--TODO adjust excel-->
+<script type="text/javascript">
+
+        function downloadCSV(args) {
+            var data, filename, link;
+            var newJson = [];
+            geojson["features"].forEach(line=>newJson.push(flatten(line)));
+            <!--TODO change to result from server-->
+            var csv = convertArrayOfObjectsToCSV({
+                data: newJson
+            });
+            if (csv == null) return;
+
+            filename = args.filename || 'export.csv';
+
+            if (!csv.match(/^data:text\/csv/i)) {
+                csv = 'data:text/csv;charset=utf-8,' + csv;
+            }
+            data = encodeURI(csv);
+
+            link = document.createElement('a');
+            link.setAttribute('href', data);
+            link.setAttribute('download', filename);
+            link.click();
+        }
+
+    </script>
+
+
+
+}
+
+

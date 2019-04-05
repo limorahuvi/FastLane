@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 2019-04-04 22:45:46,384 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-2 - Database [default] initialized at jdbc:postgresql://localhost:5432/db_fast_lane
 2019-04-04 22:45:46,394 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-2 - Creating Pool for datasource 'default'
 2019-04-04 22:45:47,776 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-2 - application.conf @ file:/C:/Users/user/workspace/final%20project/FastLane/target/scala-2.12/classes/application.conf: 13: applyEvolutions.default is deprecated, use play.evolutions.db.default.autoApply instead
@@ -5,10 +6,17 @@
 2019-04-04 22:45:47,777 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-2 - application.conf @ file:/C:/Users/user/workspace/final%20project/FastLane/target/scala-2.12/classes/application.conf: 12: applyEvolutions.db is deprecated, use play.evolutions.db.db.autoApply instead
 2019-04-04 22:45:48,360 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in play-dev-mode-akka.actor.default-dispatcher-2 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
 2019-04-04 22:45:48,723 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-2 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+=======
+2019-03-19 15:36:09,865 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-4 - Database [default] initialized at jdbc:postgresql://localhost:5432/postgres
+2019-03-19 15:36:09,885 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-4 - Creating Pool for datasource 'default'
+2019-03-19 15:36:11,391 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in play-dev-mode-akka.actor.default-dispatcher-4 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2019-03-19 15:36:11,732 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-4 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+>>>>>>> master
 
     play.filters.csrf.CSRFFilter
     play.filters.hosts.AllowedHostsFilter
 
+<<<<<<< HEAD
 2019-04-04 22:45:48,731 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-2 - Application started (Dev)
 2019-04-04 22:45:49,295 [DEBUG] from application in application-akka.actor.default-dispatcher-7 - starting to insert DB: (time = Thu Apr 04 22:45:49 IDT 2019 )
 2019-04-04 22:45:49,295 [DEBUG] from application in application-akka.actor.default-dispatcher-6 - starting to insert DB: (time = Thu Apr 04 22:45:49 IDT 2019 )
@@ -211,3 +219,7 @@ Caused by: org.postgresql.util.PSQLException: ERROR: duplicate key value violate
 2019-04-04 22:45:49,586 [DEBUG] from application in application-akka.actor.default-dispatcher-6 - Done insert to Agency table.  (end time = Thu Apr 04 22:45:49 IDT 2019 )
 2019-04-04 22:46:29,331 [INFO] from play.core.server.AkkaHttpServer in pool-7-thread-2 - Stopping server...
 2019-04-04 22:46:29,390 [INFO] from application in application-akka.actor.default-dispatcher-9 - Shutting down connection pool.
+=======
+2019-03-19 15:36:11,745 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-4 - Application started (Dev)
+2019-03-19 15:37:07,233 [WARN] from play in application-akka.actor.default-dispatcher-14 - You are using status code '200' with flashing, which should only be used with a redirect status!
+>>>>>>> master

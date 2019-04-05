@@ -1,3 +1,0 @@
-[0m[[0m[33mwarn[0m] [0m[0mC:\Users\user\workspace\final project\FastLane\app\models\entities\Stop.java:3:1:  Bool is internal proprietary API and may be removed in a future release[0m
-[0m[[0m[33mwarn[0m] [0m[0mimport com.sun.org.apache.xpath.internal.operations.Bool;[0m
-[0m[[0m[33mwarn[0m] [0m[0m                                                   ^1 warning[0m
