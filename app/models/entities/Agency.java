@@ -12,15 +12,35 @@ import com.avaje.ebean.*;
 public class Agency extends Model{
 
     @Id
-    @Constraints.Min(10)
-    public Integer agency_id;
+    private Integer agency_id;
+    @Column(columnDefinition = "varchar(50) not null")
+    private String agency_name;
+    @Column(columnDefinition = "varchar")
+    private String agency_url;
 
-    @Column
-    @Constraints.Required
-    public String agency_name;
+    public Integer getAgency_id() {
+        return agency_id;
+    }
 
-    @Column
-    public String agency_url;
+    public void setAgency_id(Integer agency_id) {
+        this.agency_id = agency_id;
+    }
 
-    // public static final Finder<Long, Task> find = new Finder<>(Task.class);
+    public String getAgency_name() {
+        return agency_name;
+    }
+
+    public void setAgency_name(String agency_name) {
+        this.agency_name = agency_name;
+    }
+
+    public String getAgency_url() {
+        return agency_url;
+    }
+
+    public void setAgency_url(String agency_url) {
+        this.agency_url = agency_url;
+    }
+
+    public static final Finder<Integer, Agency> find = new Finder<>(Agency.class);
 }
