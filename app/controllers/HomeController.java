@@ -13,7 +13,6 @@ import java.io.IOException;
  */
 public class HomeController extends Controller {
 
-    Boolean once = true;
     /**
      * An action that renders an HTML page with a welcome message.
      * The configuration in the <code>routes</code> file means that
@@ -23,10 +22,6 @@ public class HomeController extends Controller {
     @Inject
     FormFactory formFactory;
     public Result index() {
-       /* if (once) {
-            once=false;
-            initializeDB.insertDataToDB();
-        }*/
         initializeDB initial_db= initializeDB.getInstance();
         return ok(views.html.index.render());
     }

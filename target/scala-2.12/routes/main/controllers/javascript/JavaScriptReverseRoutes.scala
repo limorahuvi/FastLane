@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/user/workspace/final project/FastLane/conf/routes
-// @DATE:Wed Apr 03 16:33:33 IDT 2019
+// @DATE:Thu Apr 04 17:35:02 IDT 2019
 
 import play.api.routing.JavaScriptReverseRoute
 

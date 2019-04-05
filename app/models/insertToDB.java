@@ -22,11 +22,11 @@ public class insertToDB {
     public insertToDB(String destDir) {
         try {
             Logger.debug("starting to insert DB: (time = " + new Date() +" )");
-            /*insertToAgency(destDir);
+            insertToAgency(destDir);
             insertToRoutes(destDir);
             insertToStops(destDir);
             insertToCalendar(destDir);
-            insertToShape(destDir);*/
+            insertToShape(destDir);
             insertToTrips(destDir);
             insertToStopTimes(destDir);
 
@@ -39,7 +39,7 @@ public class insertToDB {
         Logger.debug("strting insert to Agency table...   (start time = " + new Date() +" )");
         try {
             BufferedReader br = new BufferedReader(new InputStreamReader(
-                    new FileInputStream(URL+"/agency.txt"), StandardCharsets.UTF_8));
+                    new FileInputStream(URL+"/agency.txt"),  "UTF-8"));
             String line = null;
             while ((line = br.readLine() )!=null)
             {

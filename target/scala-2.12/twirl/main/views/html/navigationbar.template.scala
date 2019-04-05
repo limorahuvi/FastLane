@@ -83,10 +83,10 @@ Seq[Any](format.raw/*1.1*/("""<nav class="navbar navbar-expand-lg navbar-light b
 
               /*
                   -- GENERATED --
-                  DATE: Wed Apr 03 16:33:34 IDT 2019
+                  DATE: Thu Apr 04 17:35:02 IDT 2019
                   SOURCE: C:/Users/user/workspace/final project/FastLane/app/views/navigationbar.scala.html
-                  HASH: 04b26e121822fc1fe2b74b010553ca3c663fde14
-                  MATRIX: 1038->0|1159->95|1173->101|1214->122|2199->1080|2214->1086|2266->1117
+                  HASH: 54d98d95c8378dc8d787e02769edf4e6147882a9
+                  MATRIX: 1038->0|1160->96|1174->102|1215->123|2215->1096|2230->1102|2282->1133
                   LINES: 33->1|34->2|34->2|34->2|49->17|49->17|49->17
                   -- GENERATED --
               */
