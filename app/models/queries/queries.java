@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import models.DevSchedForm;
 import models.PassengersCountForm;
 import models.queries.passengersCount.passengersCountQueryHandler;
+import models.queries.devSched.devSchedQueryHandler;
 import play.libs.Json;
 
 import java.io.File;
@@ -24,13 +25,15 @@ public class queries {
 
     /* VISUALIZATIONS */
     public static JsonNode getResults(PassengersCountForm form){
-//        passengersCountQueryHandler handler = new passengersCountQueryHandler(form);
-//        return handler.getResult();
-        return readJsonFromFile("passengersCount");
+        passengersCountQueryHandler handler = new passengersCountQueryHandler(form);
+        return handler.getResult();
+       // return readJsonFromFile("passengersCount");
     }
 
     public static JsonNode getResults(DevSchedForm form){
-        return readJsonFromFile("devSched");
+         devSchedQueryHandler handler = new devSchedQueryHandler(form);
+         return handler.getResult();
+        //return readJsonFromFile("devSched");
     }
 
     private static JsonNode readJsonFromFile(String fileName){
