@@ -18,6 +18,17 @@ create table calendar (
   constraint pk_calendar primary key (service_id)
 );
 
+create table passenger_counts (
+  pc_id                         serial not null,
+  trip_id                       integer,
+  passengers_continue_rounded_sofi integer,
+  point                         geometry(point,4326),
+  day_name_heb                  varchar(255),
+  date_key                      timestamptz,
+  hour_key                      time,
+  constraint pk_passenger_counts primary key (pc_id)
+);
+
 create table real_time (
   real_time_id                  serial not null,
   stop                          integer,
@@ -127,6 +138,8 @@ drop index if exists ix_trips_service_id;
 drop table if exists agency cascade;
 
 drop table if exists calendar cascade;
+
+drop table if exists passenger_counts cascade;
 
 drop table if exists real_time cascade;
 
