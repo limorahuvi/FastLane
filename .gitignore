@@ -1,0 +1,7 @@
+/target
+
+/.idea
+
+/.gradle
+/project/target
+/project/project/target
