@@ -13,8 +13,12 @@ libraryDependencies ++= Seq(
   javaJdbc,
   evolutions, 
   jdbc,
-  "org.avaje" % "ebean" % "2.7.3",
+  "io.ebean" % "ebean" % "11.37.1",
   "javax.persistence" % "persistence-api" % "1.0.2" ,
-  "io.ebean" % "ebean-postgis" % "11.1.1"
-
+  "io.ebean" % "ebean-postgis" % "11.1.1",
+  "io.ebean" % "ebean-querybean" % "11.37.1",
+  "io.ebean" % "querybean-generator" % "11.37.1",
+  "org.apache.poi" % "poi" % "3.10-FINAL",
+  "org.apache.poi" % "poi-ooxml" % "3.10-FINAL",
+  "org.apache.poi" % "poi-scratchpad" % "3.2-FINAL"
 )

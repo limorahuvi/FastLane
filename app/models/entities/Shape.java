@@ -6,7 +6,6 @@ import java.util.*;
 import io.ebean.*;
 import play.data.format.*;
 import play.data.validation.*;
-import com.avaje.ebean.*;
 import javax.persistence.*;
 
 @Entity
