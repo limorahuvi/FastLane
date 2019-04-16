@@ -4,7 +4,7 @@
 		module="fastlane-build"
 		revision="0.1.0-SNAPSHOT"
 		status="integration"
-		publication="20190404173339"
+		publication="20190414195326"
 		e:sbtVersion="1.0" e:scalaVersion="2.12"
 	>
 		<description>
@@ -42,6 +42,9 @@
 		</dependency>
 		<dependency org="com.typesafe.play" name="sbt-plugin" rev="2.6.20" conf="compile->default(compile)" e:sbtVersion="1.0" e:scalaVersion="2.12"/>
 		<dependency org="com.typesafe.sbt" name="sbt-play-ebean" rev="4.1.0" conf="compile->default(compile)" e:sbtVersion="1.0" e:scalaVersion="2.12"/>
+		<dependency org="io.ebean" name="ebean" rev="11.26.1" conf="compile->default(compile)"/>
+		<dependency org="io.ebean" name="ebean-agent" rev="11.26.1" conf="compile->default(compile)"/>
+		<dependency org="io.ebean" name="ebean-migration" rev="11.11.1" conf="compile->default(compile)"/>
 		<dependency org="org.foundweekends.giter8" name="sbt-giter8-scaffold" rev="0.11.0" conf="compile->default(compile)" e:sbtVersion="1.0" e:scalaVersion="2.12"/>
 		<override org="org.scala-sbt" module="scripted-plugin_2.12" matcher="exact" rev="1.2.1"/>
 	</dependencies>
