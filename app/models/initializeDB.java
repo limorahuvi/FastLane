@@ -1,8 +1,10 @@
 package models;
 
 import com.google.inject.AbstractModule;
+import play.Logger;
 import java.io.*;
-
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
@@ -24,7 +26,7 @@ public class initializeDB {
     }
 
     private static void insertDataToDB(){
-        String destDir = "C:/Users/user/workspace/final project/output";
+        String destDir = createPath("output");
         try {
             unzip(destDir);
             insertToDB newdb = new insertToDB(destDir);
@@ -33,8 +35,17 @@ public class initializeDB {
         }
     }
 
+    private static String createPath(String direction) {
+        String cwd = System.getProperty("user.dir");
+        Path path = Paths.get(cwd);
+        Path pathParent = path.getParent();
+        Path filePath = Paths.get(pathParent.toString(), direction);
+        return filePath.toString();
+    }
+
     private static void unzip(String destDir) throws IOException {
         File dir = new File(destDir);
+        String gtfs_path = createPath("gtfs.zip");
         // create output directory if it doesn't
         if(!dir.exists()) {
             dir.mkdirs();
@@ -43,7 +54,7 @@ public class initializeDB {
             //buffer for read and write data to file
             byte[] buffer = new byte[1024];
             try {
-                fis = new FileInputStream("C:/Users/user/Desktop/fastLanes/sources/gtfs.zip");
+                fis = new FileInputStream(gtfs_path);
                 ZipInputStream zis = new ZipInputStream(fis);
                 ZipEntry ze = zis.getNextEntry();
                 while(ze != null){
