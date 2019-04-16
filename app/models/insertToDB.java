@@ -15,17 +15,28 @@ import java.util.Date;
 import java.text.*;
 import java.sql.Time;
 
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 
 public class insertToDB {
 
     public insertToDB(String destDir) {
         try {
-            Logger.debug("starting to insert DB: (time = " + new Date() +" )");
+            Logger.info("starting to insert DB: (time = " + new Date() +" )");
             insertToAgency(destDir);
             insertToRoutes(destDir);
             insertToStops(destDir);
             insertToCalendar(destDir);
+            insertSIRItoRealTime("C:/Users/user/workspace/final project/sources/DFoutputBS_cluster2018-09-29_1.csv");
             insertToShape(destDir);
             insertToTrips(destDir);
             insertToStopTimes(destDir);
@@ -35,8 +46,66 @@ public class insertToDB {
         }
     }
 
+    private void insertSIRItoRealTime(String URL) throws SQLException {
+        Logger.info("strting insert to Real Time table...   (start time = " + new Date() +" )");
+        try {
+            BufferedReader br = new BufferedReader(new InputStreamReader(
+                    new FileInputStream(URL),  "UTF-8"));
+            String line = null;
+            while ((line = br.readLine() )!=null)
+            {
+                //Make sure the line is not null, not empty, and contains 2 comma char
+                if (line != null && !line.equals("") && line.matches(".*[,].*[,].*") && !line.contains("RecordedAtTime")&& !line.contains("a")) {
+                    String tmp[] = line.split(",");
+                    RealTime siri = new RealTime();
+                    siri.setRealTime_id(Integer.parseInt(cleanQuotationMarks(tmp[0])));
+
+                    String all_record_date =cleanQuotationMarks(tmp[1]);
+                    String sRecord_date = all_record_date.substring(0,11);
+                    String sRecord_time = all_record_date.substring(12,20);
+                    SimpleDateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd");
+                    Date recordDate = dateformat.parse(sRecord_date);
+                    SimpleDateFormat time_format = new SimpleDateFormat("hh:mm:ss");
+                    long lRecord_time = time_format.parse(sRecord_time).getTime();
+                    Time record_time = new Time(lRecord_time);
+                    siri.setRecordedAtTime_Date(recordDate);
+                    siri.setRecordedAtTime_Time(record_time);
+
+                    siri.setPublishedLineName(cleanQuotationMarks(tmp[7]));
+
+                    // Contact query bean
+                    //List<Stop> stopRefL =Stop.find.query().where().eq("stop_code" , Integer.parseInt(cleanQuotationMarks(tmp[16]))).findList(); //findOne();
+                    Stop stopRef=Stop.find.query().where().eq("stop_code" , Integer.parseInt(cleanQuotationMarks(tmp[16]))).findOne();//stopRefL.get(0);
+                    siri.setLoction(stopRef.getLoction());
+
+                    String all_expected_date = cleanQuotationMarks(tmp[18]);
+                    String sExpected_date = all_expected_date.substring(0,10);
+                    String sExpected_time = all_expected_date.substring(12,20);
+                    Date expectedDate = dateformat.parse(sExpected_date);
+                    long lExpected_time = time_format.parse(sExpected_time).getTime();
+                    Time expected_time = new Time(lExpected_time);
+                    siri.setExpectedArrivalDate(expectedDate);
+                    siri.setExpectedArrivalTime(expected_time);
+
+                    if (RealTime.find.byId(Long.parseLong(cleanQuotationMarks(tmp[0])))!=null)
+                        siri.update();
+                    else siri.save();
+                }
+            }
+            br.close();
+        }
+        catch(IOException e) { e.printStackTrace(); }
+        catch (ParseException e) { e.printStackTrace();}
+        Logger.info("Done insert to Real Time table.  (end time = " + new Date() +" )" );
+    }
+
+    private String cleanQuotationMarks(String str) {
+        return str.substring(1,str.length()-1);
+    }
+
+
     private void insertToAgency(String URL) throws SQLException {
-        Logger.debug("strting insert to Agency table...   (start time = " + new Date() +" )");
+        Logger.info("strting insert to Agency table...   (start time = " + new Date() +" )");
         try {
             BufferedReader br = new BufferedReader(new InputStreamReader(
                     new FileInputStream(URL+"/agency.txt"),  "UTF-8"));
@@ -60,11 +129,11 @@ public class insertToDB {
             e.printStackTrace();
 
         }
-        Logger.debug("Done insert to Agency table.  (end time = " + new Date() +" )" );
+        Logger.info("Done insert to Agency table.  (end time = " + new Date() +" )" );
     }
 
     private void insertToRoutes(String URL) throws SQLException{
-        Logger.debug("strting insert to Routes table... (start time = " + new Date() +" )");
+        Logger.info("strting insert to Routes table... (start time = " + new Date() +" )");
         try{
             BufferedReader br = new BufferedReader(new InputStreamReader(
                     new FileInputStream(URL+ "/routes.txt"), StandardCharsets.UTF_8));
@@ -92,11 +161,11 @@ public class insertToDB {
         } catch(IOException e){
             e.printStackTrace();
         }
-        Logger.debug("Done insert to Routes table.  (end time = " + new Date() +" )");
+        Logger.info("Done insert to Routes table.  (end time = " + new Date() +" )");
     }
 
     private void insertToStops(String URL) throws SQLException {
-        Logger.debug("strting insert to Stops table...   (start time = " + new Date() +" )");
+        Logger.info("strting insert to Stops table...   (start time = " + new Date() +" )");
 
         try{
             BufferedReader br = new BufferedReader(new InputStreamReader(
@@ -114,28 +183,28 @@ public class insertToDB {
                     stop.setStop_name(tmp[2]);
                     stop.setStop_desc(tmp[3]);
                     Double stop_lat =  Double.parseDouble(tmp[4]);
-                    Double stop_lot =  Double.parseDouble(tmp[5]);
-                    Point stop_point = new Point(stop_lat , stop_lot); //("SRID=4674;POINT("+stop_lat+","+stop_lot+" )");
+                    Double stop_lon =  Double.parseDouble(tmp[5]);
+                    Point stop_point = new Point(stop_lat , stop_lon);
                     stop_point.setSrid(4326);
                     stop.setLoction(stop_point);
                     stop.setLocation_type(Boolean.parseBoolean(tmp[6]));
                     if (!(tmp[7].equals(""))){
-                        Stop parent = Stop.find.byId(Integer.parseInt(tmp[7]));
+                        Stop parent = Stop.find.byId(Long.valueOf(Integer.parseInt(tmp[7])));
                         stop.setParent_station(parent);
                     }
 
-                    if (Stop.find.byId(Integer.parseInt(tmp[0]))!=null)
+                    if (Stop.find.byId(Long.valueOf(Integer.parseInt(tmp[0])))!=null)
                         stop.update();
                     else stop.save();
                 }
             }
             br.close();
         } catch(IOException e) { e.printStackTrace(); }
-        Logger.debug("Done insert to Stops table. (end time = " + new Date() +" )");
+        Logger.info("Done insert to Stops table. (end time = " + new Date() +" )");
     }
 
     private void insertToCalendar(String URL) throws SQLException {
-        Logger.debug("strting insert to Calendar table...   (start time = " + new Date() +" )");
+        Logger.info("strting insert to Calendar table...   (start time = " + new Date() +" )");
         try{
             BufferedReader br = new BufferedReader(new InputStreamReader(
                     new FileInputStream(URL+ "/calendar.txt"), StandardCharsets.UTF_8));
@@ -163,13 +232,13 @@ public class insertToDB {
         }
         catch(IOException e) { e.printStackTrace(); }
         catch (ParseException e) { e.printStackTrace();}
-        Logger.debug("Done insert to Calendar table.   (end time = " + new Date() +" )");
+        Logger.info("Done insert to Calendar table.   (end time = " + new Date() +" )");
 
     }
 
 
     private void insertToTrips(String URL) throws SQLException {
-        Logger.debug("strting insert to Trips table...   (start time = " + new Date() +" )");
+        Logger.info("strting insert to Trips table...   (start time = " + new Date() +" )");
         try{
             BufferedReader br = new BufferedReader(new InputStreamReader(
                     new FileInputStream(URL+ "/trips.txt"), StandardCharsets.UTF_8));
@@ -196,11 +265,11 @@ public class insertToDB {
             }
             br.close();
         } catch(IOException e) { e.printStackTrace(); }
-        Logger.debug("Done insert to Trips table.    (end time = " + new Date() +" )");
+        Logger.info("Done insert to Trips table.    (end time = " + new Date() +" )");
     }
 
     private void insertToShape(String URL) throws SQLException {
-        Logger.debug("strting insert to Shapes table...  (start time = " + new Date() +" )");
+        Logger.info("strting insert to Shapes table...  (start time = " + new Date() +" )");
         try{
             BufferedReader br = new BufferedReader(new InputStreamReader(
                     new FileInputStream(URL+ "/shapes.txt"), StandardCharsets.UTF_8));
@@ -227,11 +296,11 @@ public class insertToDB {
             }
             br.close();
         } catch(IOException e) { e.printStackTrace(); }
-        Logger.debug("Done insert to Shapes table.   (end time = " + new Date() +" )");
+        Logger.info("Done insert to Shapes table.   (end time = " + new Date() +" )");
     }
 
     private void insertToStopTimes(String URL) throws SQLException {
-        Logger.debug("strting insert to Stop Times table... (start time = " + new Date() +" )");
+        Logger.info("strting insert to Stop Times table... (start time = " + new Date() +" )");
         try{
             BufferedReader br = new BufferedReader(new InputStreamReader(
                     new FileInputStream(URL+ "/stop_times.txt"), StandardCharsets.UTF_8));
@@ -249,7 +318,7 @@ public class insertToDB {
                     Time arrival_time = new Time(arrivalTime);
                     //stopTime.setArrival_time(arrival_time);
                     stopTime.getStKey().setArrival_time(arrival_time);
-                    Stop stop = Stop.find.byId(Integer.parseInt(tmp[3]));
+                    Stop stop = Stop.find.byId(Long.valueOf(Integer.parseInt(tmp[3])));
                     stopTime.setStop(stop);
                     long departureTime = time_format.parse(tmp[2]).getTime();
                     Time departure_time = new Time(departureTime);
@@ -270,7 +339,7 @@ public class insertToDB {
         }
         catch(IOException e) { e.printStackTrace(); }
         catch (ParseException e) { e.printStackTrace();}
-        Logger.debug("Done insert to Stop Times table.   (end time = " + new Date() +" )");
+        Logger.info("Done insert to Stop Times table.   (end time = " + new Date() +" )");
 
     }
 

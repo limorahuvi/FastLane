@@ -6,7 +6,7 @@ import javax.persistence.*;
 import io.ebean.*;
 import play.data.format.*;
 import play.data.validation.*;
-import com.avaje.ebean.*;
+
 
 @Entity
 public class Agency extends Model{

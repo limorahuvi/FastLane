@@ -1,8 +1,8 @@
 package models.entities;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import org.postgis.Point;
 import io.ebean.*;
+import java.util.*;
 import javax.persistence.*;
 
 @Entity
@@ -19,6 +19,10 @@ public class Stop extends Model{
     @JoinColumn(name = "parent_station_id", referencedColumnName = "stop_id")
     private Stop parent_station;
 
+    @OneToMany(mappedBy="stop")
+    List <RealTime> realTimeList;
+
+    public static final Finder<Long, Stop> find = new Finder<>(Stop.class);
 
     public Integer getStop_id() {
         return stop_id;
@@ -76,5 +80,7 @@ public class Stop extends Model{
         this.parent_station = parent_station;
     }
 
-    public static final Finder<Integer, Stop> find = new Finder<>(Stop.class);
+   // public static final StopFinder find = new StopFinder();
+
+    //public static final Finder<Integer, Stop> find = new Finder<>(Stop.class);
 }
