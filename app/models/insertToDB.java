@@ -34,15 +34,15 @@ public class insertToDB {
             Logger.info("starting to insert DB: (time = " + new Date() +" )");
             String siri_path = initializeDB.getInstance().createPath("sources/DFoutputBS_cluster2018-09-29_1.csv");
             String pc_path = initializeDB.getInstance().createPath("sources/pc.csv");
-           /* insertToPassengerCount(pc_path);
+            insertToPassengerCount(pc_path);
             insertToAgency(destDir);
             insertToRoutes(destDir);
             insertToStops(destDir);
-            insertToCalendar(destDir);*/
+            insertToCalendar(destDir);
             insertSIRItoRealTime(siri_path);
-           /* insertToShape(destDir);
+            insertToShape(destDir);
             insertToTrips(destDir);
-            insertToStopTimes(destDir);*/
+            insertToStopTimes(destDir);
 
         } catch (SQLException e) {
             e.printStackTrace();
