@@ -27,16 +27,19 @@ import java.util.Iterator;
 import java.util.List;
 
 
+
 public class insertToDB {
 
     public insertToDB(String destDir) {
         try {
             Logger.info("starting to insert DB: (time = " + new Date() +" )");
+            String siri_path = initializeDB.getInstance().createPath("sources/DFoutputBS_cluster2018-09-29_1.csv");
+            System.out.println("this is the path: " +siri_path);
             insertToAgency(destDir);
             insertToRoutes(destDir);
             insertToStops(destDir);
             insertToCalendar(destDir);
-            insertSIRItoRealTime("C:/Users/user/workspace/final project/sources/DFoutputBS_cluster2018-09-29_1.csv");
+            insertSIRItoRealTime(siri_path);
             insertToShape(destDir);
             insertToTrips(destDir);
             insertToStopTimes(destDir);
@@ -188,9 +191,11 @@ public class insertToDB {
                     stop_point.setSrid(4326);
                     stop.setLoction(stop_point);
                     stop.setLocation_type(Boolean.parseBoolean(tmp[6]));
-                    if (!(tmp[7].equals(""))){
-                        Stop parent = Stop.find.byId(Long.valueOf(Integer.parseInt(tmp[7])));
-                        stop.setParent_station(parent);
+                    if (tmp.length> 7) {
+                        if (!(tmp[7].equals(""))) {
+                            Stop parent = Stop.find.byId(Long.valueOf(Integer.parseInt(tmp[7])));
+                            stop.setParent_station(parent);
+                        }
                     }
 
                     if (Stop.find.byId(Long.valueOf(Integer.parseInt(tmp[0])))!=null)
