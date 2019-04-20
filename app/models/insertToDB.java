@@ -34,7 +34,8 @@ public class insertToDB {
         try {
             Logger.info("starting to insert DB: (time = " + new Date() +" )");
             String siri_path = initializeDB.getInstance().createPath("sources/DFoutputBS_cluster2018-09-29_1.csv");
-            System.out.println("this is the path: " +siri_path);
+            String pc_path = initializeDB.getInstance().createPath("sources/pc.csv");
+            insertToPassengerCount(pc_path);
             insertToAgency(destDir);
             insertToRoutes(destDir);
             insertToStops(destDir);
@@ -47,6 +48,54 @@ public class insertToDB {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    private void insertToPassengerCount(String URL) throws SQLException {
+        Logger.info("strting insert to Passenger Count table...   (start time = " + new Date() +" )");
+        try {
+            BufferedReader br = new BufferedReader(new InputStreamReader(
+                    new FileInputStream(URL),  "UTF-8"));
+            String line = null;
+            while ((line = br.readLine() )!=null)
+            {
+
+                //Make sure the line is not null, not empty, and contains 2 comma char
+                if (line != null && !line.equals("") && line.matches(".*[,].*[,].*") && !line.contains("IdReportRow")) {
+
+                    String tmp[] = line.split(",");
+                    PassengerCounts pc = new PassengerCounts();
+                    pc.setTripId(Integer.parseInt(cleanQuotationMarks(tmp[56])));
+                    pc.setPassengersContinue_rounded_sofi(Integer.parseInt(cleanQuotationMarks(tmp[54])));
+                    Double stop_lat =  Double.parseDouble(cleanQuotationMarks(tmp[38]));
+                    Double stop_lon =  Double.parseDouble(cleanQuotationMarks(tmp[39]));
+                    Point point = new Point(stop_lat , stop_lon);
+                    point.setSrid(4326);
+                    pc.setPoint(point);
+                    pc.setDayNameHeb(cleanQuotationMarks(tmp[26]));
+
+                    System.out.println("before 1: " + cleanQuotationMarks(tmp[22]));
+                    SimpleDateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd");
+                    Date dateKey = dateformat.parse(cleanQuotationMarks(tmp[22]));
+                    pc.setDateKey(dateKey);
+                    System.out.println("after 1: " +dateKey.toString());
+                    String timeString =  cleanQuotationMarks(tmp[23]) ;
+                    System.out.println("before 2 new: " + timeString);
+                    SimpleDateFormat time_format = new SimpleDateFormat("HH:mm" );
+                    long hourKeyLong = time_format.parse(timeString).getTime();
+                    Time hourKey = new Time(hourKeyLong);
+                    pc.setHourKey(hourKey);
+                    System.out.println("after 2: " +hourKey.toString());
+
+                    pc.save();
+
+                }
+            }
+
+            br.close();
+        }
+        catch(IOException e) { e.printStackTrace(); }
+        catch (ParseException e) { e.printStackTrace();}
+        Logger.info("Done insert to Passenger Count table.  (end time = " + new Date() +" )" );
     }
 
     private void insertSIRItoRealTime(String URL) throws SQLException {
@@ -78,7 +127,11 @@ public class insertToDB {
 
                     // Contact query bean
                     //List<Stop> stopRefL =Stop.find.query().where().eq("stop_code" , Integer.parseInt(cleanQuotationMarks(tmp[16]))).findList(); //findOne();
-                    Stop stopRef=Stop.find.query().where().eq("stop_code" , Integer.parseInt(cleanQuotationMarks(tmp[16]))).findOne();//stopRefL.get(0);
+                    //System.out.println("stop code is: " + tmp[16]);
+                    //Stop stopRef=Stop.find.query().where().eq("stop_code" , Integer.parseInt(cleanQuotationMarks(tmp[16]))).findOne();//stopRefL.get(0);
+                    List<Stop> stopRefL=Stop.find.query().where().eq("stop_code" , Integer.parseInt(cleanQuotationMarks(tmp[16]))).findList();
+                    Stop stopRef= stopRefL.get(0);
+                    siri.setStop_id(stopRef);
                     siri.setLoction(stopRef.getLoction());
 
                     String all_expected_date = cleanQuotationMarks(tmp[18]);
