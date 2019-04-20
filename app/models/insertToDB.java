@@ -27,6 +27,7 @@ import java.util.Iterator;
 import java.util.List;
 
 
+
 public class insertToDB {
 
     public insertToDB(String destDir) {
@@ -243,7 +244,7 @@ public class insertToDB {
                     stop_point.setSrid(4326);
                     stop.setLoction(stop_point);
                     stop.setLocation_type(Boolean.parseBoolean(tmp[6]));
-                    if (tmp.length>7) {
+                    if (tmp.length> 7) {
                         if (!(tmp[7].equals(""))) {
                             Stop parent = Stop.find.byId(Long.valueOf(Integer.parseInt(tmp[7])));
                             stop.setParent_station(parent);

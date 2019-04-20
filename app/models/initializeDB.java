@@ -43,7 +43,7 @@ public class initializeDB {
         return filePath.toString();
     }
 
-    private static void unzip(String destDir) throws IOException {
+    public static void unzip(String destDir) throws IOException {
         File dir = new File(destDir);
         String gtfs_path = createPath("sources/gtfs.zip");
         // create output directory if it doesn't
