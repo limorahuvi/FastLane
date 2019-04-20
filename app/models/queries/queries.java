@@ -21,7 +21,9 @@ public class queries {
 
 
     public static JsonNode getStations(){
-        return readJsonFromFile("stations");
+//        return readJsonFromFile("stations");
+        stationsQueryHandler handler = new stationsQueryHandler();
+        return handler.getResults();
     }
 
     public static JsonNode getStationsByCity(String city){
