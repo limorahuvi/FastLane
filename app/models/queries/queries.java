@@ -5,6 +5,7 @@ import models.DevSchedForm;
 import models.PassengersCountForm;
 import models.queries.passengersCount.passengersCountQueryHandler;
 import models.queries.devSched.devSchedQueryHandler;
+import models.queries.stations.stationsQueryHandler;
 import play.libs.Json;
 
 import java.io.File;
@@ -23,6 +24,12 @@ public class queries {
         return readJsonFromFile("stations");
     }
 
+    public static JsonNode getStationsByCity(String city){
+        stationsQueryHandler handler = new stationsQueryHandler();
+        handler.setCity(city);
+        return handler.getResults();
+    }
+
     /* VISUALIZATIONS */
     public static JsonNode getResults(PassengersCountForm form){
         passengersCountQueryHandler handler = new passengersCountQueryHandler(form);
@@ -36,6 +43,7 @@ public class queries {
         //return readJsonFromFile("devSched");
     }
 
+    /* for demo files */
     private static JsonNode readJsonFromFile(String fileName){
         try {
             File initialFile = new File("app/models/queries/"+fileName+".json");
