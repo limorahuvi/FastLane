@@ -35,7 +35,7 @@ public class initializeDB {
         }
     }
 
-    private static String createPath(String direction) {
+    public static String createPath(String direction) {
         String cwd = System.getProperty("user.dir");
         Path path = Paths.get(cwd);
         Path pathParent = path.getParent();
@@ -45,7 +45,7 @@ public class initializeDB {
 
     private static void unzip(String destDir) throws IOException {
         File dir = new File(destDir);
-        String gtfs_path = createPath("gtfs.zip");
+        String gtfs_path = createPath("sources/gtfs.zip");
         // create output directory if it doesn't
         if(!dir.exists()) {
             dir.mkdirs();
