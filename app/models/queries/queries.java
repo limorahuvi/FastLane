@@ -21,13 +21,9 @@ public class queries {
 
 
     public static JsonNode getStations(){
-        return readJsonFromFile("stations");
-    }
-
-    public static JsonNode getStationsByCity(String city){
         stationsQueryHandler handler = new stationsQueryHandler();
-        handler.setCity(city);
         return handler.getResults();
+//        return readJsonFromFile("stations");
     }
 
     /* VISUALIZATIONS */
