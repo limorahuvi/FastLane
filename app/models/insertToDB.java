@@ -33,13 +33,13 @@ public class insertToDB {
     public insertToDB(String destDir) {
         try {
             Logger.info("starting to insert DB: (time = " + new Date() +" )");
-            String siri_path = initializeDB.getInstance().createPath("sources/DFoutputBS_cluster2018-09-29_1.csv");
-            System.out.println("this is the path: " +siri_path);
+//            String siri_path = initializeDB.getInstance().createPath("sources/DFoutputBS_cluster2018-09-29_1.csv");
+//            System.out.println("this is the path: " +siri_path);
             insertToAgency(destDir);
             insertToRoutes(destDir);
             insertToStops(destDir);
             insertToCalendar(destDir);
-            insertSIRItoRealTime(siri_path);
+//            insertSIRItoRealTime(siri_path);
             insertToShape(destDir);
             insertToTrips(destDir);
             insertToStopTimes(destDir);
