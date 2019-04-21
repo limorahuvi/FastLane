@@ -59,7 +59,11 @@ geojson.features.forEach(function(marker) {
 var el = document.createElement('div');
 el.className = 'marker';
 
-var radius=(marker.properties[1].average * 10);
+if(marker.properties[1].average >=20){
+var radius= 50;
+}
+else var radius=(marker.properties[1].average * 2.5);
+
 el.style.borderTop= radius+'px solid red';
 el.style.borderLeft=radius+'px solid transparent';
 
@@ -78,7 +82,11 @@ new mapboxgl.Marker(el)
 var el = document.createElement('div');
 el.className = 'marker2';
 
-var radius=(marker.properties[0].average * 10);
+if(marker.properties[0].average >=20){
+var radius= 50;
+}
+else var radius=(marker.properties[0].average * 2.5);
+
 el.style.borderBottom= radius+'px solid green';
 el.style.borderRight=radius+'px solid transparent';
 
