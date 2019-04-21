@@ -57,10 +57,10 @@ public class devSchedQueryHandler {
             real_time_ref=filter_day(real_time_ref,day);
         }
 
-        Map<String, List<String>> dec_late=get_description_late(real_time_ref);
-        Map<String, List<String>> dec_early=get_description_early(real_time_ref);
-        Map<String, Double> avg_late= get_avg_late(real_time_ref);
-        Map<String, Double> avg_early= get_avg_early(real_time_ref);
+        Map<Integer, List<String>> dec_late=get_description_late(real_time_ref);
+        Map<Integer, List<String>> dec_early=get_description_early(real_time_ref);
+        Map<Integer, Double> avg_late= get_avg_late(real_time_ref);
+        Map<Integer, Double> avg_early= get_avg_early(real_time_ref);
         devSchedFeatureCollection totalLoad = new devSchedFeatureCollection();
         for (int i = 0; i < real_time_ref.size(); i++) {
             String[] des1=new String[0];
@@ -69,30 +69,32 @@ public class devSchedQueryHandler {
             double average2=0;
             Point p1_real = real_time_ref.get(i).getLoction();
             double[] coor13933 = {p1_real.getY() , p1_real.getX()};
-            if(avg_early.containsKey(real_time_ref.get(i).getLoction().toString())){
-                average1=avg_early.get(real_time_ref.get(i).getLoction().toString());//early
+            if(avg_early.containsKey(real_time_ref.get(i).getStop().getStop_id())){
+                average1=avg_early.get(real_time_ref.get(i).getStop().getStop_id());//early
             }
-            if(avg_late.containsKey(real_time_ref.get(i).getLoction().toString())){
-                average2=avg_late.get(real_time_ref.get(i).getLoction().toString());//late
+            if(avg_late.containsKey(real_time_ref.get(i).getStop().getStop_id())){
+                average2=avg_late.get(real_time_ref.get(i).getStop().getStop_id());//late
             }
-            if(dec_early.containsKey(real_time_ref.get(i).getLoction().toString())) {
-                List<String> des1_list = dec_early.get(real_time_ref.get(i).getLoction().toString());//early
+            if(dec_early.containsKey(real_time_ref.get(i).getStop().getStop_id())) {
+                List<String> des1_list = dec_early.get(real_time_ref.get(i).getStop().getStop_id());//early
                 des1 = des1_list.toArray(new String[des1_list.size()]);
             }
-            if(dec_late.containsKey(real_time_ref.get(i).getLoction().toString())) {
+            if(dec_late.containsKey(real_time_ref.get(i).getStop().getStop_id())) {
 
-                List<String> des2_list = dec_late.get(real_time_ref.get(i).getLoction().toString());//late
+                List<String> des2_list = dec_late.get(real_time_ref.get(i).getStop().getStop_id());//late
                 des2 = des2_list.toArray(new String[des2_list.size()]);
             }
             totalLoad.addFeature(coor13933,average1,average2,des1,des2);
         }
         //demo data
+        /*
         double[] coor13933 = {34.798256,31.260114};
         double average1=2;
         double average2=5;
         String[] des1={"line 3: 2 minutes", "line 4 :2 minutes"};
         String[] des2={"line 3: 5 minutes", "line 4 :5 minutes"};
         totalLoad.addFeature(coor13933,average1,average2,des1,des2);
+        */
         return queries.mapper.valueToTree(totalLoad);
     }
 
@@ -109,64 +111,64 @@ public class devSchedQueryHandler {
         }
         return ans;
     }
-    private Map<String, List<String>> get_description_late(List<RealTime>  real_time){
-        Map<String, List<String>> dictionary_description = new HashMap<String, List<String>>();//per station
+    private Map<Integer, List<String>> get_description_late(List<RealTime>  real_time){
+        Map<Integer, List<String>> dictionary_description = new HashMap<Integer, List<String>>();//per station
         List<String> ans=new ArrayList<String>();
         for (int i = 0; i < real_time.size(); i++) {
             if(real_time.get(i).getRecordedAtTime_Time().compareTo(real_time.get(i).getExpectedArrivalTime())>=0){
                 long time=((real_time.get(i).getRecordedAtTime_Time().getTime()-real_time.get(i).getExpectedArrivalTime().getTime())/1000)/60;
                 String desciption_late="line "+ real_time.get(i).getPublishedLineName() + ": " +  time + " minutes";
-                if(dictionary_description.containsKey(real_time.get(i).getLoction().toString())){
-                    dictionary_description.get(real_time.get(i).getLoction().toString()).add(desciption_late);
+                if(dictionary_description.containsKey(real_time.get(i).getStop().getStop_id())){
+                    dictionary_description.get(real_time.get(i).getStop().getStop_id()).add(desciption_late);
                 }
                 else{
                     ans=new ArrayList<>();
-                    dictionary_description.put(real_time.get(i).getLoction().toString(),ans);
-                    dictionary_description.get(real_time.get(i).getLoction().toString()).add(desciption_late);
+                    dictionary_description.put(real_time.get(i).getStop().getStop_id(),ans);
+                    dictionary_description.get(real_time.get(i).getStop().getStop_id()).add(desciption_late);
                 }
             }
         }
         return  dictionary_description;
     }
-    private Map<String, List<String>> get_description_early(List<RealTime>  real_time){
-        Map<String, List<String>> dictionary_description = new HashMap<>();//per station
+    private Map<Integer, List<String>> get_description_early(List<RealTime>  real_time){
+        Map<Integer, List<String>> dictionary_description = new HashMap<>();//per station
         List<String> ans;
         for (int i = 0; i < real_time.size(); i++) {
             if(real_time.get(i).getRecordedAtTime_Time().compareTo(real_time.get(i).getExpectedArrivalTime())<=0){
                 long time=((real_time.get(i).getExpectedArrivalTime().getTime()-real_time.get(i).getRecordedAtTime_Time().getTime())/1000)/60;
                 String desciption_late="line "+ real_time.get(i).getPublishedLineName() + ": " +  time + " minutes";
-                if(dictionary_description.containsKey(real_time.get(i).getLoction().toString())){
-                    dictionary_description.get(real_time.get(i).getLoction().toString()).add(desciption_late);
+                if(dictionary_description.containsKey(real_time.get(i).getStop().getStop_id())){
+                    dictionary_description.get(real_time.get(i).getStop().getStop_id()).add(desciption_late);
                 }
                 else{
                     ans=new ArrayList<>();
-                    dictionary_description.put(real_time.get(i).getLoction().toString(),ans);
-                    dictionary_description.get(real_time.get(i).getLoction().toString()).add(desciption_late);
+                    dictionary_description.put(real_time.get(i).getStop().getStop_id(),ans);
+                    dictionary_description.get(real_time.get(i).getStop().getStop_id()).add(desciption_late);
 
                 }
             }
         }
         return  dictionary_description;
     }
-    private Map<String, Double> get_avg_late(List<RealTime>  real_time){
-        Map<String, List<Long>> dictionary_late_double_list = new HashMap<>();//per station
-        Map<String , Double> final_ans=new HashMap<>();//per station
+    private Map<Integer, Double> get_avg_late(List<RealTime>  real_time){
+        Map<Integer, List<Long>> dictionary_late_double_list = new HashMap<>();//per station
+        Map<Integer , Double> final_ans=new HashMap<>();//per station
         List<Long> ans;
         for (int i = 0; i < real_time.size(); i++) {
             if(real_time.get(i).getRecordedAtTime_Time().compareTo(real_time.get(i).getExpectedArrivalTime())>=0){
                 long time=((real_time.get(i).getRecordedAtTime_Time().getTime()-real_time.get(i).getExpectedArrivalTime().getTime())/1000)/60;
-                if(dictionary_late_double_list.containsKey(real_time.get(i).getLoction().toString())){
-                    dictionary_late_double_list.get(real_time.get(i).getLoction().toString()).add(time);
+                if(dictionary_late_double_list.containsKey(real_time.get(i).getStop().getStop_id())){
+                    dictionary_late_double_list.get(real_time.get(i).getStop().getStop_id()).add(time);
                 }
                 else{
                     ans=new ArrayList<>();
-                    dictionary_late_double_list.put(real_time.get(i).getLoction().toString(),ans);
-                    dictionary_late_double_list.get(real_time.get(i).getLoction().toString()).add(time);
+                    dictionary_late_double_list.put(real_time.get(i).getStop().getStop_id(),ans);
+                    dictionary_late_double_list.get(real_time.get(i).getStop().getStop_id()).add(time);
                 }
             }
         }
-        for ( Map.Entry<String, List<Long>> entry : dictionary_late_double_list.entrySet() ) {
-            String  key = entry.getKey();
+        for ( Map.Entry<Integer, List<Long>> entry : dictionary_late_double_list.entrySet() ) {
+            Integer  key = entry.getKey();
             List<Long> value = entry.getValue();
             long sum=0;
             for (int j = 0; j < value.size(); j++) {
@@ -177,27 +179,27 @@ public class devSchedQueryHandler {
         }
         return  final_ans;
     }
-    private Map<String , Double> get_avg_early(List<RealTime>  real_time){
-        Map<String, List<Long>> dictionary_late_double_list = new HashMap<>();//per station
-        Map<String, Double> final_ans=new HashMap<>();//per station
+    private Map<Integer , Double> get_avg_early(List<RealTime>  real_time){
+        Map<Integer, List<Long>> dictionary_late_double_list = new HashMap<>();//per station
+        Map<Integer, Double> final_ans=new HashMap<>();//per station
         List<Long> ans;
         for (int i = 0; i < real_time.size(); i++) {
             if(real_time.get(i).getRecordedAtTime_Time().compareTo(real_time.get(i).getExpectedArrivalTime())<=0){
                 long time=((real_time.get(i).getExpectedArrivalTime().getTime()-real_time.get(i).getRecordedAtTime_Time().getTime())/1000)/60;
 
 
-                if(dictionary_late_double_list.containsKey(real_time.get(i).getLoction().toString())){
-                    dictionary_late_double_list.get(real_time.get(i).getLoction().toString()).add(time);
+                if(dictionary_late_double_list.containsKey(real_time.get(i).getStop().getStop_id())){
+                    dictionary_late_double_list.get(real_time.get(i).getStop().getStop_id()).add(time);
                 }
                 else{
                     ans=new ArrayList<>();
-                    dictionary_late_double_list.put(real_time.get(i).getLoction().toString(),ans);
-                    dictionary_late_double_list.get(real_time.get(i).getLoction().toString()).add(time);
+                    dictionary_late_double_list.put(real_time.get(i).getStop().getStop_id(),ans);
+                    dictionary_late_double_list.get(real_time.get(i).getStop().getStop_id()).add(time);
                 }
             }
         }
-        for ( Map.Entry<String , List<Long>> entry : dictionary_late_double_list.entrySet() ) {
-            String key = entry.getKey();
+        for ( Map.Entry<Integer , List<Long>> entry : dictionary_late_double_list.entrySet() ) {
+            Integer key = entry.getKey();
             List<Long> value = entry.getValue();
             long sum=0;
             for (int j = 0; j < value.size(); j++) {
