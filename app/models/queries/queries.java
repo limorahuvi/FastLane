@@ -3,15 +3,23 @@ package models.queries;
 import com.fasterxml.jackson.databind.JsonNode;
 import models.DevSchedForm;
 import models.PassengersCountForm;
+import models.entities.RealTime;
 import models.queries.passengersCount.passengersCountQueryHandler;
 import models.queries.devSched.devSchedQueryHandler;
 import models.queries.stations.stationsQueryHandler;
+import org.postgis.Point;
 import play.libs.Json;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.IOException;
+import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class queries {
@@ -34,10 +42,10 @@ public class queries {
     }
 
     public static JsonNode getResults(DevSchedForm form){
-         devSchedQueryHandler handler = new devSchedQueryHandler(form);
-         return handler.getResult();
-        //return readJsonFromFile("devSched");
+        devSchedQueryHandler handler = new devSchedQueryHandler(form);
+        return handler.getResult();
     }
+
 
     /* for demo files */
     private static JsonNode readJsonFromFile(String fileName){
