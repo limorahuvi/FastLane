@@ -52,7 +52,7 @@ public class insertToDB {
     }
 
     private void insertToPassengerCount(String URL) throws SQLException {
-        utilitiesFunc.logger.info("strting insert to Passenger Count table...   (start time = " + new Date() +" )");
+        utilitiesFunc.logger.info("starting insert to Passenger Count table...   (start time = " + new Date() +" )");
        // Logger.info("strting insert to Passenger Count table...   (start time = " + new Date() +" )");
         try {
             BufferedReader br = new BufferedReader(new InputStreamReader(
@@ -102,7 +102,7 @@ public class insertToDB {
     }
 
     private void insertSIRItoRealTime(String URL) throws SQLException {
-        utilitiesFunc.logger.info("starting insert to Real Time table...   (start time = \" + new Date() +\" )");
+        utilitiesFunc.logger.info("starting insert to Real Time table...   (start time = " + new Date() +" )");
         //Logger.info("starting insert to Real Time table...   (start time = " + new Date() +" )");
         try {
             BufferedReader br = new BufferedReader(new InputStreamReader(
