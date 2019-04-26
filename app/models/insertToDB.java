@@ -50,7 +50,7 @@ public class insertToDB {
     }
 
     private void insertSIRItoRealTime(String URL) throws SQLException {
-        Logger.info("strting insert to Real Time table...   (start time = " + new Date() +" )");
+        Logger.info("starting insert to Real Time table...   (start time = " + new Date() +" )");
         try {
             BufferedReader br = new BufferedReader(new InputStreamReader(
                     new FileInputStream(URL),  "UTF-8"));
@@ -102,13 +102,13 @@ public class insertToDB {
         Logger.info("Done insert to Real Time table.  (end time = " + new Date() +" )" );
     }
 
-    private String cleanQuotationMarks(String str) {
+    public String cleanQuotationMarks(String str) {
         return str.substring(1,str.length()-1);
     }
 
 
-    private void insertToAgency(String URL) throws SQLException {
-        Logger.info("strting insert to Agency table...   (start time = " + new Date() +" )");
+    public static void  insertToAgency(String URL) throws SQLException {
+        Logger.info("starting insert to Agency table...   (start time = " + new Date() +" )");
         try {
             BufferedReader br = new BufferedReader(new InputStreamReader(
                     new FileInputStream(URL+"/agency.txt"),  "UTF-8"));
@@ -136,7 +136,7 @@ public class insertToDB {
     }
 
     private void insertToRoutes(String URL) throws SQLException{
-        Logger.info("strting insert to Routes table... (start time = " + new Date() +" )");
+        Logger.info("starting insert to Routes table... (start time = " + new Date() +" )");
         try{
             BufferedReader br = new BufferedReader(new InputStreamReader(
                     new FileInputStream(URL+ "/routes.txt"), StandardCharsets.UTF_8));
@@ -168,7 +168,7 @@ public class insertToDB {
     }
 
     private void insertToStops(String URL) throws SQLException {
-        Logger.info("strting insert to Stops table...   (start time = " + new Date() +" )");
+        Logger.info("starting insert to Stops table...   (start time = " + new Date() +" )");
 
         try{
             BufferedReader br = new BufferedReader(new InputStreamReader(
@@ -208,8 +208,8 @@ public class insertToDB {
         Logger.info("Done insert to Stops table. (end time = " + new Date() +" )");
     }
 
-    private void insertToCalendar(String URL) throws SQLException {
-        Logger.info("strting insert to Calendar table...   (start time = " + new Date() +" )");
+    public static void insertToCalendar(String URL) throws SQLException {
+        Logger.info("starting insert to Calendar table...   (start time = " + new Date() +" )");
         try{
             BufferedReader br = new BufferedReader(new InputStreamReader(
                     new FileInputStream(URL+ "/calendar.txt"), StandardCharsets.UTF_8));
@@ -243,7 +243,7 @@ public class insertToDB {
 
 
     private void insertToTrips(String URL) throws SQLException {
-        Logger.info("strting insert to Trips table...   (start time = " + new Date() +" )");
+        Logger.info("starting insert to Trips table...   (start time = " + new Date() +" )");
         try{
             BufferedReader br = new BufferedReader(new InputStreamReader(
                     new FileInputStream(URL+ "/trips.txt"), StandardCharsets.UTF_8));
@@ -274,7 +274,7 @@ public class insertToDB {
     }
 
     private void insertToShape(String URL) throws SQLException {
-        Logger.info("strting insert to Shapes table...  (start time = " + new Date() +" )");
+        Logger.info("starting insert to Shapes table...  (start time = " + new Date() +" )");
         try{
             BufferedReader br = new BufferedReader(new InputStreamReader(
                     new FileInputStream(URL+ "/shapes.txt"), StandardCharsets.UTF_8));
@@ -305,7 +305,7 @@ public class insertToDB {
     }
 
     private void insertToStopTimes(String URL) throws SQLException {
-        Logger.info("strting insert to Stop Times table... (start time = " + new Date() +" )");
+        Logger.info("starting insert to Stop Times table... (start time = " + new Date() +" )");
         try{
             BufferedReader br = new BufferedReader(new InputStreamReader(
                     new FileInputStream(URL+ "/stop_times.txt"), StandardCharsets.UTF_8));

@@ -12,10 +12,11 @@ public class initializeDB {
 
     private static initializeDB single_instance = null;
     private static Boolean is_initial = false;
+    private String destDir = createPath("output");
 
     private initializeDB() {
         is_initial = true;
-        insertDataToDB();
+        insertDataToDB(destDir);
     }
 
     public static initializeDB getInstance(){
@@ -25,10 +26,11 @@ public class initializeDB {
         return single_instance;
     }
 
-    private static void insertDataToDB(){
-        String destDir = createPath("output");
+    public static void insertDataToDB(String destDir){
+
         try {
             unzip(destDir);
+            System.out.println("Trying to insert");
             insertToDB newdb = new insertToDB(destDir);
         } catch (IOException e) {
             e.printStackTrace();
