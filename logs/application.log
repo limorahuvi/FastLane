@@ -1,31 +1,25 @@
-2019-04-20 17:45:03,986 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-7 - Database [default] initialized at jdbc:postgresql://localhost:5432/db_fast_lane
-2019-04-20 17:45:04,000 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-7 - Creating Pool for datasource 'default'
-2019-04-20 17:45:04,252 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-7 - application.conf @ file:/C:/Users/hshidlov/Desktop/private/Project/clone/FastLane/target/scala-2.12/classes/application.conf: 13: applyEvolutions.default is deprecated, use play.evolutions.db.default.autoApply instead
-2019-04-20 17:45:04,252 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-7 - application.conf @ file:/C:/Users/hshidlov/Desktop/private/Project/clone/FastLane/target/scala-2.12/classes/application.conf: 14: applyDownEvolutions.default is deprecated, use play.evolutions.db.default.autoApplyDowns instead
-2019-04-20 17:45:04,252 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-7 - application.conf @ file:/C:/Users/hshidlov/Desktop/private/Project/clone/FastLane/target/scala-2.12/classes/application.conf: 12: applyEvolutions.db is deprecated, use play.evolutions.db.db.autoApply instead
-2019-04-20 17:45:04,252 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-7 - application.conf @ file:/C:/Users/hshidlov/Desktop/private/Project/clone/FastLane/target/scala-2.12/classes/application.conf: 41: applyEvolutions.dbtest is deprecated, use play.evolutions.db.dbtest.autoApply instead
-2019-04-20 17:45:04,252 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-7 - application.conf @ file:/C:/Users/hshidlov/Desktop/private/Project/clone/FastLane/target/scala-2.12/classes/application.conf: 42: applyDownEvolutions.dbtest is deprecated, use play.evolutions.db.dbtest.autoApplyDowns instead
-2019-04-20 17:45:06,003 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-7 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+2019-04-26 18:47:21,153 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-2 - Database [default] initialized at jdbc:postgresql://localhost:5432/db_fast_lane
+2019-04-26 18:47:21,166 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-2 - Creating Pool for datasource 'default'
+2019-04-26 18:47:21,519 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-2 - Database [test] initialized at jdbc:postgresql://localhost:5432/dbtest
+2019-04-26 18:47:21,519 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-2 - Creating Pool for datasource 'test'
+2019-04-26 18:47:21,691 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-2 - application.conf @ file:/C:/Users/hshidlov/Desktop/private/Project/clone/FastLane/target/scala-2.12/classes/application.conf: 13: applyEvolutions.default is deprecated, use play.evolutions.db.default.autoApply instead
+2019-04-26 18:47:21,692 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-2 - application.conf @ file:/C:/Users/hshidlov/Desktop/private/Project/clone/FastLane/target/scala-2.12/classes/application.conf: 14: applyDownEvolutions.default is deprecated, use play.evolutions.db.default.autoApplyDowns instead
+2019-04-26 18:47:21,693 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-2 - application.conf @ file:/C:/Users/hshidlov/Desktop/private/Project/clone/FastLane/target/scala-2.12/classes/application.conf: 12: applyEvolutions.db is deprecated, use play.evolutions.db.db.autoApply instead
+2019-04-26 18:47:24,739 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-2 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
 
     play.filters.csrf.CSRFFilter
     play.filters.hosts.AllowedHostsFilter
 
-2019-04-20 17:45:06,008 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-7 - Application started (Dev)
-2019-04-20 17:45:06,393 [INFO] from application in application-akka.actor.default-dispatcher-3 - starting to insert DB: (time = Sat Apr 20 17:45:06 IDT 2019 )
-2019-04-20 17:45:06,395 [INFO] from application in application-akka.actor.default-dispatcher-3 - strting insert to Agency table...   (start time = Sat Apr 20 17:45:06 IDT 2019 )
-2019-04-20 17:45:06,636 [INFO] from application in application-akka.actor.default-dispatcher-3 - Done insert to Agency table.  (end time = Sat Apr 20 17:45:06 IDT 2019 )
-2019-04-20 17:45:06,636 [INFO] from application in application-akka.actor.default-dispatcher-3 - strting insert to Routes table... (start time = Sat Apr 20 17:45:06 IDT 2019 )
-2019-04-20 17:45:32,475 [INFO] from application in application-akka.actor.default-dispatcher-3 - Done insert to Routes table.  (end time = Sat Apr 20 17:45:32 IDT 2019 )
-2019-04-20 17:45:32,475 [INFO] from application in application-akka.actor.default-dispatcher-3 - strting insert to Stops table...   (start time = Sat Apr 20 17:45:32 IDT 2019 )
-2019-04-20 17:45:54,795 [INFO] from play.core.server.AkkaHttpServer in pool-7-thread-1 - Stopping server...
-2019-04-20 17:45:54,858 [INFO] from application in application-akka.actor.default-dispatcher-5 - Shutting down connection pool.
-2019-04-20 17:45:54,865 [ERROR] from io.ebeaninternal.server.transaction.TransactionManager in application-akka.actor.default-dispatcher-3 - NotifyOfCommit failed. L2 Cache potentially not notified.
-java.util.concurrent.RejectedExecutionException: Task io.ebeaninternal.server.core.DefaultBackgroundExecutor$$Lambda$6500/1511261625@d7a759e rejected from java.util.concurrent.ThreadPoolExecutor@5811fd7e[Terminated, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 15572]
+2019-04-26 18:47:24,748 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-2 - Application started (Dev)
+2019-04-26 18:49:13,993 [INFO] from play.core.server.AkkaHttpServer in pool-7-thread-2 - Stopping server...
+2019-04-26 18:49:14,055 [INFO] from application in application-akka.actor.default-dispatcher-5 - Shutting down connection pool.
+2019-04-26 18:49:14,059 [ERROR] from io.ebeaninternal.server.transaction.TransactionManager in application-akka.actor.default-dispatcher-2 - NotifyOfCommit failed. L2 Cache potentially not notified.
+java.util.concurrent.RejectedExecutionException: Task io.ebeaninternal.server.transaction.PostCommitProcessing$$Lambda$4583/538924419@6c338150 rejected from java.util.concurrent.ThreadPoolExecutor@1baa3eda[Terminated, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 25587]
 	at java.util.concurrent.ThreadPoolExecutor$AbortPolicy.rejectedExecution(Unknown Source)
 	at java.util.concurrent.ThreadPoolExecutor.reject(Unknown Source)
 	at java.util.concurrent.ThreadPoolExecutor.execute(Unknown Source)
 	at io.ebeaninternal.server.lib.DaemonExecutorService.execute(DaemonExecutorService.java:41)
-	at io.ebeaninternal.server.core.DefaultBackgroundExecutor.execute(DefaultBackgroundExecutor.java:40)
+	at io.ebeaninternal.server.core.DefaultBackgroundExecutor.execute(DefaultBackgroundExecutor.java:38)
 	at io.ebeaninternal.server.transaction.TransactionManager.notifyOfCommit(TransactionManager.java:437)
 	at io.ebeaninternal.server.transaction.JdbcTransaction.notifyCommit(JdbcTransaction.java:934)
 	at io.ebeaninternal.server.transaction.JdbcTransaction.flushCommitAndNotify(JdbcTransaction.java:1000)
@@ -37,11 +31,11 @@ java.util.concurrent.RejectedExecutionException: Task io.ebeaninternal.server.co
 	at io.ebeaninternal.server.core.DefaultServer.update(DefaultServer.java:1782)
 	at io.ebeaninternal.server.core.DefaultServer.update(DefaultServer.java:1774)
 	at io.ebean.Model.update(Model.java:202)
-	at models.insertToDB.insertToStops(insertToDB.java:202)
+	at models.insertToDB.insertToStops(insertToDB.java:209)
 	at models.insertToDB.<init>(insertToDB.java:40)
-	at models.initializeDB.insertDataToDB(initializeDB.java:32)
-	at models.initializeDB.<init>(initializeDB.java:18)
-	at models.initializeDB.getInstance(initializeDB.java:23)
+	at models.initializeDB.insertDataToDB(initializeDB.java:34)
+	at models.initializeDB.<init>(initializeDB.java:19)
+	at models.initializeDB.getInstance(initializeDB.java:24)
 	at controllers.HomeController.index(HomeController.java:28)
 	at router.Routes$$anonfun$routes$1.$anonfun$applyOrElse$2(Routes.scala:192)
 	at play.core.routing.HandlerInvokerFactory$$anon$3.resultCall(HandlerInvoker.scala:134)
@@ -77,6 +71,7 @@ java.util.concurrent.RejectedExecutionException: Task io.ebeaninternal.server.co
 	at scala.util.Try$.apply(Try.scala:209)
 	at play.api.libs.streams.StrictAccumulator.$anonfun$mapFuture$3(Accumulator.scala:174)
 	at scala.Function1.$anonfun$andThen$1(Function1.scala:52)
+	at scala.Function1.$anonfun$andThen$1(Function1.scala:52)
 	at play.api.libs.streams.StrictAccumulator.run(Accumulator.scala:207)
 	at play.core.server.AkkaHttpServer.$anonfun$runAction$4(AkkaHttpServer.scala:376)
 	at akka.http.scaladsl.util.FastFuture$.strictTransform$1(FastFuture.scala:41)
@@ -93,3 +88,310 @@ java.util.concurrent.RejectedExecutionException: Task io.ebeaninternal.server.co
 	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
 	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
 	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
+2019-04-26 18:49:14,079 [INFO] from application in application-akka.actor.default-dispatcher-5 - Shutting down connection pool.
+2019-04-26 18:49:14,094 [ERROR] from application in application-akka.actor.default-dispatcher-2 - 
+
+! @7bjnpgjab - Internal server error, for (GET) [/] ->
+ 
+play.api.http.HttpErrorHandlerExceptions$$anon$1: Execution exception[[PersistenceException: java.sql.SQLException: HikariDataSource HikariDataSource (HikariPool-1) has been closed.]]
+	at play.api.http.HttpErrorHandlerExceptions$.throwableToUsefulException(HttpErrorHandler.scala:251)
+	at play.api.http.DefaultHttpErrorHandler.onServerError(HttpErrorHandler.scala:178)
+	at play.core.server.AkkaHttpServer$$anonfun$1.applyOrElse(AkkaHttpServer.scala:382)
+	at play.core.server.AkkaHttpServer$$anonfun$1.applyOrElse(AkkaHttpServer.scala:380)
+	at scala.concurrent.Future.$anonfun$recoverWith$1(Future.scala:413)
+	at scala.concurrent.impl.Promise.$anonfun$transformWith$1(Promise.scala:37)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:60)
+	at akka.dispatch.BatchingExecutor$AbstractBatch.processBatch(BatchingExecutor.scala:55)
+	at akka.dispatch.BatchingExecutor$BlockableBatch.$anonfun$run$1(BatchingExecutor.scala:91)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:12)
+	at scala.concurrent.BlockContext$.withBlockContext(BlockContext.scala:81)
+	at akka.dispatch.BatchingExecutor$BlockableBatch.run(BatchingExecutor.scala:91)
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:40)
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(ForkJoinExecutorConfigurator.scala:44)
+	at akka.dispatch.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)
+	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
+	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
+	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
+Caused by: javax.persistence.PersistenceException: java.sql.SQLException: HikariDataSource HikariDataSource (HikariPool-1) has been closed.
+	at io.ebeaninternal.server.transaction.TransactionFactoryBasic.createQueryTransaction(TransactionFactoryBasic.java:35)
+	at io.ebeaninternal.server.transaction.TransactionManager.createQueryTransaction(TransactionManager.java:360)
+	at io.ebeaninternal.server.core.DefaultServer.createQueryTransaction(DefaultServer.java:2318)
+	at io.ebeaninternal.server.core.OrmQueryRequest.initTransIfRequired(OrmQueryRequest.java:268)
+	at io.ebeaninternal.server.core.DefaultServer.findId(DefaultServer.java:1245)
+	at io.ebeaninternal.server.core.DefaultServer.find(DefaultServer.java:1131)
+	at io.ebeaninternal.server.core.DefaultServer.find(DefaultServer.java:1117)
+	at io.ebean.Finder.byId(Finder.java:152)
+	at models.insertToDB.insertToStops(insertToDB.java:208)
+	at models.insertToDB.<init>(insertToDB.java:40)
+	at models.initializeDB.insertDataToDB(initializeDB.java:34)
+	at models.initializeDB.<init>(initializeDB.java:19)
+	at models.initializeDB.getInstance(initializeDB.java:24)
+	at controllers.HomeController.index(HomeController.java:28)
+	at router.Routes$$anonfun$routes$1.$anonfun$applyOrElse$2(Routes.scala:192)
+	at play.core.routing.HandlerInvokerFactory$$anon$3.resultCall(HandlerInvoker.scala:134)
+	at play.core.routing.HandlerInvokerFactory$$anon$3.resultCall(HandlerInvoker.scala:133)
+	at play.core.routing.HandlerInvokerFactory$JavaActionInvokerFactory$$anon$8$$anon$2$$anon$1.invocation(HandlerInvoker.scala:108)
+	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:88)
+	at play.http.DefaultActionCreator$1.call(DefaultActionCreator.java:31)
+	at play.core.j.JavaAction.$anonfun$apply$8(JavaAction.scala:138)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:654)
+	at scala.util.Success.$anonfun$map$1(Try.scala:251)
+	at scala.util.Success.map(Try.scala:209)
+	at scala.concurrent.Future.$anonfun$map$1(Future.scala:288)
+	at scala.concurrent.impl.Promise.liftedTree1$1(Promise.scala:29)
+	at scala.concurrent.impl.Promise.$anonfun$transform$1(Promise.scala:29)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:60)
+	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:56)
+	at play.api.libs.streams.Execution$trampoline$.execute(Execution.scala:70)
+	at play.core.j.HttpExecutionContext.execute(HttpExecutionContext.scala:48)
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:68)
+	at scala.concurrent.impl.Promise$KeptPromise$Kept.onComplete(Promise.scala:368)
+	at scala.concurrent.impl.Promise$KeptPromise$Kept.onComplete$(Promise.scala:367)
+	at scala.concurrent.impl.Promise$KeptPromise$Successful.onComplete(Promise.scala:375)
+	at scala.concurrent.impl.Promise.transform(Promise.scala:29)
+	at scala.concurrent.impl.Promise.transform$(Promise.scala:27)
+	at scala.concurrent.impl.Promise$KeptPromise$Successful.transform(Promise.scala:375)
+	at scala.concurrent.Future.map(Future.scala:288)
+	at scala.concurrent.Future.map$(Future.scala:288)
+	at scala.concurrent.impl.Promise$KeptPromise$Successful.map(Promise.scala:375)
+	at scala.concurrent.Future$.apply(Future.scala:654)
+	at play.core.j.JavaAction.apply(JavaAction.scala:138)
+	at play.api.mvc.Action.$anonfun$apply$2(Action.scala:96)
+	at play.api.libs.streams.StrictAccumulator.$anonfun$mapFuture$4(Accumulator.scala:174)
+	at scala.util.Try$.apply(Try.scala:209)
+	at play.api.libs.streams.StrictAccumulator.$anonfun$mapFuture$3(Accumulator.scala:174)
+	at scala.Function1.$anonfun$andThen$1(Function1.scala:52)
+	at scala.Function1.$anonfun$andThen$1(Function1.scala:52)
+	at play.api.libs.streams.StrictAccumulator.run(Accumulator.scala:207)
+	at play.core.server.AkkaHttpServer.$anonfun$runAction$4(AkkaHttpServer.scala:376)
+	at akka.http.scaladsl.util.FastFuture$.strictTransform$1(FastFuture.scala:41)
+	at akka.http.scaladsl.util.FastFuture$.$anonfun$transformWith$3(FastFuture.scala:51)
+	... 12 common frames omitted
+Caused by: java.sql.SQLException: HikariDataSource HikariDataSource (HikariPool-1) has been closed.
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:96)
+	at org.jdbcdslog.DataSourceProxyBase.getConnection(DataSourceProxyBase.java:45)
+	at play.db.ebean.DefaultEbeanConfig$EbeanConfigParser$WrappingDatasource.getConnection(DefaultEbeanConfig.java:153)
+	at io.ebeaninternal.server.transaction.TransactionFactoryBasic.createQueryTransaction(TransactionFactoryBasic.java:28)
+	... 64 common frames omitted
+2019-04-26 18:55:38,768 [INFO] from application in pool-1-thread-1 - Creating Pool for datasource 'default'
+2019-04-26 18:55:39,044 [INFO] from application in pool-1-thread-1 - Creating Pool for datasource 'test'
+2019-04-26 18:55:39,188 [WARN] from application in pool-1-thread-1 - conf\application.conf: 13: applyEvolutions.default is deprecated, use play.evolutions.db.default.autoApply instead
+2019-04-26 18:55:39,189 [WARN] from application in pool-1-thread-1 - conf\application.conf: 14: applyDownEvolutions.default is deprecated, use play.evolutions.db.default.autoApplyDowns instead
+2019-04-26 18:55:39,190 [WARN] from application in pool-1-thread-1 - conf\application.conf: 12: applyEvolutions.db is deprecated, use play.evolutions.db.db.autoApply instead
+2019-04-26 18:55:42,387 [INFO] from application in application-akka.actor.default-dispatcher-3 - Shutting down connection pool.
+2019-04-26 18:55:42,394 [INFO] from application in application-akka.actor.default-dispatcher-3 - Shutting down connection pool.
+2019-04-26 18:58:13,210 [INFO] from application in pool-1-thread-1 - Creating Pool for datasource 'default'
+2019-04-26 18:58:13,467 [INFO] from application in pool-1-thread-1 - Creating Pool for datasource 'test'
+2019-04-26 18:58:13,601 [WARN] from application in pool-1-thread-1 - conf\application.conf: 13: applyEvolutions.default is deprecated, use play.evolutions.db.default.autoApply instead
+2019-04-26 18:58:13,602 [WARN] from application in pool-1-thread-1 - conf\application.conf: 14: applyDownEvolutions.default is deprecated, use play.evolutions.db.default.autoApplyDowns instead
+2019-04-26 18:58:13,603 [WARN] from application in pool-1-thread-1 - conf\application.conf: 12: applyEvolutions.db is deprecated, use play.evolutions.db.db.autoApply instead
+2019-04-26 18:58:16,504 [INFO] from application in pool-1-thread-1 - Clearing outputTest folder
+2019-04-26 18:58:16,587 [INFO] from application in application-akka.actor.default-dispatcher-2 - Shutting down connection pool.
+2019-04-26 18:58:16,593 [INFO] from application in application-akka.actor.default-dispatcher-2 - Shutting down connection pool.
+2019-04-26 18:59:33,136 [INFO] from application in pool-1-thread-1 - Creating Pool for datasource 'default'
+2019-04-26 18:59:33,392 [INFO] from application in pool-1-thread-1 - Creating Pool for datasource 'test'
+2019-04-26 18:59:33,484 [WARN] from application in pool-1-thread-1 - conf\application.conf: 13: applyEvolutions.default is deprecated, use play.evolutions.db.default.autoApply instead
+2019-04-26 18:59:33,485 [WARN] from application in pool-1-thread-1 - conf\application.conf: 14: applyDownEvolutions.default is deprecated, use play.evolutions.db.default.autoApplyDowns instead
+2019-04-26 18:59:33,485 [WARN] from application in pool-1-thread-1 - conf\application.conf: 12: applyEvolutions.db is deprecated, use play.evolutions.db.db.autoApply instead
+2019-04-26 18:59:36,490 [INFO] from application in pool-1-thread-1 - Clearing outputTest folder
+2019-04-26 18:59:36,573 [INFO] from application in application-akka.actor.default-dispatcher-4 - Shutting down connection pool.
+2019-04-26 18:59:36,579 [INFO] from application in application-akka.actor.default-dispatcher-4 - Shutting down connection pool.
+2019-04-26 19:00:29,337 [INFO] from application in pool-1-thread-1 - Creating Pool for datasource 'default'
+2019-04-26 19:00:29,583 [INFO] from application in pool-1-thread-1 - Creating Pool for datasource 'test'
+2019-04-26 19:00:29,669 [WARN] from application in pool-1-thread-1 - conf\application.conf: 13: applyEvolutions.default is deprecated, use play.evolutions.db.default.autoApply instead
+2019-04-26 19:00:29,669 [WARN] from application in pool-1-thread-1 - conf\application.conf: 14: applyDownEvolutions.default is deprecated, use play.evolutions.db.default.autoApplyDowns instead
+2019-04-26 19:00:29,669 [WARN] from application in pool-1-thread-1 - conf\application.conf: 12: applyEvolutions.db is deprecated, use play.evolutions.db.db.autoApply instead
+2019-04-26 19:00:32,588 [INFO] from application in pool-1-thread-1 - Clearing outputTest folder
+2019-04-26 19:00:32,690 [INFO] from application in application-akka.actor.default-dispatcher-4 - Shutting down connection pool.
+2019-04-26 19:00:32,710 [INFO] from application in application-akka.actor.default-dispatcher-4 - Shutting down connection pool.
+2019-04-26 19:03:09,260 [INFO] from application in pool-1-thread-1 - Creating Pool for datasource 'default'
+2019-04-26 19:03:09,538 [INFO] from application in pool-1-thread-1 - Creating Pool for datasource 'test'
+2019-04-26 19:03:11,230 [WARN] from application in pool-1-thread-1 - conf\application.conf: 13: applyEvolutions.default is deprecated, use play.evolutions.db.default.autoApply instead
+2019-04-26 19:03:11,230 [WARN] from application in pool-1-thread-1 - conf\application.conf: 14: applyDownEvolutions.default is deprecated, use play.evolutions.db.default.autoApplyDowns instead
+2019-04-26 19:03:11,231 [WARN] from application in pool-1-thread-1 - conf\application.conf: 12: applyEvolutions.db is deprecated, use play.evolutions.db.db.autoApply instead
+2019-04-26 19:09:37,610 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-8 - Database [default] initialized at jdbc:postgresql://localhost:5432/db_fast_lane
+2019-04-26 19:09:37,626 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-8 - Creating Pool for datasource 'default'
+2019-04-26 19:09:37,907 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-8 - Database [test] initialized at jdbc:postgresql://localhost:5432/dbtest
+2019-04-26 19:09:37,907 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-8 - Creating Pool for datasource 'test'
+2019-04-26 19:09:40,045 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-8 - application.conf @ file:/C:/Users/hshidlov/Desktop/private/Project/clone/FastLane/target/scala-2.12/classes/application.conf: 13: applyEvolutions.default is deprecated, use play.evolutions.db.default.autoApply instead
+2019-04-26 19:09:40,045 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-8 - application.conf @ file:/C:/Users/hshidlov/Desktop/private/Project/clone/FastLane/target/scala-2.12/classes/application.conf: 14: applyDownEvolutions.default is deprecated, use play.evolutions.db.default.autoApplyDowns instead
+2019-04-26 19:09:40,045 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-8 - application.conf @ file:/C:/Users/hshidlov/Desktop/private/Project/clone/FastLane/target/scala-2.12/classes/application.conf: 12: applyEvolutions.db is deprecated, use play.evolutions.db.db.autoApply instead
+2019-04-26 19:09:41,197 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-8 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.csrf.CSRFFilter
+    play.filters.hosts.AllowedHostsFilter
+
+2019-04-26 19:09:41,204 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-8 - Application started (Dev)
+2019-04-26 19:10:18,020 [INFO] from play.core.server.AkkaHttpServer in pool-7-thread-1 - Stopping server...
+2019-04-26 19:10:18,115 [INFO] from application in application-akka.actor.default-dispatcher-3 - Shutting down connection pool.
+2019-04-26 19:10:18,124 [ERROR] from io.ebeaninternal.server.transaction.TransactionManager in application-akka.actor.default-dispatcher-5 - NotifyOfCommit failed. L2 Cache potentially not notified.
+java.util.concurrent.RejectedExecutionException: Task io.ebeaninternal.server.transaction.PostCommitProcessing$$Lambda$4625/1908303132@669e3672 rejected from java.util.concurrent.ThreadPoolExecutor@1a3e5d4e[Terminated, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 5123]
+	at java.util.concurrent.ThreadPoolExecutor$AbortPolicy.rejectedExecution(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.reject(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.execute(Unknown Source)
+	at io.ebeaninternal.server.lib.DaemonExecutorService.execute(DaemonExecutorService.java:41)
+	at io.ebeaninternal.server.core.DefaultBackgroundExecutor.execute(DefaultBackgroundExecutor.java:38)
+	at io.ebeaninternal.server.transaction.TransactionManager.notifyOfCommit(TransactionManager.java:437)
+	at io.ebeaninternal.server.transaction.JdbcTransaction.notifyCommit(JdbcTransaction.java:934)
+	at io.ebeaninternal.server.transaction.JdbcTransaction.flushCommitAndNotify(JdbcTransaction.java:1000)
+	at io.ebeaninternal.server.transaction.JdbcTransaction.commit(JdbcTransaction.java:1047)
+	at io.ebeaninternal.server.core.DefaultServer.commitTransaction(DefaultServer.java:859)
+	at io.ebeaninternal.server.core.BeanRequest.commitTransIfRequired(BeanRequest.java:61)
+	at io.ebeaninternal.server.persist.DefaultPersister.update(DefaultPersister.java:432)
+	at io.ebeaninternal.server.persist.DefaultPersister.update(DefaultPersister.java:408)
+	at io.ebeaninternal.server.core.DefaultServer.update(DefaultServer.java:1782)
+	at io.ebeaninternal.server.core.DefaultServer.update(DefaultServer.java:1774)
+	at io.ebean.Model.update(Model.java:202)
+	at models.insertToDB.insertToRoutes(insertToDB.java:164)
+	at models.insertToDB.<init>(insertToDB.java:39)
+	at models.initializeDB.insertDataToDB(initializeDB.java:34)
+	at models.initializeDB.<init>(initializeDB.java:19)
+	at models.initializeDB.getInstance(initializeDB.java:24)
+	at controllers.HomeController.index(HomeController.java:28)
+	at router.Routes$$anonfun$routes$1.$anonfun$applyOrElse$2(Routes.scala:192)
+	at play.core.routing.HandlerInvokerFactory$$anon$3.resultCall(HandlerInvoker.scala:134)
+	at play.core.routing.HandlerInvokerFactory$$anon$3.resultCall(HandlerInvoker.scala:133)
+	at play.core.routing.HandlerInvokerFactory$JavaActionInvokerFactory$$anon$8$$anon$2$$anon$1.invocation(HandlerInvoker.scala:108)
+	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:88)
+	at play.http.DefaultActionCreator$1.call(DefaultActionCreator.java:31)
+	at play.core.j.JavaAction.$anonfun$apply$8(JavaAction.scala:138)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:654)
+	at scala.util.Success.$anonfun$map$1(Try.scala:251)
+	at scala.util.Success.map(Try.scala:209)
+	at scala.concurrent.Future.$anonfun$map$1(Future.scala:288)
+	at scala.concurrent.impl.Promise.liftedTree1$1(Promise.scala:29)
+	at scala.concurrent.impl.Promise.$anonfun$transform$1(Promise.scala:29)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:60)
+	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:56)
+	at play.api.libs.streams.Execution$trampoline$.execute(Execution.scala:70)
+	at play.core.j.HttpExecutionContext.execute(HttpExecutionContext.scala:48)
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:68)
+	at scala.concurrent.impl.Promise$KeptPromise$Kept.onComplete(Promise.scala:368)
+	at scala.concurrent.impl.Promise$KeptPromise$Kept.onComplete$(Promise.scala:367)
+	at scala.concurrent.impl.Promise$KeptPromise$Successful.onComplete(Promise.scala:375)
+	at scala.concurrent.impl.Promise.transform(Promise.scala:29)
+	at scala.concurrent.impl.Promise.transform$(Promise.scala:27)
+	at scala.concurrent.impl.Promise$KeptPromise$Successful.transform(Promise.scala:375)
+	at scala.concurrent.Future.map(Future.scala:288)
+	at scala.concurrent.Future.map$(Future.scala:288)
+	at scala.concurrent.impl.Promise$KeptPromise$Successful.map(Promise.scala:375)
+	at scala.concurrent.Future$.apply(Future.scala:654)
+	at play.core.j.JavaAction.apply(JavaAction.scala:138)
+	at play.api.mvc.Action.$anonfun$apply$2(Action.scala:96)
+	at play.api.libs.streams.StrictAccumulator.$anonfun$mapFuture$4(Accumulator.scala:174)
+	at scala.util.Try$.apply(Try.scala:209)
+	at play.api.libs.streams.StrictAccumulator.$anonfun$mapFuture$3(Accumulator.scala:174)
+	at scala.Function1.$anonfun$andThen$1(Function1.scala:52)
+	at scala.Function1.$anonfun$andThen$1(Function1.scala:52)
+	at play.api.libs.streams.StrictAccumulator.run(Accumulator.scala:207)
+	at play.core.server.AkkaHttpServer.$anonfun$runAction$4(AkkaHttpServer.scala:376)
+	at akka.http.scaladsl.util.FastFuture$.strictTransform$1(FastFuture.scala:41)
+	at akka.http.scaladsl.util.FastFuture$.$anonfun$transformWith$3(FastFuture.scala:51)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:60)
+	at akka.dispatch.BatchingExecutor$AbstractBatch.processBatch(BatchingExecutor.scala:55)
+	at akka.dispatch.BatchingExecutor$BlockableBatch.$anonfun$run$1(BatchingExecutor.scala:91)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:12)
+	at scala.concurrent.BlockContext$.withBlockContext(BlockContext.scala:81)
+	at akka.dispatch.BatchingExecutor$BlockableBatch.run(BatchingExecutor.scala:91)
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:40)
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(ForkJoinExecutorConfigurator.scala:44)
+	at akka.dispatch.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)
+	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
+	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
+	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
+2019-04-26 19:10:18,135 [INFO] from application in application-akka.actor.default-dispatcher-3 - Shutting down connection pool.
+2019-04-26 19:10:18,164 [ERROR] from application in application-akka.actor.default-dispatcher-5 - 
+
+! @7bjo2ah8e - Internal server error, for (GET) [/] ->
+ 
+play.api.http.HttpErrorHandlerExceptions$$anon$1: Execution exception[[PersistenceException: java.sql.SQLException: HikariDataSource HikariDataSource (HikariPool-1) has been closed.]]
+	at play.api.http.HttpErrorHandlerExceptions$.throwableToUsefulException(HttpErrorHandler.scala:251)
+	at play.api.http.DefaultHttpErrorHandler.onServerError(HttpErrorHandler.scala:178)
+	at play.core.server.AkkaHttpServer$$anonfun$1.applyOrElse(AkkaHttpServer.scala:382)
+	at play.core.server.AkkaHttpServer$$anonfun$1.applyOrElse(AkkaHttpServer.scala:380)
+	at scala.concurrent.Future.$anonfun$recoverWith$1(Future.scala:413)
+	at scala.concurrent.impl.Promise.$anonfun$transformWith$1(Promise.scala:37)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:60)
+	at akka.dispatch.BatchingExecutor$AbstractBatch.processBatch(BatchingExecutor.scala:55)
+	at akka.dispatch.BatchingExecutor$BlockableBatch.$anonfun$run$1(BatchingExecutor.scala:91)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:12)
+	at scala.concurrent.BlockContext$.withBlockContext(BlockContext.scala:81)
+	at akka.dispatch.BatchingExecutor$BlockableBatch.run(BatchingExecutor.scala:91)
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:40)
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(ForkJoinExecutorConfigurator.scala:44)
+	at akka.dispatch.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)
+	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
+	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
+	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
+Caused by: javax.persistence.PersistenceException: java.sql.SQLException: HikariDataSource HikariDataSource (HikariPool-1) has been closed.
+	at io.ebeaninternal.server.transaction.TransactionFactoryBasic.createQueryTransaction(TransactionFactoryBasic.java:35)
+	at io.ebeaninternal.server.transaction.TransactionManager.createQueryTransaction(TransactionManager.java:360)
+	at io.ebeaninternal.server.core.DefaultServer.createQueryTransaction(DefaultServer.java:2318)
+	at io.ebeaninternal.server.core.OrmQueryRequest.initTransIfRequired(OrmQueryRequest.java:268)
+	at io.ebeaninternal.server.core.DefaultServer.findId(DefaultServer.java:1245)
+	at io.ebeaninternal.server.core.DefaultServer.find(DefaultServer.java:1131)
+	at io.ebeaninternal.server.core.DefaultServer.find(DefaultServer.java:1117)
+	at io.ebean.Finder.byId(Finder.java:152)
+	at models.insertToDB.insertToRoutes(insertToDB.java:156)
+	at models.insertToDB.<init>(insertToDB.java:39)
+	at models.initializeDB.insertDataToDB(initializeDB.java:34)
+	at models.initializeDB.<init>(initializeDB.java:19)
+	at models.initializeDB.getInstance(initializeDB.java:24)
+	at controllers.HomeController.index(HomeController.java:28)
+	at router.Routes$$anonfun$routes$1.$anonfun$applyOrElse$2(Routes.scala:192)
+	at play.core.routing.HandlerInvokerFactory$$anon$3.resultCall(HandlerInvoker.scala:134)
+	at play.core.routing.HandlerInvokerFactory$$anon$3.resultCall(HandlerInvoker.scala:133)
+	at play.core.routing.HandlerInvokerFactory$JavaActionInvokerFactory$$anon$8$$anon$2$$anon$1.invocation(HandlerInvoker.scala:108)
+	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:88)
+	at play.http.DefaultActionCreator$1.call(DefaultActionCreator.java:31)
+	at play.core.j.JavaAction.$anonfun$apply$8(JavaAction.scala:138)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:654)
+	at scala.util.Success.$anonfun$map$1(Try.scala:251)
+	at scala.util.Success.map(Try.scala:209)
+	at scala.concurrent.Future.$anonfun$map$1(Future.scala:288)
+	at scala.concurrent.impl.Promise.liftedTree1$1(Promise.scala:29)
+	at scala.concurrent.impl.Promise.$anonfun$transform$1(Promise.scala:29)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:60)
+	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:56)
+	at play.api.libs.streams.Execution$trampoline$.execute(Execution.scala:70)
+	at play.core.j.HttpExecutionContext.execute(HttpExecutionContext.scala:48)
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:68)
+	at scala.concurrent.impl.Promise$KeptPromise$Kept.onComplete(Promise.scala:368)
+	at scala.concurrent.impl.Promise$KeptPromise$Kept.onComplete$(Promise.scala:367)
+	at scala.concurrent.impl.Promise$KeptPromise$Successful.onComplete(Promise.scala:375)
+	at scala.concurrent.impl.Promise.transform(Promise.scala:29)
+	at scala.concurrent.impl.Promise.transform$(Promise.scala:27)
+	at scala.concurrent.impl.Promise$KeptPromise$Successful.transform(Promise.scala:375)
+	at scala.concurrent.Future.map(Future.scala:288)
+	at scala.concurrent.Future.map$(Future.scala:288)
+	at scala.concurrent.impl.Promise$KeptPromise$Successful.map(Promise.scala:375)
+	at scala.concurrent.Future$.apply(Future.scala:654)
+	at play.core.j.JavaAction.apply(JavaAction.scala:138)
+	at play.api.mvc.Action.$anonfun$apply$2(Action.scala:96)
+	at play.api.libs.streams.StrictAccumulator.$anonfun$mapFuture$4(Accumulator.scala:174)
+	at scala.util.Try$.apply(Try.scala:209)
+	at play.api.libs.streams.StrictAccumulator.$anonfun$mapFuture$3(Accumulator.scala:174)
+	at scala.Function1.$anonfun$andThen$1(Function1.scala:52)
+	at scala.Function1.$anonfun$andThen$1(Function1.scala:52)
+	at play.api.libs.streams.StrictAccumulator.run(Accumulator.scala:207)
+	at play.core.server.AkkaHttpServer.$anonfun$runAction$4(AkkaHttpServer.scala:376)
+	at akka.http.scaladsl.util.FastFuture$.strictTransform$1(FastFuture.scala:41)
+	at akka.http.scaladsl.util.FastFuture$.$anonfun$transformWith$3(FastFuture.scala:51)
+	... 12 common frames omitted
+Caused by: java.sql.SQLException: HikariDataSource HikariDataSource (HikariPool-1) has been closed.
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:96)
+	at org.jdbcdslog.DataSourceProxyBase.getConnection(DataSourceProxyBase.java:45)
+	at play.db.ebean.DefaultEbeanConfig$EbeanConfigParser$WrappingDatasource.getConnection(DefaultEbeanConfig.java:153)
+	at io.ebeaninternal.server.transaction.TransactionFactoryBasic.createQueryTransaction(TransactionFactoryBasic.java:28)
+	... 64 common frames omitted
+2019-04-26 19:10:40,208 [INFO] from application in pool-1-thread-1 - Clearing outputTest folder
+2019-04-26 19:10:40,294 [INFO] from application in application-akka.actor.default-dispatcher-3 - Shutting down connection pool.
+2019-04-26 19:10:40,302 [INFO] from application in application-akka.actor.default-dispatcher-3 - Shutting down connection pool.
+2019-04-26 19:10:55,085 [INFO] from application in pool-1-thread-1 - Creating Pool for datasource 'default'
+2019-04-26 19:10:55,333 [INFO] from application in pool-1-thread-1 - Creating Pool for datasource 'test'
+2019-04-26 19:10:57,054 [WARN] from application in pool-1-thread-1 - conf\application.conf: 13: applyEvolutions.default is deprecated, use play.evolutions.db.default.autoApply instead
+2019-04-26 19:10:57,055 [WARN] from application in pool-1-thread-1 - conf\application.conf: 14: applyDownEvolutions.default is deprecated, use play.evolutions.db.default.autoApplyDowns instead
+2019-04-26 19:10:57,055 [WARN] from application in pool-1-thread-1 - conf\application.conf: 12: applyEvolutions.db is deprecated, use play.evolutions.db.db.autoApply instead
+2019-04-26 19:17:36,136 [INFO] from application in pool-1-thread-1 - Clearing outputTest folder
+2019-04-26 19:17:36,243 [INFO] from application in application-akka.actor.default-dispatcher-3 - Shutting down connection pool.
+2019-04-26 19:17:36,250 [INFO] from application in application-akka.actor.default-dispatcher-3 - Shutting down connection pool.

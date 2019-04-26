@@ -7,12 +7,15 @@ lazy val root = (project in file(".")).enablePlugins(PlayJava , PlayEbean)
 
 scalaVersion := "2.12.7"
 
+javaOptions in Test += "-Dconfig.file=conf/application.test.conf"
+
 libraryDependencies ++= Seq(
   "org.postgresql" % "postgresql" % "42.1.4",
   guice,
   javaJdbc,
   evolutions, 
   jdbc,
+  javaJdbc % Test,
   "io.ebean" % "ebean" % "11.37.1",
   "javax.persistence" % "persistence-api" % "1.0.2" ,
   "io.ebean" % "ebean-postgis" % "11.1.1",
