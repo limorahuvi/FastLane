@@ -26,7 +26,7 @@ public class HomeController extends Controller {
     public Result index() {
 
         initializeDB initial_db= initializeDB.getInstance();
-        return ok(views.html.index.render(models.queries.queries.getStations().toString()));
+        return ok(views.html.index.render(models.queries.queries.getStationsByCity("").toString()));
 
     }
     public Result passengersCount(){

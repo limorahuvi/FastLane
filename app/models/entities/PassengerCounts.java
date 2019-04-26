@@ -15,18 +15,18 @@ import play.data.validation.*;
 public class PassengerCounts extends Model {
     @Id @GeneratedValue
     private Integer pc_id ;
-    private Integer TripId; //col 58
+    private Integer TripId; //col 56
 
-    private Integer PassengersContinue_rounded_sofi;  //col 56
+    private Integer PassengersContinue_rounded_sofi;  //col 54
 
-    private Point point; //Lat+long (40,41)
+    private Point point; //Lat+long (38,39)
 
-    private String DayNameHeb; // col 28
+    private String DayNameHeb; // col 26
 
     @Formats.DateTime(pattern="yyyy-MM-dd")
-    private Date DateKey; //col 24
+    private Date DateKey; //col 22
 
-    private Time HourKey; // col 25
+    private Time HourKey; // col 23
 
     public static final Finder<Long, PassengerCounts> find = new Finder<>(PassengerCounts.class);
 
