@@ -35,9 +35,7 @@ public class insertToDB {
             utilitiesFunc.logger.info("starting to insert DB: (time = " + new Date() +" )");
             //Logger.info("starting to insert DB: (time = " + new Date() +" )");
             String siri_path = utilitiesFunc.createPath("sources/DFoutputBS_cluster2018-09-29_1.csv");
-            Logger.info("starting to insert DB: (time = " + new Date() +" )");
-            String siri_path = initializeDB.getInstance().createPath("sources/DFoutputBS_cluster2018-09-29_1.csv");
-            String pc_path = initializeDB.getInstance().createPath("sources/pc.csv");
+            String pc_path = utilitiesFunc.createPath("sources/pc.csv");
             insertToPassengerCount(pc_path);
             insertToAgency(destDir);
             insertToRoutes(destDir);
@@ -54,7 +52,8 @@ public class insertToDB {
     }
 
     private void insertToPassengerCount(String URL) throws SQLException {
-        Logger.info("strting insert to Passenger Count table...   (start time = " + new Date() +" )");
+        utilitiesFunc.logger.info("strting insert to Passenger Count table...   (start time = " + new Date() +" )");
+       // Logger.info("strting insert to Passenger Count table...   (start time = " + new Date() +" )");
         try {
             BufferedReader br = new BufferedReader(new InputStreamReader(
                     new FileInputStream(URL),  "UTF-8"));
@@ -98,7 +97,8 @@ public class insertToDB {
         }
         catch(IOException e) { e.printStackTrace(); }
         catch (ParseException e) { e.printStackTrace();}
-        Logger.info("Done insert to Passenger Count table.  (end time = " + new Date() +" )" );
+        utilitiesFunc.logger.info("Done insert to Passenger Count table.  (end time = " + new Date() +" )" );
+        //Logger.info("Done insert to Passenger Count table.  (end time = " + new Date() +" )" );
     }
 
     private void insertSIRItoRealTime(String URL) throws SQLException {
