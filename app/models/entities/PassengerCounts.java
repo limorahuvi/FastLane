@@ -23,6 +23,16 @@ public class PassengerCounts extends Model {
 
     private String DayNameHeb; // col 26
 
+    public String getStation_order() {
+        return station_order;
+    }
+
+    public void setStation_order(String station_order) {
+        this.station_order = station_order;
+    }
+
+    private String station_order; // col 28
+
     @Formats.DateTime(pattern="yyyy-MM-dd")
     private Date DateKey; //col 22
 
@@ -67,7 +77,20 @@ public class PassengerCounts extends Model {
     }
 
     public void setDayNameHeb(String dayNameHeb) {
-        DayNameHeb = dayNameHeb;
+        DayNameHeb = getDay(dayNameHeb);
+    }
+
+    private String getDay(String day) {
+        switch (day){
+            case "ראשון": return "Sundayא";
+            case "שני": return "Monday";
+            case "שלישי": return "Tuesday";
+            case "רביעי": return "Wednesday";
+            case "חמישי": return "Thursday";
+            case "שישי": return "Friday";
+            case "שבת": return "Saturday";
+            default: return "";
+        }
     }
 
     public Date getDateKey() {
@@ -84,5 +107,17 @@ public class PassengerCounts extends Model {
 
     public void setHourKey(Time hourKey) {
         HourKey = hourKey;
+    }
+
+    public String toString(){
+        return "pc_id: "+pc_id+" "+
+                "TripId: "+TripId+" "+
+                "PassengersContinue_rounded_sofi: "+PassengersContinue_rounded_sofi+" "+
+                "point: "+point+" "+
+                "station_order: "+station_order+" "+
+                "DayNameHeb: "+DayNameHeb+" "+
+                "DateKey: "+DateKey+" "+
+                "HourKey: "+HourKey+" ";
+
     }
 }
