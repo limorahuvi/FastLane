@@ -29,7 +29,7 @@ public class unitTestsInsertToDB {
         initializeDB.unzip(destDir);
         Date endDate =  new Date();
         System.out.println("End time:"+ endDate);
-        utilitiesDBtest.deleteOutpuTest(destDir);
+        utilitiesDBtest.deleteOutputTest(destDir);
         //assertEquals(true, startDate.before(endDate));
         assertTrue(endDate.getMinutes()-startDate.getMinutes() < 5);
         //deleteOutpuTest(destDir);
