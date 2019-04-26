@@ -12,7 +12,7 @@ public class initializeDB {
 
     private static initializeDB single_instance = null;
     private static Boolean is_initial = false;
-    private String destDir = createPath("output");
+    private String destDir = utilitiesFunc.createPath("output");
 
     private initializeDB() {
         is_initial = true;
@@ -29,25 +29,19 @@ public class initializeDB {
     public static void insertDataToDB(String destDir){
 
         try {
+            utilitiesFunc.writeToLog("LogFile.log");
             unzip(destDir);
-            System.out.println("Trying to insert");
-            insertToDB newdb = new insertToDB(destDir);
+            new insertToDB(destDir);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public static String createPath(String direction) {
-        String cwd = System.getProperty("user.dir");
-        Path path = Paths.get(cwd);
-        Path pathParent = path.getParent();
-        Path filePath = Paths.get(pathParent.toString(), direction);
-        return filePath.toString();
-    }
+
 
     public static void unzip(String destDir) throws IOException {
         File dir = new File(destDir);
-        String gtfs_path = createPath("sources/gtfs.zip");
+        String gtfs_path = utilitiesFunc.createPath("sources/gtfs.zip");
         // create output directory if it doesn't
         if(!dir.exists()) {
             dir.mkdirs();
@@ -62,7 +56,7 @@ public class initializeDB {
                 while(ze != null){
                     String fileName = ze.getName();
                     File newFile = new File(destDir + File.separator + fileName);
-                    System.out.println("Unzipping to "+newFile.getAbsolutePath());
+                    utilitiesFunc.logger.info("Unzipping to "+newFile.getAbsolutePath());
                     //create directories for sub directories in zip
                     new File(newFile.getParent()).mkdirs();
                     FileOutputStream fos = new FileOutputStream(newFile);

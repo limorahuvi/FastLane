@@ -5,7 +5,7 @@ import org.junit.*;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.List;
+
 
 import static org.junit.Assert.*;
 
@@ -14,14 +14,19 @@ public class tablesQueries extends BaseModelTest{
     private static String destDir = "";
 
     @BeforeClass
-    public void setup() throws IOException{
+    public static void setup() throws IOException{
+        //utilitiesDBtest.writeToLoggerFile("tablesQueries TEST starts: \n");
+        utilitiesFunc.writeToLog("LogTest.log");
+        utilitiesFunc.logger.info("tablesQueries TEST starts: \n");
         destDir =  utilitiesDBtest.createPath("outTest");
         initializeDB.unzip(destDir);
+
     }
 
     @AfterClass
-    public void teardown(){
-        utilitiesDBtest.deleteOutpuTest(destDir);
+    public static void teardown() throws IOException {
+        utilitiesDBtest.deleteOutputTest(destDir);
+        utilitiesFunc.logger.info("tablesQueries test ends... \n");
     }
 
     @Test

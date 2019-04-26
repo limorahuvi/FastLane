@@ -32,9 +32,9 @@ public class insertToDB {
 
     public insertToDB(String destDir) {
         try {
-            Logger.info("starting to insert DB: (time = " + new Date() +" )");
-            String siri_path = initializeDB.getInstance().createPath("sources/DFoutputBS_cluster2018-09-29_1.csv");
-            System.out.println("this is the path: " +siri_path);
+            utilitiesFunc.logger.info("starting to insert DB: (time = " + new Date() +" )");
+            //Logger.info("starting to insert DB: (time = " + new Date() +" )");
+            String siri_path = utilitiesFunc.createPath("sources/DFoutputBS_cluster2018-09-29_1.csv");
             insertToAgency(destDir);
             insertToRoutes(destDir);
             insertToStops(destDir);
@@ -50,7 +50,8 @@ public class insertToDB {
     }
 
     private void insertSIRItoRealTime(String URL) throws SQLException {
-        Logger.info("starting insert to Real Time table...   (start time = " + new Date() +" )");
+        utilitiesFunc.logger.info("starting insert to Real Time table...   (start time = \" + new Date() +\" )");
+        //Logger.info("starting insert to Real Time table...   (start time = " + new Date() +" )");
         try {
             BufferedReader br = new BufferedReader(new InputStreamReader(
                     new FileInputStream(URL),  "UTF-8"));
@@ -99,7 +100,8 @@ public class insertToDB {
         }
         catch(IOException e) { e.printStackTrace(); }
         catch (ParseException e) { e.printStackTrace();}
-        Logger.info("Done insert to Real Time table.  (end time = " + new Date() +" )" );
+        utilitiesFunc.logger.info("Done insert to Real Time table.  (end time = " + new Date() +" )" );
+        //Logger.info("Done insert to Real Time table.  (end time = " + new Date() +" )" );
     }
 
     public String cleanQuotationMarks(String str) {
@@ -108,7 +110,8 @@ public class insertToDB {
 
 
     public static void  insertToAgency(String URL) throws SQLException {
-        Logger.info("starting insert to Agency table...   (start time = " + new Date() +" )");
+        utilitiesFunc.logger.info("starting insert to Agency table...   (start time = " + new Date() +" )");
+        //Logger.info("starting insert to Agency table...   (start time = " + new Date() +" )");
         try {
             BufferedReader br = new BufferedReader(new InputStreamReader(
                     new FileInputStream(URL+"/agency.txt"),  "UTF-8"));
@@ -132,11 +135,13 @@ public class insertToDB {
             e.printStackTrace();
 
         }
-        Logger.info("Done insert to Agency table.  (end time = " + new Date() +" )" );
+        utilitiesFunc.logger.info("Done insert to Agency table.  (end time = " + new Date() +" )" );
+        //Logger.info("Done insert to Agency table.  (end time = " + new Date() +" )" );
     }
 
     private void insertToRoutes(String URL) throws SQLException{
-        Logger.info("starting insert to Routes table... (start time = " + new Date() +" )");
+        utilitiesFunc.logger.info("starting insert to Routes table... (start time = " + new Date() +" )");
+        //Logger.info("starting insert to Routes table... (start time = " + new Date() +" )");
         try{
             BufferedReader br = new BufferedReader(new InputStreamReader(
                     new FileInputStream(URL+ "/routes.txt"), StandardCharsets.UTF_8));
@@ -164,11 +169,13 @@ public class insertToDB {
         } catch(IOException e){
             e.printStackTrace();
         }
-        Logger.info("Done insert to Routes table.  (end time = " + new Date() +" )");
+        utilitiesFunc.logger.info("Done insert to Routes table.  (end time = " + new Date() +" )");
+        //Logger.info("Done insert to Routes table.  (end time = " + new Date() +" )");
     }
 
     private void insertToStops(String URL) throws SQLException {
-        Logger.info("starting insert to Stops table...   (start time = " + new Date() +" )");
+        utilitiesFunc.logger.info("starting insert to Stops table...   (start time = " + new Date() +" )");
+        //Logger.info("starting insert to Stops table...   (start time = " + new Date() +" )");
 
         try{
             BufferedReader br = new BufferedReader(new InputStreamReader(
@@ -205,11 +212,13 @@ public class insertToDB {
             }
             br.close();
         } catch(IOException e) { e.printStackTrace(); }
-        Logger.info("Done insert to Stops table. (end time = " + new Date() +" )");
+        utilitiesFunc.logger.info("Done insert to Stops table. (end time = " + new Date() +" )");
+        //Logger.info("Done insert to Stops table. (end time = " + new Date() +" )");
     }
 
     public static void insertToCalendar(String URL) throws SQLException {
-        Logger.info("starting insert to Calendar table...   (start time = " + new Date() +" )");
+        utilitiesFunc.logger.info("starting insert to Calendar table...   (start time = " + new Date() +" )");
+        //Logger.info("starting insert to Calendar table...   (start time = " + new Date() +" )");
         try{
             BufferedReader br = new BufferedReader(new InputStreamReader(
                     new FileInputStream(URL+ "/calendar.txt"), StandardCharsets.UTF_8));
@@ -237,13 +246,15 @@ public class insertToDB {
         }
         catch(IOException e) { e.printStackTrace(); }
         catch (ParseException e) { e.printStackTrace();}
-        Logger.info("Done insert to Calendar table.   (end time = " + new Date() +" )");
+        utilitiesFunc.logger.info("Done insert to Calendar table.   (end time = " + new Date() +" )");
+        //Logger.info("Done insert to Calendar table.   (end time = " + new Date() +" )");
 
     }
 
 
     private void insertToTrips(String URL) throws SQLException {
-        Logger.info("starting insert to Trips table...   (start time = " + new Date() +" )");
+        utilitiesFunc.logger.info("starting insert to Trips table...   (start time = " + new Date() +" )");
+        //Logger.info("starting insert to Trips table...   (start time = " + new Date() +" )");
         try{
             BufferedReader br = new BufferedReader(new InputStreamReader(
                     new FileInputStream(URL+ "/trips.txt"), StandardCharsets.UTF_8));
@@ -270,11 +281,13 @@ public class insertToDB {
             }
             br.close();
         } catch(IOException e) { e.printStackTrace(); }
-        Logger.info("Done insert to Trips table.    (end time = " + new Date() +" )");
+        utilitiesFunc.logger.info("Done insert to Trips table.    (end time = " + new Date() +" )");
+        //Logger.info("Done insert to Trips table.    (end time = " + new Date() +" )");
     }
 
     private void insertToShape(String URL) throws SQLException {
-        Logger.info("starting insert to Shapes table...  (start time = " + new Date() +" )");
+        utilitiesFunc.logger.info("starting insert to Shapes table...  (start time = " + new Date() +" )");
+        //Logger.info("starting insert to Shapes table...  (start time = " + new Date() +" )");
         try{
             BufferedReader br = new BufferedReader(new InputStreamReader(
                     new FileInputStream(URL+ "/shapes.txt"), StandardCharsets.UTF_8));
@@ -301,11 +314,13 @@ public class insertToDB {
             }
             br.close();
         } catch(IOException e) { e.printStackTrace(); }
-        Logger.info("Done insert to Shapes table.   (end time = " + new Date() +" )");
+        utilitiesFunc.logger.info("Done insert to Shapes table.   (end time = " + new Date() +" )");
+        //Logger.info("Done insert to Shapes table.   (end time = " + new Date() +" )");
     }
 
     private void insertToStopTimes(String URL) throws SQLException {
-        Logger.info("starting insert to Stop Times table... (start time = " + new Date() +" )");
+        utilitiesFunc.logger.info("starting insert to Stop Times table... (start time = " + new Date() +" )");
+        //Logger.info("starting insert to Stop Times table... (start time = " + new Date() +" )");
         try{
             BufferedReader br = new BufferedReader(new InputStreamReader(
                     new FileInputStream(URL+ "/stop_times.txt"), StandardCharsets.UTF_8));
@@ -344,7 +359,8 @@ public class insertToDB {
         }
         catch(IOException e) { e.printStackTrace(); }
         catch (ParseException e) { e.printStackTrace();}
-        Logger.info("Done insert to Stop Times table.   (end time = " + new Date() +" )");
+        utilitiesFunc.logger.info("Done insert to Stop Times table.   (end time = " + new Date() +" )");
+        //Logger.info("Done insert to Stop Times table.   (end time = " + new Date() +" )");
 
     }
 
