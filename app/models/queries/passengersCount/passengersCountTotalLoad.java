@@ -8,7 +8,7 @@ public class passengersCountTotalLoad {
     public List<passengersCountSingleLoad> features = new ArrayList<>();
 
     public void addFeature(double[] coor1, double[] coor2, int load, int loadFactor) {
-        double relativeLoad = loadFactor == 0||load>loadFactor ? 1 : load/loadFactor;
+        double relativeLoad = loadFactor == 0||load>loadFactor ? 1 : (double)load/loadFactor;
         features.add(new passengersCountSingleLoad(coor1,coor2,relativeLoad));
     }
 }
