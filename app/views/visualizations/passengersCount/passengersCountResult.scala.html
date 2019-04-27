@@ -120,14 +120,6 @@
         })
     };
 
-    map.on('mousemove', function (e) {
-        document.getElementById('info').innerHTML =
-        // e.point is the x, y coordinates of the mousemove event relative
-        // to the top-left corner of the map
-        JSON.stringify(e.point) + '<br />' +
-        // e.lngLat is the longitude, latitude geographical position of the event
-        JSON.stringify(e.lngLat);
-    });
 
 
 }{
@@ -150,8 +142,9 @@
         function downloadCSV(args) {
             var data, filename, link;
             var newJson = [];
+            var json = JSON.parse('@result.getResultString()'.replace(/&quot;/g,'"'));
             json["features"].forEach(line=>newJson.push(flatten(line)));
-            <!--TODO change to result from server-->
+
             var csv = convertArrayOfObjectsToCSV({
                 data: newJson
             });
