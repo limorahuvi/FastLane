@@ -74,19 +74,20 @@ public class insertToDB {
                         point.setSrid(4326);
                         pc.setPoint(point);
                         pc.setDayNameHeb(cleanQuotationMarks(tmp[26]));
+                        pc.setStation_order(cleanQuotationMarks(tmp[28]));
 
-                        System.out.println("before 1: " + cleanQuotationMarks(tmp[22]));
+//                        System.out.println("before 1: " + cleanQuotationMarks(tmp[22]));
                         SimpleDateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd");
                         Date dateKey = dateformat.parse(cleanQuotationMarks(tmp[22]));
                         pc.setDateKey(dateKey);
-                        System.out.println("after 1: " + dateKey.toString());
+//                        System.out.println("after 1: " + dateKey.toString());
                         String timeString = cleanQuotationMarks(tmp[23]);
-                        System.out.println("before 2 new: " + timeString);
+//                        System.out.println("before 2 new: " + timeString);
                         SimpleDateFormat time_format = new SimpleDateFormat("HH:mm");
                         long hourKeyLong = time_format.parse(timeString).getTime();
                         Time hourKey = new Time(hourKeyLong);
                         pc.setHourKey(hourKey);
-                        System.out.println("after 2: " + hourKey.toString());
+//                        System.out.println("after 2: " + hourKey.toString());
 
                         pc.save();
                     }
