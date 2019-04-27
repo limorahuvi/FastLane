@@ -12,7 +12,7 @@
 
         }
         .mapboxgl-popup {
-            max-width: 200px;
+            max-width: 600px;
         }
         .mapboxgl-popup-content {
             text-align: center;
@@ -95,8 +95,8 @@ el.style.borderRight=radius+'px solid transparent';
 new mapboxgl.Marker(el)
 .setLngLat(marker.geometry.coordinates)
 .setPopup(new mapboxgl.Popup({ offset: 0}) // add popups
-.setHTML('<h6> ' + 'Average preliminaries:' + marker.properties[0].average + '</h6><p>' +  marker.properties[0].description + '</p>'+
-'<h6>' + 'Average lateness:' + marker.properties[1].average + '</h6><p>' + marker.properties[1].description + '</p>'
+.setHTML('<h6> ' + 'Average preliminaries: ' + marker.properties[0].average + '</h6><p>' +  marker.properties[0].description + '</p>'+
+'<h6>' + 'Average lateness: ' + marker.properties[1].average + '</h6><p>' + marker.properties[1].description + '</p>'
 ))
 .addTo(map);
 
@@ -121,7 +121,8 @@ new mapboxgl.Marker(el)
         function downloadCSV(args) {
             var data, filename, link;
             var newJson = [];
-            geojson["features"].forEach(line=>newJson.push(flatten(line)));
+            var json = JSON.parse('@result.getResultString()'.replace(/&quot;/g,'"'));
+            json["features"].forEach(line=>newJson.push(flatten(line)));
             <!--TODO change to result from server-->
             var csv = convertArrayOfObjectsToCSV({
                 data: newJson
