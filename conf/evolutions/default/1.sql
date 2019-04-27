@@ -24,6 +24,7 @@ create table passenger_counts (
   passengers_continue_rounded_sofi integer,
   point                         geometry(point,4326),
   day_name_heb                  varchar(255),
+  station_order                 varchar(255),
   date_key                      timestamptz,
   hour_key                      time,
   constraint pk_passenger_counts primary key (pc_id)

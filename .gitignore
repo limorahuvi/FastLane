@@ -2,4 +2,6 @@
 /project/project/target
 /.idea
 /.gradle
-
+LogFile.log
+LoggerTests.txt
+LogTest.log
