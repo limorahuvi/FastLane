@@ -130,6 +130,10 @@ public class insertToDB {
                     //System.out.println("stop code is: " + tmp[16]);
                     //Stop stopRef=Stop.find.query().where().eq("stop_code" , Integer.parseInt(cleanQuotationMarks(tmp[16]))).findOne();//stopRefL.get(0);
                     List<Stop> stopRefL=Stop.find.query().where().eq("stop_code" , Integer.parseInt(cleanQuotationMarks(tmp[16]))).findList();
+                  //  System.out.println(">> stop code is : " + tmp[16]  +"  list length : " + stopRefL.size() );
+                    if(stopRefL.size()>0){
+
+
                     Stop stopRef= stopRefL.get(0);
                     siri.setStop_id(stopRef);
                     siri.setLoction(stopRef.getLoction());
@@ -146,6 +150,7 @@ public class insertToDB {
                     if (RealTime.find.byId(Long.parseLong(cleanQuotationMarks(tmp[0])))!=null)
                         siri.update();
                     else siri.save();
+                }
                 }
             }
             br.close();
