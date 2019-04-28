@@ -74,15 +74,16 @@ public class devSchedQueryHandler {
 
     public static List<RealTime> filter_day(List<RealTime>  real_time_ref,String day){
         String [] days={"","Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"};
+        List<RealTime> ans=new ArrayList<>();
         for (int i = 0; i < real_time_ref.size(); i++) {
             Calendar c = Calendar.getInstance();
             c.setTime(real_time_ref.get(i).getExpectedArrivalDate());
             int dayOfWeek = c.get(Calendar.DAY_OF_WEEK);
-            if(!(days[dayOfWeek].equals(day))){
-                real_time_ref.remove(i);
+            if(days[dayOfWeek].equals(day)){
+                ans.add(real_time_ref.get(i));
             }
         }
-        return real_time_ref;
+        return ans;
     }
 
     private String get_description_early_new(List<RealTime>  real_time,int stop_id){
@@ -92,14 +93,15 @@ public class devSchedQueryHandler {
             if(real_time.get(i).getStop().getStop_id()==stop_id) {
                 if (real_time.get(i).getRecordedAtTime_Time().compareTo(real_time.get(i).getExpectedArrivalTime()) <= 0) {
                     time = ((real_time.get(i).getExpectedArrivalTime().getTime() - real_time.get(i).getRecordedAtTime_Time().getTime()) / 1000) / 60;
-                        desciption_late = desciption_late + "line " + real_time.get(i).getPublishedLineName() + ": " + time + " minutes, ";
+                        desciption_late = desciption_late + "line " + real_time.get(i).getPublishedLineName() + ": " + time + " minutes | ";
                 }
             }
         }
-
+/*
         if(desciption_late.length()>2){
             desciption_late=desciption_late.substring(0, (desciption_late.length()-2))+"." ;
         }
+        */
         return desciption_late;
     }
     private String get_description_late_new(List<RealTime>  real_time,int stop_id){
@@ -109,14 +111,15 @@ public class devSchedQueryHandler {
             if(real_time.get(i).getStop().getStop_id()==stop_id) {
                 if (real_time.get(i).getRecordedAtTime_Time().compareTo(real_time.get(i).getExpectedArrivalTime()) >= 0) {
                     time = ((real_time.get(i).getRecordedAtTime_Time().getTime() - real_time.get(i).getExpectedArrivalTime().getTime()) / 1000) / 60;
-                        desciption_late = desciption_late + "line " + real_time.get(i).getPublishedLineName() + ": " + time + " minutes, ";
+                        desciption_late = desciption_late + "line " + real_time.get(i).getPublishedLineName() + ": " + time + " minutes | ";
                 }
             }
         }
-
+/*
         if(desciption_late.length()>2){
             desciption_late=desciption_late.substring(0, (desciption_late.length()-2))+"." ;
         }
+        */
         return  desciption_late;
     }
 
