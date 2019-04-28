@@ -25,7 +25,7 @@ public class HomeController extends Controller {
     FormFactory formFactory;
     public Result index() {
 
-//        initializeDB initial_db= initializeDB.getInstance();
+       initializeDB initial_db= initializeDB.getInstance();
         return ok(views.html.index.render(models.queries.queries.getStations().toString()));
 
     }

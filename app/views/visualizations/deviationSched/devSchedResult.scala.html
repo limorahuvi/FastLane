@@ -118,12 +118,12 @@ new mapboxgl.Marker(el)
 <!--TODO adjust excel-->
 <script type="text/javascript">
 
-        function downloadCSV(args) {
+       function downloadCSV(args) {
             var data, filename, link;
             var newJson = [];
             var json = JSON.parse('@result.getResultString()'.replace(/&quot;/g,'"'));
             json["features"].forEach(line=>newJson.push(flatten(line)));
-            <!--TODO change to result from server-->
+
             var csv = convertArrayOfObjectsToCSV({
                 data: newJson
             });
@@ -141,6 +141,7 @@ new mapboxgl.Marker(el)
             link.setAttribute('download', filename);
             link.click();
         }
+
 
     </script>
 
