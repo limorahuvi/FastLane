@@ -2,8 +2,8 @@
 /project/project/target
 /.idea
 /.gradle
-/conf/evolutions/default
-/logs
+/conf/evolutions/default/1.sql
+/logs/application.log
 LogFile.log
 LoggerTests.txt
 LogTest.log
