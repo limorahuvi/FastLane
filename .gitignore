@@ -2,6 +2,8 @@
 /project/project/target
 /.idea
 /.gradle
+/conf/evolutions/default
+/logs
 LogFile.log
 LoggerTests.txt
 LogTest.log
