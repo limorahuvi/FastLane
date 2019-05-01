@@ -38,14 +38,14 @@ public class insertToDB {
             //Logger.info("starting to insert DB: (time = " + new Date() +" )");
             String siri_path = utilitiesFunc.createPath("sources/DFoutputBS_cluster2018-09-29_1.csv");
             String pc_path = utilitiesFunc.createPath("sources/pc.csv");
-            //insertToPassengerCount(pc_path);
-           /* insertToAgency(destDir);
+            insertToPassengerCount(pc_path);
+            insertToAgency(destDir);
             insertToRoutes(destDir);
             insertToStops(destDir);
             insertToCalendar(destDir);
-            //insertSIRItoRealTime(siri_path);
+            insertSIRItoRealTime(siri_path);
             insertToShape(destDir);
-            insertToTrips(destDir);*/
+            insertToTrips(destDir);
             insertToStopTimes(destDir);
             utilitiesFunc.logger.info("Done to insert DB: (time = " + new Date() +" )");
 
