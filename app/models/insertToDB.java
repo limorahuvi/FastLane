@@ -1,5 +1,7 @@
 package models;
 
+import io.ebean.Ebean;
+import io.ebean.Transaction;
 import play.Logger;
 
 import models.entities.*;
@@ -36,15 +38,16 @@ public class insertToDB {
             //Logger.info("starting to insert DB: (time = " + new Date() +" )");
             String siri_path = utilitiesFunc.createPath("sources/DFoutputBS_cluster2018-09-29_1.csv");
             String pc_path = utilitiesFunc.createPath("sources/pc.csv");
-            insertToPassengerCount(pc_path);
-            insertToAgency(destDir);
+            //insertToPassengerCount(pc_path);
+           /* insertToAgency(destDir);
             insertToRoutes(destDir);
             insertToStops(destDir);
             insertToCalendar(destDir);
-            insertSIRItoRealTime(siri_path);
+            //insertSIRItoRealTime(siri_path);
             insertToShape(destDir);
-            insertToTrips(destDir);
+            insertToTrips(destDir);*/
             insertToStopTimes(destDir);
+            utilitiesFunc.logger.info("Done to insert DB: (time = " + new Date() +" )");
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -55,11 +58,18 @@ public class insertToDB {
         utilitiesFunc.logger.info("starting insert to Passenger Count table...   (start time = " + new Date() +" )");
        // Logger.info("strting insert to Passenger Count table...   (start time = " + new Date() +" )");
         try {
+            int i=0;
             BufferedReader br = new BufferedReader(new InputStreamReader(
                     new FileInputStream(URL),  "UTF-8"));
-            String line = null;
-            while ((line = br.readLine() )!=null)
+            String line = br.readLine();
+            while (line!=null)
             {
+                Transaction transaction = Ebean.currentTransaction();
+                if(transaction== null){
+                    transaction = Ebean.beginTransaction();
+                    transaction.setBatchMode(true);  // use JDBC batch
+                    transaction.setBatchSize(100);
+                }
 
                 //Make sure the line is not null, not empty, and contains 2 comma char
                 if (line != null && !line.equals("") && line.matches(".*[,].*[,].*") && !line.contains("IdReportRow")) {
@@ -90,14 +100,16 @@ public class insertToDB {
 //                        System.out.println("after 2: " + hourKey.toString());
 
                         pc.save();
+                        i++;
                     }
-                    catch(java.lang.IllegalArgumentException e1){
-
-                    }
-
+                    catch(java.lang.IllegalArgumentException e1){ }
+                }
+                if ((line = br.readLine()) ==null || i==100){
+                    transaction.commit();
+                    transaction.end();
+                    i=0;
                 }
             }
-
             br.close();
         }
         catch(IOException e) { e.printStackTrace(); }
@@ -110,20 +122,29 @@ public class insertToDB {
         utilitiesFunc.logger.info("starting insert to Real Time table...   (start time = " + new Date() +" )");
         //Logger.info("starting insert to Real Time table...   (start time = " + new Date() +" )");
         try {
+            int i=0;
             BufferedReader br = new BufferedReader(new InputStreamReader(
                     new FileInputStream(URL),  "UTF-8"));
-            String line = null;
-            while ((line = br.readLine() )!=null)
+            String line = br.readLine();
+            while (line!=null)
             {
+                Transaction transaction = Ebean.currentTransaction();
+                if(transaction== null){
+                    transaction = Ebean.beginTransaction();
+                    transaction.setBatchMode(true);  // use JDBC batch
+                    transaction.setBatchSize(100);
+                }
                 //Make sure the line is not null, not empty, and contains 2 comma char
                 if (line != null && !line.equals("") && line.matches(".*[,].*[,].*") && !line.contains("RecordedAtTime")&& !line.contains("a")) {
                     String tmp[] = line.split(",");
-                    RealTime siri = new RealTime();
+                    RealTime siri = RealTime.find.byId(Long.parseLong(cleanQuotationMarks(tmp[0])));
+                    if (siri == null)
+                        siri = new RealTime();
                     siri.setRealTime_id(Integer.parseInt(cleanQuotationMarks(tmp[0])));
 
-                    String all_record_date =cleanQuotationMarks(tmp[1]);
-                    String sRecord_date = all_record_date.substring(0,11);
-                    String sRecord_time = all_record_date.substring(12,20);
+                    String all_record_date = cleanQuotationMarks(tmp[1]);
+                    String sRecord_date = all_record_date.substring(0, 11);
+                    String sRecord_time = all_record_date.substring(12, 20);
                     SimpleDateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd");
                     Date recordDate = dateformat.parse(sRecord_date);
                     SimpleDateFormat time_format = new SimpleDateFormat("hh:mm:ss");
@@ -138,15 +159,13 @@ public class insertToDB {
                     //List<Stop> stopRefL =Stop.find.query().where().eq("stop_code" , Integer.parseInt(cleanQuotationMarks(tmp[16]))).findList(); //findOne();
                     //System.out.println("stop code is: " + tmp[16]);
                     //Stop stopRef=Stop.find.query().where().eq("stop_code" , Integer.parseInt(cleanQuotationMarks(tmp[16]))).findOne();//stopRefL.get(0);
-                    List<Stop> stopRefL=Stop.find.query().where().eq("stop_code" , Integer.parseInt(cleanQuotationMarks(tmp[16]))).findList();
-                  //  System.out.println(">> stop code is : " + tmp[16]  +"  list length : " + stopRefL.size() );
-                    if(stopRefL.size()>0){
-
-
-                    Stop stopRef= stopRefL.get(0);
-                    siri.setStop_id(stopRef);
-                    siri.setLoction(stopRef.getLoction());
-
+                    List<Stop> stopRefL = Stop.find.query().where().eq("stop_code", Integer.parseInt(cleanQuotationMarks(tmp[16]))).findList();
+                    //  System.out.println(">> stop code is : " + tmp[16]  +"  list length : " + stopRefL.size() );
+                    if (stopRefL.size() > 0) {
+                        Stop stopRef = stopRefL.get(0);
+                        siri.setStop_id(stopRef);
+                        siri.setLoction(stopRef.getLoction());
+                    }
                     String all_expected_date = cleanQuotationMarks(tmp[18]);
                     String sExpected_date = all_expected_date.substring(0,10);
                     String sExpected_time = all_expected_date.substring(12,20);
@@ -156,10 +175,13 @@ public class insertToDB {
                     siri.setExpectedArrivalDate(expectedDate);
                     siri.setExpectedArrivalTime(expected_time);
 
-                    if (RealTime.find.byId(Long.parseLong(cleanQuotationMarks(tmp[0])))!=null)
-                        siri.update();
-                    else siri.save();
+                    siri.save();
+                    i++;
                 }
+                if ((line = br.readLine()) ==null || i==100){
+                    transaction.commit();
+                    transaction.end();
+                    i=0;
                 }
             }
             br.close();
@@ -174,33 +196,44 @@ public class insertToDB {
         return str.substring(1,str.length()-1);
     }
 
-
-    public static void  insertToAgency(String URL) throws SQLException {
+    public static void insertToAgency(String URL) throws SQLException {
         utilitiesFunc.logger.info("starting insert to Agency table...   (start time = " + new Date() +" )");
         //Logger.info("starting insert to Agency table...   (start time = " + new Date() +" )");
         try {
+            int i=0;
             BufferedReader br = new BufferedReader(new InputStreamReader(
                     new FileInputStream(URL+"/agency.txt"),  "UTF-8"));
-            String line = null;
-            while ((line = br.readLine() )!=null)
+            String line = br.readLine();
+            while (line!=null)
             {
+                Transaction transaction = Ebean.currentTransaction();
+                if(transaction== null){
+                    transaction = Ebean.beginTransaction();
+                    transaction.setBatchMode(true);  // use JDBC batch
+                    transaction.setBatchSize(51);
+                }
                 //Make sure the line is not null, not empty, and contains 2 comma char
                 if (line != null && !line.equals("") && line.matches(".*[,].*[,].*") && !line.contains("agency")) {
                     String tmp[] = line.split(",");
-                    Agency agency = new Agency();
+                    Agency agency = Agency.find.byId(Integer.parseInt(tmp[0]));
+                    if (agency==null)
+                        agency = new Agency();
                     agency.setAgency_id(Integer.parseInt(tmp[0]));
                     agency.setAgency_name(tmp[1]);
                     agency.setAgency_url(tmp[2]);
-                    if (Agency.find.byId(Integer.parseInt(tmp[0]))==null)
-                        agency.save();
-                    else agency.update();
+
+                    agency.save();
+                    i++;
+                }
+                if ((line = br.readLine()) ==null || i==51){
+                    transaction.commit();
+                    transaction.end();
+                    i=0;
                 }
             }
             br.close();
-        } catch(IOException e){
-            e.printStackTrace();
-
         }
+        catch(IOException e) {e.printStackTrace(); }
         utilitiesFunc.logger.info("Done insert to Agency table.  (end time = " + new Date() +" )" );
         //Logger.info("Done insert to Agency table.  (end time = " + new Date() +" )" );
     }
@@ -209,15 +242,24 @@ public class insertToDB {
         utilitiesFunc.logger.info("starting insert to Routes table... (start time = " + new Date() +" )");
         //Logger.info("starting insert to Routes table... (start time = " + new Date() +" )");
         try{
+            int i=0;
             BufferedReader br = new BufferedReader(new InputStreamReader(
                     new FileInputStream(URL+ "/routes.txt"), StandardCharsets.UTF_8));
-            String line = null;
-            while ((line = br.readLine() )!=null)
+            String line = br.readLine();
+            while (line!=null)
             {
+                Transaction transaction = Ebean.currentTransaction();
+                if(transaction== null){
+                    transaction = Ebean.beginTransaction();
+                    transaction.setBatchMode(true);  // use JDBC batch
+                    transaction.setBatchSize(100);
+                }
                 //Make sure the line is not null, not empty, and contains 2 comma char
                 if (line != null && !line.equals("") && line.matches(".*[,].*[,].*") && !line.contains("route")) {
                     String tmp[] = line.split(",");
-                    Routes route = new Routes();
+                    Routes route = Routes.find.byId(Integer.parseInt(tmp[0]));
+                    if (route == null)
+                        route = new Routes();
                     route.setRoute_id(Integer.parseInt(tmp[0]));
                     Agency agency_id = Agency.find.byId(Integer.parseInt(tmp[1]));
                     route.setAgency_id(agency_id);
@@ -226,15 +268,18 @@ public class insertToDB {
                     route.setRoute_type(tmp[5]);
                     if (tmp.length>6)
                         route.setRoute_color(tmp[6]);
-                    if (Routes.find.byId(Integer.parseInt(tmp[0]))!=null)
-                        route.update();
-                    else route.save();
+                    route.save();
+                    i++;
+                }
+                if ((line = br.readLine()) ==null || i==100){
+                    transaction.commit();
+                    transaction.end();
+                    i=0;
                 }
             }
             br.close();
-        } catch(IOException e){
-            e.printStackTrace();
         }
+        catch(IOException e) {e.printStackTrace(); }
         utilitiesFunc.logger.info("Done insert to Routes table.  (end time = " + new Date() +" )");
         //Logger.info("Done insert to Routes table.  (end time = " + new Date() +" )");
     }
@@ -244,16 +289,24 @@ public class insertToDB {
         //Logger.info("starting insert to Stops table...   (start time = " + new Date() +" )");
 
         try{
+            int i=0;
             BufferedReader br = new BufferedReader(new InputStreamReader(
                     new FileInputStream(URL+ "/stops.txt"), StandardCharsets.UTF_8));
-            String line = null;
-            while ((line = br.readLine() )!=null)
+            String line = br.readLine();
+            while (line!=null)
             {
+                Transaction transaction = Ebean.currentTransaction();
+                if(transaction== null){
+                    transaction = Ebean.beginTransaction();
+                    transaction.setBatchMode(true);  // use JDBC batch
+                    transaction.setBatchSize(100);
+                }
                 //Make sure the line is not null, not empty, and contains 2 comma char
                 if (line != null && !line.equals("") && line.matches(".*[,].*[,].*") && !line.contains("stop")) {
                     String tmp[] = line.split(",");
-                    Stop stop = new Stop();
-
+                    Stop stop = Stop.find.byId(Long.valueOf(Integer.parseInt(tmp[0])));
+                    if (stop ==null)
+                        stop = new Stop();
                     stop.setStop_id(Integer.parseInt(tmp[0]));
                     stop.setStop_code(Integer.parseInt(tmp[1]));
                     stop.setStop_name(tmp[2]);
@@ -264,20 +317,25 @@ public class insertToDB {
                     stop_point.setSrid(4326);
                     stop.setLoction(stop_point);
                     stop.setLocation_type(Boolean.parseBoolean(tmp[6]));
-                    if (tmp.length> 7) {
-                        if (!(tmp[7].equals(""))) {
-                            Stop parent = Stop.find.byId(Long.valueOf(Integer.parseInt(tmp[7])));
-                            stop.setParent_station(parent);
-                        }
-                    }
 
-                    if (Stop.find.byId(Long.valueOf(Integer.parseInt(tmp[0])))!=null)
-                        stop.update();
-                    else stop.save();
+                    if (tmp.length> 7 && !(tmp[7].equals(""))) {
+                        //if (!(tmp[7].equals(""))) {
+                        Stop parent = Stop.find.byId(Long.valueOf(Integer.parseInt(tmp[7])));
+                        stop.setParent_station(parent);
+                        // }
+                    }
+                    stop.save();
+                    i++;
+                }
+                if ((line = br.readLine()) ==null || i==100){
+                    transaction.commit();
+                    transaction.end();
+                    i=0;
                 }
             }
             br.close();
-        } catch(IOException e) { e.printStackTrace(); }
+        }
+        catch(IOException e) { e.printStackTrace(); }
         utilitiesFunc.logger.info("Done insert to Stops table. (end time = " + new Date() +" )");
         //Logger.info("Done insert to Stops table. (end time = " + new Date() +" )");
     }
@@ -286,15 +344,24 @@ public class insertToDB {
         utilitiesFunc.logger.info("starting insert to Calendar table...   (start time = " + new Date() +" )");
         //Logger.info("starting insert to Calendar table...   (start time = " + new Date() +" )");
         try{
+            int i=0;
             BufferedReader br = new BufferedReader(new InputStreamReader(
                     new FileInputStream(URL+ "/calendar.txt"), StandardCharsets.UTF_8));
-            String line = null;
-            while ((line = br.readLine() )!=null)
+            String line = br.readLine();
+            while (line!=null)
             {
+                Transaction transaction = Ebean.currentTransaction();
+                if(transaction== null){
+                    transaction = Ebean.beginTransaction();
+                    transaction.setBatchMode(true);  // use JDBC batch
+                    transaction.setBatchSize(100);
+                }
                 //Make sure the line is not null, not empty, and contains 2 comma char
                 if (line != null && !line.equals("") && line.matches(".*[,].*[,].*") && !line.contains("service")) {
                     String tmp[] = line.split(",");
-                    Calendar calendar = new Calendar();
+                    Calendar calendar = Calendar.find.byId(Integer.parseInt(tmp[0]));
+                    if (calendar == null)
+                        calendar = new Calendar();
                     calendar.setService_id(Integer.parseInt(tmp[0]));
                     String days_bytes = Calendar.mergeDayes(tmp[1],tmp[2],tmp[3],tmp[4],tmp[5],tmp[6],tmp[7]);
                     calendar.setDays_bytes(days_bytes);
@@ -303,9 +370,14 @@ public class insertToDB {
                     Date end_date = dateformat.parse(tmp[9]);
                     calendar.setStart_date(start_date);
                     calendar.setEnd_date(end_date);
-                    if (Calendar.find.byId(Integer.parseInt(tmp[0]))!=null)
-                        calendar.update();
-                    else calendar.save();
+
+                    calendar.save();
+                    i++;
+                }
+                if ((line = br.readLine()) ==null || i==100){
+                    transaction.commit();
+                    transaction.end();
+                    i=0;
                 }
             }
             br.close();
@@ -314,23 +386,30 @@ public class insertToDB {
         catch (ParseException e) { e.printStackTrace();}
         utilitiesFunc.logger.info("Done insert to Calendar table.   (end time = " + new Date() +" )");
         //Logger.info("Done insert to Calendar table.   (end time = " + new Date() +" )");
-
     }
-
 
     private void insertToTrips(String URL) throws SQLException {
         utilitiesFunc.logger.info("starting insert to Trips table...   (start time = " + new Date() +" )");
         //Logger.info("starting insert to Trips table...   (start time = " + new Date() +" )");
         try{
+            int i=0;
             BufferedReader br = new BufferedReader(new InputStreamReader(
                     new FileInputStream(URL+ "/trips.txt"), StandardCharsets.UTF_8));
-            String line = null;
-            while ((line = br.readLine() )!=null)
+            String line = br.readLine();
+            while (line!=null)
             {
+                Transaction transaction = Ebean.currentTransaction();
+                if(transaction== null){
+                    transaction = Ebean.beginTransaction();
+                    transaction.setBatchMode(true);  // use JDBC batch
+                    transaction.setBatchSize(100);
+                }
                 //Make sure the line is not null, not empty, and contains 2 comma char
                 if (line != null && !line.equals("") && line.matches(".*[,].*[,].*") && !line.contains("trip_id")) {
                     String tmp[] = line.split(",");
-                    Trips trip = new Trips();
+                    Trips trip = Trips.find.byId(tmp[2]);
+                    if (trip == null)
+                        trip =new Trips();
                     trip.setTrip_id(tmp[2]);
                     Routes route_id = Routes.find.byId(Integer.parseInt(tmp[0]));
                     trip.setRoute_id(route_id);
@@ -340,9 +419,13 @@ public class insertToDB {
                     if (tmp.length>5) {
                         trip.setShape_id(Integer.parseInt(tmp[5]));
                     }
-                    if (Trips.find.byId(tmp[2])!=null)
-                        trip.update();
-                    else trip.save();
+                    trip.save();
+                    i++;
+                }
+                if ((line = br.readLine()) ==null || i==100){
+                    transaction.commit();
+                    transaction.end();
+                    i=0;
                 }
             }
             br.close();
@@ -355,31 +438,45 @@ public class insertToDB {
         utilitiesFunc.logger.info("starting insert to Shapes table...  (start time = " + new Date() +" )");
         //Logger.info("starting insert to Shapes table...  (start time = " + new Date() +" )");
         try{
+            int i=0;
             BufferedReader br = new BufferedReader(new InputStreamReader(
                     new FileInputStream(URL+ "/shapes.txt"), StandardCharsets.UTF_8));
-            String line = null;
-            while ((line = br.readLine() )!=null)
+            String line = br.readLine();
+            while (line!=null)
             {
+                Transaction transaction = Ebean.currentTransaction();
+                if(transaction== null){
+                    transaction = Ebean.beginTransaction();
+                    transaction.setBatchMode(true);  // use JDBC batch
+                    transaction.setBatchSize(200);
+                }
                 //Make sure the line is not null, not empty, and contains 2 comma char
                 if (line != null && !line.equals("") && line.matches(".*[,].*[,].*") && !line.contains("shape")) {
                     String tmp[] = line.split(",");
-                    Shape shape = new Shape();
                     ShapeKey shapeKey = new ShapeKey();
                     shapeKey.setShape_id(Integer.parseInt(tmp[0]));
                     shapeKey.setShape_pt_sequence(Integer.parseInt(tmp[3]));
+                    Shape shape = Shape.find.byId(shapeKey);
+                    if (shape==null)
+                        shape = new Shape();
                     shape.setKey(shapeKey);
                     Double shape_pt_lat =  Double.parseDouble(tmp[1]);
                     Double shape_pt_lon =  Double.parseDouble(tmp[2]);
                     Point shape_point = new Point(shape_pt_lat , shape_pt_lon);
                     shape_point.setSrid(4326);
                     shape.setPoint(shape_point);
-                    if (Shape.find.byId(shapeKey)!=null)
-                        shape.update();
-                    else shape.save();
+                    shape.save();
+                    i++;
+                }
+                if ((line = br.readLine()) ==null || i==200){
+                    transaction.commit();
+                    transaction.end();
+                    i=0;
                 }
             }
             br.close();
-        } catch(IOException e) { e.printStackTrace(); }
+        }
+        catch(IOException e) { e.printStackTrace(); }
         utilitiesFunc.logger.info("Done insert to Shapes table.   (end time = " + new Date() +" )");
         //Logger.info("Done insert to Shapes table.   (end time = " + new Date() +" )");
     }
@@ -388,23 +485,33 @@ public class insertToDB {
         utilitiesFunc.logger.info("starting insert to Stop Times table... (start time = " + new Date() +" )");
         //Logger.info("starting insert to Stop Times table... (start time = " + new Date() +" )");
         try{
+            int i=0;
+            int index =0 ;
             BufferedReader br = new BufferedReader(new InputStreamReader(
                     new FileInputStream(URL+ "/stop_times.txt"), StandardCharsets.UTF_8));
-            String line = null;
-            while ((line = br.readLine() )!=null)
+            String line = br.readLine();
+            while (line!=null)
             {
+                Transaction transaction = Ebean.currentTransaction();
+                if(transaction== null){
+                    transaction = Ebean.beginTransaction();
+                    transaction.setBatchMode(true);  // use JDBC batch
+                    transaction.setBatchSize(500);
+                }
                 //Make sure the line is not null, not empty, and contains 2 comma char
                 if (line != null && !line.equals("") && line.matches(".*[,].*[,].*") && !line.contains("stop")) {
                     String tmp[] = line.split(",");
-                    StopTimes stopTime = new StopTimes();
                     Trips trip = Trips.find.byId(tmp[0]);
-                    stopTime.setTrip(trip);
                     SimpleDateFormat time_format = new SimpleDateFormat("HH:MM:SS");
                     long arrivalTime = time_format.parse(tmp[1]).getTime();
                     Time arrival_time = new Time(arrivalTime);
-                    //stopTime.setArrival_time(arrival_time);
-                    stopTime.getStKey().setArrival_time(arrival_time);
                     Stop stop = Stop.find.byId(Long.valueOf(Integer.parseInt(tmp[3])));
+                    StopTimes stopTime = StopTimes.find.byId(new StopTimesKey(trip.getTrip_id(),stop.getStop_id(),arrival_time));
+                    if (stopTime == null)
+                        stopTime = new StopTimes();
+
+                    stopTime.setTrip(trip);
+                    stopTime.getStKey().setArrival_time(arrival_time);
                     stopTime.setStop(stop);
                     long departureTime = time_format.parse(tmp[2]).getTime();
                     Time departure_time = new Time(departureTime);
@@ -415,10 +522,13 @@ public class insertToDB {
                     if (tmp.length>7) {
                         stopTime.setShape_dist_traveled(Integer.parseInt(tmp[7]));
                     }
-
-                    if (StopTimes.find.byId(new StopTimesKey(trip.getTrip_id(),stop.getStop_id(),arrival_time)) !=null)
-                        stopTime.update();
-                    else stopTime.save();
+                    stopTime.save();
+                    i++;
+                }
+                if ((line = br.readLine()) ==null || i==500){
+                    transaction.commit();
+                    transaction.end();
+                    i=0;
                 }
             }
             br.close();
@@ -426,8 +536,7 @@ public class insertToDB {
         catch(IOException e) { e.printStackTrace(); }
         catch (ParseException e) { e.printStackTrace();}
         utilitiesFunc.logger.info("Done insert to Stop Times table.   (end time = " + new Date() +" )");
-        //Logger.info("Done insert to Stop Times table.   (end time = " + new Date() +" )");
-
+           //Logger.info("Done insert to Stop Times table.   (end time = " + new Date() +" )");
     }
 
 }
