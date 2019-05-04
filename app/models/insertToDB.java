@@ -75,31 +75,33 @@ public class insertToDB {
                 if (line != null && !line.equals("") && line.matches(".*[,].*[,].*") && !line.contains("IdReportRow")) {
                     try {
                         String tmp[] = line.split(",");
-                        PassengerCounts pc = new PassengerCounts();
-                        pc.setTripId(Integer.parseInt(cleanQuotationMarks(tmp[56])));
-                        pc.setPassengersContinue_rounded_sofi(Integer.parseInt(cleanQuotationMarks(tmp[54])));
-                        Double stop_lat = Double.parseDouble(cleanQuotationMarks(tmp[38]));
-                        Double stop_lon = Double.parseDouble(cleanQuotationMarks(tmp[39]));
-                        Point point = new Point(stop_lat, stop_lon);
-                        point.setSrid(4326);
-                        pc.setPoint(point);
-                        pc.setDayNameHeb(cleanQuotationMarks(tmp[26]));
-                        pc.setStation_order(cleanQuotationMarks(tmp[28]));
+                        if(tmp.length>56) {
+                            PassengerCounts pc = new PassengerCounts();
+                            pc.setTripId(Integer.parseInt(cleanQuotationMarks(tmp[56])));
+                            pc.setPassengersContinue_rounded_sofi(Integer.parseInt(cleanQuotationMarks(tmp[54])));
+                            Double stop_lat = Double.parseDouble(cleanQuotationMarks(tmp[38]));
+                            Double stop_lon = Double.parseDouble(cleanQuotationMarks(tmp[39]));
+                            Point point = new Point(stop_lat, stop_lon);
+                            point.setSrid(4326);
+                            pc.setPoint(point);
+                            pc.setDayNameHeb(cleanQuotationMarks(tmp[26]));
+                            pc.setStation_order(cleanQuotationMarks(tmp[28]));
 
-//                        System.out.println("before 1: " + cleanQuotationMarks(tmp[22]));
-                        SimpleDateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd");
-                        Date dateKey = dateformat.parse(cleanQuotationMarks(tmp[22]));
-                        pc.setDateKey(dateKey);
-//                        System.out.println("after 1: " + dateKey.toString());
-                        String timeString = cleanQuotationMarks(tmp[23]);
-//                        System.out.println("before 2 new: " + timeString);
-                        SimpleDateFormat time_format = new SimpleDateFormat("HH:mm");
-                        long hourKeyLong = time_format.parse(timeString).getTime();
-                        Time hourKey = new Time(hourKeyLong);
-                        pc.setHourKey(hourKey);
-//                        System.out.println("after 2: " + hourKey.toString());
+                            //                        System.out.println("before 1: " + cleanQuotationMarks(tmp[22]));
+                            SimpleDateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd");
+                            Date dateKey = dateformat.parse(cleanQuotationMarks(tmp[22]));
+                            pc.setDateKey(dateKey);
+                            //                        System.out.println("after 1: " + dateKey.toString());
+                            String timeString = cleanQuotationMarks(tmp[23]);
+                            //                        System.out.println("before 2 new: " + timeString);
+                            SimpleDateFormat time_format = new SimpleDateFormat("HH:mm");
+                            long hourKeyLong = time_format.parse(timeString).getTime();
+                            Time hourKey = new Time(hourKeyLong);
+                            pc.setHourKey(hourKey);
+                            //                        System.out.println("after 2: " + hourKey.toString());
 
-                        pc.save();
+                            pc.save();
+                        }
                         i++;
                     }
                     catch(java.lang.IllegalArgumentException e1){ }
