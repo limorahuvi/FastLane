@@ -35,7 +35,7 @@ public class insertToDB {
     public insertToDB(String destDir) {
         try {
             utilitiesFunc.logger.info("starting to insert DB: (time = " + new Date() +" )");
-            //Logger.info("starting to insert DB: (time = " + new Date() +" )");
+            Logger.info("starting to insert DB: (time = " + new Date() +" )");
             String siri_path = utilitiesFunc.createPath("sources/DFoutputBS_cluster2018-09-29_1.csv");
             String pc_path = utilitiesFunc.createPath("sources/pc.csv");
             insertToPassengerCount(pc_path);
@@ -54,9 +54,9 @@ public class insertToDB {
         }
     }
 
-    private void insertToPassengerCount(String URL) throws SQLException {
+    public static void insertToPassengerCount(String URL) throws SQLException {
         utilitiesFunc.logger.info("starting insert to Passenger Count table...   (start time = " + new Date() +" )");
-       // Logger.info("strting insert to Passenger Count table...   (start time = " + new Date() +" )");
+        Logger.info("starting insert to Passenger Count table...   (start time = " + new Date() +" )");
         try {
             int i=0;
             BufferedReader br = new BufferedReader(new InputStreamReader(
@@ -115,12 +115,12 @@ public class insertToDB {
         catch(IOException e) { e.printStackTrace(); }
         catch (ParseException e) { e.printStackTrace();}
         utilitiesFunc.logger.info("Done insert to Passenger Count table.  (end time = " + new Date() +" )" );
-        //Logger.info("Done insert to Passenger Count table.  (end time = " + new Date() +" )" );
+        Logger.info("Done insert to Passenger Count table.  (end time = " + new Date() +" )" );
     }
 
-    private void insertSIRItoRealTime(String URL) throws SQLException {
+    public static void insertSIRItoRealTime(String URL) throws SQLException {
         utilitiesFunc.logger.info("starting insert to Real Time table...   (start time = " + new Date() +" )");
-        //Logger.info("starting insert to Real Time table...   (start time = " + new Date() +" )");
+        Logger.info("starting insert to Real Time table...   (start time = " + new Date() +" )");
         try {
             int i=0;
             BufferedReader br = new BufferedReader(new InputStreamReader(
@@ -145,6 +145,7 @@ public class insertToDB {
                     String all_record_date = cleanQuotationMarks(tmp[1]);
                     String sRecord_date = all_record_date.substring(0, 11);
                     String sRecord_time = all_record_date.substring(12, 20);
+                    //System.out.println("sRecord is: "+ sRecord_time);
                     SimpleDateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd");
                     Date recordDate = dateformat.parse(sRecord_date);
                     SimpleDateFormat time_format = new SimpleDateFormat("hh:mm:ss");
@@ -163,6 +164,7 @@ public class insertToDB {
                     //  System.out.println(">> stop code is : " + tmp[16]  +"  list length : " + stopRefL.size() );
                     if (stopRefL.size() > 0) {
                         Stop stopRef = stopRefL.get(0);
+                        //System.out.println("stop is: "+ stopRef.getStop_id());
                         siri.setStop_id(stopRef);
                         siri.setLoction(stopRef.getLoction());
                     }
@@ -189,16 +191,16 @@ public class insertToDB {
         catch(IOException e) { e.printStackTrace(); }
         catch (ParseException e) { e.printStackTrace();}
         utilitiesFunc.logger.info("Done insert to Real Time table.  (end time = " + new Date() +" )" );
-        //Logger.info("Done insert to Real Time table.  (end time = " + new Date() +" )" );
+        Logger.info("Done insert to Real Time table.  (end time = " + new Date() +" )" );
     }
 
-    public String cleanQuotationMarks(String str) {
+    public static String cleanQuotationMarks(String str) {
         return str.substring(1,str.length()-1);
     }
 
     public static void insertToAgency(String URL) throws SQLException {
         utilitiesFunc.logger.info("starting insert to Agency table...   (start time = " + new Date() +" )");
-        //Logger.info("starting insert to Agency table...   (start time = " + new Date() +" )");
+        Logger.info("starting insert to Agency table...   (start time = " + new Date() +" )");
         try {
             int i=0;
             BufferedReader br = new BufferedReader(new InputStreamReader(
@@ -235,12 +237,12 @@ public class insertToDB {
         }
         catch(IOException e) {e.printStackTrace(); }
         utilitiesFunc.logger.info("Done insert to Agency table.  (end time = " + new Date() +" )" );
-        //Logger.info("Done insert to Agency table.  (end time = " + new Date() +" )" );
+        Logger.info("Done insert to Agency table.  (end time = " + new Date() +" )" );
     }
 
     private void insertToRoutes(String URL) throws SQLException{
         utilitiesFunc.logger.info("starting insert to Routes table... (start time = " + new Date() +" )");
-        //Logger.info("starting insert to Routes table... (start time = " + new Date() +" )");
+        Logger.info("starting insert to Routes table... (start time = " + new Date() +" )");
         try{
             int i=0;
             BufferedReader br = new BufferedReader(new InputStreamReader(
@@ -281,12 +283,12 @@ public class insertToDB {
         }
         catch(IOException e) {e.printStackTrace(); }
         utilitiesFunc.logger.info("Done insert to Routes table.  (end time = " + new Date() +" )");
-        //Logger.info("Done insert to Routes table.  (end time = " + new Date() +" )");
+        Logger.info("Done insert to Routes table.  (end time = " + new Date() +" )");
     }
 
-    private void insertToStops(String URL) throws SQLException {
+    public static void insertToStops(String URL) throws SQLException {
         utilitiesFunc.logger.info("starting insert to Stops table...   (start time = " + new Date() +" )");
-        //Logger.info("starting insert to Stops table...   (start time = " + new Date() +" )");
+        Logger.info("starting insert to Stops table...   (start time = " + new Date() +" )");
 
         try{
             int i=0;
@@ -337,12 +339,12 @@ public class insertToDB {
         }
         catch(IOException e) { e.printStackTrace(); }
         utilitiesFunc.logger.info("Done insert to Stops table. (end time = " + new Date() +" )");
-        //Logger.info("Done insert to Stops table. (end time = " + new Date() +" )");
+        Logger.info("Done insert to Stops table. (end time = " + new Date() +" )");
     }
 
     public static void insertToCalendar(String URL) throws SQLException {
         utilitiesFunc.logger.info("starting insert to Calendar table...   (start time = " + new Date() +" )");
-        //Logger.info("starting insert to Calendar table...   (start time = " + new Date() +" )");
+        Logger.info("starting insert to Calendar table...   (start time = " + new Date() +" )");
         try{
             int i=0;
             BufferedReader br = new BufferedReader(new InputStreamReader(
@@ -385,12 +387,12 @@ public class insertToDB {
         catch(IOException e) { e.printStackTrace(); }
         catch (ParseException e) { e.printStackTrace();}
         utilitiesFunc.logger.info("Done insert to Calendar table.   (end time = " + new Date() +" )");
-        //Logger.info("Done insert to Calendar table.   (end time = " + new Date() +" )");
+        Logger.info("Done insert to Calendar table.   (end time = " + new Date() +" )");
     }
 
     private void insertToTrips(String URL) throws SQLException {
         utilitiesFunc.logger.info("starting insert to Trips table...   (start time = " + new Date() +" )");
-        //Logger.info("starting insert to Trips table...   (start time = " + new Date() +" )");
+        Logger.info("starting insert to Trips table...   (start time = " + new Date() +" )");
         try{
             int i=0;
             BufferedReader br = new BufferedReader(new InputStreamReader(
@@ -431,12 +433,12 @@ public class insertToDB {
             br.close();
         } catch(IOException e) { e.printStackTrace(); }
         utilitiesFunc.logger.info("Done insert to Trips table.    (end time = " + new Date() +" )");
-        //Logger.info("Done insert to Trips table.    (end time = " + new Date() +" )");
+        Logger.info("Done insert to Trips table.    (end time = " + new Date() +" )");
     }
 
     private void insertToShape(String URL) throws SQLException {
         utilitiesFunc.logger.info("starting insert to Shapes table...  (start time = " + new Date() +" )");
-        //Logger.info("starting insert to Shapes table...  (start time = " + new Date() +" )");
+        Logger.info("starting insert to Shapes table...  (start time = " + new Date() +" )");
         try{
             int i=0;
             BufferedReader br = new BufferedReader(new InputStreamReader(
@@ -478,12 +480,12 @@ public class insertToDB {
         }
         catch(IOException e) { e.printStackTrace(); }
         utilitiesFunc.logger.info("Done insert to Shapes table.   (end time = " + new Date() +" )");
-        //Logger.info("Done insert to Shapes table.   (end time = " + new Date() +" )");
+        Logger.info("Done insert to Shapes table.   (end time = " + new Date() +" )");
     }
 
     private void insertToStopTimes(String URL) throws SQLException {
         utilitiesFunc.logger.info("starting insert to Stop Times table... (start time = " + new Date() +" )");
-        //Logger.info("starting insert to Stop Times table... (start time = " + new Date() +" )");
+        Logger.info("starting insert to Stop Times table... (start time = " + new Date() +" )");
         try{
             int i=0;
             int index =0 ;
@@ -536,7 +538,7 @@ public class insertToDB {
         catch(IOException e) { e.printStackTrace(); }
         catch (ParseException e) { e.printStackTrace();}
         utilitiesFunc.logger.info("Done insert to Stop Times table.   (end time = " + new Date() +" )");
-           //Logger.info("Done insert to Stop Times table.   (end time = " + new Date() +" )");
+           Logger.info("Done insert to Stop Times table.   (end time = " + new Date() +" )");
     }
 
 }
