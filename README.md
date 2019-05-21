@@ -14,12 +14,13 @@
 ###### For the Client side:
 Download [Selenium](https://chrome.google.com/webstore/detail/selenium-ide/mooikfkahbdckldjjndioackbalphokd?hl=en) extension to chrome (for test uses).
 
+## Running the Fastlane 
 
 1. Clone the project.
 2. Outside of directory */Fastlane* , create directory named */sources* and locate all files in it.
 3. Open terminal in the project directory and run the command:
   `sbt run`
-4. When server started, open chrome at : http://localhost:9000
+4. When server started, open chrome @ http://localhost:9000
 
 
 
