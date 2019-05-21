@@ -1,45 +1,13 @@
-2019-04-27 15:39:58,434 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-3 - Database [default] initialized at jdbc:postgresql://localhost:5432/db_fast_lane
-2019-04-27 15:39:58,452 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-3 - Creating Pool for datasource 'default'
-2019-04-27 15:39:58,774 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-3 - Database [test] initialized at jdbc:postgresql://localhost:5432/dbtest
-2019-04-27 15:39:58,774 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-3 - Creating Pool for datasource 'test'
-2019-04-27 15:40:00,606 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-3 - application.conf @ file:/C:/Users/limor/OneDrive/Documents/uni/Final%20Project/v3/FastLane/target/scala-2.12/classes/application.conf: 13: applyEvolutions.default is deprecated, use play.evolutions.db.default.autoApply instead
-2019-04-27 15:40:00,607 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-3 - application.conf @ file:/C:/Users/limor/OneDrive/Documents/uni/Final%20Project/v3/FastLane/target/scala-2.12/classes/application.conf: 14: applyDownEvolutions.default is deprecated, use play.evolutions.db.default.autoApplyDowns instead
-2019-04-27 15:40:00,607 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-3 - application.conf @ file:/C:/Users/limor/OneDrive/Documents/uni/Final%20Project/v3/FastLane/target/scala-2.12/classes/application.conf: 12: applyEvolutions.db is deprecated, use play.evolutions.db.db.autoApply instead
-2019-04-27 15:40:01,855 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-3 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+2019-05-21 13:17:52,003 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-7 - Database [default] initialized at jdbc:postgresql://localhost:5432/db_fast_lane
+2019-05-21 13:17:52,070 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-7 - Creating Pool for datasource 'default'
+2019-05-21 13:17:52,528 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-7 - Database [test] initialized at jdbc:postgresql://localhost:5432/dbtest
+2019-05-21 13:17:52,528 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-7 - Creating Pool for datasource 'test'
+2019-05-21 13:17:52,768 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-7 - application.conf @ file:/C:/Users/shaha/Desktop/finalSemester/final5/FastLane/target/scala-2.12/classes/application.conf: 13: applyEvolutions.default is deprecated, use play.evolutions.db.default.autoApply instead
+2019-05-21 13:17:52,768 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-7 - application.conf @ file:/C:/Users/shaha/Desktop/finalSemester/final5/FastLane/target/scala-2.12/classes/application.conf: 14: applyDownEvolutions.default is deprecated, use play.evolutions.db.default.autoApplyDowns instead
+2019-05-21 13:17:52,769 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-7 - application.conf @ file:/C:/Users/shaha/Desktop/finalSemester/final5/FastLane/target/scala-2.12/classes/application.conf: 12: applyEvolutions.db is deprecated, use play.evolutions.db.db.autoApply instead
+2019-05-21 13:17:56,814 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-7 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
 
     play.filters.csrf.CSRFFilter
     play.filters.hosts.AllowedHostsFilter
 
-2019-04-27 15:40:01,864 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-3 - Application started (Dev)
-2019-04-27 15:40:08,506 [INFO] from application in application-akka.actor.default-dispatcher-2 - Shutting down connection pool.
-2019-04-27 15:40:08,544 [INFO] from application in application-akka.actor.default-dispatcher-2 - Shutting down connection pool.
-2019-04-27 15:40:09,012 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-3 - Database [default] initialized at jdbc:postgresql://localhost:5432/db_fast_lane
-2019-04-27 15:40:09,012 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-3 - Creating Pool for datasource 'default'
-2019-04-27 15:40:09,094 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-3 - Database [test] initialized at jdbc:postgresql://localhost:5432/dbtest
-2019-04-27 15:40:09,094 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-3 - Creating Pool for datasource 'test'
-2019-04-27 15:40:09,169 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-3 - application.conf @ file:/C:/Users/limor/OneDrive/Documents/uni/Final%20Project/v3/FastLane/target/scala-2.12/classes/application.conf: 13: applyEvolutions.default is deprecated, use play.evolutions.db.default.autoApply instead
-2019-04-27 15:40:09,169 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-3 - application.conf @ file:/C:/Users/limor/OneDrive/Documents/uni/Final%20Project/v3/FastLane/target/scala-2.12/classes/application.conf: 14: applyDownEvolutions.default is deprecated, use play.evolutions.db.default.autoApplyDowns instead
-2019-04-27 15:40:09,169 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-3 - application.conf @ file:/C:/Users/limor/OneDrive/Documents/uni/Final%20Project/v3/FastLane/target/scala-2.12/classes/application.conf: 12: applyEvolutions.db is deprecated, use play.evolutions.db.db.autoApply instead
-2019-04-27 15:40:10,145 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-3 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
-
-    play.filters.csrf.CSRFFilter
-    play.filters.hosts.AllowedHostsFilter
-
-2019-04-27 15:40:10,146 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-3 - Application started (Dev)
-2019-04-27 15:44:53,216 [WARN] from play in application-akka.actor.default-dispatcher-14 - You are using status code '200' with flashing, which should only be used with a redirect status!
-2019-04-27 15:47:03,344 [INFO] from application in application-akka.actor.default-dispatcher-22 - Shutting down connection pool.
-2019-04-27 15:47:03,365 [INFO] from application in application-akka.actor.default-dispatcher-22 - Shutting down connection pool.
-2019-04-27 15:47:03,736 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-15 - Database [default] initialized at jdbc:postgresql://localhost:5432/db_fast_lane
-2019-04-27 15:47:03,737 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-15 - Creating Pool for datasource 'default'
-2019-04-27 15:47:03,805 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-15 - Database [test] initialized at jdbc:postgresql://localhost:5432/dbtest
-2019-04-27 15:47:03,806 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-15 - Creating Pool for datasource 'test'
-2019-04-27 15:47:03,875 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-15 - application.conf @ file:/C:/Users/limor/OneDrive/Documents/uni/Final%20Project/v3/FastLane/target/scala-2.12/classes/application.conf: 13: applyEvolutions.default is deprecated, use play.evolutions.db.default.autoApply instead
-2019-04-27 15:47:03,875 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-15 - application.conf @ file:/C:/Users/limor/OneDrive/Documents/uni/Final%20Project/v3/FastLane/target/scala-2.12/classes/application.conf: 14: applyDownEvolutions.default is deprecated, use play.evolutions.db.default.autoApplyDowns instead
-2019-04-27 15:47:03,875 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-15 - application.conf @ file:/C:/Users/limor/OneDrive/Documents/uni/Final%20Project/v3/FastLane/target/scala-2.12/classes/application.conf: 12: applyEvolutions.db is deprecated, use play.evolutions.db.db.autoApply instead
-2019-04-27 15:47:04,716 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-15 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
-
-    play.filters.csrf.CSRFFilter
-    play.filters.hosts.AllowedHostsFilter
-
-2019-04-27 15:47:04,717 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-15 - Application started (Dev)
-2019-04-27 15:47:05,015 [WARN] from play in application-akka.actor.default-dispatcher-2 - You are using status code '200' with flashing, which should only be used with a redirect status!
+2019-05-21 13:17:56,819 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-7 - Application started (Dev)
