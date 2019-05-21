@@ -10,6 +10,7 @@ public class QueryHandler {
 
     public VisualizationForm form;
 
+    /* square area on the map */
     public double[] square = new double[4];
     public final int MIN_X = 0;
     public final int MAX_X = 1;
