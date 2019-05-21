@@ -1,11 +1,9 @@
 package models.queries.passengersCount;
 
-public class passengersCountSingleLoad {
-    /*{"type":"Feature",
-        "properties":{"load":0.11},
-        "geometry":{
-            "type":"LineString",
-            "coordinates":[[34.798108,31.23819],[34.808931,31.226122]]}}*/
+import models.queries.GeojsonTemplates.QueryFeature;
+
+public class passengersCountSingleLoad extends QueryFeature {
+
     public properties properties;
     public geometry geometry;
 
