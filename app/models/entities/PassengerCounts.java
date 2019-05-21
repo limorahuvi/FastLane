@@ -82,7 +82,7 @@ public class PassengerCounts extends Model {
 
     private String getDay(String day) {
         switch (day){
-            case "ראשון": return "Sundayא";
+            case "ראשון": return "Sunday";
             case "שני": return "Monday";
             case "שלישי": return "Tuesday";
             case "רביעי": return "Wednesday";
