@@ -21,6 +21,3 @@ Download [Selenium](https://chrome.google.com/webstore/detail/selenium-ide/mooik
 3. Open terminal in the project directory and run the command:
   `sbt run`
 4. When server started, open chrome @ http://localhost:9000
-
-
-
