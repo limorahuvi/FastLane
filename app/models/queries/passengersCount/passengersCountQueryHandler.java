@@ -31,7 +31,7 @@ public class passengersCountQueryHandler extends QueryHandler {
         List<PassengerCounts> pcs = PassengerCounts.find.query()
                 .where()
                 .between("date_key", form.getStartDate(), form.getEndDate())
-                .between("hour_key", LocalTime.parse(form.getStartHour() + ":00"), LocalTime.parse(form.getEndHour() + ":00"))
+                .between("hour_key", LocalTime.parse(form.getStartHour() + ":00"), LocalTime.parse(form.getEndHour() + ":59"))
                 .contains("DayNameHeb", form.getDay().equals("All") ? "" : form.getDay())
                 .between("ST_X(point)", square[MIN_X],square[MAX_X])
                 .between("ST_Y(point)", square[MIN_Y],square[MAX_Y])
