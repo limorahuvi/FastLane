@@ -3,18 +3,12 @@ package models.queries.passengersCount;
 import models.PassengersCountForm;
 
 import java.time.LocalTime;
-import java.util.LinkedList;
 import java.util.List;
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.node.ArrayNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ObjectNode;
-import models.VisualizationForm;
 import models.entities.PassengerCounts;
 import models.queries.GeojsonTemplates.QueryFeatureCollection;
 import models.queries.GeojsonTemplates.QueryHandler;
 import models.queries.queries;
-import org.postgis.Point;
 
 public class passengersCountQueryHandler extends QueryHandler {
 
@@ -55,7 +49,7 @@ public class passengersCountQueryHandler extends QueryHandler {
                 double[] coorTo = getCoor(nextPC);
                 double pcLoad = currPC.getPassengersContinue_rounded_sofi();
                 double relativeLoad = minPassengersForPublicLane == 0||pcLoad>minPassengersForPublicLane ? 1 : (double)pcLoad/minPassengersForPublicLane;
-                totalLoad.addFeature(new passengersCountSingleLoad(coorFrom, coorTo, relativeLoad));
+                totalLoad.addFeature(new passengersCountFeature(coorFrom, coorTo, relativeLoad));
             }
         }
         return totalLoad;

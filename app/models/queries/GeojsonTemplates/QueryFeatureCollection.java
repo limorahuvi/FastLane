@@ -1,7 +1,6 @@
 package models.queries.GeojsonTemplates;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import models.queries.passengersCount.passengersCountSingleLoad;
 import models.queries.queries;
 
 import java.util.ArrayList;

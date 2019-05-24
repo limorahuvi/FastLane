@@ -22,7 +22,8 @@ public class QueryHandler {
 
     public QueryHandler(VisualizationForm form){
         this.form = form;
-        getSquareArea();
+        if(form != null)
+            getSquareArea();
     }
 
     public void addFeature(QueryFeature feature){
