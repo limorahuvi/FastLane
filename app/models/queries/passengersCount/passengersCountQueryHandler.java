@@ -47,7 +47,7 @@ public class passengersCountQueryHandler extends QueryHandler {
             if(currPC.getTripId()-nextPC.getTripId()==0){
                 double[] coorFrom = getCoor(currPC);
                 double[] coorTo = getCoor(nextPC);
-                double pcLoad = currPC.getPassengersContinue_rounded_sofi();
+                double pcLoad = currPC.getPassengersContinue_rounded_final();
                 double relativeLoad = minPassengersForPublicLane == 0||pcLoad>minPassengersForPublicLane ? 1 : (double)pcLoad/minPassengersForPublicLane;
                 totalLoad.addFeature(new passengersCountFeature(coorFrom, coorTo, relativeLoad));
             }
