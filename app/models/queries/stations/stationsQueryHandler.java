@@ -21,8 +21,6 @@ public class stationsQueryHandler extends QueryHandler {
                 .icontains("stop_desc", "באר שבע").findList();
         for(Stop stop: stops){
             double[] coor = {stop.getLocation().y,stop.getLocation().x};
-            stations.addFeature(coor, stop.getStop_id(), stop.getStop_name());
-            double[] coor = {stop.getLoction().y,stop.getLoction().x};
             stations.addFeature(new StationFeature(coor, stop.getStop_id(), stop.getStop_name()));
         }
         return queries.mapper.valueToTree(stations);
