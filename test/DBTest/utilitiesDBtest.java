@@ -33,11 +33,5 @@ public class utilitiesDBtest {
         logger.info("Clearing outputTest folder");
     }
 
-    //using  utilitiesFunc.logger.info() instead.
-/*    public static void writeToLoggerFile(String strToLogger) throws IOException {
-    BufferedWriter writer = new BufferedWriter(new FileWriter("LoggerTests.log", true));
-    writer.append(' ');
-    writer.append(strToLogger);
-    writer.close();
-    }*/
+
 }

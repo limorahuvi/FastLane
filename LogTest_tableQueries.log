@@ -1,27 +1,26 @@
-May 25, 2019 11:06:15 AM DBTest.tablesQueries setup
+May 25, 2019 11:52:09 AM DBTest.tablesQueries setup
 INFO: tablesQueries TEST starts: 
 
-May 25, 2019 11:06:15 AM models.insertToDB <init>
-INFO: starting to insert DB: (time = Sat May 25 11:06:15 IDT 2019 )
-May 25, 2019 11:06:15 AM models.insertToDB insertToPassengerCount
-INFO: starting insert to Passenger Count table...   (start time = Sat May 25 11:06:15 IDT 2019 )
-May 25, 2019 11:06:15 AM models.insertToDB insertToPassengerCount
-INFO: Done insert to Passenger Count table.  (end time = Sat May 25 11:06:15 IDT 2019 )
-May 25, 2019 11:06:15 AM models.insertToDB insertToAgency
-INFO: starting insert to Agency table...   (start time = Sat May 25 11:06:15 IDT 2019 )
-May 25, 2019 11:06:15 AM models.insertToDB insertToAgency
-INFO: Done insert to Agency table.  (end time = Sat May 25 11:06:15 IDT 2019 )
-May 25, 2019 11:06:15 AM models.insertToDB insertToRoutes
-INFO: starting insert to Routes table... (start time = Sat May 25 11:06:15 IDT 2019 )
-May 25, 2019 11:06:15 AM models.insertToDB insertToRoutes
-INFO: Done insert to Routes table.  (end time = Sat May 25 11:06:15 IDT 2019 )
-May 25, 2019 11:06:15 AM models.insertToDB insertToStops
-INFO: starting insert to Stops table...   (start time = Sat May 25 11:06:15 IDT 2019 )
-May 25, 2019 11:06:27 AM models.insertToDB insertToStops
-INFO: Done insert to Stops table. (end time = Sat May 25 11:06:27 IDT 2019 )
-May 25, 2019 11:06:27 AM models.insertToDB insertToCalendar
-INFO: starting insert to Calendar table...   (start time = Sat May 25 11:06:27 IDT 2019 )
-May 25, 2019 11:06:53 AM models.insertToDB insertToCalendar
-INFO: Done insert to Calendar table.   (end time = Sat May 25 11:06:53 IDT 2019 )
-May 25, 2019 11:06:53 AM models.insertToDB insertSIRItoRealTime
-INFO: starting insert to Real Time table...   (start time = Sat May 25 11:06:53 IDT 2019 )
+May 25, 2019 11:52:56 AM models.insertToDB insertToPassengerCount
+INFO: starting insert to Passenger Count table...   (start time = Sat May 25 11:52:56 IDT 2019 )
+May 25, 2019 11:52:56 AM models.insertToDB insertToPassengerCount
+INFO: Done insert to Passenger Count table.  (end time = Sat May 25 11:52:56 IDT 2019 )
+May 25, 2019 11:52:57 AM models.insertToDB insertToStops
+INFO: starting insert to Stops table...   (start time = Sat May 25 11:52:57 IDT 2019 )
+May 25, 2019 11:53:04 AM models.insertToDB insertToStops
+INFO: Done insert to Stops table. (end time = Sat May 25 11:53:04 IDT 2019 )
+May 25, 2019 11:53:04 AM models.insertToDB insertSIRItoRealTime
+INFO: starting insert to Real Time table...   (start time = Sat May 25 11:53:04 IDT 2019 )
+May 25, 2019 12:05:40 PM models.insertToDB insertSIRItoRealTime
+INFO: Done insert to Real Time table.  (end time = Sat May 25 12:05:40 IDT 2019 )
+May 25, 2019 12:05:41 PM models.insertToDB insertToCalendar
+INFO: starting insert to Calendar table...   (start time = Sat May 25 12:05:41 IDT 2019 )
+May 25, 2019 12:05:54 PM models.insertToDB insertToCalendar
+INFO: Done insert to Calendar table.   (end time = Sat May 25 12:05:54 IDT 2019 )
+May 25, 2019 12:05:54 PM models.insertToDB insertToAgency
+INFO: starting insert to Agency table...   (start time = Sat May 25 12:05:54 IDT 2019 )
+May 25, 2019 12:05:54 PM models.insertToDB insertToAgency
+INFO: Done insert to Agency table.  (end time = Sat May 25 12:05:54 IDT 2019 )
+May 25, 2019 12:05:54 PM DBTest.tablesQueries teardown
+INFO: tablesQueries test ends... 
+

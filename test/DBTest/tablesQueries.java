@@ -97,9 +97,11 @@ public class tablesQueries extends BaseModelTest{
         assertNull(pass_no_count);
     }
 
-    @Test
+/*    @Test
     public void queryTime()throws SQLException {
-        insertToDB insert_db=new insertToDB(destDir);
+        //insertToDB insert_db=new insertToDB(destDir);
+        insertToDB.insertToStops(destDir);
+        insertToDB.insertSIRItoRealTime(destDir);
         String coor1="34.81636627528721,31.27027517208913";
         String[] coor1_x_y= coor1.split(",");
         String coor2="34.7771416506549,31.24855754703961";
@@ -120,7 +122,7 @@ public class tablesQueries extends BaseModelTest{
         long finish=System.currentTimeMillis();
         long totalTime=(finish-start)/1000;//seconds
         assertTrue(totalTime < 10);
-    }
+    }*/
 
 
 

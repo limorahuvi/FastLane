@@ -2,6 +2,7 @@ package DBTest;
 
 import models.entities.Calendar;
 import models.*;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -14,7 +15,7 @@ public class unitTestsInsertToDB {
 
     String destDir = utilitiesDBtest.createPath("outTest");
 
-    @Test
+    @BeforeClass
     public void setup() throws IOException {
         utilitiesFunc.writeToLog("LogTest_unitTestsInsertToDB.log");
     }
