@@ -42,16 +42,12 @@ public class passengersCountQueryHandler extends QueryHandler {
         QueryFeatureCollection totalLoad = new QueryFeatureCollection();
         int minPassengersForPublicLane = ((PassengersCountForm)(form)).getMinPassengersForPublicLane();
         for(int i=0; i<pcs.size()-1; i++){
-            if(pcs.get(i).getTripId()-pcs.get(i+1).getTripId()==0){
-                double[] coorFrom = getCoor(pcs,i);
-                double[] coorTo = getCoor(pcs,i+1);
-                totalLoad.addFeature(coorFrom, coorTo, pcs.get(i).getPassengersContinue_rounded_final(),form.getMinPassengersForPublicLane());
             PassengerCounts currPC = pcs.get(i);
             PassengerCounts nextPC = pcs.get(i+1);
             if(currPC.getTripId()-nextPC.getTripId()==0){
                 double[] coorFrom = getCoor(currPC);
                 double[] coorTo = getCoor(nextPC);
-                double pcLoad = currPC.getPassengersContinue_rounded_sofi();
+                double pcLoad = currPC.getPassengersContinue_rounded_final();
                 double relativeLoad = minPassengersForPublicLane == 0||pcLoad>minPassengersForPublicLane ? 1 : (double)pcLoad/minPassengersForPublicLane;
                 totalLoad.addFeature(new passengersCountFeature(coorFrom, coorTo, relativeLoad));
             }
@@ -59,12 +55,12 @@ public class passengersCountQueryHandler extends QueryHandler {
         return totalLoad;
     }
 
-    private double[] getCoor(PassengerCounts pc) {
-        double[] coor = new double[2];
-        coor[0] = pc.getPoint().y;
-        coor[1] = pc.getPoint().x;
-        return coor;
-    }
+        private double[] getCoor (PassengerCounts pc){
+            double[] coor = new double[2];
+            coor[0] = pc.getPoint().y;
+            coor[1] = pc.getPoint().x;
+            return coor;
+        }
 
     /*private passengersCountTotalLoad getDemoPassengersCountTotalLoad() {
         passengersCountTotalLoad totalLoad = new passengersCountTotalLoad();
@@ -77,6 +73,5 @@ public class passengersCountQueryHandler extends QueryHandler {
         totalLoad.addFeature(coor11783, coor18622, 7,((PassengersCountForm)(form)).getMinPassengersForPublicLane());
         return totalLoad;
     }*/
-
 
 }
