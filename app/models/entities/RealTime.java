@@ -2,16 +2,14 @@ package models.entities;
 
 import io.ebean.Model;
 import org.postgis.Point;
-import play.data.validation.Constraints;
+
 import javax.persistence.*;
 import java.util.*;
 import io.ebean.*;
 import play.data.format.*;
-import play.data.validation.*;
+
 import javax.persistence.Entity;
 import java.sql.Time;
-import play.data.format.*;
-import play.data.validation.*;
 
 @Entity
 public class RealTime extends Model {
@@ -21,7 +19,7 @@ public class RealTime extends Model {
     @JoinColumn(name = "stop", referencedColumnName = "stop_id")
     private Stop stop;  // by stopPointRef to stop_code(stop)   //col 16
     private String publishedLineName;  //col 7
-    private Point loction;  // (col 14 , col 15) get from stop
+    private Point location;  // (col 14 , col 15) get from stop
     @Formats.DateTime(pattern="yyyy-MM-dd")
     private Date expectedArrivalDate;   //col 18
     private Time expectedArrivalTime;  //col 18
@@ -88,11 +86,11 @@ public class RealTime extends Model {
     }
 
 
-    public Point getLoction() {
-        return loction;
+    public Point getLocation() {
+        return location;
     }
 
-    public void setLoction(Point loction) {
-        this.loction = loction;
+    public void setLocation(Point location) {
+        this.location = location;
     }
 }

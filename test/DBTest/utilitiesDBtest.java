@@ -11,6 +11,9 @@ import play.Logger;
 
 public class utilitiesDBtest {
 
+    public static Logger logger = null;
+
+
     public static String createPath(String direction) {
         String cwd = System.getProperty("user.dir");
         Path path = Paths.get(cwd);
@@ -27,14 +30,8 @@ public class utilitiesDBtest {
             currentFile.delete();
         }
         directory.delete();
-        Logger.info("Clearing outputTest folder");
+        logger.info("Clearing outputTest folder");
     }
 
-    //using  utilitiesFunc.logger.info() instead.
-    public static void writeToLoggerFile(String strToLogger) throws IOException {
-    BufferedWriter writer = new BufferedWriter(new FileWriter("LoggerTests.txt", true));
-    writer.append(' ');
-    writer.append(strToLogger);
-    writer.close();
-    }
+
 }

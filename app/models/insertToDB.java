@@ -17,15 +17,6 @@ import java.util.Date;
 import java.text.*;
 import java.sql.Time;
 
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-
-import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 
@@ -78,7 +69,7 @@ public class insertToDB {
                         if(tmp.length>56) {
                             PassengerCounts pc = new PassengerCounts();
                             pc.setTripId(Integer.parseInt(cleanQuotationMarks(tmp[56])));
-                            pc.setPassengersContinue_rounded_sofi(Integer.parseInt(cleanQuotationMarks(tmp[54])));
+                            pc.setPassengersContinue_rounded_final(Integer.parseInt(cleanQuotationMarks(tmp[54])));
                             Double stop_lat = Double.parseDouble(cleanQuotationMarks(tmp[38]));
                             Double stop_lon = Double.parseDouble(cleanQuotationMarks(tmp[39]));
                             Point point = new Point(stop_lat, stop_lon);
@@ -168,7 +159,7 @@ public class insertToDB {
                         Stop stopRef = stopRefL.get(0);
                         //System.out.println("stop is: "+ stopRef.getStop_id());
                         siri.setStop_id(stopRef);
-                        siri.setLoction(stopRef.getLoction());
+                        siri.setLocation(stopRef.getLocation());
                     }
                     String all_expected_date = cleanQuotationMarks(tmp[18]);
                     String sExpected_date = all_expected_date.substring(0,10);
@@ -319,7 +310,7 @@ public class insertToDB {
                     Double stop_lon =  Double.parseDouble(tmp[5]);
                     Point stop_point = new Point(stop_lat , stop_lon);
                     stop_point.setSrid(4326);
-                    stop.setLoction(stop_point);
+                    stop.setLocation(stop_point);
                     stop.setLocation_type(Boolean.parseBoolean(tmp[6]));
 
                     if (tmp.length> 7 && !(tmp[7].equals(""))) {

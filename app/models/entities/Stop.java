@@ -13,7 +13,7 @@ public class Stop extends Model{
     private Integer stop_code;
     private String stop_name	;
     private String stop_desc;
-    private Point loction;  //(lat, lan)
+    private Point location;  //(lat, lan)
     private Boolean location_type;
     @ManyToOne
     @JoinColumn(name = "parent_station_id", referencedColumnName = "stop_id")
@@ -56,12 +56,12 @@ public class Stop extends Model{
         this.stop_desc = stop_desc;
     }
 
-    public Point getLoction() {
-        return loction;
+    public Point getLocation() {
+        return location;
     }
 
-    public void setLoction(Point loction) {
-        this.loction = loction;
+    public void setLocation(Point location) {
+        this.location = location;
     }
 
     public Boolean getLocation_type() {

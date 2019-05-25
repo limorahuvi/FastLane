@@ -7,9 +7,11 @@ import java.util.List;
 import com.fasterxml.jackson.databind.JsonNode;
 import models.entities.RealTime;
 import models.queries.queries;
+import org.postgis.Point;
 import models.queries.GeojsonTemplates.QueryFeatureCollection;
 import models.queries.GeojsonTemplates.QueryHandler;
 public class devSchedQueryHandler extends QueryHandler   {
+
 
 
     public devSchedQueryHandler(DevSchedForm form) {
@@ -39,7 +41,7 @@ public class devSchedQueryHandler extends QueryHandler   {
             int stop_id=real_time_ref.get(i).getStop().getStop_id();
             String des1_list=get_description_early_new(real_time_ref,stop_id);
             String des1_list2=get_description_late_new(real_time_ref,stop_id);
-            double[] coor13933 = {real_time_ref.get(i).getLoction().getY(), real_time_ref.get(i).getLoction().getX()};
+            double[] coor13933 = {real_time_ref.get(i).getLocation().getY(), real_time_ref.get(i).getLocation().getX()};
 
             totalLoad.addFeature(new devSchedSingleFeature(coor13933, get_avg_early_new(real_time_ref,real_time_ref.get(i).getStop().getStop_id()), get_avg_late_new(real_time_ref,real_time_ref.get(i).getStop().getStop_id()), des1_list, des1_list2));
             real_time_ref.removeIf(r -> r.getStop().getStop_id() == stop_id);

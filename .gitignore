@@ -4,5 +4,5 @@
 /.gradle
 /logs/application.log
 LogFile.log
-LoggerTests.txt
-LogTest.log
+LogTest_unitTestsInsertToDB.log
+LogTest_tableQueries.log

@@ -2,6 +2,7 @@ package DBTest;
 
 import models.entities.Calendar;
 import models.*;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -14,6 +15,10 @@ public class unitTestsInsertToDB {
 
     String destDir = utilitiesDBtest.createPath("outTest");
 
+    @BeforeClass
+    public void setup() throws IOException {
+        utilitiesFunc.writeToLog("LogTest_unitTestsInsertToDB.log");
+    }
     @Test
     public void testUnzip() throws Exception {
         initializeDB.unzip(destDir);
@@ -25,10 +30,13 @@ public class unitTestsInsertToDB {
         /*test to check if time for unzipping file is less than 2 min*/
         //check start time for unzipping
         Date startDate =  new Date();
-        System.out.println("Start time:"+ startDate);
+        utilitiesFunc.logger.info("tablesQueries TEST starts: \n");
+        utilitiesFunc.logger.info("Start time: "+ startDate);
+        //System.out.println("Start time:"+ startDate);
         initializeDB.unzip(destDir);
         Date endDate =  new Date();
-        System.out.println("End time:"+ endDate);
+        utilitiesFunc.logger.info("End time: "+ endDate);
+        //System.out.println("End time:"+ endDate);
         utilitiesDBtest.deleteOutputTest(destDir);
         //assertEquals(true, startDate.before(endDate));
         assertTrue(endDate.getMinutes()-startDate.getMinutes() < 5);
@@ -44,13 +52,5 @@ public class unitTestsInsertToDB {
         assertEquals(7,ans.length());
     }
 
-/*    @Test
-    public void cleanQuotationMarksTest()  throws IOException{
-        initializeDB init = initializeDB.getInstance();
-        init.unzip(destDir);
-        insertToDB  instDB = new insertToDB(destDir);
-        String ans = instDB.cleanQuotationMarks("'Hi there test'");
-        assertEquals("Hi there test", ans);
-    }*/
 
 }
