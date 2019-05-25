@@ -1,5 +1,6 @@
 package controllers;
 
+import org.junit.Assert;
 import org.junit.Test;
 import play.Application;
 import play.inject.guice.GuiceApplicationBuilder;
@@ -9,8 +10,7 @@ import play.test.WithApplication;
 
 import static org.junit.Assert.assertEquals;
 import static play.mvc.Http.Status.OK;
-import static play.test.Helpers.GET;
-import static play.test.Helpers.route;
+import static play.test.Helpers.*;
 
 public class HomeControllerTest extends WithApplication {
 
@@ -21,12 +21,11 @@ public class HomeControllerTest extends WithApplication {
 
     @Test
     public void testIndex() {
-        Http.RequestBuilder request = new Http.RequestBuilder()
-                .method(GET)
-                .uri("/");
-
-        Result result = route(app, request);
+        Result result = new HomeController().index();
         assertEquals(OK, result.status());
+        assertEquals("text/html", result.contentType().get());
+        assertEquals("utf-8", result.charset().get());
+        Assert.assertTrue(contentAsString(result).contains("Welcome"));
     }
 
 }

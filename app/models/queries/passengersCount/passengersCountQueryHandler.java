@@ -55,12 +55,12 @@ public class passengersCountQueryHandler extends QueryHandler {
         return totalLoad;
     }
 
-    private double[] getCoor(PassengerCounts pc) {
-        double[] coor = new double[2];
-        coor[0] = pc.getPoint().y;
-        coor[1] = pc.getPoint().x;
-        return coor;
-    }
+        private double[] getCoor (PassengerCounts pc){
+            double[] coor = new double[2];
+            coor[0] = pc.getPoint().y;
+            coor[1] = pc.getPoint().x;
+            return coor;
+        }
 
     /*private passengersCountTotalLoad getDemoPassengersCountTotalLoad() {
         passengersCountTotalLoad totalLoad = new passengersCountTotalLoad();
@@ -73,6 +73,5 @@ public class passengersCountQueryHandler extends QueryHandler {
         totalLoad.addFeature(coor11783, coor18622, 7,((PassengersCountForm)(form)).getMinPassengersForPublicLane());
         return totalLoad;
     }*/
-
 
 }

@@ -1,6 +1,0 @@
-test
-testOnly DBTest.unitTestsInsertToDB
-testOnly DBTest.tablesQueries
-testOnly unitTestsInsertToDB
-testOnly DBTest.unitTestsInsertToDB
-testOnly DBTest.tablesQueries
