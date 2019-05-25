@@ -1,26 +1,12 @@
 package models.queries.devSched;
 import java.util.ArrayList;
 import java.util.List;
+import models.queries.GeojsonTemplates.QueryFeature;
 
 
-public class devSchedSingleFeature {
-   /*
-   {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [34.798256,31.260114]
-    },
-    "properties": [{
-      "average":2,
-      "description": ["line 3: 2 minutes", "line 4 :2 minutes"]
-    },
-      { "average":5,
-        "description": ["line 3: 5 minutes", "line 4 :5 minutes"]}]
 
-  }
+public class devSchedSingleFeature extends QueryFeature  {
 
-    */
    public List<properties> properties = new ArrayList<>();
     public geometry geometry=new geometry();
 

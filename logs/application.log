@@ -1,3 +1,4 @@
+
 2019-05-25 09:58:41,239 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-6 - Database [default] initialized at jdbc:postgresql://localhost:5432/db_fast_lane
 2019-05-25 09:58:41,256 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-6 - Creating Pool for datasource 'default'
 2019-05-25 09:58:41,463 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-6 - Database [test] initialized at jdbc:postgresql://localhost:5432/test
@@ -6,6 +7,16 @@
 2019-05-25 09:58:41,537 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-6 - application.conf @ file:/C:/Users/hshidlov/Desktop/private/Project/2904/FastLane/target/scala-2.12/classes/application.conf: 14: applyDownEvolutions.default is deprecated, use play.evolutions.db.default.autoApplyDowns instead
 2019-05-25 09:58:41,537 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-6 - application.conf @ file:/C:/Users/hshidlov/Desktop/private/Project/2904/FastLane/target/scala-2.12/classes/application.conf: 12: applyEvolutions.db is deprecated, use play.evolutions.db.db.autoApply instead
 2019-05-25 09:58:43,843 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-6 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+2019-05-21 13:17:52,003 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-7 - Database [default] initialized at jdbc:postgresql://localhost:5432/db_fast_lane
+2019-05-21 13:17:52,070 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-7 - Creating Pool for datasource 'default'
+2019-05-21 13:17:52,528 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-7 - Database [test] initialized at jdbc:postgresql://localhost:5432/dbtest
+2019-05-21 13:17:52,528 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-7 - Creating Pool for datasource 'test'
+2019-05-21 13:17:52,768 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-7 - application.conf @ file:/C:/Users/shaha/Desktop/finalSemester/final5/FastLane/target/scala-2.12/classes/application.conf: 13: applyEvolutions.default is deprecated, use play.evolutions.db.default.autoApply instead
+2019-05-21 13:17:52,768 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-7 - application.conf @ file:/C:/Users/shaha/Desktop/finalSemester/final5/FastLane/target/scala-2.12/classes/application.conf: 14: applyDownEvolutions.default is deprecated, use play.evolutions.db.default.autoApplyDowns instead
+2019-05-21 13:17:52,769 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-7 - application.conf @ file:/C:/Users/shaha/Desktop/finalSemester/final5/FastLane/target/scala-2.12/classes/application.conf: 12: applyEvolutions.db is deprecated, use play.evolutions.db.db.autoApply instead
+2019-05-21 13:17:56,814 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-7 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
 
     play.filters.csrf.CSRFFilter
     play.filters.hosts.AllowedHostsFilter
@@ -2205,3 +2216,4 @@ org.postgresql.util.PSQLException: ERROR: operator does not exist: timestamp wit
 2019-05-25 12:05:54,613 [INFO] from application in pool-1-thread-1 - Clearing outputTest folder
 2019-05-25 12:05:54,755 [INFO] from application in application-akka.actor.default-dispatcher-5 - Shutting down connection pool.
 2019-05-25 12:05:54,770 [INFO] from application in application-akka.actor.default-dispatcher-5 - Shutting down connection pool.
+2019-05-21 13:17:56,819 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-7 - Application started (Dev)

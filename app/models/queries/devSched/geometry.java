@@ -6,7 +6,5 @@ public class geometry {
     public geometry(double[] coor1) {
         this.coordinates=coor1;
     }
-    public geometry() {
-
-    }
+    public geometry() {}
 }

@@ -1,6 +1,8 @@
 package models.queries.stations;
 
-public class Station {
+import models.queries.GeojsonTemplates.QueryFeature;
+
+public class StationFeature extends QueryFeature {
     /*[
     {
       "type": "Feature",
@@ -13,11 +15,10 @@ public class Station {
         "name":"שדרות דוד טוביהו/סוקולוב"
       }
     }*/
-    public String type = "Feature";
     public geometry geometry;
     public properties properties;
 
-    public Station(double[] coor, int id, String name) {
+    public StationFeature(double[] coor, int id, String name) {
         this.properties=new properties(id, name);
         this.geometry=new geometry(coor);
     }

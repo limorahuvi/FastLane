@@ -6,26 +6,22 @@ import java.time.LocalTime;
 import java.util.List;
 import com.fasterxml.jackson.databind.JsonNode;
 import models.entities.PassengerCounts;
+import models.queries.GeojsonTemplates.QueryFeatureCollection;
+import models.queries.GeojsonTemplates.QueryHandler;
 import models.queries.queries;
-import org.postgis.Point;
 
-public class passengersCountQueryHandler {
+public class passengersCountQueryHandler extends QueryHandler {
 
-    private final int MIN_X = 0;
-    private final int MAX_X = 1;
-    private final int MIN_Y = 2;
-    private final int MAX_Y = 3;
     private final int STOP1 = 0;
     private final int STOP2 = 1;
     private final int LOAD = 2;
-    PassengersCountForm form;
 
     public passengersCountQueryHandler(PassengersCountForm form) {
-        this.form = form;
+        super(form);
     }
 
     public JsonNode getResult() {
-        double[] square = getSquareArea();
+
         List<PassengerCounts> pcs = PassengerCounts.find.query()
                 .where()
                 .between("date_key", form.getStartDate(), form.getEndDate())
@@ -36,57 +32,51 @@ public class passengersCountQueryHandler {
                 .order().desc("TripId")
                 .order().desc("station_order")
                .findList();
-        passengersCountTotalLoad totalLoad = getPassengersCountTotalLoad(pcs);
+        QueryFeatureCollection totalLoad = getPassengersCountTotalLoad(pcs);
         return queries.mapper.valueToTree(totalLoad);
     }
 
-    private double[] getSquareArea() {
-        double[] square = new double[4];
-        String coor1=form.getCoor1();
-        String[] coor1_x_y= coor1.split(",");
-        String coor2=form.getCoor2();
-        String[] coor2_x_y=coor2.split(",");
-        Point p1=new Point(Double.parseDouble(coor1_x_y[1]),Double.parseDouble(coor2_x_y[0]));
-        Point p2=new Point(Double.parseDouble(coor2_x_y[1]),Double.parseDouble(coor1_x_y[0]));
-        Point p3=new Point(Double.parseDouble(coor1_x_y[1]),Double.parseDouble(coor1_x_y[0]));
-        Point p4=new Point(Double.parseDouble(coor2_x_y[1]),Double.parseDouble(coor2_x_y[0]));
-        square[MAX_X]=Math.max(Math.max(p1.getX(),p2.getX()),Math.max(p3.getX(),p4.getX()));
-        square[MIN_X]=Math.min(Math.min(p1.getX(),p2.getX()),Math.min(p3.getX(),p4.getX()));
-        square[MAX_Y]=Math.max(Math.max(p1.getY(),p2.getY()),Math.max(p3.getY(),p4.getY()));
-        square[MIN_Y]=Math.min(Math.min(p1.getY(),p2.getY()),Math.min(p3.getY(),p4.getY()));
-        return square;
-    }
 
-    private passengersCountTotalLoad getPassengersCountTotalLoad(List<PassengerCounts> pcs) {
-        passengersCountTotalLoad totalLoad = new passengersCountTotalLoad();
+
+    private QueryFeatureCollection getPassengersCountTotalLoad(List<PassengerCounts> pcs) {
+        QueryFeatureCollection totalLoad = new QueryFeatureCollection();
+        int minPassengersForPublicLane = ((PassengersCountForm)(form)).getMinPassengersForPublicLane();
         for(int i=0; i<pcs.size()-1; i++){
             if(pcs.get(i).getTripId()-pcs.get(i+1).getTripId()==0){
                 double[] coorFrom = getCoor(pcs,i);
                 double[] coorTo = getCoor(pcs,i+1);
                 totalLoad.addFeature(coorFrom, coorTo, pcs.get(i).getPassengersContinue_rounded_final(),form.getMinPassengersForPublicLane());
+            PassengerCounts currPC = pcs.get(i);
+            PassengerCounts nextPC = pcs.get(i+1);
+            if(currPC.getTripId()-nextPC.getTripId()==0){
+                double[] coorFrom = getCoor(currPC);
+                double[] coorTo = getCoor(nextPC);
+                double pcLoad = currPC.getPassengersContinue_rounded_sofi();
+                double relativeLoad = minPassengersForPublicLane == 0||pcLoad>minPassengersForPublicLane ? 1 : (double)pcLoad/minPassengersForPublicLane;
+                totalLoad.addFeature(new passengersCountFeature(coorFrom, coorTo, relativeLoad));
             }
         }
         return totalLoad;
     }
 
-    private double[] getCoor(List<PassengerCounts> pcs, int i) {
+    private double[] getCoor(PassengerCounts pc) {
         double[] coor = new double[2];
-        coor[0] = pcs.get(i).getPoint().y;
-        coor[1] = pcs.get(i).getPoint().x;
+        coor[0] = pc.getPoint().y;
+        coor[1] = pc.getPoint().x;
         return coor;
     }
 
-    private passengersCountTotalLoad getDemoPassengersCountTotalLoad() {
+    /*private passengersCountTotalLoad getDemoPassengersCountTotalLoad() {
         passengersCountTotalLoad totalLoad = new passengersCountTotalLoad();
         double[] coor13933 = {34.798108,31.23819};
         double[] coor18613 = {34.808931,31.226122};
         double[] coor11783 = {34.812412,31.219766};
         double[] coor18622 = {34.809946,31.213571};
-        totalLoad.addFeature(coor13933, coor18613, 11,form.getMinPassengersForPublicLane());
-        totalLoad.addFeature(coor18613, coor11783, 8,form.getMinPassengersForPublicLane());
-        totalLoad.addFeature(coor11783, coor18622, 7,form.getMinPassengersForPublicLane());
+        totalLoad.addFeature(coor13933, coor18613, 11,((PassengersCountForm)(form)).getMinPassengersForPublicLane());
+        totalLoad.addFeature(coor18613, coor11783, 8,((PassengersCountForm)(form)).getMinPassengersForPublicLane());
+        totalLoad.addFeature(coor11783, coor18622, 7,((PassengersCountForm)(form)).getMinPassengersForPublicLane());
         return totalLoad;
-    }
+    }*/
 
 
 }

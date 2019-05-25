@@ -29,7 +29,7 @@ public class queries {
 
 
     public static JsonNode getStations(){
-        stationsQueryHandler handler = new stationsQueryHandler();
+        stationsQueryHandler handler = new stationsQueryHandler(null);
         return handler.getResults();
 //        return readJsonFromFile("stations");
     }

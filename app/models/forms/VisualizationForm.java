@@ -23,7 +23,6 @@ public abstract class VisualizationForm implements Validatable<ValidationError>{
     public String resultString = "";
 
     // Coordinates
-//    TODO check valid coordinate
     @Constraints.Required
     public String coor1="";
     @Constraints.Required
