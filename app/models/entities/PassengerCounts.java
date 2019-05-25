@@ -36,7 +36,7 @@ public class PassengerCounts extends Model {
     @Formats.DateTime(pattern="yyyy-MM-dd")
     private Date DateKey; //col 22
 
-    private Time HourKey; // col 23
+    private Time HourKey; // col 23 - changed to 45
 
     public static final Finder<Long, PassengerCounts> find = new Finder<>(PassengerCounts.class);
 
@@ -120,4 +120,7 @@ public class PassengerCounts extends Model {
                 "HourKey: "+HourKey+" ";
 
     }
+
+    /* col numbers */
+    public final int DoorsOpenTimeCol = 45;
 }

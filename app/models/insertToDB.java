@@ -36,18 +36,18 @@ public class insertToDB {
         try {
             utilitiesFunc.logger.info("starting to insert DB: (time = " + new Date() +" )");
             Logger.info("starting to insert DB: (time = " + new Date() +" )");
-            String siri_path = utilitiesFunc.createPath("sources/DFoutputBS_cluster2018-09-29_1.csv");
+//            String siri_path = utilitiesFunc.createPath("sources/DFoutputBS_cluster2018-09-29_1.csv");
             String pc_path = utilitiesFunc.createPath("sources/pc.csv");
             insertToPassengerCount(pc_path);
-            insertToAgency(destDir);
-            insertToRoutes(destDir);
+//            insertToAgency(destDir);
+//            insertToRoutes(destDir);
             insertToStops(destDir);
-            insertToCalendar(destDir);
-            insertSIRItoRealTime(siri_path);
-            insertToShape(destDir);
-            insertToTrips(destDir);
-            insertToStopTimes(destDir);
-            utilitiesFunc.logger.info("Done to insert DB: (time = " + new Date() +" )");
+//            insertToCalendar(destDir);
+//            insertSIRItoRealTime(siri_path);
+//            insertToShape(destDir);
+//            insertToTrips(destDir);
+//            insertToStopTimes(destDir);
+//            utilitiesFunc.logger.info("Done to insert DB: (time = " + new Date() +" )");
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -57,6 +57,7 @@ public class insertToDB {
     public static void insertToPassengerCount(String URL) throws SQLException {
         utilitiesFunc.logger.info("starting insert to Passenger Count table...   (start time = " + new Date() +" )");
         Logger.info("starting insert to Passenger Count table...   (start time = " + new Date() +" )");
+//        System.out.println("**********************");
         try {
             int i=0;
             BufferedReader br = new BufferedReader(new InputStreamReader(
@@ -70,7 +71,7 @@ public class insertToDB {
                     transaction.setBatchMode(true);  // use JDBC batch
                     transaction.setBatchSize(100);
                 }
-
+//                System.out.println("***********"+line+"***********");
                 //Make sure the line is not null, not empty, and contains 2 comma char
                 if (line != null && !line.equals("") && line.matches(".*[,].*[,].*") && !line.contains("IdReportRow")) {
                     try {
@@ -92,8 +93,17 @@ public class insertToDB {
                             Date dateKey = dateformat.parse(cleanQuotationMarks(tmp[22]));
                             pc.setDateKey(dateKey);
                             //                        System.out.println("after 1: " + dateKey.toString());
-                            String timeString = cleanQuotationMarks(tmp[23]);
-                            //                        System.out.println("before 2 new: " + timeString);
+
+//                            SimpleDateFormat time_format = new SimpleDateFormat("yyyy-MM-dd h:mm:ss a");
+//                            Date timeKey = time_format.parse(cleanQuotationMarks(tmp[45]));
+//                            timeKey.getTime()
+
+                            String format = "hh:mm:ss am";
+                            String timeString = cleanQuotationMarks(tmp[45]);
+                            timeString = timeString.substring(timeString.length()-format.length()+1);
+                            System.out.println("input: "+timeString);
+
+//                            //                        System.out.println("before 2 new: " + timeString);
                             SimpleDateFormat time_format = new SimpleDateFormat("HH:mm");
                             long hourKeyLong = time_format.parse(timeString).getTime();
                             Time hourKey = new Time(hourKeyLong);
