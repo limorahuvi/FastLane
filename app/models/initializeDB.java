@@ -52,7 +52,7 @@ public class initializeDB {
                 while(ze != null){
                     String fileName = ze.getName();
                     File newFile = new File(destDir + File.separator + fileName);
-                    utilitiesFunc.logger.info("Unzipping to "+newFile.getAbsolutePath());
+                    System.out.println("Unzipping to " +newFile.getAbsolutePath());
                     //create directories for sub directories in zip
                     new File(newFile.getParent()).mkdirs();
                     FileOutputStream fos = new FileOutputStream(newFile);

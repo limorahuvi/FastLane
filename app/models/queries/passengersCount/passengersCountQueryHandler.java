@@ -3,12 +3,8 @@ package models.queries.passengersCount;
 import models.PassengersCountForm;
 
 import java.time.LocalTime;
-import java.util.LinkedList;
 import java.util.List;
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.node.ArrayNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ObjectNode;
 import models.entities.PassengerCounts;
 import models.queries.queries;
 import org.postgis.Point;
@@ -67,7 +63,7 @@ public class passengersCountQueryHandler {
             if(pcs.get(i).getTripId()-pcs.get(i+1).getTripId()==0){
                 double[] coorFrom = getCoor(pcs,i);
                 double[] coorTo = getCoor(pcs,i+1);
-                totalLoad.addFeature(coorFrom, coorTo, pcs.get(i).getPassengersContinue_rounded_sofi(),form.getMinPassengersForPublicLane());
+                totalLoad.addFeature(coorFrom, coorTo, pcs.get(i).getPassengersContinue_rounded_final(),form.getMinPassengersForPublicLane());
             }
         }
         return totalLoad;

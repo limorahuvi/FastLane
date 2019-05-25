@@ -2,14 +2,13 @@ package models.entities;
 
 import io.ebean.Model;
 import org.postgis.Point;
-import play.data.validation.Constraints;
+
 import javax.persistence.*;
 import java.util.*;
 import io.ebean.*;
 import javax.persistence.Entity;
 import java.sql.Time;
 import play.data.format.*;
-import play.data.validation.*;
 
 @Entity
 public class PassengerCounts extends Model {
@@ -17,7 +16,7 @@ public class PassengerCounts extends Model {
     private Integer pc_id ;
     private Integer TripId; //col 56
 
-    private Integer PassengersContinue_rounded_sofi;  //col 54
+    private Integer PassengersContinue_rounded_final;  //col 54
 
     private Point point; //Lat+long (38,39)
 
@@ -56,12 +55,12 @@ public class PassengerCounts extends Model {
         TripId = tripId;
     }
 
-    public Integer getPassengersContinue_rounded_sofi() {
-        return PassengersContinue_rounded_sofi;
+    public Integer getPassengersContinue_rounded_final() {
+        return PassengersContinue_rounded_final;
     }
 
-    public void setPassengersContinue_rounded_sofi(Integer passengersContinue_rounded_sofi) {
-        PassengersContinue_rounded_sofi = passengersContinue_rounded_sofi;
+    public void setPassengersContinue_rounded_final(Integer passengersContinue_rounded_final) {
+        PassengersContinue_rounded_final = passengersContinue_rounded_final;
     }
 
     public Point getPoint() {
@@ -112,7 +111,7 @@ public class PassengerCounts extends Model {
     public String toString(){
         return "pc_id: "+pc_id+" "+
                 "TripId: "+TripId+" "+
-                "PassengersContinue_rounded_sofi: "+PassengersContinue_rounded_sofi+" "+
+                "PassengersContinue_rounded_final: "+ PassengersContinue_rounded_final +" "+
                 "point: "+point+" "+
                 "station_order: "+station_order+" "+
                 "DayNameHeb: "+DayNameHeb+" "+

@@ -2,10 +2,8 @@ package models.queries.stations;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import models.entities.Stop;
-import models.queries.passengersCount.passengersCountSingleLoad;
 import models.queries.queries;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class stationsQueryHandler {
@@ -35,7 +33,7 @@ public class stationsQueryHandler {
         List<Stop> stops = Stop.find.query().where()
                 .icontains("stop_desc", "באר שבע").findList();
         for(Stop stop: stops){
-            double[] coor = {stop.getLoction().y,stop.getLoction().x};
+            double[] coor = {stop.getLocation().y,stop.getLocation().x};
             stations.addFeature(coor, stop.getStop_id(), stop.getStop_name());
         }
         return queries.mapper.valueToTree(stations);
