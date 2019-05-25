@@ -31,7 +31,7 @@ public class passengersCountQueryHandler extends QueryHandler {
                 .between("ST_Y(point)", square[MIN_Y],square[MAX_Y])
                 .order().desc("TripId")
                 .order().desc("station_order")
-               .findList();
+                .findList();
         QueryFeatureCollection totalLoad = getPassengersCountTotalLoad(pcs);
         return queries.mapper.valueToTree(totalLoad);
     }
@@ -42,10 +42,6 @@ public class passengersCountQueryHandler extends QueryHandler {
         QueryFeatureCollection totalLoad = new QueryFeatureCollection();
         int minPassengersForPublicLane = ((PassengersCountForm)(form)).getMinPassengersForPublicLane();
         for(int i=0; i<pcs.size()-1; i++){
-            if(pcs.get(i).getTripId()-pcs.get(i+1).getTripId()==0){
-                double[] coorFrom = getCoor(pcs,i);
-                double[] coorTo = getCoor(pcs,i+1);
-                totalLoad.addFeature(coorFrom, coorTo, pcs.get(i).getPassengersContinue_rounded_final(),form.getMinPassengersForPublicLane());
             PassengerCounts currPC = pcs.get(i);
             PassengerCounts nextPC = pcs.get(i+1);
             if(currPC.getTripId()-nextPC.getTripId()==0){
