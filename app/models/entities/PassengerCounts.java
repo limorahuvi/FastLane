@@ -17,6 +17,8 @@ public class PassengerCounts extends Model {
     private Integer TripId; //col 56
 
     private Integer PassengersContinue_rounded_final;  //col 54
+    private Integer PassengersContinue_rounded_sofi;  //col 54
+
 
     private Point point; //Lat+long (38,39)
 
@@ -118,5 +120,11 @@ public class PassengerCounts extends Model {
                 "DateKey: "+DateKey+" "+
                 "HourKey: "+HourKey+" ";
 
+    }
+    public void setPassengersContinue_rounded_sofi(Integer passengersContinue_rounded_sofi) {
+        PassengersContinue_rounded_sofi = passengersContinue_rounded_sofi;
+    }
+    public Integer getPassengersContinue_rounded_sofi() {
+        return PassengersContinue_rounded_sofi;
     }
 }
