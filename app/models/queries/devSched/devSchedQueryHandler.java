@@ -29,7 +29,7 @@ public class devSchedQueryHandler extends QueryHandler   {
             LocalTime t1 = LocalTime.parse(start_hour + ":00");
             LocalTime t2 = LocalTime.parse(end_hour + ":59");
             real_time_ref = RealTime.find.query().where().between("expectedArrivalDate", start, end)
-                    .between("expectedArrivalTime", t1, t2).between("ST_X(loction)", square[MIN_X],square[MAX_X]).between("ST_Y(loction)", square[MIN_Y],square[MAX_Y]).findList();
+                    .between("expectedArrivalTime", t1, t2).between("ST_X(location)", square[MIN_X],square[MAX_X]).between("ST_Y(location)", square[MIN_Y],square[MAX_Y]).findList();
         String day=form.getDay();
         if(!(day.equals("All"))){
             real_time_ref=filter_day(real_time_ref,day);
