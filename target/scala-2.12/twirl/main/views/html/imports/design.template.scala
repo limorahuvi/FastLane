@@ -53,7 +53,7 @@ Seq[Any](format.raw/*1.1*/("""<link rel="stylesheet" href=""""),_display_(/*1.31
 
               /*
                   -- GENERATED --
-                  DATE: Tue May 21 20:43:39 IDT 2019
+                  DATE: Sat May 25 19:10:53 IDT 2019
                   SOURCE: C:/Users/hshidlov/Desktop/private/Project/2904/FastLane/app/views/imports/design.scala.html
                   HASH: 3b569f6a25b055a4963c7ec40a21b73839ea9175
                   MATRIX: 1039->0|1095->30|1109->36|1203->109|1272->152|1286->158|1346->198|1422->248|1436->254|1511->309|1564->336|1578->342|1669->413|1777->495|1791->501|1852->542

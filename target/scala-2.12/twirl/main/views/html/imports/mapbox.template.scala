@@ -47,7 +47,7 @@ Seq[Any](format.raw/*1.1*/("""<script src='https://api.tiles.mapbox.com/mapbox-g
 
               /*
                   -- GENERATED --
-                  DATE: Tue May 21 20:43:39 IDT 2019
+                  DATE: Sat May 25 19:10:53 IDT 2019
                   SOURCE: C:/Users/hshidlov/Desktop/private/Project/2904/FastLane/app/views/imports/mapbox.scala.html
                   HASH: 3e5dbcb1d35477e71fda8c83f57901b7b1b2ac14
                   MATRIX: 1039->0

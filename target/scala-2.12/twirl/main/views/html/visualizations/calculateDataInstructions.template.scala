@@ -62,7 +62,7 @@ Seq[Any](_display_(/*1.2*/main("Instructions")/*1.22*/ {_display_(Seq[Any](forma
     </br>
     The data will be calculated from start date till end date only in the chosen day
     </br>
-    Choose "All" to calculate all dates between atart date and end date
+    Choose "All" to calculate all dates between start date and end date
     </br>
     </br>
 
@@ -74,7 +74,6 @@ Seq[Any](_display_(/*1.2*/main("Instructions")/*1.22*/ {_display_(Seq[Any](forma
 
     <b>Coordinates</b>
     </br>
-    <!--TODO add drawing?-->
     Choose 2 markers on the map
     The data will be calculated as a square between the 2 markers
     </br>
@@ -108,9 +107,9 @@ Seq[Any](_display_(/*1.2*/main("Instructions")/*1.22*/ {_display_(Seq[Any](forma
 
               /*
                   -- GENERATED --
-                  DATE: Tue May 21 20:43:40 IDT 2019
+                  DATE: Sat May 25 19:10:53 IDT 2019
                   SOURCE: C:/Users/hshidlov/Desktop/private/Project/2904/FastLane/app/views/visualizations/calculateDataInstructions.scala.html
-                  HASH: f1daae3964abcbfab442ad209e99697c7f36ba54
+                  HASH: b9562fb55766a35485a78c33eacee5da07acc797
                   MATRIX: 1065->1|1093->21|1132->23|1160->25|1230->68|1258->69|1299->83|1388->146|1416->147|1444->149|1473->160|1511->161|1540->163
                   LINES: 33->1|33->1|33->1|34->2|36->4|36->4|37->5|40->8|40->8|41->9|42->10|42->10|43->11
                   -- GENERATED --

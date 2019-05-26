@@ -30,92 +30,91 @@ object calculateMap extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.a
       {
 
 
-Seq[Any](format.raw/*1.1*/("""<!--TODO print stations id???-->
-<script type="text/javascript" src=""""),_display_(/*2.38*/routes/*2.44*/.Assets.versioned("demo-data/DemoData.js")),format.raw/*2.86*/(""""></script>
+Seq[Any](format.raw/*1.1*/("""<script type="text/javascript" src=""""),_display_(/*1.38*/routes/*1.44*/.Assets.versioned("demo-data/DemoData.js")),format.raw/*1.86*/(""""></script>
 <script>
 
-     var markers="""),format.raw/*5.18*/("""{"""),format.raw/*5.19*/("""}"""),format.raw/*5.20*/(""";
+     var markers="""),format.raw/*4.18*/("""{"""),format.raw/*4.19*/("""}"""),format.raw/*4.20*/(""";
     mapboxgl.accessToken = 'pk.eyJ1IjoiYWh1dmlsIiwiYSI6ImNqcHdjdmN1bDA1bjY0OXVqb2pucWo5b2oifQ.DlCUMxPJ6c3TD2eLq3OCEQ';
-    var map = new mapboxgl.Map("""),format.raw/*7.32*/("""{"""),format.raw/*7.33*/("""
-        """),format.raw/*8.9*/("""container: 'map',
+    var map = new mapboxgl.Map("""),format.raw/*6.32*/("""{"""),format.raw/*6.33*/("""
+        """),format.raw/*7.9*/("""container: 'map',
         style: 'mapbox://styles/mapbox/streets-v9',
         center: [34.798256,31.260114],
         zoom: 13,
         trackResize: true
-    """),format.raw/*13.5*/("""}"""),format.raw/*13.6*/(""");
+    """),format.raw/*12.5*/("""}"""),format.raw/*12.6*/(""");
 
-    map.on('load', function()"""),format.raw/*15.30*/("""{"""),format.raw/*15.31*/("""
-        """),format.raw/*16.9*/("""update_label();
+    map.on('load', function()"""),format.raw/*14.30*/("""{"""),format.raw/*14.31*/("""
+        """),format.raw/*15.9*/("""update_label();
          addStations();
-    """),format.raw/*18.5*/("""}"""),format.raw/*18.6*/(""");
+    """),format.raw/*17.5*/("""}"""),format.raw/*17.6*/(""");
 
     //add all stations to map
-    function addStations() """),format.raw/*21.28*/("""{"""),format.raw/*21.29*/("""
-        """),format.raw/*22.9*/("""map.addLayer("""),format.raw/*22.22*/("""{"""),format.raw/*22.23*/("""
-            """),format.raw/*23.13*/(""""id": "stationsLayer",
+    function addStations() """),format.raw/*20.28*/("""{"""),format.raw/*20.29*/("""
+        """),format.raw/*21.9*/("""map.addLayer("""),format.raw/*21.22*/("""{"""),format.raw/*21.23*/("""
+            """),format.raw/*22.13*/(""""id": "stationsLayer",
             "type": "symbol",
-            "source": """),format.raw/*25.23*/("""{"""),format.raw/*25.24*/("""
-                """),format.raw/*26.17*/(""""type": "geojson",
+            "source": """),format.raw/*24.23*/("""{"""),format.raw/*24.24*/("""
+                """),format.raw/*25.17*/(""""type": "geojson",
                 "data": JSON.parse(localStorage.getItem('stations').replace(/&quot;/g,'"'))
-            """),format.raw/*28.13*/("""}"""),format.raw/*28.14*/(""",
-            "layout": """),format.raw/*29.23*/("""{"""),format.raw/*29.24*/("""
-                """),format.raw/*30.17*/(""""icon-image": "bus-15",
-            """),format.raw/*31.13*/("""}"""),format.raw/*31.14*/("""
-        """),format.raw/*32.9*/("""}"""),format.raw/*32.10*/(""")
-    """),format.raw/*33.5*/("""}"""),format.raw/*33.6*/(""";
+            """),format.raw/*27.13*/("""}"""),format.raw/*27.14*/(""",
+            "layout": """),format.raw/*28.23*/("""{"""),format.raw/*28.24*/("""
+                """),format.raw/*29.17*/(""""icon-image": "bus-15",
+            """),format.raw/*30.13*/("""}"""),format.raw/*30.14*/("""
+        """),format.raw/*31.9*/("""}"""),format.raw/*31.10*/(""")
+    """),format.raw/*32.5*/("""}"""),format.raw/*32.6*/(""";
 
     //handle selection of area
-    map.on('click',function(e)"""),format.raw/*36.31*/("""{"""),format.raw/*36.32*/("""
-        """),format.raw/*37.9*/("""var coordinates = [e.lngLat.lng,e.lngLat.lat];
-        if(!addCoordinate(coordinates,"coor1") && !addCoordinate(coordinates,"coor2"))"""),format.raw/*38.87*/("""{"""),format.raw/*38.88*/("""
-            """),format.raw/*39.13*/("""alert("You have already choose 2 points");
-            """),format.raw/*40.13*/("""}"""),format.raw/*40.14*/("""
-    """),format.raw/*41.5*/("""}"""),format.raw/*41.6*/(""");
+    map.on('click',function(e)"""),format.raw/*35.31*/("""{"""),format.raw/*35.32*/("""
+        """),format.raw/*36.9*/("""var coordinates = [e.lngLat.lng,e.lngLat.lat];
+        if(!addCoordinate(coordinates,"coor1") && !addCoordinate(coordinates,"coor2"))"""),format.raw/*37.87*/("""{"""),format.raw/*37.88*/("""
+            """),format.raw/*38.13*/("""alert("You have already choose 2 points");
+            """),format.raw/*39.13*/("""}"""),format.raw/*39.14*/("""
+    """),format.raw/*40.5*/("""}"""),format.raw/*40.6*/(""");
 
- function addCoordinate(coordinates,label)"""),format.raw/*43.43*/("""{"""),format.raw/*43.44*/("""
-        """),format.raw/*44.9*/("""if(document.getElementById(label).value=="")"""),format.raw/*44.53*/("""{"""),format.raw/*44.54*/("""
-            """),format.raw/*45.13*/("""document.getElementById(label).value = coordinates;
+ function addCoordinate(coordinates,label)"""),format.raw/*42.43*/("""{"""),format.raw/*42.44*/("""
+        """),format.raw/*43.9*/("""if(document.getElementById(label).value=="")"""),format.raw/*43.53*/("""{"""),format.raw/*43.54*/("""
+            """),format.raw/*44.13*/("""document.getElementById(label).value = coordinates;
             var marker = new mapboxgl.Marker()
                 .setLngLat(coordinates)
                 .addTo(map);
             markers[label]=marker;
             return true;
-        """),format.raw/*51.9*/("""}"""),format.raw/*51.10*/("""
-        """),format.raw/*52.9*/("""else"""),format.raw/*52.13*/("""{"""),format.raw/*52.14*/("""
-            """),format.raw/*53.13*/("""return false;
-        """),format.raw/*54.9*/("""}"""),format.raw/*54.10*/("""
-    """),format.raw/*55.5*/("""}"""),format.raw/*55.6*/("""
+        """),format.raw/*50.9*/("""}"""),format.raw/*50.10*/("""
+        """),format.raw/*51.9*/("""else"""),format.raw/*51.13*/("""{"""),format.raw/*51.14*/("""
+            """),format.raw/*52.13*/("""return false;
+        """),format.raw/*53.9*/("""}"""),format.raw/*53.10*/("""
+    """),format.raw/*54.5*/("""}"""),format.raw/*54.6*/("""
 
-     """),format.raw/*57.6*/("""function removeCoordinates()"""),format.raw/*57.34*/("""{"""),format.raw/*57.35*/("""
-        """),format.raw/*58.9*/("""document.getElementById("coor1").value = "";
+     """),format.raw/*56.6*/("""function removeCoordinates()"""),format.raw/*56.34*/("""{"""),format.raw/*56.35*/("""
+        """),format.raw/*57.9*/("""document.getElementById("coor1").value = "";
         document.getElementById("coor2").value = "";
-        if(markers["coor1"]!=undefined)"""),format.raw/*60.40*/("""{"""),format.raw/*60.41*/("""
-            """),format.raw/*61.13*/("""markers["coor1"].remove();
+        if(markers["coor1"]!=undefined)"""),format.raw/*59.40*/("""{"""),format.raw/*59.41*/("""
+            """),format.raw/*60.13*/("""markers["coor1"].remove();
             delete markers["coor1"];
-        """),format.raw/*63.9*/("""}"""),format.raw/*63.10*/("""
-        """),format.raw/*64.9*/("""if(markers["coor2"]!=undefined)"""),format.raw/*64.40*/("""{"""),format.raw/*64.41*/("""
-            """),format.raw/*65.13*/("""markers["coor2"].remove();
+        """),format.raw/*62.9*/("""}"""),format.raw/*62.10*/("""
+        """),format.raw/*63.9*/("""if(markers["coor2"]!=undefined)"""),format.raw/*63.40*/("""{"""),format.raw/*63.41*/("""
+            """),format.raw/*64.13*/("""markers["coor2"].remove();
             delete markers["coor2"];
-        """),format.raw/*67.9*/("""}"""),format.raw/*67.10*/("""
-    """),format.raw/*68.5*/("""}"""),format.raw/*68.6*/("""
+        """),format.raw/*66.9*/("""}"""),format.raw/*66.10*/("""
+    """),format.raw/*67.5*/("""}"""),format.raw/*67.6*/("""
 
-    """),format.raw/*70.5*/("""function update_label()"""),format.raw/*70.28*/("""{"""),format.raw/*70.29*/("""
-         """),format.raw/*71.10*/("""if(document.getElementById("coor1").value=="" && markers["coor1"]!=undefined)"""),format.raw/*71.87*/("""{"""),format.raw/*71.88*/("""
-            """),format.raw/*72.13*/("""markers["coor1"].remove();
+    """),format.raw/*69.5*/("""function update_label()"""),format.raw/*69.28*/("""{"""),format.raw/*69.29*/("""
+         """),format.raw/*70.10*/("""if(document.getElementById("coor1").value=="" && markers["coor1"]!=undefined)"""),format.raw/*70.87*/("""{"""),format.raw/*70.88*/("""
+            """),format.raw/*71.13*/("""markers["coor1"].remove();
             delete markers["coor1"];
-         """),format.raw/*74.10*/("""}"""),format.raw/*74.11*/("""
-          """),format.raw/*75.11*/("""if(document.getElementById("coor2").value=="" && markers["coor2"]!=undefined)"""),format.raw/*75.88*/("""{"""),format.raw/*75.89*/("""
-             """),format.raw/*76.14*/("""markers["coor2"].remove();
+         """),format.raw/*73.10*/("""}"""),format.raw/*73.11*/("""
+          """),format.raw/*74.11*/("""if(document.getElementById("coor2").value=="" && markers["coor2"]!=undefined)"""),format.raw/*74.88*/("""{"""),format.raw/*74.89*/("""
+             """),format.raw/*75.14*/("""markers["coor2"].remove();
             delete markers["coor2"];
-         """),format.raw/*78.10*/("""}"""),format.raw/*78.11*/("""
-          """),format.raw/*79.11*/("""if(document.getElementById("coor1").value!="" )"""),format.raw/*79.58*/("""{"""),format.raw/*79.59*/("""
+         """),format.raw/*77.10*/("""}"""),format.raw/*77.11*/("""
+          """),format.raw/*78.11*/("""if(document.getElementById("coor1").value!="" )"""),format.raw/*78.58*/("""{"""),format.raw/*78.59*/("""
 
-             """),format.raw/*81.14*/("""if(markers["coor1"]!=undefined)"""),format.raw/*81.45*/("""{"""),format.raw/*81.46*/("""
-                """),format.raw/*82.17*/("""markers["coor1"].remove();
+             """),format.raw/*80.14*/("""if(markers["coor1"]!=undefined)"""),format.raw/*80.45*/("""{"""),format.raw/*80.46*/("""
+                """),format.raw/*81.17*/("""markers["coor1"].remove();
                 delete markers["coor1"];
-            """),format.raw/*84.13*/("""}"""),format.raw/*84.14*/("""
+            """),format.raw/*83.13*/("""}"""),format.raw/*83.14*/("""
 
-            """),format.raw/*86.13*/("""var coor_value=document.getElementById("coor1").value;
+            """),format.raw/*85.13*/("""var coor_value=document.getElementById("coor1").value;
             var coor_arr=coor_value.split(",");
             var coor=new Array();
             coor[0]=coor_arr[0];
@@ -124,14 +123,14 @@ Seq[Any](format.raw/*1.1*/("""<!--TODO print stations id???-->
                 .setLngLat(coor)
                 .addTo(map);
             markers["coor1"]=marker;
-         """),format.raw/*95.10*/("""}"""),format.raw/*95.11*/("""
-          """),format.raw/*96.11*/("""if(document.getElementById("coor2").value!="")"""),format.raw/*96.57*/("""{"""),format.raw/*96.58*/("""
-            """),format.raw/*97.13*/("""if(markers["coor2"]!=undefined)"""),format.raw/*97.44*/("""{"""),format.raw/*97.45*/("""
-                """),format.raw/*98.17*/("""markers["coor2"].remove();
+         """),format.raw/*94.10*/("""}"""),format.raw/*94.11*/("""
+          """),format.raw/*95.11*/("""if(document.getElementById("coor2").value!="")"""),format.raw/*95.57*/("""{"""),format.raw/*95.58*/("""
+            """),format.raw/*96.13*/("""if(markers["coor2"]!=undefined)"""),format.raw/*96.44*/("""{"""),format.raw/*96.45*/("""
+                """),format.raw/*97.17*/("""markers["coor2"].remove();
                 delete markers["coor2"];
-            """),format.raw/*100.13*/("""}"""),format.raw/*100.14*/("""
+            """),format.raw/*99.13*/("""}"""),format.raw/*99.14*/("""
 
-            """),format.raw/*102.13*/("""var coor_value=document.getElementById("coor2").value;
+            """),format.raw/*101.13*/("""var coor_value=document.getElementById("coor2").value;
             var coor_arr=coor_value.split(",");
             var coor=new Array();
             coor[0]=coor_arr[0];
@@ -141,45 +140,44 @@ Seq[Any](format.raw/*1.1*/("""<!--TODO print stations id???-->
                 .addTo(map);
              markers["coor2"]=marker;
 
-         """),format.raw/*112.10*/("""}"""),format.raw/*112.11*/("""
-    """),format.raw/*113.5*/("""}"""),format.raw/*113.6*/("""
+         """),format.raw/*111.10*/("""}"""),format.raw/*111.11*/("""
+    """),format.raw/*112.5*/("""}"""),format.raw/*112.6*/("""
 
-    """),format.raw/*115.5*/("""function addNewLayerWithSelectedPoint(coordinates)"""),format.raw/*115.55*/("""{"""),format.raw/*115.56*/("""
-        """),format.raw/*116.9*/("""map.addLayer("""),format.raw/*116.22*/("""{"""),format.raw/*116.23*/("""
-            """),format.raw/*117.13*/(""""id": "point"+points.length,
+    """),format.raw/*114.5*/("""function addNewLayerWithSelectedPoint(coordinates)"""),format.raw/*114.55*/("""{"""),format.raw/*114.56*/("""
+        """),format.raw/*115.9*/("""map.addLayer("""),format.raw/*115.22*/("""{"""),format.raw/*115.23*/("""
+            """),format.raw/*116.13*/(""""id": "point"+points.length,
             "type": "symbol",
-            "source": """),format.raw/*119.23*/("""{"""),format.raw/*119.24*/("""
-                """),format.raw/*120.17*/(""""type": "geojson",
-                "data": """),format.raw/*121.25*/("""{"""),format.raw/*121.26*/("""
-                    """),format.raw/*122.21*/(""""type": "FeatureCollection",
-                    "features": ["""),format.raw/*123.34*/("""{"""),format.raw/*123.35*/("""
-                        """),format.raw/*124.25*/(""""type": "Feature",
-                        "geometry": """),format.raw/*125.37*/("""{"""),format.raw/*125.38*/("""
-                            """),format.raw/*126.29*/(""""type": "Point",
+            "source": """),format.raw/*118.23*/("""{"""),format.raw/*118.24*/("""
+                """),format.raw/*119.17*/(""""type": "geojson",
+                "data": """),format.raw/*120.25*/("""{"""),format.raw/*120.26*/("""
+                    """),format.raw/*121.21*/(""""type": "FeatureCollection",
+                    "features": ["""),format.raw/*122.34*/("""{"""),format.raw/*122.35*/("""
+                        """),format.raw/*123.25*/(""""type": "Feature",
+                        "geometry": """),format.raw/*124.37*/("""{"""),format.raw/*124.38*/("""
+                            """),format.raw/*125.29*/(""""type": "Point",
                             "coordinates":coordinates
-                        """),format.raw/*128.25*/("""}"""),format.raw/*128.26*/("""
-                    """),format.raw/*129.21*/("""}"""),format.raw/*129.22*/("""]
-                """),format.raw/*130.17*/("""}"""),format.raw/*130.18*/("""
-            """),format.raw/*131.13*/("""}"""),format.raw/*131.14*/(""",
-            "layout": """),format.raw/*132.23*/("""{"""),format.raw/*132.24*/("""
-                """),format.raw/*133.17*/(""""icon-image": "monument",
+                        """),format.raw/*127.25*/("""}"""),format.raw/*127.26*/("""
+                    """),format.raw/*128.21*/("""}"""),format.raw/*128.22*/("""]
+                """),format.raw/*129.17*/("""}"""),format.raw/*129.18*/("""
+            """),format.raw/*130.13*/("""}"""),format.raw/*130.14*/(""",
+            "layout": """),format.raw/*131.23*/("""{"""),format.raw/*131.24*/("""
+                """),format.raw/*132.17*/(""""icon-image": "monument",
                 "icon-size": 0.25
-            """),format.raw/*135.13*/("""}"""),format.raw/*135.14*/("""
-        """),format.raw/*136.9*/("""}"""),format.raw/*136.10*/(""");
-    """),format.raw/*137.5*/("""}"""),format.raw/*137.6*/("""
+            """),format.raw/*134.13*/("""}"""),format.raw/*134.14*/("""
+        """),format.raw/*135.9*/("""}"""),format.raw/*135.10*/(""");
+    """),format.raw/*136.5*/("""}"""),format.raw/*136.6*/("""
 
-    """),format.raw/*139.5*/("""function addPopupOfSelectesPoint(coordinates)"""),format.raw/*139.50*/("""{"""),format.raw/*139.51*/("""
-        """),format.raw/*140.9*/("""while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) """),format.raw/*140.63*/("""{"""),format.raw/*140.64*/("""
-            """),format.raw/*141.13*/("""coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-        """),format.raw/*142.9*/("""}"""),format.raw/*142.10*/("""
+    """),format.raw/*138.5*/("""function addPopupOfSelectesPoint(coordinates)"""),format.raw/*138.50*/("""{"""),format.raw/*138.51*/("""
+        """),format.raw/*139.9*/("""while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) """),format.raw/*139.63*/("""{"""),format.raw/*139.64*/("""
+            """),format.raw/*140.13*/("""coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+        """),format.raw/*141.9*/("""}"""),format.raw/*141.10*/("""
 
-        """),format.raw/*144.9*/("""new mapboxgl.Popup()
+        """),format.raw/*143.9*/("""new mapboxgl.Popup()
             .setLngLat(coordinates)
             .setHTML(description)
             .addTo(map);
-    """),format.raw/*148.5*/("""}"""),format.raw/*148.6*/("""
-
-    """),format.raw/*150.5*/("""</script>"""))
+    """),format.raw/*147.5*/("""}"""),format.raw/*147.6*/("""
+    """),format.raw/*148.5*/("""</script>"""))
       }
     }
   }
@@ -195,11 +193,11 @@ Seq[Any](format.raw/*1.1*/("""<!--TODO print stations id???-->
 
               /*
                   -- GENERATED --
-                  DATE: Tue May 21 20:43:40 IDT 2019
+                  DATE: Sat May 25 19:10:53 IDT 2019
                   SOURCE: C:/Users/hshidlov/Desktop/private/Project/2904/FastLane/app/views/visualizations/layouts/calculateMap.scala.html
-                  HASH: 7a73bb4a90db60cc5e8d32bc04007df02c1ad78a
-                  MATRIX: 1060->0|1157->71|1171->77|1233->119|1302->161|1330->162|1358->163|1539->317|1567->318|1603->328|1792->490|1820->491|1883->526|1912->527|1949->537|2022->583|2050->584|2142->648|2171->649|2208->659|2249->672|2278->673|2320->687|2425->764|2454->765|2500->783|2653->908|2682->909|2735->934|2764->935|2810->953|2875->990|2904->991|2941->1001|2970->1002|3004->1009|3032->1010|3127->1077|3156->1078|3193->1088|3355->1222|3384->1223|3426->1237|3510->1293|3539->1294|3572->1300|3600->1301|3676->1349|3705->1350|3742->1360|3814->1404|3843->1405|3885->1419|4154->1661|4183->1662|4220->1672|4252->1676|4281->1677|4323->1691|4373->1714|4402->1715|4435->1721|4463->1722|4499->1731|4555->1759|4584->1760|4621->1770|4788->1909|4817->1910|4859->1924|4960->1998|4989->1999|5026->2009|5085->2040|5114->2041|5156->2055|5257->2129|5286->2130|5319->2136|5347->2137|5382->2145|5433->2168|5462->2169|5501->2180|5606->2257|5635->2258|5677->2272|5780->2347|5809->2348|5849->2360|5954->2437|5983->2438|6026->2453|6129->2528|6158->2529|6198->2541|6273->2588|6302->2589|6347->2606|6406->2637|6435->2638|6481->2656|6591->2738|6620->2739|6664->2755|7060->3123|7089->3124|7129->3136|7203->3182|7232->3183|7274->3197|7333->3228|7362->3229|7408->3247|7519->3329|7549->3330|7594->3346|7995->3718|8025->3719|8059->3725|8088->3726|8124->3734|8203->3784|8233->3785|8271->3795|8313->3808|8343->3809|8386->3823|8498->3906|8528->3907|8575->3925|8648->3969|8678->3970|8729->3992|8821->4055|8851->4056|8906->4082|8991->4138|9021->4139|9080->4169|9206->4266|9236->4267|9287->4289|9317->4290|9365->4309|9395->4310|9438->4324|9468->4325|9522->4350|9552->4351|9599->4369|9702->4443|9732->4444|9770->4454|9800->4455|9836->4463|9865->4464|9901->4472|9975->4517|10005->4518|10043->4528|10126->4582|10156->4583|10199->4597|10298->4668|10328->4669|10368->4681|10520->4805|10549->4806|10585->4814
-                  LINES: 33->1|34->2|34->2|34->2|37->5|37->5|37->5|39->7|39->7|40->8|45->13|45->13|47->15|47->15|48->16|50->18|50->18|53->21|53->21|54->22|54->22|54->22|55->23|57->25|57->25|58->26|60->28|60->28|61->29|61->29|62->30|63->31|63->31|64->32|64->32|65->33|65->33|68->36|68->36|69->37|70->38|70->38|71->39|72->40|72->40|73->41|73->41|75->43|75->43|76->44|76->44|76->44|77->45|83->51|83->51|84->52|84->52|84->52|85->53|86->54|86->54|87->55|87->55|89->57|89->57|89->57|90->58|92->60|92->60|93->61|95->63|95->63|96->64|96->64|96->64|97->65|99->67|99->67|100->68|100->68|102->70|102->70|102->70|103->71|103->71|103->71|104->72|106->74|106->74|107->75|107->75|107->75|108->76|110->78|110->78|111->79|111->79|111->79|113->81|113->81|113->81|114->82|116->84|116->84|118->86|127->95|127->95|128->96|128->96|128->96|129->97|129->97|129->97|130->98|132->100|132->100|134->102|144->112|144->112|145->113|145->113|147->115|147->115|147->115|148->116|148->116|148->116|149->117|151->119|151->119|152->120|153->121|153->121|154->122|155->123|155->123|156->124|157->125|157->125|158->126|160->128|160->128|161->129|161->129|162->130|162->130|163->131|163->131|164->132|164->132|165->133|167->135|167->135|168->136|168->136|169->137|169->137|171->139|171->139|171->139|172->140|172->140|172->140|173->141|174->142|174->142|176->144|180->148|180->148|182->150
+                  HASH: 22cd9399777ac2817d2e460e2176967a4b747ab4
+                  MATRIX: 1060->0|1123->37|1137->43|1199->85|1268->127|1296->128|1324->129|1505->283|1533->284|1569->294|1758->456|1786->457|1849->492|1878->493|1915->503|1988->549|2016->550|2108->614|2137->615|2174->625|2215->638|2244->639|2286->653|2391->730|2420->731|2466->749|2619->874|2648->875|2701->900|2730->901|2776->919|2841->956|2870->957|2907->967|2936->968|2970->975|2998->976|3093->1043|3122->1044|3159->1054|3321->1188|3350->1189|3392->1203|3476->1259|3505->1260|3538->1266|3566->1267|3642->1315|3671->1316|3708->1326|3780->1370|3809->1371|3851->1385|4120->1627|4149->1628|4186->1638|4218->1642|4247->1643|4289->1657|4339->1680|4368->1681|4401->1687|4429->1688|4465->1697|4521->1725|4550->1726|4587->1736|4754->1875|4783->1876|4825->1890|4926->1964|4955->1965|4992->1975|5051->2006|5080->2007|5122->2021|5223->2095|5252->2096|5285->2102|5313->2103|5348->2111|5399->2134|5428->2135|5467->2146|5572->2223|5601->2224|5643->2238|5746->2313|5775->2314|5815->2326|5920->2403|5949->2404|5992->2419|6095->2494|6124->2495|6164->2507|6239->2554|6268->2555|6313->2572|6372->2603|6401->2604|6447->2622|6557->2704|6586->2705|6630->2721|7026->3089|7055->3090|7095->3102|7169->3148|7198->3149|7240->3163|7299->3194|7328->3195|7374->3213|7484->3295|7513->3296|7558->3312|7959->3684|7989->3685|8023->3691|8052->3692|8088->3700|8167->3750|8197->3751|8235->3761|8277->3774|8307->3775|8350->3789|8462->3872|8492->3873|8539->3891|8612->3935|8642->3936|8693->3958|8785->4021|8815->4022|8870->4048|8955->4104|8985->4105|9044->4135|9170->4232|9200->4233|9251->4255|9281->4256|9329->4275|9359->4276|9402->4290|9432->4291|9486->4316|9516->4317|9563->4335|9666->4409|9696->4410|9734->4420|9764->4421|9800->4429|9829->4430|9865->4438|9939->4483|9969->4484|10007->4494|10090->4548|10120->4549|10163->4563|10262->4634|10292->4635|10332->4647|10484->4771|10513->4772|10547->4778
+                  LINES: 33->1|33->1|33->1|33->1|36->4|36->4|36->4|38->6|38->6|39->7|44->12|44->12|46->14|46->14|47->15|49->17|49->17|52->20|52->20|53->21|53->21|53->21|54->22|56->24|56->24|57->25|59->27|59->27|60->28|60->28|61->29|62->30|62->30|63->31|63->31|64->32|64->32|67->35|67->35|68->36|69->37|69->37|70->38|71->39|71->39|72->40|72->40|74->42|74->42|75->43|75->43|75->43|76->44|82->50|82->50|83->51|83->51|83->51|84->52|85->53|85->53|86->54|86->54|88->56|88->56|88->56|89->57|91->59|91->59|92->60|94->62|94->62|95->63|95->63|95->63|96->64|98->66|98->66|99->67|99->67|101->69|101->69|101->69|102->70|102->70|102->70|103->71|105->73|105->73|106->74|106->74|106->74|107->75|109->77|109->77|110->78|110->78|110->78|112->80|112->80|112->80|113->81|115->83|115->83|117->85|126->94|126->94|127->95|127->95|127->95|128->96|128->96|128->96|129->97|131->99|131->99|133->101|143->111|143->111|144->112|144->112|146->114|146->114|146->114|147->115|147->115|147->115|148->116|150->118|150->118|151->119|152->120|152->120|153->121|154->122|154->122|155->123|156->124|156->124|157->125|159->127|159->127|160->128|160->128|161->129|161->129|162->130|162->130|163->131|163->131|164->132|166->134|166->134|167->135|167->135|168->136|168->136|170->138|170->138|170->138|171->139|171->139|171->139|172->140|173->141|173->141|175->143|179->147|179->147|180->148
                   -- GENERATED --
               */
           

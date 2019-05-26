@@ -39,7 +39,9 @@ Seq[Any](format.raw/*1.29*/("""
         """),_display_(/*7.10*/visualizations/*7.24*/.parameters.visualizationFormParameters(form.asInstanceOf[play.data.Form[models.VisualizationForm]])),format.raw/*7.124*/("""
 
     """),format.raw/*9.5*/("""<input type="submit" value="Calculate" id="submit"  onclick="showDiv()">
-    """)))}),format.raw/*10.6*/("""
+    <div id="showme"  style="display:none;"></div>
+    <div id="loadingGif" style="display:none; size:1px;"><img src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif" height="120" width="120"></div>
+    """)))}),format.raw/*12.6*/("""
 """)))}))
       }
     }
@@ -56,11 +58,11 @@ Seq[Any](format.raw/*1.29*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Tue May 21 20:43:40 IDT 2019
+                  DATE: Sat May 25 19:10:53 IDT 2019
                   SOURCE: C:/Users/hshidlov/Desktop/private/Project/2904/FastLane/app/views/visualizations/deviationSched/deviationSched.scala.html
-                  HASH: 769f380614eac29d8877d8aa5739b86186ee9b2f
-                  MATRIX: 999->1|1121->28|1151->33|1173->47|1222->88|1260->89|1288->91|1326->112|1363->113|1395->120|1409->126|1483->192|1521->193|1558->204|1580->218|1701->318|1735->326|1844->405
-                  LINES: 28->1|33->1|35->3|35->3|35->3|35->3|36->4|37->5|37->5|38->6|38->6|38->6|38->6|39->7|39->7|39->7|41->9|42->10
+                  HASH: 9d50d19ea91dca8ba8d0ab90091b28ec79e29016
+                  MATRIX: 999->1|1121->28|1151->33|1173->47|1222->88|1260->89|1288->91|1326->112|1363->113|1395->120|1409->126|1483->192|1521->193|1558->204|1580->218|1701->318|1735->326|2056->617
+                  LINES: 28->1|33->1|35->3|35->3|35->3|35->3|36->4|37->5|37->5|38->6|38->6|38->6|38->6|39->7|39->7|39->7|41->9|44->12
                   -- GENERATED --
               */
           

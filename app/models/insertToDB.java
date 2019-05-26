@@ -23,7 +23,7 @@ import java.util.List;
 
 public class insertToDB {
 
-    public insertToDB(String destDir) {
+  /*  public insertToDB(String destDir) {
         try {
             utilitiesFunc.logger.info("starting to insert DB: (time = " + new Date() +" )");
             Logger.info("starting to insert DB: (time = " + new Date() +" )");
@@ -532,6 +532,6 @@ public class insertToDB {
         catch (ParseException e) { e.printStackTrace();}
         utilitiesFunc.logger.info("Done insert to Stop Times table.   (end time = " + new Date() +" )");
            Logger.info("Done insert to Stop Times table.   (end time = " + new Date() +" )");
-    }
+    }*/
 
 }

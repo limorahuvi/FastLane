@@ -61,7 +61,7 @@ Seq[Any](format.raw/*1.20*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Tue May 21 20:43:39 IDT 2019
+                  DATE: Sat May 25 19:10:53 IDT 2019
                   SOURCE: C:/Users/hshidlov/Desktop/private/Project/2904/FastLane/app/views/index.scala.html
                   HASH: 64e6141a981f359cba02c34ee41dab90148b4cfc
                   MATRIX: 948->1|1061->19|1091->24|1116->41|1155->43|1175->46|1212->47|1242->51|1593->375|1608->381|1666->417|1773->497|1802->505|1849->522

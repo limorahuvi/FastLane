@@ -70,7 +70,7 @@ Seq[Any](format.raw/*7.47*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Tue May 21 20:43:39 IDT 2019
+                  DATE: Sat May 25 19:10:53 IDT 2019
                   SOURCE: C:/Users/hshidlov/Desktop/private/Project/2904/FastLane/app/views/main.scala.html
                   HASH: 15ada997574507297ef8e53a5c2fbe6ffaf4fa01
                   MATRIX: 1211->261|1351->306|1381->310|1456->410|1489->416|1524->424|1550->429|1591->444|1607->451|1637->460|1670->467|1698->474|1727->476|1771->494|1807->509|1836->511|1871->600|1900->603|1927->610|1960->616

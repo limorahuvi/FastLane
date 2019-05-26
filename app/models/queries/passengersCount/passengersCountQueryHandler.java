@@ -22,7 +22,7 @@ public class passengersCountQueryHandler extends QueryHandler {
 
     public JsonNode getResult() {
 
-        List<PassengerCounts> pcs = PassengerCounts.find.query()
+ /*       List<PassengerCounts> pcs = PassengerCounts.find.query()
                 .where()
                 .between("date_key", form.getStartDate(), form.getEndDate())
                 .between("hour_key", LocalTime.parse(form.getStartHour() + ":00"), LocalTime.parse(form.getEndHour() + ":00"))
@@ -32,8 +32,9 @@ public class passengersCountQueryHandler extends QueryHandler {
                 .order().desc("TripId")
                 .order().desc("station_order")
                .findList();
-        QueryFeatureCollection totalLoad = getPassengersCountTotalLoad(pcs);
-        return queries.mapper.valueToTree(totalLoad);
+        QueryFeatureCollection totalLoad = getPassengersCountTotalLoad(pcs);*/
+
+        return queries.mapper.valueToTree(getDemoPassengersCountTotalLoad());
     }
 
 
@@ -42,16 +43,12 @@ public class passengersCountQueryHandler extends QueryHandler {
         QueryFeatureCollection totalLoad = new QueryFeatureCollection();
         int minPassengersForPublicLane = ((PassengersCountForm)(form)).getMinPassengersForPublicLane();
         for(int i=0; i<pcs.size()-1; i++){
-            if(pcs.get(i).getTripId()-pcs.get(i+1).getTripId()==0){
-                double[] coorFrom = getCoor(pcs,i);
-                double[] coorTo = getCoor(pcs,i+1);
-                totalLoad.addFeature(coorFrom, coorTo, pcs.get(i).getPassengersContinue_rounded_final(),form.getMinPassengersForPublicLane());
             PassengerCounts currPC = pcs.get(i);
             PassengerCounts nextPC = pcs.get(i+1);
             if(currPC.getTripId()-nextPC.getTripId()==0){
                 double[] coorFrom = getCoor(currPC);
                 double[] coorTo = getCoor(nextPC);
-                double pcLoad = currPC.getPassengersContinue_rounded_sofi();
+                double pcLoad = currPC.getPassengersContinue_rounded_final();
                 double relativeLoad = minPassengersForPublicLane == 0||pcLoad>minPassengersForPublicLane ? 1 : (double)pcLoad/minPassengersForPublicLane;
                 totalLoad.addFeature(new passengersCountFeature(coorFrom, coorTo, relativeLoad));
             }
@@ -66,17 +63,18 @@ public class passengersCountQueryHandler extends QueryHandler {
         return coor;
     }
 
-    /*private passengersCountTotalLoad getDemoPassengersCountTotalLoad() {
-        passengersCountTotalLoad totalLoad = new passengersCountTotalLoad();
+    private QueryFeatureCollection getDemoPassengersCountTotalLoad() {
+        QueryFeatureCollection totalLoad = new QueryFeatureCollection();
         double[] coor13933 = {34.798108,31.23819};
         double[] coor18613 = {34.808931,31.226122};
         double[] coor11783 = {34.812412,31.219766};
         double[] coor18622 = {34.809946,31.213571};
-        totalLoad.addFeature(coor13933, coor18613, 11,((PassengersCountForm)(form)).getMinPassengersForPublicLane());
+        totalLoad.addFeature(new passengersCountFeature(coor13933,coor18613,11));
+      /*  totalLoad.addFeature(coor13933, coor18613, 11,((PassengersCountForm)(form)).getMinPassengersForPublicLane());
         totalLoad.addFeature(coor18613, coor11783, 8,((PassengersCountForm)(form)).getMinPassengersForPublicLane());
-        totalLoad.addFeature(coor11783, coor18622, 7,((PassengersCountForm)(form)).getMinPassengersForPublicLane());
+        totalLoad.addFeature(coor11783, coor18622, 7,((PassengersCountForm)(form)).getMinPassengersForPublicLane());*/
         return totalLoad;
-    }*/
+    }
 
 
 }

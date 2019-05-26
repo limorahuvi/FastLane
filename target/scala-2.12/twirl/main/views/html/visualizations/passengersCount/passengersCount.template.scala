@@ -25,22 +25,25 @@ import play.core.j.PlayFormsMagicForJava._
 object passengersCount extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template1[Form[PassengersCountForm],play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*1.2*/(form : Form[PassengersCountForm]):play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*2.2*/(form : Form[PassengersCountForm]):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 
 
-Seq[Any](format.raw/*1.36*/("""
+Seq[Any](format.raw/*2.36*/("""
 
-"""),_display_(/*3.2*/visualizations/*3.16*/.layouts.calculateDataLayout("Passengers Count")/*3.64*/{_display_(Seq[Any](format.raw/*3.65*/("""
-"""),format.raw/*4.1*/("""<!--description-->
-""")))}/*5.2*/{_display_(Seq[Any](format.raw/*5.3*/("""
-    """),_display_(/*6.6*/helper/*6.12*/.form(action = routes.VisualizationController.calculatePassengersCount())/*6.85*/{_display_(Seq[Any](format.raw/*6.86*/("""
-        """),_display_(/*7.10*/visualizations/*7.24*/.parameters.visualizationFormParameters(form.asInstanceOf[play.data.Form[models.VisualizationForm]])),format.raw/*7.124*/("""
-        """),_display_(/*8.10*/helper/*8.16*/.inputText(form("minPassengersForPublicLane"), '_label -> "Minimum Passengers For Public Lane")),format.raw/*8.111*/("""
-    """),format.raw/*9.5*/("""<input type="submit" value="Calculate" id="submit"  onclick="showDiv()">
-    """)))}),format.raw/*10.6*/("""
-""")))}),format.raw/*11.2*/("""
+"""),_display_(/*4.2*/visualizations/*4.16*/.layouts.calculateDataLayout("Passengers Count")/*4.64*/{_display_(Seq[Any](format.raw/*4.65*/("""
+"""),format.raw/*5.1*/("""<!--description-->
+""")))}/*6.2*/{_display_(Seq[Any](format.raw/*6.3*/("""
+    """),_display_(/*7.6*/helper/*7.12*/.form(action = routes.VisualizationController.calculatePassengersCount())/*7.85*/{_display_(Seq[Any](format.raw/*7.86*/("""
+        """),_display_(/*8.10*/visualizations/*8.24*/.parameters.visualizationFormParameters(form.asInstanceOf[play.data.Form[models.VisualizationForm]])),format.raw/*8.124*/("""
+        """),_display_(/*9.10*/helper/*9.16*/.inputText(form("minPassengersForPublicLane"), '_label -> "Minimum Passengers For Public Lane")),format.raw/*9.111*/("""
+    """),format.raw/*10.5*/("""<input type="submit" value="Calculate" id="submit"  onclick="showDiv()">
+    <div id="showme"  style="display:none;"></div>
+    <div id="loadingGif" style="display:none; size:1px;"><img src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif" height="120" width="120"></div>
+    """)))}),format.raw/*13.6*/("""
+""")))}),format.raw/*14.2*/("""
+
 """))
       }
     }
@@ -57,11 +60,11 @@ Seq[Any](format.raw/*1.36*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Tue May 21 20:43:40 IDT 2019
+                  DATE: Sat May 25 20:17:00 IDT 2019
                   SOURCE: C:/Users/hshidlov/Desktop/private/Project/2904/FastLane/app/views/visualizations/passengersCount/passengersCount.scala.html
-                  HASH: bbe00c7e6d840c8eabd71e1e3d11c40444825eb5
-                  MATRIX: 1008->1|1137->35|1167->40|1189->54|1245->102|1283->103|1311->105|1349->126|1386->127|1418->134|1432->140|1513->213|1551->214|1588->225|1610->239|1731->339|1768->350|1782->356|1898->451|1930->457|2039->536|2072->539
-                  LINES: 28->1|33->1|35->3|35->3|35->3|35->3|36->4|37->5|37->5|38->6|38->6|38->6|38->6|39->7|39->7|39->7|40->8|40->8|40->8|41->9|42->10|43->11
+                  HASH: 34e9b2b79855aefa06be1dd3e365df5c58fadf79
+                  MATRIX: 1008->3|1137->37|1167->42|1189->56|1245->104|1283->105|1311->107|1349->128|1386->129|1418->136|1432->142|1513->215|1551->216|1588->227|1610->241|1731->341|1768->352|1782->358|1898->453|1931->459|2252->750|2285->753
+                  LINES: 28->2|33->2|35->4|35->4|35->4|35->4|36->5|37->6|37->6|38->7|38->7|38->7|38->7|39->8|39->8|39->8|40->9|40->9|40->9|41->10|44->13|45->14
                   -- GENERATED --
               */
           

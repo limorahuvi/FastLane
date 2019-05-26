@@ -1,0 +1,20 @@
+May 25, 2019 9:09:36 PM models.handelSegments.insertToSegDB <init>
+INFO: starting to insert to SEG DB: (time = Sat May 25 21:09:36 IDT 2019 )
+May 25, 2019 9:09:36 PM models.handelSegments.insertToSegDB insertToAgency
+INFO: starting insert to Agency table...   (start time = Sat May 25 21:09:36 IDT 2019 )
+May 25, 2019 9:09:36 PM models.handelSegments.insertToSegDB insertToAgency
+INFO: Done insert to Agency table.  (end time = Sat May 25 21:09:36 IDT 2019 )
+May 25, 2019 9:09:36 PM models.handelSegments.insertToSegDB insertToRoutes
+INFO: starting insert to Routes table... (start time = Sat May 25 21:09:36 IDT 2019 )
+May 25, 2019 9:09:36 PM models.handelSegments.insertToSegDB insertToRoutes
+INFO: Done insert to Routes table.  (end time = Sat May 25 21:09:36 IDT 2019 )
+May 25, 2019 9:09:36 PM models.handelSegments.insertToSegDB insertToStops
+INFO: starting insert to Stops table...   (start time = Sat May 25 21:09:36 IDT 2019 )
+May 25, 2019 9:09:36 PM models.handelSegments.insertToSegDB insertToStops
+INFO: Done insert to Stops table. (end time = Sat May 25 21:09:36 IDT 2019 )
+May 25, 2019 9:09:36 PM models.handelSegments.insertToSegDB insertToCalendar
+INFO: starting insert to Calendar table...   (start time = Sat May 25 21:09:36 IDT 2019 )
+May 25, 2019 9:09:36 PM models.handelSegments.insertToSegDB insertToCalendar
+INFO: Done insert to Calendar table.   (end time = Sat May 25 21:09:36 IDT 2019 )
+May 25, 2019 9:09:36 PM models.handelSegments.insertToSegDB insertToShape
+INFO: starting insert to Shapes table...  (start time = Sat May 25 21:09:36 IDT 2019 )

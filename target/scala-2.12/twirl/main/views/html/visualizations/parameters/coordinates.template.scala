@@ -57,7 +57,7 @@ Seq[Any](format.raw/*1.62*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Tue May 21 20:43:40 IDT 2019
+                  DATE: Sat May 25 19:10:53 IDT 2019
                   SOURCE: C:/Users/hshidlov/Desktop/private/Project/2904/FastLane/app/views/visualizations/parameters/coordinates.scala.html
                   HASH: 5daade5b2bac216d911213b5e4f3291173f1fcf8
                   MATRIX: 1011->1|1166->61|1200->70|1213->76|1274->117
