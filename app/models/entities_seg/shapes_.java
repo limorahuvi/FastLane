@@ -20,7 +20,7 @@ public class shapes_ extends Model {
     @JoinColumn(name = "seg_id", referencedColumnName = "seg_id")
     private segs_ seg_id;
 
-    private Point point; //(shape_pt_lat	, shape_pt_lot)
+   // private Point point; //(shape_pt_lat	, shape_pt_lot)
 
     public shapes_key_ getKey() {
         return key;
@@ -30,13 +30,13 @@ public class shapes_ extends Model {
         this.key = key;
     }
 
-    public Point getPoint() {
+/*    public Point getPoint() {
         return point;
     }
 
     public void setPoint(Point point) {
         this.point = point;
-    }
+    }*/
 
     public static final Finder<shapes_key_, shapes_> find = new Finder<>(shapes_.class);
     public segs_ getSeg_id() {

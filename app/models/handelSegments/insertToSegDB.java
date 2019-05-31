@@ -447,16 +447,20 @@ public class insertToSegDB {
                     String tmp[] = line.split(",");
                     shapes_key_ shapeKey = new shapes_key_();
                     shapeKey.setShape_id(Integer.parseInt(tmp[0]));
-                    shapeKey.setShape_pt_sequence(Integer.parseInt(tmp[3]));
+                    shapeKey.setShape_pt_sequence(Integer.parseInt(tmp[2]));
                     shapes_ shape = shapes_.find.byId(shapeKey);
                     if (shape==null)
                         shape = new shapes_();
                     shape.setKey(shapeKey);
-                    Double shape_pt_lat =  Double.parseDouble(tmp[1]);
-                    Double shape_pt_lon =  Double.parseDouble(tmp[2]);
-                    Point shape_point = new Point(shape_pt_lat , shape_pt_lon);
-                    shape_point.setSrid(4326);
-                    shape.setPoint(shape_point);
+                    //Double shape_pt_lat =  Double.parseDouble(tmp[1]);
+                    //Double shape_pt_lon =  Double.parseDouble(tmp[2]);
+                    segs_ shapeSeg =  new segs_();
+                    Integer segId = Integer.parseInt(tmp[1]);
+                    shapeSeg.setSeg_id(segId);
+                    shape.setSeg_id(shapeSeg);
+                    //Point shape_point = new Point(shape_pt_lat , shape_pt_lon);
+                   // shape_point.setSrid(4326);
+                    //shape.setPoint(shape_point);
                     shape.save();
                     i++;
                 }
