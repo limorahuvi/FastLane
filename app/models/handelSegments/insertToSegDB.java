@@ -32,6 +32,7 @@ public class insertToSegDB {
             insertToStops(destDir);
             insertToCalendar(destDir);
             //insertSIRItoRealTime(siri_path);
+            insertToSegs(destDir);
             insertToShape(destDir);
             //insertToTrips(destDir);
             //insertToStopTimes(destDir);
@@ -40,6 +41,58 @@ public class insertToSegDB {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    private void insertToSegs(String URL) {
+        utilitiesFunc.logger.info("starting insert to Segs table...  (start time = " + new Date() +" )");
+        Logger.info("starting insert to Segs table...  (start time = " + new Date() +" )");
+        try{
+            int i=0;
+            BufferedReader br = new BufferedReader(new InputStreamReader(
+                    new FileInputStream(URL+ "/segsNew.txt"), StandardCharsets.UTF_8));
+            String line = br.readLine();
+            while (line!=null)
+            {
+                Transaction transaction = Ebean.currentTransaction();
+                if(transaction== null){
+                    transaction = Ebean.beginTransaction();
+                    transaction.setBatchMode(true);  // use JDBC batch
+                    transaction.setBatchSize(200);
+                }
+                //Make sure the line is not null, not empty, and contains 2 comma char
+                if (line != null && !line.equals("") && line.matches(".*[,].*[,].*") && !line.contains("seg")) {
+                    String tmp[] = line.split(",");
+                    segs_key_ segsKey = new segs_key_();
+                    segsKey.setSeg_id(Integer.parseInt(tmp[0]));
+                    segsKey.setShape_pt_sequence(Integer.parseInt(tmp[3]));
+                    segs_ seg = segs_.find.byId(segsKey);
+                    if (seg==null)
+                        seg = new segs_();
+                    seg.setKey(segsKey);
+                    Double shape_pt_lat =  Double.parseDouble(tmp[1]);
+                    Double shape_pt_lon =  Double.parseDouble(tmp[2]);
+                    Point seg_point = new Point(shape_pt_lat , shape_pt_lon);
+                    seg_point.setSrid(4326);
+                    seg.setPoint(seg_point);
+                    stop_ stop = new stop_();
+                    if (tmp.length>4) {
+                        stop.setStop_id(Integer.parseInt(tmp[4]));
+                        seg.setStop_id(stop);
+                    }
+                    seg.save();
+                    i++;
+                }
+                if ((line = br.readLine()) ==null || i==200){
+                    transaction.commit();
+                    transaction.end();
+                    i=0;
+                }
+            }
+            br.close();
+        }
+        catch(IOException e) { e.printStackTrace(); }
+        utilitiesFunc.logger.info("Done insert to Segs table.   (end time = " + new Date() +" )");
+        Logger.info("Done insert to Segs table.   (end time = " + new Date() +" )");
     }
 
     public static void insertToPassengerCount(String URL) throws SQLException {
@@ -452,15 +505,12 @@ public class insertToSegDB {
                     if (shape==null)
                         shape = new shapes_();
                     shape.setKey(shapeKey);
-                    //Double shape_pt_lat =  Double.parseDouble(tmp[1]);
-                    //Double shape_pt_lon =  Double.parseDouble(tmp[2]);
-                    segs_ shapeSeg =  new segs_();
                     Integer segId = Integer.parseInt(tmp[1]);
-                    shapeSeg.setSeg_id(segId);
+                    segs_key_ segKey = new segs_key_();
+                    segKey.setSeg_id(segId);
+                    segs_ shapeSeg =  segs_.find.byId(segKey);
                     shape.setSeg_id(shapeSeg);
-                    //Point shape_point = new Point(shape_pt_lat , shape_pt_lon);
-                   // shape_point.setSrid(4326);
-                    //shape.setPoint(shape_point);
+
                     shape.save();
                     i++;
                 }

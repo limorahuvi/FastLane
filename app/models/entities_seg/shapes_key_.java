@@ -6,7 +6,7 @@ import io.ebean.Model;
 import javax.persistence.Embeddable;
 
 @Embeddable
-public class shapes_key_ extends Model {
+public class shapes_key_  {
 
     private Integer shape_id;
     private Integer shape_pt_sequence;

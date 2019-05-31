@@ -10,15 +10,17 @@ import javax.persistence.*;
 public class segs_ extends Model {
 
     @EmbeddedId
-    private shapes_key_ key;
-    private Integer seg_id;
+    private segs_key_ key;
+
     private Point point; //(shape_pt_lat	, shape_pt_lot)
+    @ManyToOne
+    @JoinColumn(name = "stop_id", referencedColumnName = "stop_id")
     private stop_ stop_id;
 
-    public shapes_key_ getKey() {
+    public segs_key_ getKey() {
         return key;
     }
-    public void setKey(shapes_key_ key) {
+    public void setKey(segs_key_ key) {
         this.key = key;
     }
     public Point getPoint() {
@@ -27,11 +29,10 @@ public class segs_ extends Model {
     public void setPoint(Point point) {
         this.point = point;
     }
-    public static final Finder<shapes_key_, shapes_> find = new Finder<>(shapes_.class);
-    public void setSeg_id(Integer seg_id) { this.seg_id = seg_id; }
+    public static final Finder<segs_key_, segs_> find = new Finder<>(segs_.class);
     public stop_ getStop_id() { return stop_id;}
     public void setStop_id(stop_ stop_id) { this.stop_id = stop_id; }
-    public Integer getSeg_id() { return seg_id; }
+
 
 
 }

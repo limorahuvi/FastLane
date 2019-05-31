@@ -1,8 +1,10 @@
 package models.entities_seg;
 
-import io.ebean.Model;
 
-public class segs_key_ extends Model {
+import javax.persistence.Embeddable;
+
+@Embeddable
+public class segs_key_  {
 
     private Integer seg_id;
     private Integer shape_sequence;
@@ -18,7 +20,7 @@ public class segs_key_ extends Model {
         return seg_id;
     }
 
-    public void setSeg_id(Integer shape_id) {
+    public void setSeg_id(Integer seg_id) {
         this.seg_id = seg_id;
     }
 
