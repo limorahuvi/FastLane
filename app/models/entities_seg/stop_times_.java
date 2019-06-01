@@ -1,12 +1,13 @@
 package models.entities_seg;
 
 import io.ebean.Finder;
+import io.ebean.Model;
 
 import javax.persistence.*;
 import java.sql.Time;
 
 @Entity
-public class stop_times_ {
+public class stop_times_ extends Model {
 
     @EmbeddedId
     private stop_times_key stKey;

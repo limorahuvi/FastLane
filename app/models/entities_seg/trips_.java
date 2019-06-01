@@ -1,12 +1,13 @@
 package models.entities_seg;
 
 import io.ebean.Finder;
+import io.ebean.Model;
 import models.entities.Trips;
 
 import javax.persistence.*;
 
 @Entity
-public class trips_ {
+public class trips_ extends Model {
 
 
     @Id
@@ -21,7 +22,7 @@ public class trips_ {
     private Boolean direction_id;
     private Integer shape_id;
 
-    public static final Finder<String, Trips> find = new Finder<>(Trips.class);
+    public static final Finder<String, trips_> find = new Finder<>(trips_.class);
 
     public String getTrip_id() {
         return trip_id;

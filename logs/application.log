@@ -1,94 +1,45 @@
-2019-05-25 21:09:33,088 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-3 - Database [default] initialized at jdbc:postgresql://localhost:5432/test_seg_db
-2019-05-25 21:09:33,102 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-3 - Creating Pool for datasource 'default'
-2019-05-25 21:09:33,316 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-3 - Database [test] initialized at jdbc:postgresql://localhost:5432/test
-2019-05-25 21:09:33,316 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-3 - Creating Pool for datasource 'test'
-2019-05-25 21:09:34,044 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-3 - application.conf @ file:/C:/Users/hshidlov/Desktop/private/Project/2904/FastLane/target/scala-2.12/classes/application.conf: 13: applyEvolutions.default is deprecated, use play.evolutions.db.default.autoApply instead
-2019-05-25 21:09:34,045 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-3 - application.conf @ file:/C:/Users/hshidlov/Desktop/private/Project/2904/FastLane/target/scala-2.12/classes/application.conf: 14: applyDownEvolutions.default is deprecated, use play.evolutions.db.default.autoApplyDowns instead
-2019-05-25 21:09:34,046 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-3 - application.conf @ file:/C:/Users/hshidlov/Desktop/private/Project/2904/FastLane/target/scala-2.12/classes/application.conf: 12: applyEvolutions.db is deprecated, use play.evolutions.db.db.autoApply instead
-2019-05-25 21:09:35,934 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-3 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+2019-06-01 11:10:47,527 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-2 - Database [default] initialized at jdbc:postgresql://localhost:5432/test_seg_db
+2019-06-01 11:10:47,540 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-2 - Creating Pool for datasource 'default'
+2019-06-01 11:10:47,720 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-2 - Database [test] initialized at jdbc:postgresql://localhost:5432/test
+2019-06-01 11:10:47,721 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-2 - Creating Pool for datasource 'test'
+2019-06-01 11:10:48,986 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-2 - application.conf @ file:/C:/Users/hshidlov/Desktop/private/Project/2904/FastLane/target/scala-2.12/classes/application.conf: 13: applyEvolutions.default is deprecated, use play.evolutions.db.default.autoApply instead
+2019-06-01 11:10:48,986 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-2 - application.conf @ file:/C:/Users/hshidlov/Desktop/private/Project/2904/FastLane/target/scala-2.12/classes/application.conf: 14: applyDownEvolutions.default is deprecated, use play.evolutions.db.default.autoApplyDowns instead
+2019-06-01 11:10:48,987 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-2 - application.conf @ file:/C:/Users/hshidlov/Desktop/private/Project/2904/FastLane/target/scala-2.12/classes/application.conf: 12: applyEvolutions.db is deprecated, use play.evolutions.db.db.autoApply instead
+2019-06-01 11:10:49,582 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-2 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
 
     play.filters.csrf.CSRFFilter
     play.filters.hosts.AllowedHostsFilter
 
-2019-05-25 21:09:35,941 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-3 - Application started (Dev)
-2019-05-25 21:09:36,215 [INFO] from application in application-akka.actor.default-dispatcher-5 - starting insert to Agency table...   (start time = Sat May 25 21:09:36 IDT 2019 )
-2019-05-25 21:09:36,286 [INFO] from application in application-akka.actor.default-dispatcher-5 - Done insert to Agency table.  (end time = Sat May 25 21:09:36 IDT 2019 )
-2019-05-25 21:09:36,287 [INFO] from application in application-akka.actor.default-dispatcher-5 - starting insert to Routes table... (start time = Sat May 25 21:09:36 IDT 2019 )
-2019-05-25 21:09:36,294 [INFO] from application in application-akka.actor.default-dispatcher-5 - Done insert to Routes table.  (end time = Sat May 25 21:09:36 IDT 2019 )
-2019-05-25 21:09:36,294 [INFO] from application in application-akka.actor.default-dispatcher-5 - starting insert to Stops table...   (start time = Sat May 25 21:09:36 IDT 2019 )
-2019-05-25 21:09:36,342 [INFO] from application in application-akka.actor.default-dispatcher-5 - Done insert to Stops table. (end time = Sat May 25 21:09:36 IDT 2019 )
-2019-05-25 21:09:36,342 [INFO] from application in application-akka.actor.default-dispatcher-5 - starting insert to Calendar table...   (start time = Sat May 25 21:09:36 IDT 2019 )
-2019-05-25 21:09:36,350 [INFO] from application in application-akka.actor.default-dispatcher-5 - Done insert to Calendar table.   (end time = Sat May 25 21:09:36 IDT 2019 )
-2019-05-25 21:09:36,350 [INFO] from application in application-akka.actor.default-dispatcher-5 - starting insert to Shapes table...  (start time = Sat May 25 21:09:36 IDT 2019 )
-2019-05-25 21:09:36,365 [ERROR] from application in application-akka.actor.default-dispatcher-5 - 
+2019-06-01 11:10:49,587 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-2 - Application started (Dev)
+2019-06-01 11:10:49,885 [INFO] from application in application-akka.actor.default-dispatcher-2 - starting insert to Agency table...   (start time = Sat Jun 01 11:10:49 IDT 2019 )
+2019-06-01 11:10:49,976 [INFO] from application in application-akka.actor.default-dispatcher-2 - Done insert to Agency table.  (end time = Sat Jun 01 11:10:49 IDT 2019 )
+2019-06-01 11:10:49,977 [INFO] from application in application-akka.actor.default-dispatcher-2 - starting insert to Routes table... (start time = Sat Jun 01 11:10:49 IDT 2019 )
+2019-06-01 11:10:49,984 [INFO] from application in application-akka.actor.default-dispatcher-2 - Done insert to Routes table.  (end time = Sat Jun 01 11:10:49 IDT 2019 )
+2019-06-01 11:10:49,984 [INFO] from application in application-akka.actor.default-dispatcher-2 - starting insert to Stops table...   (start time = Sat Jun 01 11:10:49 IDT 2019 )
+2019-06-01 11:10:50,033 [INFO] from application in application-akka.actor.default-dispatcher-2 - Done insert to Stops table. (end time = Sat Jun 01 11:10:50 IDT 2019 )
+2019-06-01 11:10:50,033 [INFO] from application in application-akka.actor.default-dispatcher-2 - starting insert to Calendar table...   (start time = Sat Jun 01 11:10:50 IDT 2019 )
+2019-06-01 11:10:50,041 [INFO] from application in application-akka.actor.default-dispatcher-2 - Done insert to Calendar table.   (end time = Sat Jun 01 11:10:50 IDT 2019 )
+2019-06-01 11:10:50,041 [INFO] from application in application-akka.actor.default-dispatcher-2 - starting insert to Segs table...  (start time = Sat Jun 01 11:10:50 IDT 2019 )
+2019-06-01 11:10:50,056 [INFO] from application in application-akka.actor.default-dispatcher-2 - Done insert to Segs table.   (end time = Sat Jun 01 11:10:50 IDT 2019 )
+2019-06-01 11:10:50,057 [INFO] from application in application-akka.actor.default-dispatcher-2 - starting insert to Shapes table...  (start time = Sat Jun 01 11:10:50 IDT 2019 )
+2019-06-01 11:10:50,089 [INFO] from application in application-akka.actor.default-dispatcher-2 - Done insert to Shapes table.   (end time = Sat Jun 01 11:10:50 IDT 2019 )
+2019-06-01 11:10:50,089 [INFO] from application in application-akka.actor.default-dispatcher-2 - starting insert to Trips table...   (start time = Sat Jun 01 11:10:50 IDT 2019 )
+2019-06-01 11:10:50,105 [INFO] from application in application-akka.actor.default-dispatcher-2 - Done insert to Trips table.    (end time = Sat Jun 01 11:10:50 IDT 2019 )
+2019-06-01 11:11:32,298 [INFO] from play.core.server.AkkaHttpServer in pool-7-thread-2 - Stopping server...
+2019-06-01 11:11:38,074 [INFO] from application in application-akka.actor.default-dispatcher-6 - Shutting down connection pool.
+2019-06-01 11:11:38,093 [INFO] from application in application-akka.actor.default-dispatcher-6 - Shutting down connection pool.
+2019-06-01 11:11:38,312 [INFO] from play.api.db.DefaultDBApi in pool-7-thread-2 - Database [default] initialized at jdbc:postgresql://localhost:5432/test_seg_db
+2019-06-01 11:11:38,313 [INFO] from application in pool-7-thread-2 - Creating Pool for datasource 'default'
+2019-06-01 11:11:38,404 [INFO] from play.api.db.DefaultDBApi in pool-7-thread-2 - Database [test] initialized at jdbc:postgresql://localhost:5432/test
+2019-06-01 11:11:38,404 [INFO] from application in pool-7-thread-2 - Creating Pool for datasource 'test'
+2019-06-01 11:11:38,493 [WARN] from application in pool-7-thread-2 - application.conf @ file:/C:/Users/hshidlov/Desktop/private/Project/2904/FastLane/target/scala-2.12/classes/application.conf: 13: applyEvolutions.default is deprecated, use play.evolutions.db.default.autoApply instead
+2019-06-01 11:11:38,493 [WARN] from application in pool-7-thread-2 - application.conf @ file:/C:/Users/hshidlov/Desktop/private/Project/2904/FastLane/target/scala-2.12/classes/application.conf: 14: applyDownEvolutions.default is deprecated, use play.evolutions.db.default.autoApplyDowns instead
+2019-06-01 11:11:38,493 [WARN] from application in pool-7-thread-2 - application.conf @ file:/C:/Users/hshidlov/Desktop/private/Project/2904/FastLane/target/scala-2.12/classes/application.conf: 12: applyEvolutions.db is deprecated, use play.evolutions.db.db.autoApply instead
+2019-06-01 11:11:39,330 [INFO] from play.api.http.EnabledFilters in pool-7-thread-2 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
 
-! @7c21f1p6i - Internal server error, for (GET) [/] ->
- 
-play.api.http.HttpErrorHandlerExceptions$$anon$1: Execution exception[[ArrayIndexOutOfBoundsException: 3]]
-	at play.api.http.HttpErrorHandlerExceptions$.throwableToUsefulException(HttpErrorHandler.scala:251)
-	at play.api.http.DefaultHttpErrorHandler.onServerError(HttpErrorHandler.scala:178)
-	at play.core.server.AkkaHttpServer$$anonfun$1.applyOrElse(AkkaHttpServer.scala:382)
-	at play.core.server.AkkaHttpServer$$anonfun$1.applyOrElse(AkkaHttpServer.scala:380)
-	at scala.concurrent.Future.$anonfun$recoverWith$1(Future.scala:413)
-	at scala.concurrent.impl.Promise.$anonfun$transformWith$1(Promise.scala:37)
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:60)
-	at akka.dispatch.BatchingExecutor$AbstractBatch.processBatch(BatchingExecutor.scala:55)
-	at akka.dispatch.BatchingExecutor$BlockableBatch.$anonfun$run$1(BatchingExecutor.scala:91)
-	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:12)
-	at scala.concurrent.BlockContext$.withBlockContext(BlockContext.scala:81)
-	at akka.dispatch.BatchingExecutor$BlockableBatch.run(BatchingExecutor.scala:91)
-	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:40)
-	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(ForkJoinExecutorConfigurator.scala:44)
-	at akka.dispatch.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)
-	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
-	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
-	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
-Caused by: java.lang.ArrayIndexOutOfBoundsException: 3
-	at models.handelSegments.insertToSegDB.insertToShape(insertToSegDB.java:450)
-	at models.handelSegments.insertToSegDB.<init>(insertToSegDB.java:35)
-	at models.handelSegments.initializeSegDB.insertDataToSegDB(initializeSegDB.java:28)
-	at models.handelSegments.initializeSegDB.<init>(initializeSegDB.java:15)
-	at models.handelSegments.initializeSegDB.getInstance(initializeSegDB.java:20)
-	at controllers.HomeController.index(HomeController.java:29)
-	at router.Routes$$anonfun$routes$1.$anonfun$applyOrElse$2(Routes.scala:192)
-	at play.core.routing.HandlerInvokerFactory$$anon$3.resultCall(HandlerInvoker.scala:134)
-	at play.core.routing.HandlerInvokerFactory$$anon$3.resultCall(HandlerInvoker.scala:133)
-	at play.core.routing.HandlerInvokerFactory$JavaActionInvokerFactory$$anon$8$$anon$2$$anon$1.invocation(HandlerInvoker.scala:108)
-	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:88)
-	at play.http.DefaultActionCreator$1.call(DefaultActionCreator.java:31)
-	at play.core.j.JavaAction.$anonfun$apply$8(JavaAction.scala:138)
-	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:654)
-	at scala.util.Success.$anonfun$map$1(Try.scala:251)
-	at scala.util.Success.map(Try.scala:209)
-	at scala.concurrent.Future.$anonfun$map$1(Future.scala:288)
-	at scala.concurrent.impl.Promise.liftedTree1$1(Promise.scala:29)
-	at scala.concurrent.impl.Promise.$anonfun$transform$1(Promise.scala:29)
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:60)
-	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:56)
-	at play.api.libs.streams.Execution$trampoline$.execute(Execution.scala:70)
-	at play.core.j.HttpExecutionContext.execute(HttpExecutionContext.scala:48)
-	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:68)
-	at scala.concurrent.impl.Promise$KeptPromise$Kept.onComplete(Promise.scala:368)
-	at scala.concurrent.impl.Promise$KeptPromise$Kept.onComplete$(Promise.scala:367)
-	at scala.concurrent.impl.Promise$KeptPromise$Successful.onComplete(Promise.scala:375)
-	at scala.concurrent.impl.Promise.transform(Promise.scala:29)
-	at scala.concurrent.impl.Promise.transform$(Promise.scala:27)
-	at scala.concurrent.impl.Promise$KeptPromise$Successful.transform(Promise.scala:375)
-	at scala.concurrent.Future.map(Future.scala:288)
-	at scala.concurrent.Future.map$(Future.scala:288)
-	at scala.concurrent.impl.Promise$KeptPromise$Successful.map(Promise.scala:375)
-	at scala.concurrent.Future$.apply(Future.scala:654)
-	at play.core.j.JavaAction.apply(JavaAction.scala:138)
-	at play.api.mvc.Action.$anonfun$apply$2(Action.scala:96)
-	at play.api.libs.streams.StrictAccumulator.$anonfun$mapFuture$4(Accumulator.scala:174)
-	at scala.util.Try$.apply(Try.scala:209)
-	at play.api.libs.streams.StrictAccumulator.$anonfun$mapFuture$3(Accumulator.scala:174)
-	at scala.Function1.$anonfun$andThen$1(Function1.scala:52)
-	at play.api.libs.streams.StrictAccumulator.run(Accumulator.scala:207)
-	at play.core.server.AkkaHttpServer.$anonfun$runAction$4(AkkaHttpServer.scala:376)
-	at akka.http.scaladsl.util.FastFuture$.strictTransform$1(FastFuture.scala:41)
-	at akka.http.scaladsl.util.FastFuture$.$anonfun$transformWith$3(FastFuture.scala:51)
-	... 12 common frames omitted
-2019-05-25 21:09:47,664 [INFO] from play.core.server.AkkaHttpServer in pool-7-thread-3 - Stopping server...
-2019-05-25 21:09:47,711 [INFO] from application in application-akka.actor.default-dispatcher-4 - Shutting down connection pool.
-2019-05-25 21:09:47,726 [INFO] from application in application-akka.actor.default-dispatcher-4 - Shutting down connection pool.
+    play.filters.csrf.CSRFFilter
+    play.filters.hosts.AllowedHostsFilter
+
+2019-06-01 11:11:39,332 [INFO] from play.api.Play in pool-7-thread-2 - Application started (Dev)
+2019-06-01 11:11:39,349 [INFO] from application in application-akka.actor.default-dispatcher-5 - Shutting down connection pool.
+2019-06-01 11:11:39,373 [INFO] from application in application-akka.actor.default-dispatcher-5 - Shutting down connection pool.

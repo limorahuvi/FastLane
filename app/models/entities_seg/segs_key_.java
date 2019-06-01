@@ -7,7 +7,7 @@ import javax.persistence.Embeddable;
 public class segs_key_  {
 
     private Integer seg_id;
-    private Integer shape_sequence;
+    private Integer shape_pt_sequence;
 
     public segs_key_() {}
 
@@ -25,20 +25,20 @@ public class segs_key_  {
     }
 
     public Integer getShape_pt_sequence() {
-        return shape_sequence;
+        return shape_pt_sequence;
     }
 
     public void setShape_pt_sequence(Integer shape_sequence) {
-        this.shape_sequence = shape_sequence;
+        this.shape_pt_sequence = shape_sequence;
     }
     public int hashCode() {
-        return this.seg_id+this.shape_sequence;
+        return this.seg_id+this.shape_pt_sequence;
     }
 
     public boolean equals(Object obj) {
         if (obj == this) return true;
         if (!(obj instanceof segs_key_)) return false;
         segs_key_ sk = (segs_key_) obj;
-        return sk.seg_id == this.seg_id && sk.shape_sequence.equals(this.shape_sequence);
+        return sk.seg_id == this.seg_id && sk.shape_pt_sequence.equals(this.shape_pt_sequence);
     }
 }

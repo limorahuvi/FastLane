@@ -1,8 +1,6 @@
 package models.handelSegments;
-
 import io.ebean.Ebean;
 import io.ebean.Transaction;
-import models.entities.*;
 import models.entities_seg.*;
 import models.utilitiesFunc;
 import org.postgis.Point;
@@ -34,7 +32,7 @@ public class insertToSegDB {
             //insertSIRItoRealTime(siri_path);
             insertToSegs(destDir);
             insertToShape(destDir);
-            //insertToTrips(destDir);
+            insertToTrips(destDir);
             //insertToStopTimes(destDir);
             utilitiesFunc.logger.info("Done to insert DB: (time = " + new Date() +" )");
 
@@ -95,73 +93,8 @@ public class insertToSegDB {
         Logger.info("Done insert to Segs table.   (end time = " + new Date() +" )");
     }
 
-    public static void insertToPassengerCount(String URL) throws SQLException {
-        utilitiesFunc.logger.info("starting insert to Passenger Count table...   (start time = " + new Date() +" )");
-        Logger.info("starting insert to Passenger Count table...   (start time = " + new Date() +" )");
-        try {
-            int i=0;
-            BufferedReader br = new BufferedReader(new InputStreamReader(
-                    new FileInputStream(URL),  "UTF-8"));
-            String line = br.readLine();
-            while (line!=null)
-            {
-                Transaction transaction = Ebean.currentTransaction();
-                if(transaction== null){
-                    transaction = Ebean.beginTransaction();
-                    transaction.setBatchMode(true);  // use JDBC batch
-                    transaction.setBatchSize(100);
-                }
 
-                //Make sure the line is not null, not empty, and contains 2 comma char
-                if (line != null && !line.equals("") && line.matches(".*[,].*[,].*") && !line.contains("IdReportRow")) {
-                    try {
-                        String tmp[] = line.split(",");
-                        if(tmp.length>56) {
-                            PassengerCounts pc = new PassengerCounts();
-                            pc.setTripId(Integer.parseInt(cleanQuotationMarks(tmp[56])));
-                            pc.setPassengersContinue_rounded_final(Integer.parseInt(cleanQuotationMarks(tmp[54])));
-                            Double stop_lat = Double.parseDouble(cleanQuotationMarks(tmp[38]));
-                            Double stop_lon = Double.parseDouble(cleanQuotationMarks(tmp[39]));
-                            Point point = new Point(stop_lat, stop_lon);
-                            point.setSrid(4326);
-                            pc.setPoint(point);
-                            pc.setDayNameHeb(cleanQuotationMarks(tmp[26]));
-                            pc.setStation_order(cleanQuotationMarks(tmp[28]));
-
-                            //                        System.out.println("before 1: " + cleanQuotationMarks(tmp[22]));
-                            SimpleDateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd");
-                            Date dateKey = dateformat.parse(cleanQuotationMarks(tmp[22]));
-                            pc.setDateKey(dateKey);
-                            //                        System.out.println("after 1: " + dateKey.toString());
-                            String timeString = cleanQuotationMarks(tmp[23]);
-                            //                        System.out.println("before 2 new: " + timeString);
-                            SimpleDateFormat time_format = new SimpleDateFormat("HH:mm");
-                            long hourKeyLong = time_format.parse(timeString).getTime();
-                            Time hourKey = new Time(hourKeyLong);
-                            pc.setHourKey(hourKey);
-                            //                        System.out.println("after 2: " + hourKey.toString());
-
-                            pc.save();
-                        }
-                        i++;
-                    }
-                    catch(java.lang.IllegalArgumentException e1){ }
-                }
-                if ((line = br.readLine()) ==null || i==100){
-                    transaction.commit();
-                    transaction.end();
-                    i=0;
-                }
-            }
-            br.close();
-        }
-        catch(IOException e) { e.printStackTrace(); }
-        catch (ParseException e) { e.printStackTrace();}
-        utilitiesFunc.logger.info("Done insert to Passenger Count table.  (end time = " + new Date() +" )" );
-        Logger.info("Done insert to Passenger Count table.  (end time = " + new Date() +" )" );
-    }
-
-    public static void insertSIRItoRealTime(String URL) throws SQLException {
+/*    public static void insertSIRItoRealTime(String URL) throws SQLException {
         utilitiesFunc.logger.info("starting insert to Real Time table...   (start time = " + new Date() +" )");
         Logger.info("starting insert to Real Time table...   (start time = " + new Date() +" )");
         try {
@@ -180,7 +113,7 @@ public class insertToSegDB {
                 //Make sure the line is not null, not empty, and contains 2 comma char
                 if (line != null && !line.equals("") && line.matches(".*[,].*[,].*") && !line.contains("RecordedAtTime")&& !line.contains("a")) {
                     String tmp[] = line.split(",");
-                    RealTime siri = RealTime.find.byId(Long.parseLong(cleanQuotationMarks(tmp[0])));
+                     siri = RealTime.find.byId(Long.parseLong(cleanQuotationMarks(tmp[0])));
                     if (siri == null)
                         siri = new RealTime();
                     siri.setRealTime_id(Integer.parseInt(cleanQuotationMarks(tmp[0])));
@@ -235,7 +168,7 @@ public class insertToSegDB {
         catch (ParseException e) { e.printStackTrace();}
         utilitiesFunc.logger.info("Done insert to Real Time table.  (end time = " + new Date() +" )" );
         Logger.info("Done insert to Real Time table.  (end time = " + new Date() +" )" );
-    }
+    }*/
 
     public static String cleanQuotationMarks(String str) {
         return str.substring(1,str.length()-1);
@@ -408,7 +341,7 @@ public class insertToSegDB {
                     if (calendar == null)
                         calendar = new calendar_();
                     calendar.setService_id(Integer.parseInt(tmp[0]));
-                    String days_bytes = Calendar.mergeDayes(tmp[1],tmp[2],tmp[3],tmp[4],tmp[5],tmp[6],tmp[7]);
+                    String days_bytes = calendar_.mergeDayes(tmp[1],tmp[2],tmp[3],tmp[4],tmp[5],tmp[6],tmp[7]);
                     calendar.setDays_bytes(days_bytes);
                     SimpleDateFormat dateformat = new SimpleDateFormat("yyyyMMdd");
                     Date start_date = dateformat.parse(tmp[8]);
@@ -439,7 +372,7 @@ public class insertToSegDB {
         try{
             int i=0;
             BufferedReader br = new BufferedReader(new InputStreamReader(
-                    new FileInputStream(URL+ "/trips.txt"), StandardCharsets.UTF_8));
+                    new FileInputStream(URL+ "/tripsNew.txt"), StandardCharsets.UTF_8));
             String line = br.readLine();
             while (line!=null)
             {
@@ -452,13 +385,13 @@ public class insertToSegDB {
                 //Make sure the line is not null, not empty, and contains 2 comma char
                 if (line != null && !line.equals("") && line.matches(".*[,].*[,].*") && !line.contains("trip_id")) {
                     String tmp[] = line.split(",");
-                    Trips trip = Trips.find.byId(tmp[2]);
+                    trips_ trip = trips_.find.byId(tmp[2]);
                     if (trip == null)
-                        trip =new Trips();
+                        trip =new trips_();
                     trip.setTrip_id(tmp[2]);
-                    Routes route_id = Routes.find.byId(Integer.parseInt(tmp[0]));
+                    routes_ route_id = routes_.find.byId(Integer.parseInt(tmp[0]));
                     trip.setRoute_id(route_id);
-                    Calendar service_id = Calendar.find.byId(Integer.parseInt(tmp[1]));
+                    calendar_ service_id = calendar_.find.byId(Integer.parseInt(tmp[1]));
                     trip.setService_id(service_id);
                     trip.setDirection_id(Boolean.parseBoolean(tmp[4]));
                     if (tmp.length>5) {
@@ -498,18 +431,29 @@ public class insertToSegDB {
                 //Make sure the line is not null, not empty, and contains 2 comma char
                 if (line != null && !line.equals("") && line.matches(".*[,].*[,].*") && !line.contains("shape")) {
                     String tmp[] = line.split(",");
-                    shapes_key_ shapeKey = new shapes_key_();
-                    shapeKey.setShape_id(Integer.parseInt(tmp[0]));
-                    shapeKey.setShape_pt_sequence(Integer.parseInt(tmp[2]));
-                    shapes_ shape = shapes_.find.byId(shapeKey);
-                    if (shape==null)
+
+                   // shapes_key_ shapeKey = new shapes_key_();
+                    segs_key_ seg_key = new segs_key_();
+                   // shapeKey.setShape_id(Integer.parseInt(tmp[0]));
+                    Integer shape_id = Integer.parseInt(tmp[0]);
+                    seg_key.setSeg_id(Integer.parseInt(tmp[1]));
+                    seg_key.setShape_pt_sequence(Integer.parseInt(tmp[2]));
+                    segs_ segs = segs_.find.byId(seg_key);
+                  //  shapeKey.setSegs_key(segs);
+                  //  shapeKey.setShape_pt_sequence(Integer.parseInt(tmp[2]));
+                    shapes_ shape = shapes_.find.byId(shape_id);
+
+                    if (shape==null) {
                         shape = new shapes_();
-                    shape.setKey(shapeKey);
-                    Integer segId = Integer.parseInt(tmp[1]);
-                    segs_key_ segKey = new segs_key_();
-                    segKey.setSeg_id(segId);
-                    segs_ shapeSeg =  segs_.find.byId(segKey);
-                    shape.setSeg_id(shapeSeg);
+                    }
+                    shape.setShape_id(shape_id);
+                    shape.setSeg_id(segs);
+
+                   /* seg_key.setShape_pt_sequence(Integer.parseInt(tmp[2]));
+                    seg_key.setSeg_id(Integer.parseInt(tmp[1]));
+                    segs_ shapeSeg =  segs_.find.byId(seg_key);
+
+                    shape.setSeg_id(shapeSeg);*/
 
                     shape.save();
                     i++;
@@ -547,14 +491,14 @@ public class insertToSegDB {
                 //Make sure the line is not null, not empty, and contains 2 comma char
                 if (line != null && !line.equals("") && line.matches(".*[,].*[,].*") && !line.contains("stop")) {
                     String tmp[] = line.split(",");
-                    Trips trip = Trips.find.byId(tmp[0]);
+                    trips_ trip = trips_.find.byId(tmp[0]);
                     SimpleDateFormat time_format = new SimpleDateFormat("HH:MM:SS");
                     long arrivalTime = time_format.parse(tmp[1]).getTime();
                     Time arrival_time = new Time(arrivalTime);
-                    Stop stop = Stop.find.byId(Long.valueOf(Integer.parseInt(tmp[3])));
-                    StopTimes stopTime = StopTimes.find.byId(new StopTimesKey(trip.getTrip_id(),stop.getStop_id(),arrival_time));
+                    stop_ stop = stop_.find.byId(Long.valueOf(Integer.parseInt(tmp[3])));
+                    stop_times_ stopTime = stop_times_.find.byId(new stop_times_key(trip.getTrip_id(),stop.getStop_id(),arrival_time));
                     if (stopTime == null)
-                        stopTime = new StopTimes();
+                        stopTime = new stop_times_();
 
                     stopTime.setTrip(trip);
                     stopTime.getStKey().setArrival_time(arrival_time);

@@ -29,19 +29,18 @@ create table routes_ (
 );
 
 create table segs_ (
-  shape_id                      integer not null,
+  seg_id                        integer not null,
   shape_pt_sequence             integer not null,
-  seg_id                        integer,
   point                         geometry(point,4326),
-  constraint pk_segs_ primary key (shape_id,shape_pt_sequence)
+  stop_id                       integer,
+  constraint pk_segs_ primary key (seg_id,shape_pt_sequence)
 );
 
 create table shapes_ (
-  shape_id                      integer not null,
-  shape_pt_sequence             integer not null,
+  shape_id                      serial not null,
   seg_id                        integer,
-  point                         geometry(point,4326),
-  constraint pk_shapes_ primary key (shape_id,shape_pt_sequence)
+  shape_pt_sequence             integer,
+  constraint pk_shapes_ primary key (shape_id)
 );
 
 create table stop_ (
@@ -80,8 +79,11 @@ create table trips_ (
 create index ix_routes__agency_id on routes_ (agency_id);
 alter table routes_ add constraint fk_routes__agency_id foreign key (agency_id) references agency_ (agency_id) on delete restrict on update restrict;
 
-create index ix_shapes__seg_id on shapes_ (seg_id);
-alter table shapes_ add constraint fk_shapes__seg_id foreign key (seg_id) references segs_ (seg_id) on delete restrict on update restrict;
+create index ix_segs__stop_id on segs_ (stop_id);
+alter table segs_ add constraint fk_segs__stop_id foreign key (stop_id) references stop_ (stop_id) on delete restrict on update restrict;
+
+create index ix_shapes__seg_id on shapes_ (seg_id,shape_pt_sequence);
+alter table shapes_ add constraint fk_shapes__seg_id foreign key (seg_id,shape_pt_sequence) references segs_ (seg_id,shape_pt_sequence) on delete restrict on update restrict;
 
 create index ix_stop__parent_station_id on stop_ (parent_station_id);
 alter table stop_ add constraint fk_stop__parent_station_id foreign key (parent_station_id) references stop_ (stop_id) on delete restrict on update restrict;
@@ -103,6 +105,9 @@ alter table trips_ add constraint fk_trips__service_id foreign key (service_id) 
 
 alter table if exists routes_ drop constraint if exists fk_routes__agency_id;
 drop index if exists ix_routes__agency_id;
+
+alter table if exists segs_ drop constraint if exists fk_segs__stop_id;
+drop index if exists ix_segs__stop_id;
 
 alter table if exists shapes_ drop constraint if exists fk_shapes__seg_id;
 drop index if exists ix_shapes__seg_id;

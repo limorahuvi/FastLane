@@ -5,39 +5,38 @@ import io.ebean.Model;
 
 import org.postgis.Point;
 
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Entity
 public class shapes_ extends Model {
 
-    @EmbeddedId
-    private shapes_key_ key;
+
+    @Id
+    private Integer shape_id;
 
     @ManyToOne
-    @JoinColumn(name = "seg_id", referencedColumnName = "seg_id")
+    @JoinColumns({@JoinColumn(name = "seg_id", referencedColumnName = "seg_id"),
+        @JoinColumn(name = "shape_pt_sequence", referencedColumnName = "shape_pt_sequence")})
     private segs_ seg_id;
 
-    public shapes_key_ getKey() {
-        return key;
-    }
 
-    public void setKey(shapes_key_ key) {
-        this.key = key;
-    }
+    public static final Finder<Integer, shapes_> find = new Finder<>(shapes_.class);
 
-    public static final Finder<shapes_key_, shapes_> find = new Finder<>(shapes_.class);
-    public segs_ getSeg_id() {
+   public segs_ getSeg_id() {
         return seg_id;
     }
 
     public void setSeg_id(segs_ seg_id) {
         this.seg_id = seg_id;
     }
-
-    public static Finder<shapes_key_, shapes_> getFind() {
-        return find;
+    public Integer getShape_id() {
+        return shape_id;
     }
+
+    public void setShape_id(Integer shape_id) {
+        this.shape_id = shape_id;
+    }
+
+
+
 }
