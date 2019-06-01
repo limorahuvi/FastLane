@@ -344,8 +344,8 @@ public class insertToSegDB {
                     String days_bytes = calendar_.mergeDayes(tmp[1],tmp[2],tmp[3],tmp[4],tmp[5],tmp[6],tmp[7]);
                     calendar.setDays_bytes(days_bytes);
                     SimpleDateFormat dateformat = new SimpleDateFormat("yyyyMMdd");
-                    Date start_date = dateformat.parse(tmp[8]);
-                    Date end_date = dateformat.parse(tmp[9]);
+                    Date start_date = dateformat.parse(tmp[9]);
+                    Date end_date = dateformat.parse(tmp[8]);
                     calendar.setStart_date(start_date);
                     calendar.setEnd_date(end_date);
 
