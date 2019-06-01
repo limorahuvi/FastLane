@@ -1,13 +1,12 @@
-package models.entities;
+package models.entities_seg;
+
+import io.ebean.Finder;
+import io.ebean.Model;
 
 import javax.persistence.*;
 
-import io.ebean.*;
-
-
-
 @Entity
-public class Agency extends Model{
+public class agency_ extends Model {
 
     @Id
     private Integer agency_id;
@@ -40,5 +39,5 @@ public class Agency extends Model{
         this.agency_url = agency_url;
     }
 
-    public static final Finder<Integer, Agency> find = new Finder<>(Agency.class);
+    public static final Finder<Integer, agency_> find = new Finder<>(agency_.class);
 }

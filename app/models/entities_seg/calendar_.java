@@ -1,21 +1,18 @@
-package models.entities;
+package models.entities_seg;
 
-import play.data.validation.Constraints;
+import io.ebean.Finder;
+import io.ebean.Model;
+
 import javax.persistence.*;
-import java.util.*;
-import io.ebean.*;
-import play.data.format.*;
-import play.data.validation.*;
-
-
+import java.util.Date;
 
 @Entity
-public class Calendar extends Model {
+public class calendar_ extends Model {
 
     @Id
     private Integer service_id	;
 
-   // @Column(columnDefinition = "BIT(7)")
+    // @Column(columnDefinition = "BIT(7)")
     private String days_bytes;
     private Date start_date; //YYYYMMDD
     private Date end_date; //YYYYMMDD
@@ -54,11 +51,10 @@ public class Calendar extends Model {
     }
 
     public static String mergeDayes(String sunday, String monday, String tuesday, String wednesday, String thursday, String friday,
-                                     String saturday) {
+                                    String saturday) {
         String week = sunday+monday+tuesday+wednesday+thursday+friday+saturday;
         return week;
     }
 
-    public static final Finder<Integer, Calendar> find = new Finder<>(Calendar.class);
+    public static final Finder<Integer, calendar_> find = new Finder<>(calendar_.class);
 }
-

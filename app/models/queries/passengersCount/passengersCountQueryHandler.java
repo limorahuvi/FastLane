@@ -22,7 +22,7 @@ public class passengersCountQueryHandler extends QueryHandler {
 
     public JsonNode getResult() {
 
-        List<PassengerCounts> pcs = PassengerCounts.find.query()
+ /*       List<PassengerCounts> pcs = PassengerCounts.find.query()
                 .where()
                 .between("date_key", form.getStartDate(), form.getEndDate())
                 .between("hour_key", LocalTime.parse(form.getStartHour() + ":00"), LocalTime.parse(form.getEndHour() + ":00"))
@@ -31,9 +31,10 @@ public class passengersCountQueryHandler extends QueryHandler {
                 .between("ST_Y(point)", square[MIN_Y],square[MAX_Y])
                 .order().desc("TripId")
                 .order().desc("station_order")
-                .findList();
-        QueryFeatureCollection totalLoad = getPassengersCountTotalLoad(pcs);
-        return queries.mapper.valueToTree(totalLoad);
+               .findList();
+        QueryFeatureCollection totalLoad = getPassengersCountTotalLoad(pcs);*/
+
+        return queries.mapper.valueToTree(getDemoPassengersCountTotalLoad());
     }
 
 
@@ -55,23 +56,25 @@ public class passengersCountQueryHandler extends QueryHandler {
         return totalLoad;
     }
 
-        private double[] getCoor (PassengerCounts pc){
-            double[] coor = new double[2];
-            coor[0] = pc.getPoint().y;
-            coor[1] = pc.getPoint().x;
-            return coor;
-        }
+    private double[] getCoor(PassengerCounts pc) {
+        double[] coor = new double[2];
+        coor[0] = pc.getPoint().y;
+        coor[1] = pc.getPoint().x;
+        return coor;
+    }
 
-    /*private passengersCountTotalLoad getDemoPassengersCountTotalLoad() {
-        passengersCountTotalLoad totalLoad = new passengersCountTotalLoad();
+    private QueryFeatureCollection getDemoPassengersCountTotalLoad() {
+        QueryFeatureCollection totalLoad = new QueryFeatureCollection();
         double[] coor13933 = {34.798108,31.23819};
         double[] coor18613 = {34.808931,31.226122};
         double[] coor11783 = {34.812412,31.219766};
         double[] coor18622 = {34.809946,31.213571};
-        totalLoad.addFeature(coor13933, coor18613, 11,((PassengersCountForm)(form)).getMinPassengersForPublicLane());
+        totalLoad.addFeature(new passengersCountFeature(coor13933,coor18613,11));
+      /*  totalLoad.addFeature(coor13933, coor18613, 11,((PassengersCountForm)(form)).getMinPassengersForPublicLane());
         totalLoad.addFeature(coor18613, coor11783, 8,((PassengersCountForm)(form)).getMinPassengersForPublicLane());
-        totalLoad.addFeature(coor11783, coor18622, 7,((PassengersCountForm)(form)).getMinPassengersForPublicLane());
+        totalLoad.addFeature(coor11783, coor18622, 7,((PassengersCountForm)(form)).getMinPassengersForPublicLane());*/
         return totalLoad;
-    }*/
+    }
+
 
 }

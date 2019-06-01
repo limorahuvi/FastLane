@@ -1,6 +1,7 @@
 package controllers;
 import models.DevSchedForm;
 import models.PassengersCountForm;
+import models.handelSegments.initializeSegDB;
 import play.data.Form;
 import play.data.FormFactory;
 import play.mvc.*;
@@ -25,7 +26,7 @@ public class HomeController extends Controller {
     FormFactory formFactory;
     public Result index() {
 
-       initializeDB initial_db= initializeDB.getInstance();
+       initializeSegDB initial_db= initializeSegDB.getInstance();
         return ok(views.html.index.render(models.queries.queries.getStations().toString()));
 
     }
