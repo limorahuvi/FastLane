@@ -33,7 +33,7 @@ public class insertToSegDB {
             insertToSegs(destDir);
             insertToShape(destDir);
             insertToTrips(destDir);
-            //insertToStopTimes(destDir);
+            insertToStopTimes(destDir);
             utilitiesFunc.logger.info("Done to insert DB: (time = " + new Date() +" )");
 
         } catch (SQLException e) {
@@ -478,7 +478,7 @@ public class insertToSegDB {
             int i=0;
             int index =0 ;
             BufferedReader br = new BufferedReader(new InputStreamReader(
-                    new FileInputStream(URL+ "/stop_times.txt"), StandardCharsets.UTF_8));
+                    new FileInputStream(URL+ "/stop_timesNew.txt"), StandardCharsets.UTF_8));
             String line = br.readLine();
             while (line!=null)
             {
@@ -511,6 +511,7 @@ public class insertToSegDB {
                     stopTime.setDrop_off_type(Boolean.parseBoolean(tmp[6]));
                     if (tmp.length>7) {
                         stopTime.setShape_dist_traveled(Integer.parseInt(tmp[7]));
+                        stopTime.setLoad(Integer.parseInt(tmp[8]));
                     }
                     stopTime.save();
                     i++;

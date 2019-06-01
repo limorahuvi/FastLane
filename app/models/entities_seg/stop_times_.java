@@ -25,6 +25,15 @@ public class stop_times_ extends Model {
     private Boolean drop_off_type;
     private Integer shape_dist_traveled;
     private Integer continue_passengers;
+    private Integer load ;//passanger count
+
+    public Integer getLoad() {
+        return load;
+    }
+
+    public void setLoad(Integer load) {
+        this.load = load;
+    }
 
     public Integer getContinue_passengers() {
         return continue_passengers;
@@ -33,11 +42,6 @@ public class stop_times_ extends Model {
     public void setContinue_passengers(Integer continue_passengers) {
         this.continue_passengers = continue_passengers;
     }
-
-    public static Finder<stop_times_key, stop_times_> getFind() {
-        return find;
-    }
-
 
 
     public static final Finder<stop_times_key, stop_times_> find = new Finder<>(stop_times_.class);
