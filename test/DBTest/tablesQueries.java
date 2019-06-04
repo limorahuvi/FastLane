@@ -50,10 +50,13 @@ public class tablesQueries extends BaseModelTest{
         assertEquals("http://www.callkav.gov.il/", agency.getAgency_url());
 
     }
+
+
     @Test
     public void testCalendar() throws SQLException {
        insertToDB.insertToCalendar(destDir);
             /*validate a specific calendar id*/
+
        Calendar.find.deleteById(63649722);
        Calendar c = Calendar.find.byId(63649722);
        assertNull(c);
@@ -70,6 +73,7 @@ public class tablesQueries extends BaseModelTest{
         Time record_time2 = new Time(sRecord_time);
         System.out.println("Time is: " +record_time1.toString());
         /*all recorded_at_time between 07 AM to 01 PM*/
+
         List<RealTime> recordsTimeInRange = RealTime.find.query()
                 .where().inRange("recorded_at_time_time",record_time1,record_time2)
                 .findList();
@@ -78,6 +82,7 @@ public class tablesQueries extends BaseModelTest{
        stop_id.setStop_id(26212);
        assertTrue("recordesAtTime_Time is grater than 50", recordsTimeInRange.size()> 100 );
         /*validate a specific stop in record*/
+
         Integer stop = RealTime.find.query().where().eq("stop",stop_id).findCount();
        assertNotNull(stop);
        assertTrue(stop > 0);
@@ -135,4 +140,62 @@ public class tablesQueries extends BaseModelTest{
         assertTrue(totalTime < 10);
     }
 
+
+    @Test
+    public void queryTimePC()throws SQLException {
+        insertToDB.insertToPassengerCount(destPc);
+        String coor1="34.81636627528721,31.27027517208913";
+        String[] coor1_x_y= coor1.split(",");
+        String coor2="34.7771416506549,31.24855754703961";
+        String[] coor2_x_y=coor2.split(",");
+        LocalTime t1 = LocalTime.parse("00" + ":00");
+        LocalTime t2 = LocalTime.parse("10" + ":59");
+        Point p1=new Point(Double.parseDouble(coor1_x_y[1]),Double.parseDouble(coor2_x_y[0]));
+        Point p2=new Point(Double.parseDouble(coor2_x_y[1]),Double.parseDouble(coor1_x_y[0]));
+        Point p3=new Point(Double.parseDouble(coor1_x_y[1]),Double.parseDouble(coor1_x_y[0]));
+        Point p4=new Point(Double.parseDouble(coor2_x_y[1]),Double.parseDouble(coor2_x_y[0]));
+        double max_x=Math.max(Math.max(p1.getX(),p2.getX()),Math.max(p3.getX(),p4.getX()));
+        double min_x=Math.min(Math.min(p1.getX(),p2.getX()),Math.min(p3.getX(),p4.getX()));
+        double max_y=Math.max(Math.max(p1.getY(),p2.getY()),Math.max(p3.getY(),p4.getY()));
+        double min_y=Math.min(Math.min(p1.getY(),p2.getY()),Math.min(p3.getY(),p4.getY()));
+        java.util.Calendar myCal = java.util.Calendar.getInstance();
+        myCal.set(java.util.Calendar.YEAR, 2019);
+        myCal.set(java.util.Calendar.MONTH,9);
+        myCal.set(java.util.Calendar.DAY_OF_MONTH, 29);
+        Date start_date = myCal.getTime();
+        myCal.set(java.util.Calendar.YEAR, 2019);
+        myCal.set(java.util.Calendar.MONTH,10);
+        myCal.set(java.util.Calendar.DAY_OF_MONTH, 29);
+        Date end_date = myCal.getTime();
+        String day="Saturday";
+        long start=System.currentTimeMillis();
+        List<PassengerCounts> pcs = PassengerCounts.find.query()
+                .where()
+                .between("date_key", start_date, end_date)
+                .between("hour_key", t1,t2)
+                .contains("DayNameHeb", day.equals("All") ? "" : day)
+                .between("ST_X(point)", min_x,max_x)
+                .between("ST_Y(point)", min_y,max_y)
+                .order().desc("TripId")
+                .order().desc("station_order")
+                .findList();
+        long finish=System.currentTimeMillis();
+        long totalTime=(finish-start)/1000;//seconds
+        assertTrue(totalTime < 10);
+    }
+
+
+    @Test
+    public void queryTimeStations()throws SQLException {
+        insertToDB.insertToStops(destDir);
+
+        long start=System.currentTimeMillis();
+        List<Stop> stops = Stop.find.query().where()
+                .icontains("stop_desc", "באר שבע").findList();
+        long finish=System.currentTimeMillis();
+        long totalTime=(finish-start)/1000;//seconds
+        assertTrue(totalTime < 5);
+
+
+    }
 }
