@@ -10,6 +10,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 import org.postgis.Point;
+
+import java.util.Date;
 import java.util.List;
 import java.time.LocalTime;
 
@@ -99,17 +101,15 @@ public class tablesQueries extends BaseModelTest{
     }
 
     @Test
-    public void queryTime()throws SQLException {
+    public void queryTimeRT()throws SQLException {
         insertToDB.insertToStops(destDir);
         insertToDB.insertSIRItoRealTime(destRealTime);
         String coor1="34.81636627528721,31.27027517208913";
         String[] coor1_x_y= coor1.split(",");
         String coor2="34.7771416506549,31.24855754703961";
         String[] coor2_x_y=coor2.split(",");
-
         LocalTime t1 = LocalTime.parse("00" + ":00");
         LocalTime t2 = LocalTime.parse("10" + ":59");
-
         Point p1=new Point(Double.parseDouble(coor1_x_y[1]),Double.parseDouble(coor2_x_y[0]));
         Point p2=new Point(Double.parseDouble(coor2_x_y[1]),Double.parseDouble(coor1_x_y[0]));
         Point p3=new Point(Double.parseDouble(coor1_x_y[1]),Double.parseDouble(coor1_x_y[0]));
@@ -118,9 +118,17 @@ public class tablesQueries extends BaseModelTest{
         double min_x=Math.min(Math.min(p1.getX(),p2.getX()),Math.min(p3.getX(),p4.getX()));
         double max_y=Math.max(Math.max(p1.getY(),p2.getY()),Math.max(p3.getY(),p4.getY()));
         double min_y=Math.min(Math.min(p1.getY(),p2.getY()),Math.min(p3.getY(),p4.getY()));
-
+        java.util.Calendar myCal = java.util.Calendar.getInstance();
+        myCal.set(java.util.Calendar.YEAR, 2019);
+        myCal.set(java.util.Calendar.MONTH,9);
+        myCal.set(java.util.Calendar.DAY_OF_MONTH, 29);
+        Date start_date = myCal.getTime();
+        myCal.set(java.util.Calendar.YEAR, 2019);
+        myCal.set(java.util.Calendar.MONTH,10);
+        myCal.set(java.util.Calendar.DAY_OF_MONTH, 29);
+        Date end_date = myCal.getTime();
         long start=System.currentTimeMillis();
-        List<RealTime> real_time_ref = RealTime.find.query().where().between("expectedArrivalDate", "2018-09-29", "2018-10-29")
+        List<RealTime> real_time_ref = RealTime.find.query().where().between("expectedArrivalDate", start_date, end_date)
                 .between("expectedArrivalTime", t1, t2).between("ST_X(location)", min_x,max_x).between("ST_Y(location)", min_y,max_y).findList();
         long finish=System.currentTimeMillis();
         long totalTime=(finish-start)/1000;//seconds
