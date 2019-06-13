@@ -22,6 +22,7 @@ create table passenger_counts (
   pc_id                         serial not null,
   trip_id                       integer,
   passengers_continue_rounded_final integer,
+  passengers_continue_rounded_sofi integer,
   point                         geometry(point,4326),
   day_name_heb                  varchar(255),
   station_order                 varchar(255),
