@@ -46,8 +46,8 @@ public class insertToDB {
     }
 
     public static void insertToPassengerCount(String URL) throws SQLException {
-        utilitiesFunc.logger.info("starting insert to Passenger Count table...   (start time = " + new Date() +" )");
-        Logger.info("starting insert to Passenger Count table...   (start time = " + new Date() +" )");
+        printToLogFile("start" , "Passenger Count");
+
         try {
             int i=0;
             BufferedReader br = new BufferedReader(new InputStreamReader(
@@ -107,13 +107,12 @@ public class insertToDB {
         }
         catch(IOException e) { e.printStackTrace(); }
         catch (ParseException e) { e.printStackTrace();}
-        utilitiesFunc.logger.info("Done insert to Passenger Count table.  (end time = " + new Date() +" )" );
-        Logger.info("Done insert to Passenger Count table.  (end time = " + new Date() +" )" );
+        printToLogFile("done" , "Passenger Count");
     }
 
     public static void insertSIRItoRealTime(String URL) throws SQLException {
-        utilitiesFunc.logger.info("starting insert to Real Time table...   (start time = " + new Date() +" )");
-        Logger.info("starting insert to Real Time table...   (start time = " + new Date() +" )");
+        printToLogFile("start" , "Real Time");
+
         try {
             int i=0;
             BufferedReader br = new BufferedReader(new InputStreamReader(
@@ -183,8 +182,8 @@ public class insertToDB {
         }
         catch(IOException e) { e.printStackTrace(); }
         catch (ParseException e) { e.printStackTrace();}
-        utilitiesFunc.logger.info("Done insert to Real Time table.  (end time = " + new Date() +" )" );
-        Logger.info("Done insert to Real Time table.  (end time = " + new Date() +" )" );
+        printToLogFile("done" , "Real Time");
+
     }
 
     public static String cleanQuotationMarks(String str) {
@@ -192,8 +191,8 @@ public class insertToDB {
     }
 
     public static void insertToAgency(String URL) throws SQLException {
-        utilitiesFunc.logger.info("starting insert to Agency table...   (start time = " + new Date() +" )");
-        Logger.info("starting insert to Agency table...   (start time = " + new Date() +" )");
+        printToLogFile("start" , "Agency");
+
         try {
             int i=0;
             BufferedReader br = new BufferedReader(new InputStreamReader(
@@ -229,13 +228,11 @@ public class insertToDB {
             br.close();
         }
         catch(IOException e) {e.printStackTrace(); }
-        utilitiesFunc.logger.info("Done insert to Agency table.  (end time = " + new Date() +" )" );
-        Logger.info("Done insert to Agency table.  (end time = " + new Date() +" )" );
+        printToLogFile("done" , "Agency");
     }
 
     private void insertToRoutes(String URL) throws SQLException{
-        utilitiesFunc.logger.info("starting insert to Routes table... (start time = " + new Date() +" )");
-        Logger.info("starting insert to Routes table... (start time = " + new Date() +" )");
+        printToLogFile("start" , "Routes");
         try{
             int i=0;
             BufferedReader br = new BufferedReader(new InputStreamReader(
@@ -275,13 +272,12 @@ public class insertToDB {
             br.close();
         }
         catch(IOException e) {e.printStackTrace(); }
-        utilitiesFunc.logger.info("Done insert to Routes table.  (end time = " + new Date() +" )");
-        Logger.info("Done insert to Routes table.  (end time = " + new Date() +" )");
+        printToLogFile("done" , "Routes");
+
     }
 
     public static void insertToStops(String URL) throws SQLException {
-        utilitiesFunc.logger.info("starting insert to Stops table...   (start time = " + new Date() +" )");
-        Logger.info("starting insert to Stops table...   (start time = " + new Date() +" )");
+        printToLogFile("start" , "Stops");
 
         try{
             int i=0;
@@ -331,13 +327,11 @@ public class insertToDB {
             br.close();
         }
         catch(IOException e) { e.printStackTrace(); }
-        utilitiesFunc.logger.info("Done insert to Stops table. (end time = " + new Date() +" )");
-        Logger.info("Done insert to Stops table. (end time = " + new Date() +" )");
+        printToLogFile("done" , "Stops");
     }
 
     public static void insertToCalendar(String URL) throws SQLException {
-        utilitiesFunc.logger.info("starting insert to Calendar table...   (start time = " + new Date() +" )");
-        Logger.info("starting insert to Calendar table...   (start time = " + new Date() +" )");
+        printToLogFile("start" , "Calendar");
         try{
             int i=0;
             BufferedReader br = new BufferedReader(new InputStreamReader(
@@ -379,13 +373,11 @@ public class insertToDB {
         }
         catch(IOException e) { e.printStackTrace(); }
         catch (ParseException e) { e.printStackTrace();}
-        utilitiesFunc.logger.info("Done insert to Calendar table.   (end time = " + new Date() +" )");
-        Logger.info("Done insert to Calendar table.   (end time = " + new Date() +" )");
+        printToLogFile("done" , "Calendar");
     }
 
     private void insertToTrips(String URL) throws SQLException {
-        utilitiesFunc.logger.info("starting insert to Trips table...   (start time = " + new Date() +" )");
-        Logger.info("starting insert to Trips table...   (start time = " + new Date() +" )");
+        printToLogFile("start" , "Trips");
         try{
             int i=0;
             BufferedReader br = new BufferedReader(new InputStreamReader(
@@ -425,13 +417,11 @@ public class insertToDB {
             }
             br.close();
         } catch(IOException e) { e.printStackTrace(); }
-        utilitiesFunc.logger.info("Done insert to Trips table.    (end time = " + new Date() +" )");
-        Logger.info("Done insert to Trips table.    (end time = " + new Date() +" )");
+        printToLogFile("done" , "Trips");
     }
 
     private void insertToShape(String URL) throws SQLException {
-        utilitiesFunc.logger.info("starting insert to Shapes table...  (start time = " + new Date() +" )");
-        Logger.info("starting insert to Shapes table...  (start time = " + new Date() +" )");
+        printToLogFile("start" , "Shapes");
         try{
             int i=0;
             BufferedReader br = new BufferedReader(new InputStreamReader(
@@ -472,13 +462,11 @@ public class insertToDB {
             br.close();
         }
         catch(IOException e) { e.printStackTrace(); }
-        utilitiesFunc.logger.info("Done insert to Shapes table.   (end time = " + new Date() +" )");
-        Logger.info("Done insert to Shapes table.   (end time = " + new Date() +" )");
+        printToLogFile("done" , "Shapes");
     }
 
     private void insertToStopTimes(String URL) throws SQLException {
-        utilitiesFunc.logger.info("starting insert to Stop Times table... (start time = " + new Date() +" )");
-        Logger.info("starting insert to Stop Times table... (start time = " + new Date() +" )");
+        printToLogFile("start" , "Stop Times");
         try{
             int i=0;
             int index =0 ;
@@ -530,8 +518,14 @@ public class insertToDB {
         }
         catch(IOException e) { e.printStackTrace(); }
         catch (ParseException e) { e.printStackTrace();}
-        utilitiesFunc.logger.info("Done insert to Stop Times table.   (end time = " + new Date() +" )");
-           Logger.info("Done insert to Stop Times table.   (end time = " + new Date() +" )");
+        printToLogFile("done" , "Stop Times");
     }
 
+    private static void printToLogFile(String action , String tableName) {
+        if (action=="start")
+            utilitiesFunc.logger.info("Starting insert to "+tableName+" table.   (Start time = " + new Date() +" )");
+        else if (action == "done")
+            utilitiesFunc.logger.info("Done insert to "+tableName+" table.   (End time = " + new Date() +" )");
+
+    }
 }
