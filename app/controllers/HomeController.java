@@ -1,10 +1,14 @@
 package controllers;
+import actors.ImportManagerActorProtocol;
+import akka.actor.ActorRef;
 import models.DevSchedForm;
 import models.PassengersCountForm;
 import play.data.Form;
 import play.data.FormFactory;
 import play.mvc.*;
 import javax.inject.Inject;
+import javax.inject.Named;
+
 import models.*;
 
 import java.io.IOException;
@@ -14,6 +18,20 @@ import java.io.IOException;
  * to the application's home page.
  */
 public class HomeController extends Controller {
+
+    final ActorRef importActor;
+
+    @Inject
+    public HomeController(@Named("managerActor") ActorRef importManagerActor)
+    {
+        importActor = importManagerActor;
+    }
+
+    public Result StartImport() {
+        importActor.tell(new ImportManagerActorProtocol.StartImport(), ActorRef.noSender());
+        return ok();
+    }
+
 
     /**
      * An action that renders an HTML page with a welcome message.
@@ -25,7 +43,7 @@ public class HomeController extends Controller {
     FormFactory formFactory;
     public Result index() {
 
-       initializeDB initial_db= initializeDB.getInstance();
+       //initializeDB initial_db= initializeDB.getInstance();
         return ok(views.html.index.render(models.queries.queries.getStations().toString()));
 
     }
