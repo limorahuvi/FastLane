@@ -29,7 +29,7 @@ public class HomeController extends Controller {
 
     public Result StartImport() {
         importActor.tell(new ImportManagerActorProtocol.StartImport(), ActorRef.noSender());
-        return ok();
+        return ok("Inserting...");
     }
     /**
      * An action that renders an HTML page with a welcome message.
