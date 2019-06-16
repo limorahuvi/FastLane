@@ -1,9 +1,7 @@
 package models.entities;
 
-import io.ebean.Finder;
-import io.ebean.Model;
+import io.ebean.*;
 import play.data.validation.Constraints;
-
 import javax.persistence.*;
 
 @Entity

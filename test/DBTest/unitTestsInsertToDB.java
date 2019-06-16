@@ -21,7 +21,7 @@ public class unitTestsInsertToDB {
     }
     @Test
     public void testUnzip() throws Exception {
-        initializeDB.unzip(destDir);
+        utilitiesFunc.unzip(destDir);
         assertTrue(!destDir.isEmpty());
     }
 
@@ -33,7 +33,7 @@ public class unitTestsInsertToDB {
         utilitiesFunc.logger.info("tablesQueries TEST starts: \n");
         utilitiesFunc.logger.info("Start time: "+ startDate);
         //System.out.println("Start time:"+ startDate);
-        initializeDB.unzip(destDir);
+        utilitiesFunc.unzip(destDir);
         Date endDate =  new Date();
         utilitiesFunc.logger.info("End time: "+ endDate);
         //System.out.println("End time:"+ endDate);

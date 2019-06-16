@@ -32,7 +32,7 @@ public class tablesQueries extends BaseModelTest{
         destDir =  utilitiesDBtest.createPath("outTest");
         destRealTime = utilitiesDBtest.createPath("sources/DFoutputBS_cluster2018-09-29_1.csv");
         destPc = utilitiesDBtest.createPath("sources/pc.csv");
-        initializeDB.unzip(destDir);
+        utilitiesFunc.unzip(destDir);
 
     }
 
