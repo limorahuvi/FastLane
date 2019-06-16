@@ -9,8 +9,7 @@ GET     /PassengersCount/Result     controllers.VisualizationController.calculat
 GET     /DevSched                   controllers.HomeController.deviationSched
 GET     /DevSched/Result            controllers.VisualizationController.calculateDevSched
 GET     /Instructions               controllers.HomeController.instructions
-
+GET    /Import                     controllers.HomeController.StartImport
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
 
-GET    /Import                     controllers.HomeController.StartImport
