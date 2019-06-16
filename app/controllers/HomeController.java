@@ -9,6 +9,7 @@ import play.mvc.*;
 import javax.inject.Inject;
 import javax.inject.Named;
 import play.api.Logger;
+
 import models.*;
 import play.data.DynamicForm;
 import play.data.Form;
@@ -29,8 +30,6 @@ public class HomeController extends Controller {
     }
 
     public Result StartImport() {
-
-
         importActor.tell(new ImportManagerActorProtocol.StartImport(), ActorRef.noSender());
         return ok("starting import..");
     }
@@ -44,8 +43,6 @@ public class HomeController extends Controller {
     @Inject
     FormFactory formFactory;
     public Result index() {
-
-       //initializeDB initial_db= initializeDB.getInstance();
         return ok(views.html.index.render(models.queries.queries.getStations().toString()));
 
     }

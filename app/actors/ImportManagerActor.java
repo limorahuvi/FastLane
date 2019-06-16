@@ -15,8 +15,6 @@ import java.io.IOException;
 @Singleton
 public class ImportManagerActor extends AbstractActor {
 
-    //private ActorRef writeToShapeActor;
-    //private ActorRef readActorShape;
     private static ActorSystem system = ActorSystem.create("import-system");
 
 
@@ -24,10 +22,8 @@ public class ImportManagerActor extends AbstractActor {
         return Props.create(ImportManagerActor.class);
     }
 
-    //@Inject
+    
     public ImportManagerActor() {
-       // readActorShape = system.actorOf(ReadActor.getProps());
-       // writeToShapeActor = system.actorOf(WriteToShapeActor.getProps(system));
     }
 
     @Override
@@ -41,14 +37,17 @@ public class ImportManagerActor extends AbstractActor {
                 .build();
     }
 
-    private void importFiles(String destDir){
+
+    private void importFiles(String destDir) {
+
         try {
             utilitiesFunc.writeToLog("LogFile.log");
             initializeDB.unzip(destDir);
             //actors :
             utilitiesFunc.logger.info("Start insert to shapes table");
             new insertToDB(destDir);
-        }
+
+        } 
         catch (IOException e) {
             e.printStackTrace();
         }

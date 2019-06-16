@@ -9,3 +9,4 @@ public class MyModule extends AbstractModule implements AkkaGuiceSupport {
         bindActor(ImportManagerActor.class, "managerActor");
     }
 }
+
