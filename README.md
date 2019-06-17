@@ -21,10 +21,11 @@ Download [Selenium](https://chrome.google.com/webstore/detail/selenium-ide/mooik
 3. Open terminal in the project directory and run the command:
 
   `sbt run`
+  
 4. When server started, open chrome or firefox @ http://localhost:9000
 
 ## Testing
 
-make sure you created database for testing using this [link] (https://docs.google.com/document/d/1LxIxe7lPR3rUdYqwPwxIuVzXn6O_SIxkgjjq9KPquQs/edit)
+make sure you created database for testing using this [link](https://docs.google.com/document/d/1LxIxe7lPR3rUdYqwPwxIuVzXn6O_SIxkgjjq9KPquQs/edit)
 use this [link](https://docs.google.com/document/d/1i9PuP6IPbM7SjClE43RJl3bM79P2j55hoY1tYSJaHPY/edit) to run E2E testing, database and unit testing.
 
