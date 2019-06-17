@@ -42,5 +42,5 @@ make sure you created database for testing using this [link](https://docs.google
 use this [link](https://docs.google.com/document/d/1i9PuP6IPbM7SjClE43RJl3bM79P2j55hoY1tYSJaHPY/edit) to run E2E testing, database and unit testing.
 
 ###### Developer
-If you want to contribute and continue developing this project use this [link](https://docs.google.com/document/d/1SgVN07NYaXglP2BD7qzGTVCMvkpHeGWV/edit#) for additional instructions. 
+For contribute and continue developing this project use this [link](https://docs.google.com/document/d/1SgVN07NYaXglP2BD7qzGTVCMvkpHeGWV/edit#) for additional instructions. 
 
