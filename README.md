@@ -1,5 +1,15 @@
 # FastLane
 
+The public transportation lanes have decisive impact on the quality and reliability of the public transportation services. In the efforts of the MOT to shorten the travel time of public transportation, a new strategy was proposed called “Fast in the city”.
+
+In the proposed plan each municipality/city will dedicate a chosen amount of lanes for sole use of public transportations.
+In order to make decisions in the manner of public transportation it is required to properly assess the usage of the public transportation in the area using multiple parameters.
+
+This assessment will be done using visual tools, which allow city and public transportation planners to prioritize the planning work by making decisions regarding the paving and allocation of public transport routes.
+To develop the visual tools and explore the public transportation data a framework is needed, that framework will be used by scientists and developers to create visualizations, the framework discussed was developed in the project.
+
+
+
 ## Getting Started
 
 **Prerequisites**
@@ -23,6 +33,7 @@ Download [Selenium](https://chrome.google.com/webstore/detail/selenium-ide/mooik
     `sbt run`
  
 3. When server started, open chrome or firefox @ http://localhost:9000
+4. In the first run, use the "update db" button to initial data in the database. 
 
 ## Testing
 
