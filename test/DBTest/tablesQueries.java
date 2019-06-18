@@ -3,6 +3,7 @@ import models.entities.*;
 import models.*;
 import org.junit.*;
 
+import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.sql.Time;
@@ -26,37 +27,62 @@ public class tablesQueries extends BaseModelTest{
 
     @BeforeClass
     public static void setup() throws IOException{
-        //utilitiesDBtest.writeToLoggerFile("tablesQueries TEST starts: \n");
         utilitiesFunc.writeToLog("LogTest_tableQueries.log");
         utilitiesFunc.logger.info("tablesQueries TEST starts: \n");
         destDir =  utilitiesDBtest.createPath("outTest");
-        destRealTime = utilitiesDBtest.createPath("sources/DFoutputBS_cluster2018-09-29_1.csv");
-        destPc = utilitiesDBtest.createPath("sources/pc.csv");
+        File dir = new File(destDir);
+        if(!dir.exists())
+            dir.mkdirs();
         utilitiesFunc.unzip(destDir);
 
     }
 
     @AfterClass
-    public static void teardown() throws IOException {
-        utilitiesDBtest.deleteOutputTest(destDir);
+    public static void teardown() {
+        File dir = new File(destDir);
+        if(dir.exists())
+            utilitiesDBtest.deleteOutputTest(destDir);
         utilitiesFunc.logger.info("tablesQueries test ends... \n");
     }
 
     @Test
     public void testAgency() throws SQLException {
-        insertToDB.insertToAgency(destDir);
+        insertToDB.insertToAgency("agency.txt");
         Agency agency = Agency.find.byId(45);
         assertNotNull(agency);
         assertEquals("http://www.callkav.gov.il/", agency.getAgency_url());
 
     }
 
+    @Test
+    public void testInsertTime() throws SQLException, IOException {
+        long startAgency =System.currentTimeMillis();
+        insertToDB.insertToAgency("agency.txt");
+        long endAgency = System.currentTimeMillis();
+        long totaltimeAgency = (endAgency - startAgency);
+        utilitiesFunc.logger.info("total time for agency table is: " + totaltimeAgency +" in milliseconds");
+        assertTrue((totaltimeAgency/1000) < 10);
 
+        long startRoutes = System.currentTimeMillis();
+        insertToDB.insertToRoutes("routes.txt");
+        long endRoutes = System.currentTimeMillis();
+        long totaltimeRoutes = (endRoutes - startRoutes) ;
+        utilitiesFunc.logger.info("total time for routes table is: " + totaltimeRoutes +" in milliseconds");
+        assertTrue((totaltimeRoutes/ 1000) < 10);
+
+        long startRealTime =System.currentTimeMillis();
+        insertToDB.insertSIRItoRealTime("Historical real-time.csv");
+        long endRealTime = System.currentTimeMillis();
+        long totaltimeRealTime = (endRealTime - startRealTime) / 1000;
+        System.out.println("the total is: "+ totaltimeRealTime +"in mili\n total time in sec: "+ totaltimeRealTime*1000);
+        utilitiesFunc.logger.info("total time for Real time table is: " + totaltimeRealTime +" in milliseconds");
+        assertTrue((totaltimeRealTime/ 1000) < 21);
+
+    }
     @Test
     public void testCalendar() throws SQLException {
-       insertToDB.insertToCalendar(destDir);
-            /*validate a specific calendar id*/
-
+       insertToDB.insertToCalendar("calendar.txt");
+       //*validate a specific calendar id*//*
        Calendar.find.deleteById(63649722);
        Calendar c = Calendar.find.byId(63649722);
        assertNull(c);
@@ -64,25 +90,23 @@ public class tablesQueries extends BaseModelTest{
 
     @Test
     public void testRealTime () throws SQLException, ParseException {
-        insertToDB.insertToStops(destDir);
-        insertToDB.insertSIRItoRealTime(destRealTime);
+        insertToDB.insertToStops("stops.txt");
+        insertToDB.insertSIRItoRealTime("Historical real-time.csv");
         SimpleDateFormat time_format = new SimpleDateFormat("hh:mm:ss");
         long sRecord_time = time_format.parse("13:30:00").getTime();
         long lRecord_time = time_format.parse("7:30:24").getTime();
         Time record_time1 = new Time(lRecord_time);
         Time record_time2 = new Time(sRecord_time);
         System.out.println("Time is: " +record_time1.toString());
-        /*all recorded_at_time between 07 AM to 01 PM*/
-
+        //*all recorded_at_time between 07 AM to 01 PM*//*
         List<RealTime> recordsTimeInRange = RealTime.find.query()
                 .where().inRange("recorded_at_time_time",record_time1,record_time2)
                 .findList();
        assertNotNull(recordsTimeInRange);
        Stop stop_id = new Stop();
        stop_id.setStop_id(26212);
-       assertTrue("recordesAtTime_Time is grater than 50", recordsTimeInRange.size()> 100 );
-        /*validate a specific stop in record*/
-
+       assertTrue("recordesAtTime_Time is grater than 100", recordsTimeInRange.size()> 100 );
+        //*validate a specific stop in record*//*
         Integer stop = RealTime.find.query().where().eq("stop",stop_id).findCount();
        assertNotNull(stop);
        assertTrue(stop > 0);
@@ -94,7 +118,7 @@ public class tablesQueries extends BaseModelTest{
 
     @Test
     public void testPassengerCount () throws SQLException {
-        insertToDB.insertToPassengerCount(destPc);
+        insertToDB.insertToPassengerCount("Passengers Count.csv");
         Integer no_count = PassengerCounts.find.query().where()
                 .eq("PassengersContinue_rounded_final", 14).findCount();
         assertNotNull(no_count);
@@ -107,8 +131,8 @@ public class tablesQueries extends BaseModelTest{
 
     @Test
     public void queryTimeRT()throws SQLException {
-        insertToDB.insertToStops(destDir);
-        insertToDB.insertSIRItoRealTime(destRealTime);
+        insertToDB.insertToStops("stops.txt");
+        insertToDB.insertSIRItoRealTime("Historical real-time.csv");
         String coor1="34.81636627528721,31.27027517208913";
         String[] coor1_x_y= coor1.split(",");
         String coor2="34.7771416506549,31.24855754703961";
@@ -143,7 +167,7 @@ public class tablesQueries extends BaseModelTest{
 
     @Test
     public void queryTimePC()throws SQLException {
-        insertToDB.insertToPassengerCount(destPc);
+        insertToDB.insertToPassengerCount("Passengers Count.csv");
         String coor1="34.81636627528721,31.27027517208913";
         String[] coor1_x_y= coor1.split(",");
         String coor2="34.7771416506549,31.24855754703961";
@@ -187,8 +211,7 @@ public class tablesQueries extends BaseModelTest{
 
     @Test
     public void queryTimeStations()throws SQLException {
-        insertToDB.insertToStops(destDir);
-
+        insertToDB.insertToStops("stops.txt");
         long start=System.currentTimeMillis();
         List<Stop> stops = Stop.find.query().where()
                 .icontains("stop_desc", "באר שבע").findList();
