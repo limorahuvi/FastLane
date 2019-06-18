@@ -27,8 +27,8 @@ public class insertToDB {
         try {
             utilitiesFunc.logger.info("starting to insert DB: (time = " + new Date() +" )");
             Logger.info("starting to insert DB: (time = " + new Date() +" )");
-            String siri_path = utilitiesFunc.createPath("sources/DFoutputBS_cluster2018-09-29_1.csv");
-            String pc_path = utilitiesFunc.createPath("sources/pc.csv");
+            String siri_path = utilitiesFunc.createPath("sources/Historical real-time.csv");
+            String pc_path = utilitiesFunc.createPath("sources/Passengers Count.csv");
             insertToPassengerCount(pc_path);
             insertToAgency(destDir);
             insertToRoutes(destDir);
