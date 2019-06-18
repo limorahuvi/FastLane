@@ -22,7 +22,7 @@ To develop the visual tools and explore the public transportation data a framewo
 3. Download [sbt]( https://www.scala-sbt.org/download.html) version 1.1.6 (at least).
 4. Download [InteliJ]( https://www.jetbrains.com/idea/download/#section=windows) IDE for windows (or any other IDE).
 5. Add scala plugins. in InteliJ: Setting->Plugins->scala.
-6. Use this [link](https://docs.google.com/document/d/1LxIxe7lPR3rUdYqwPwxIuVzXn6O_SIxkgjjq9KPquQs/edit#) to set all data files locally.(page 4) 
+6. Use this [link](https://docs.google.com/document/d/1LxIxe7lPR3rUdYqwPwxIuVzXn6O_SIxkgjjq9KPquQs/edit#) to set all data files locally.(page 5) 
 
 ###### For the Client side:
 Download [Selenium](https://chrome.google.com/webstore/detail/selenium-ide/mooikfkahbdckldjjndioackbalphokd?hl=en) extension to chrome (for test uses).
