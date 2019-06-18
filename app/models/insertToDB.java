@@ -209,7 +209,7 @@ public class insertToDB {
         printToLogFile("done" , "Agency");
     }
 
-    private static void insertToRoutes(String tableFile) throws SQLException{
+    public static void insertToRoutes(String tableFile) throws SQLException{
         printToLogFile("start" , "Routes");
         try{
             int i=0;
