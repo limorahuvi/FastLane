@@ -15,8 +15,10 @@ To develop the visual tools and explore the public transportation data a framewo
 **Prerequisites**
 
 ###### For the server side:
-1. [Java SE](https://www.java.com/en/download/win10.jsp) Runtime Environment 8 for windows.
-2. Download [Postgresql](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads) for windows version 10.
+1. [Java SE](https://www.java.com/en/download/win10.jsp) Runtime Environment 8 for windows and the [JDK8](https://drive.google.com/drive/folders/1kpbvSaR9eJKoZfy6KuDWRlXg0ULpYqTM).
+
+   1.1 Follow the [instruction](https://www.guru99.com/install-java.html) to configure javac in your local pc.
+2. Download [Postgresql](https://drive.google.com/drive/folders/1kpbvSaR9eJKoZfy6KuDWRlXg0ULpYqTM) for windows version 10 and the [postgis](https://drive.google.com/drive/folders/1kpbvSaR9eJKoZfy6KuDWRlXg0ULpYqTM) extension for geometry and geography support.
    
    2.1 Read the [instruction](https://docs.google.com/document/d/1LxIxe7lPR3rUdYqwPwxIuVzXn6O_SIxkgjjq9KPquQs/edit#) to configure your     local database.(page 2)
 3. Download [sbt]( https://www.scala-sbt.org/download.html) version 1.1.6 (at least).
