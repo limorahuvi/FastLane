@@ -50,4 +50,5 @@ use this [link](https://docs.google.com/document/d/1i9PuP6IPbM7SjClE43RJl3bM79P2
 
 ###### Developer
 For contribute and continue developing this project use this [link](https://docs.google.com/document/d/1SgVN07NYaXglP2BD7qzGTVCMvkpHeGWV/edit#) for additional instructions. 
+More documentation can be found [here](https://drive.google.com/drive/folders/11rVF2LPh-_DzSAQzox4Z1606Vy8Ijhts?usp=sharing).
 
