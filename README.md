@@ -32,9 +32,10 @@ Download [Selenium](https://chrome.google.com/webstore/detail/selenium-ide/mooik
 ## Running the Fastlane 
 
 1. Clone the project.
-2. Download the **/sources** dir with all data files (currently from 09.2018) from this [link](https://drive.google.com/drive/folders/1CdKK3rMkpIArQspheQd4xF6Omy8ZdWJT) and locate in under **/Fastlane** directory.
+2. Download the **/sources** dir with all data files (currently from 09.2018) from this [link](https://drive.google.com/drive/folders/1CdKK3rMkpIArQspheQd4xF6Omy8ZdWJT) and locate it under **/Fastlane** directory.
+
 The hierarchy should be:
-/Fastlane/sources/
+**/Fastlane/sources/**
 2. Open terminal in the project directory and run the command:
 
     `sbt run`
