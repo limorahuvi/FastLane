@@ -11,8 +11,6 @@ import play.Logger;
 
 public class utilitiesDBtest {
 
-    public static Logger logger = null;
-
 
     public static String createPath(String direction) {
         String cwd = System.getProperty("user.dir");
@@ -30,7 +28,6 @@ public class utilitiesDBtest {
             currentFile.delete();
         }
         directory.delete();
-        logger.info("Clearing outputTest folder");
     }
 
 

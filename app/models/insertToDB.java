@@ -23,21 +23,25 @@ import java.util.List;
 
 public class insertToDB {
 
-    public insertToDB(String destDir) {
+    private static String sourceDir = utilitiesFunc.createPath("sources");
+
+    public insertToDB() {
+
+    }
+
+    public static void startInsert(){
         try {
             utilitiesFunc.logger.info("starting to insert DB: (time = " + new Date() +" )");
             Logger.info("starting to insert DB: (time = " + new Date() +" )");
-            String siri_path = utilitiesFunc.createPath("sources/Historical real-time.csv");
-            String pc_path = utilitiesFunc.createPath("sources/Passengers Count.csv");
-            insertToPassengerCount(pc_path);
-            insertToAgency(destDir);
-            insertToRoutes(destDir);
-            insertToStops(destDir);
-            insertToCalendar(destDir);
-            insertSIRItoRealTime(siri_path);
-            insertToShape(destDir);
-            insertToTrips(destDir);
-            insertToStopTimes(destDir);
+            insertToPassengerCount("Passengers Count.csv");
+            insertToAgency("agency.txt");
+            insertToRoutes("routes.txt");
+            insertToStops("stops.txt");
+            insertToCalendar("calendar.txt");
+            insertSIRItoRealTime("Historical real-time.csv");
+            insertToShape("shapes.txt");
+            insertToTrips("trips.txt");
+            insertToStopTimes("stop_times.txt");
             utilitiesFunc.logger.info("Done to insert DB: (time = " + new Date() +" )");
 
         } catch (SQLException e) {
@@ -45,51 +49,38 @@ public class insertToDB {
         }
     }
 
-    public static void insertToPassengerCount(String URL) throws SQLException {
+    public static void insertToPassengerCount(String tableFile) throws SQLException {
         printToLogFile("start" , "Passenger Count");
 
         try {
             int i=0;
-            BufferedReader br = new BufferedReader(new InputStreamReader(
-                    new FileInputStream(URL),  "UTF-8"));
+            BufferedReader br = readFileToBuffer(sourceDir+"/"+tableFile);
+
             String line = br.readLine();
             while (line!=null)
             {
-                Transaction transaction = Ebean.currentTransaction();
-                if(transaction== null){
-                    transaction = Ebean.beginTransaction();
-                    transaction.setBatchMode(true);  // use JDBC batch
-                    transaction.setBatchSize(100);
-                }
+                Transaction transaction = getCurrentTransaction(100);
 
                 //Make sure the line is not null, not empty, and contains 2 comma char
-                if (line != null && !line.equals("") && line.matches(".*[,].*[,].*") && !line.contains("IdReportRow")) {
+                if (lineCheckers(line, "IdReportRow")) {
                     try {
                         String tmp[] = line.split(",");
                         if(tmp.length>56) {
                             PassengerCounts pc = new PassengerCounts();
                             pc.setTripId(Integer.parseInt(cleanQuotationMarks(tmp[56])));
                             pc.setPassengersContinue_rounded_final(Integer.parseInt(cleanQuotationMarks(tmp[54])));
-                            Double stop_lat = Double.parseDouble(cleanQuotationMarks(tmp[38]));
-                            Double stop_lon = Double.parseDouble(cleanQuotationMarks(tmp[39]));
-                            Point point = new Point(stop_lat, stop_lon);
-                            point.setSrid(4326);
-                            pc.setPoint(point);
+                            pc.setPoint(stringToPoint(cleanQuotationMarks(tmp[38]),cleanQuotationMarks(tmp[39])));
                             pc.setDayNameHeb(cleanQuotationMarks(tmp[26]));
                             pc.setStation_order(cleanQuotationMarks(tmp[28]));
 
-                            //                        System.out.println("before 1: " + cleanQuotationMarks(tmp[22]));
                             SimpleDateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd");
                             Date dateKey = dateformat.parse(cleanQuotationMarks(tmp[22]));
                             pc.setDateKey(dateKey);
-                            //                        System.out.println("after 1: " + dateKey.toString());
                             String timeString = cleanQuotationMarks(tmp[23]);
-                            //                        System.out.println("before 2 new: " + timeString);
                             SimpleDateFormat time_format = new SimpleDateFormat("HH:mm");
                             long hourKeyLong = time_format.parse(timeString).getTime();
                             Time hourKey = new Time(hourKeyLong);
                             pc.setHourKey(hourKey);
-                            //                        System.out.println("after 2: " + hourKey.toString());
 
                             pc.save();
                         }
@@ -98,8 +89,7 @@ public class insertToDB {
                     catch(java.lang.IllegalArgumentException e1){ }
                 }
                 if ((line = br.readLine()) ==null || i==100){
-                    transaction.commit();
-                    transaction.end();
+                    closeTransaction(transaction);
                     i=0;
                 }
             }
@@ -110,24 +100,19 @@ public class insertToDB {
         printToLogFile("done" , "Passenger Count");
     }
 
-    public static void insertSIRItoRealTime(String URL) throws SQLException {
-        printToLogFile("start" , "Real Time");
+    public static void insertSIRItoRealTime(String tableFile) throws SQLException {
+        printToLogFile("start" , "Real Time" +
+                "");
 
         try {
             int i=0;
-            BufferedReader br = new BufferedReader(new InputStreamReader(
-                    new FileInputStream(URL),  "UTF-8"));
+            BufferedReader br = readFileToBuffer(sourceDir+"/"+tableFile);
             String line = br.readLine();
             while (line!=null)
             {
-                Transaction transaction = Ebean.currentTransaction();
-                if(transaction== null){
-                    transaction = Ebean.beginTransaction();
-                    transaction.setBatchMode(true);  // use JDBC batch
-                    transaction.setBatchSize(100);
-                }
+                Transaction transaction = getCurrentTransaction(100);
                 //Make sure the line is not null, not empty, and contains 2 comma char
-                if (line != null && !line.equals("") && line.matches(".*[,].*[,].*") && !line.contains("RecordedAtTime")&& !line.contains("a")) {
+                if (lineCheckers(line,  "RecordedAtTime") && !line.contains("a") ) {
                     String tmp[] = line.split(",");
                     RealTime siri = RealTime.find.byId(Long.parseLong(cleanQuotationMarks(tmp[0])));
                     if (siri == null)
@@ -173,8 +158,7 @@ public class insertToDB {
                     i++;
                 }
                 if ((line = br.readLine()) ==null || i==100){
-                    transaction.commit();
-                    transaction.end();
+                    closeTransaction(transaction);
                     i=0;
                 }
             }
@@ -190,24 +174,19 @@ public class insertToDB {
         return str.substring(1,str.length()-1);
     }
 
-    public static void insertToAgency(String URL) throws SQLException {
+    public static void insertToAgency(String tableFile) throws SQLException {
         printToLogFile("start" , "Agency");
 
         try {
             int i=0;
-            BufferedReader br = new BufferedReader(new InputStreamReader(
-                    new FileInputStream(URL+"/agency.txt"),  "UTF-8"));
+            BufferedReader br = readFileToBuffer(sourceDir+"/"+tableFile);
             String line = br.readLine();
             while (line!=null)
             {
-                Transaction transaction = Ebean.currentTransaction();
-                if(transaction== null){
-                    transaction = Ebean.beginTransaction();
-                    transaction.setBatchMode(true);  // use JDBC batch
-                    transaction.setBatchSize(51);
-                }
+                Transaction transaction = getCurrentTransaction(51);
+
                 //Make sure the line is not null, not empty, and contains 2 comma char
-                if (line != null && !line.equals("") && line.matches(".*[,].*[,].*") && !line.contains("agency")) {
+                if (lineCheckers( line, "agency")) {
                     String tmp[] = line.split(",");
                     Agency agency = Agency.find.byId(Integer.parseInt(tmp[0]));
                     if (agency==null)
@@ -220,8 +199,7 @@ public class insertToDB {
                     i++;
                 }
                 if ((line = br.readLine()) ==null || i==51){
-                    transaction.commit();
-                    transaction.end();
+                    closeTransaction(transaction);
                     i=0;
                 }
             }
@@ -231,23 +209,17 @@ public class insertToDB {
         printToLogFile("done" , "Agency");
     }
 
-    private void insertToRoutes(String URL) throws SQLException{
+    public static void insertToRoutes(String tableFile) throws SQLException{
         printToLogFile("start" , "Routes");
         try{
             int i=0;
-            BufferedReader br = new BufferedReader(new InputStreamReader(
-                    new FileInputStream(URL+ "/routes.txt"), StandardCharsets.UTF_8));
+            BufferedReader br = readFileToBuffer(sourceDir+"/"+tableFile);
             String line = br.readLine();
             while (line!=null)
             {
-                Transaction transaction = Ebean.currentTransaction();
-                if(transaction== null){
-                    transaction = Ebean.beginTransaction();
-                    transaction.setBatchMode(true);  // use JDBC batch
-                    transaction.setBatchSize(100);
-                }
+                Transaction transaction = getCurrentTransaction(100);
                 //Make sure the line is not null, not empty, and contains 2 comma char
-                if (line != null && !line.equals("") && line.matches(".*[,].*[,].*") && !line.contains("route")) {
+                if (lineCheckers(line,"route")) {
                     String tmp[] = line.split(",");
                     Routes route = Routes.find.byId(Integer.parseInt(tmp[0]));
                     if (route == null)
@@ -264,8 +236,7 @@ public class insertToDB {
                     i++;
                 }
                 if ((line = br.readLine()) ==null || i==100){
-                    transaction.commit();
-                    transaction.end();
+                    closeTransaction(transaction);
                     i=0;
                 }
             }
@@ -276,24 +247,18 @@ public class insertToDB {
 
     }
 
-    public static void insertToStops(String URL) throws SQLException {
+    public static void insertToStops(String tableFile) throws SQLException {
         printToLogFile("start" , "Stops");
 
         try{
             int i=0;
-            BufferedReader br = new BufferedReader(new InputStreamReader(
-                    new FileInputStream(URL+ "/stops.txt"), StandardCharsets.UTF_8));
+            BufferedReader br = readFileToBuffer(sourceDir+"/"+tableFile);
             String line = br.readLine();
             while (line!=null)
             {
-                Transaction transaction = Ebean.currentTransaction();
-                if(transaction== null){
-                    transaction = Ebean.beginTransaction();
-                    transaction.setBatchMode(true);  // use JDBC batch
-                    transaction.setBatchSize(100);
-                }
+                Transaction transaction = getCurrentTransaction(100);
                 //Make sure the line is not null, not empty, and contains 2 comma char
-                if (line != null && !line.equals("") && line.matches(".*[,].*[,].*") && !line.contains("stop")) {
+                if (lineCheckers(line,"stop")) {
                     String tmp[] = line.split(",");
                     Stop stop = Stop.find.byId(Long.valueOf(Integer.parseInt(tmp[0])));
                     if (stop ==null)
@@ -319,8 +284,7 @@ public class insertToDB {
                     i++;
                 }
                 if ((line = br.readLine()) ==null || i==100){
-                    transaction.commit();
-                    transaction.end();
+                    closeTransaction(transaction);
                     i=0;
                 }
             }
@@ -330,23 +294,17 @@ public class insertToDB {
         printToLogFile("done" , "Stops");
     }
 
-    public static void insertToCalendar(String URL) throws SQLException {
+    public static void insertToCalendar(String tableFile) throws SQLException {
         printToLogFile("start" , "Calendar");
         try{
             int i=0;
-            BufferedReader br = new BufferedReader(new InputStreamReader(
-                    new FileInputStream(URL+ "/calendar.txt"), StandardCharsets.UTF_8));
+            BufferedReader br =  readFileToBuffer(sourceDir+"/"+tableFile);
             String line = br.readLine();
             while (line!=null)
             {
-                Transaction transaction = Ebean.currentTransaction();
-                if(transaction== null){
-                    transaction = Ebean.beginTransaction();
-                    transaction.setBatchMode(true);  // use JDBC batch
-                    transaction.setBatchSize(100);
-                }
+                Transaction transaction =getCurrentTransaction(100);
                 //Make sure the line is not null, not empty, and contains 2 comma char
-                if (line != null && !line.equals("") && line.matches(".*[,].*[,].*") && !line.contains("service")) {
+                if (lineCheckers(line, "service")) {
                     String tmp[] = line.split(",");
                     Calendar calendar = Calendar.find.byId(Integer.parseInt(tmp[0]));
                     if (calendar == null)
@@ -364,8 +322,7 @@ public class insertToDB {
                     i++;
                 }
                 if ((line = br.readLine()) ==null || i==100){
-                    transaction.commit();
-                    transaction.end();
+                    closeTransaction(transaction);
                     i=0;
                 }
             }
@@ -376,23 +333,17 @@ public class insertToDB {
         printToLogFile("done" , "Calendar");
     }
 
-    private void insertToTrips(String URL) throws SQLException {
+    private static void insertToTrips(String tableFile) throws SQLException {
         printToLogFile("start" , "Trips");
         try{
             int i=0;
-            BufferedReader br = new BufferedReader(new InputStreamReader(
-                    new FileInputStream(URL+ "/trips.txt"), StandardCharsets.UTF_8));
+            BufferedReader br =  readFileToBuffer(sourceDir+"/"+tableFile);
             String line = br.readLine();
             while (line!=null)
             {
-                Transaction transaction = Ebean.currentTransaction();
-                if(transaction== null){
-                    transaction = Ebean.beginTransaction();
-                    transaction.setBatchMode(true);  // use JDBC batch
-                    transaction.setBatchSize(100);
-                }
+                Transaction transaction =getCurrentTransaction(100);
                 //Make sure the line is not null, not empty, and contains 2 comma char
-                if (line != null && !line.equals("") && line.matches(".*[,].*[,].*") && !line.contains("trip_id")) {
+                if (lineCheckers(line , "trip_id")) {
                     String tmp[] = line.split(",");
                     Trips trip = Trips.find.byId(tmp[2]);
                     if (trip == null)
@@ -410,8 +361,7 @@ public class insertToDB {
                     i++;
                 }
                 if ((line = br.readLine()) ==null || i==100){
-                    transaction.commit();
-                    transaction.end();
+                    closeTransaction(transaction);
                     i=0;
                 }
             }
@@ -420,23 +370,17 @@ public class insertToDB {
         printToLogFile("done" , "Trips");
     }
 
-    private void insertToShape(String URL) throws SQLException {
+    private static void insertToShape(String tableFile) throws SQLException {
         printToLogFile("start" , "Shapes");
         try{
             int i=0;
-            BufferedReader br = new BufferedReader(new InputStreamReader(
-                    new FileInputStream(URL+ "/shapes.txt"), StandardCharsets.UTF_8));
+            BufferedReader br =  readFileToBuffer(sourceDir+"/"+tableFile);
             String line = br.readLine();
             while (line!=null)
             {
-                Transaction transaction = Ebean.currentTransaction();
-                if(transaction== null){
-                    transaction = Ebean.beginTransaction();
-                    transaction.setBatchMode(true);  // use JDBC batch
-                    transaction.setBatchSize(200);
-                }
+                Transaction transaction = getCurrentTransaction(200);
                 //Make sure the line is not null, not empty, and contains 2 comma char
-                if (line != null && !line.equals("") && line.matches(".*[,].*[,].*") && !line.contains("shape")) {
+                if (lineCheckers(line , "shape")) {
                     String tmp[] = line.split(",");
                     ShapeKey shapeKey = new ShapeKey();
                     shapeKey.setShape_id(Integer.parseInt(tmp[0]));
@@ -445,17 +389,12 @@ public class insertToDB {
                     if (shape==null)
                         shape = new Shape();
                     shape.setKey(shapeKey);
-                    Double shape_pt_lat =  Double.parseDouble(tmp[1]);
-                    Double shape_pt_lon =  Double.parseDouble(tmp[2]);
-                    Point shape_point = new Point(shape_pt_lat , shape_pt_lon);
-                    shape_point.setSrid(4326);
-                    shape.setPoint(shape_point);
+                    shape.setPoint(stringToPoint(tmp[1],tmp[2]));
                     shape.save();
                     i++;
                 }
                 if ((line = br.readLine()) ==null || i==200){
-                    transaction.commit();
-                    transaction.end();
+                    closeTransaction(transaction);
                     i=0;
                 }
             }
@@ -465,22 +404,16 @@ public class insertToDB {
         printToLogFile("done" , "Shapes");
     }
 
-    private void insertToStopTimes(String URL) throws SQLException {
+    private static void insertToStopTimes(String tableFile) throws SQLException {
         printToLogFile("start" , "Stop Times");
         try{
             int i=0;
             int index =0 ;
-            BufferedReader br = new BufferedReader(new InputStreamReader(
-                    new FileInputStream(URL+ "/stop_times.txt"), StandardCharsets.UTF_8));
+            BufferedReader br =  readFileToBuffer(sourceDir+"/"+tableFile);
             String line = br.readLine();
             while (line!=null)
             {
-                Transaction transaction = Ebean.currentTransaction();
-                if(transaction== null){
-                    transaction = Ebean.beginTransaction();
-                    transaction.setBatchMode(true);  // use JDBC batch
-                    transaction.setBatchSize(500);
-                }
+                Transaction transaction = getCurrentTransaction(500);
                 //Make sure the line is not null, not empty, and contains 2 comma char
                 if (line != null && !line.equals("") && line.matches(".*[,].*[,].*") && !line.contains("stop")) {
                     String tmp[] = line.split(",");
@@ -509,8 +442,7 @@ public class insertToDB {
                     i++;
                 }
                 if ((line = br.readLine()) ==null || i==500){
-                    transaction.commit();
-                    transaction.end();
+                    closeTransaction(transaction);
                     i=0;
                 }
             }
@@ -521,11 +453,49 @@ public class insertToDB {
         printToLogFile("done" , "Stop Times");
     }
 
+    /*================ utilities Function ================*/
+
     private static void printToLogFile(String action , String tableName) {
         if (action=="start")
             utilitiesFunc.logger.info("Starting insert to "+tableName+" table.   (Start time = " + new Date() +" )");
         else if (action == "done")
             utilitiesFunc.logger.info("Done insert to "+tableName+" table.   (End time = " + new Date() +" )");
 
+    }
+
+    private static BufferedReader readFileToBuffer(String fileName) throws IOException {
+        BufferedReader br=  new BufferedReader(new InputStreamReader(
+                new FileInputStream(fileName), StandardCharsets.UTF_8));
+        return br;
+    }
+
+    private static Transaction getCurrentTransaction(int batchNumber) {
+        Transaction transaction = Ebean.currentTransaction();
+        if (transaction == null) {
+            transaction = Ebean.beginTransaction();
+            transaction.setBatchMode(true);  // use JDBC batch
+            transaction.setBatchSize(batchNumber);
+        }
+        return transaction;
+    }
+
+    private static void closeTransaction(Transaction transaction) {
+        transaction.commit();
+        transaction.end();
+    }
+
+    private static Boolean lineCheckers(String line , String guideWord){
+        return line != null &&
+                !line.equals("") &&
+                line.matches(".*[,].*[,].*") &&
+                !line.contains(guideWord);
+    }
+
+    private static Point stringToPoint(String lat , String lon){
+        Double pt_lat =  Double.parseDouble(lat);
+        Double pt_lon =  Double.parseDouble(lon);
+        Point point = new Point(pt_lat , pt_lon);
+        point.setSrid(4326);
+        return point;
     }
 }

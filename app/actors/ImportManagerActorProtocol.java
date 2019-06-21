@@ -8,7 +8,7 @@ public class ImportManagerActorProtocol {
         public final String sourceDir;
 
         public StartImport() {
-            this.sourceDir = utilitiesFunc.createPath("output");
+            this.sourceDir = utilitiesFunc.createPath("sources");
         }
     }
 

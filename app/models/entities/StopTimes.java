@@ -20,8 +20,6 @@ public class StopTimes extends Model{
     @ManyToOne
     @JoinColumn(name = "trip_id", insertable = false, updatable = false)
     private Trips trip;
-   /* @JoinColumn(name = "arrival_time", insertable = false, updatable = false)
-    private Time arrival_time;*/
     private Time departure_time;
     private Integer stop_sequence;
     private Boolean pickup_types;
