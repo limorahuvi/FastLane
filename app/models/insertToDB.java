@@ -87,7 +87,7 @@ public class insertToDB {
                         i++;
                     }
                     catch(java.lang.IllegalArgumentException e1){
-                        System.out.println(e1);
+                        e1.printStackTrace();
                     }
                 }
                 if ((line = br.readLine()) ==null || i==100){
