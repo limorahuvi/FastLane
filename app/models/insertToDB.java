@@ -73,7 +73,7 @@ public class insertToDB {
                             pc.setDayNameHeb(cleanQuotationMarks(tmp[26]));
                             pc.setStation_order(cleanQuotationMarks(tmp[28]));
 
-                            SimpleDateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd");
+                            SimpleDateFormat dateformat = new SimpleDateFormat("dd/MM/yyyy");
                             Date dateKey = dateformat.parse(cleanQuotationMarks(tmp[22]));
                             pc.setDateKey(dateKey);
                             String timeString = cleanQuotationMarks(tmp[23]);
@@ -86,7 +86,9 @@ public class insertToDB {
                         }
                         i++;
                     }
-                    catch(java.lang.IllegalArgumentException e1){ }
+                    catch(java.lang.IllegalArgumentException e1){
+                        System.out.println(e1);
+                    }
                 }
                 if ((line = br.readLine()) ==null || i==100){
                     closeTransaction(transaction);
@@ -171,8 +173,10 @@ public class insertToDB {
     }
 
     public static String cleanQuotationMarks(String str) {
-        if(str.length()<2) return "";
-        return str.substring(1,str.length()-1);
+        if(str.length()>=2 && str.charAt(0) == '\"' && str.charAt(str.length()-1) == '\"') {
+            return str.substring(1, str.length() - 1);
+        }
+        return str;
     }
 
     public static void insertToAgency(String tableFile) throws SQLException {
