@@ -171,6 +171,7 @@ public class insertToDB {
     }
 
     public static String cleanQuotationMarks(String str) {
+        if(str.length()<2) return "";
         return str.substring(1,str.length()-1);
     }
 
