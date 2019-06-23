@@ -44,9 +44,6 @@ public class utilitiesFunc {
     public static void unzip(String destDir) throws IOException {
         //File dir = new File(destDir);
         String gtfs_path = utilitiesFunc.createPath("sources/gtfs.zip");
-        // create output directory if it doesn't
-        //if(!dir.exists()) {
-           // dir.mkdirs();
 
             FileInputStream fis;
             //buffer for read and write data to file
@@ -79,7 +76,7 @@ public class utilitiesFunc {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-       // }
+
     }
 
 }
