@@ -11,19 +11,29 @@ import java.io.*;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
+/***
+ * This class has external function to helps the classes in models.
+ */
 public class utilitiesFunc {
 
     public static Logger logger = null;
 
+    /**
+     * creating a path for the given string file
+     * @param direction
+     * @return
+     */
     public static String createPath(String direction) {
         String cwd = System.getProperty("user.dir");
         Path path = Paths.get(cwd);
-        /*System.out.println("PATH : " + path.toString());
-        Path pathParent = path.getParent();*/
         Path filePath = Paths.get(path.toString(), direction);
         return filePath.toString();
     }
 
+    /**
+     * all progress of the project is written into log file.
+     * @param fileName
+     */
     public static void writeToLog(String fileName) {
         logger = Logger.getLogger(fileName);
             FileHandler fh;
@@ -41,8 +51,12 @@ public class utilitiesFunc {
             }
         }
 
+    /**
+     *  extracting the gtfs.zip file.
+     * @param destDir
+     * @throws IOException
+     */
     public static void unzip(String destDir) throws IOException {
-        //File dir = new File(destDir);
         String gtfs_path = utilitiesFunc.createPath("sources/gtfs.zip");
 
             FileInputStream fis;
@@ -57,7 +71,6 @@ public class utilitiesFunc {
                     File newFile = new File(destDir + File.separator + fileName);
                     System.out.println("Unzipping to " +newFile.getAbsolutePath());
                     //create directories for sub directories in zip
-                   // new File(newFile.getParent()).mkdirs();
                     FileOutputStream fos = new FileOutputStream(newFile);
                     int len;
                     while ((len = zis.read(buffer)) > 0) {
