@@ -7,6 +7,9 @@ import javax.inject.Inject;
 
 import play.db.Database;
 
+/**
+ * This class responsible to retrieve a JDBC connection.
+ */
 class JavaJdbcConnection {
     private Database db;
     private DatabaseExecutionContext executionContext;

@@ -18,13 +18,18 @@ import java.time.LocalTime;
 
 
 import static org.junit.Assert.*;
-
+/**
+ * Class for testing quering data from tables
+ */
 
 public class tablesQueries extends BaseModelTest{
     private static String destDir = "";
-    private static String destRealTime = "";
-    private static String destPc = "";
 
+    /**
+     * Create log file for this specific test
+     * create output dir for testing
+     * @throws IOException
+     */
     @BeforeClass
     public static void setup() throws IOException{
         utilitiesFunc.writeToLog("LogTest_tableQueries.log");
@@ -37,6 +42,9 @@ public class tablesQueries extends BaseModelTest{
 
     }
 
+    /**
+     * Delete output directory
+     */
     @AfterClass
     public static void teardown() {
         File dir = new File(destDir);
@@ -45,6 +53,12 @@ public class tablesQueries extends BaseModelTest{
         utilitiesFunc.logger.info("tablesQueries test ends... \n");
     }
 
+    /**
+     * Test the function insertToAgency
+     * test if it is not null
+     * test that a specific record was inserted
+     * @throws SQLException
+     */
     @Test
     public void testAgency() throws SQLException {
         insertToDB.insertToAgency("agency.txt");
@@ -54,6 +68,11 @@ public class tablesQueries extends BaseModelTest{
 
     }
 
+    /**
+     * Tests for measuring time insertion to tables
+     * @throws SQLException
+     * @throws IOException
+     */
     @Test
     public void testInsertTime() throws SQLException, IOException {
         long startAgency =System.currentTimeMillis();
@@ -79,6 +98,12 @@ public class tablesQueries extends BaseModelTest{
         assertTrue((totaltimeRealTime/ 1000) < 21);
 
     }
+    /**
+     *   Test function insertToCalendar
+     *    test if a specific record was inserted to table
+     *    and that it was deleted properly
+     *    @throws SQLException
+     */
     @Test
     public void testCalendar() throws SQLException {
        insertToDB.insertToCalendar("calendar.txt");
@@ -88,6 +113,12 @@ public class tablesQueries extends BaseModelTest{
        assertNull(c);
     }
 
+    /** Test function insertToStops
+     * test function insertTpSIRIRealTime
+     * test measuring insertion time
+     * test that a complex query succeed
+     * @throws SQLException
+     */
     @Test
     public void testRealTime () throws SQLException, ParseException {
         insertToDB.insertToStops("stops.txt");
@@ -116,6 +147,12 @@ public class tablesQueries extends BaseModelTest{
         assertNull(nostop);
     }
 
+
+    /**
+     * Test function insertTiPassangerCount
+     *  test that a complex query succeed
+     * @throws SQLException
+     */
     @Test
     public void testPassengerCount () throws SQLException {
         insertToDB.insertToPassengerCount("Passengers Count.csv");
@@ -129,6 +166,14 @@ public class tablesQueries extends BaseModelTest{
         assertNull(pass_no_count);
     }
 
+
+    /**
+     * Test function insertToStops
+     * test function insertTpSIRIRealTime
+     * test measuring querying time
+     * test that a complex query succeed from real time table
+     * @throws SQLException
+     */
     @Test
     public void queryTimeRT()throws SQLException {
         insertToDB.insertToStops("stops.txt");
@@ -164,7 +209,12 @@ public class tablesQueries extends BaseModelTest{
         assertTrue(totalTime < 10);
     }
 
-
+    /**
+     * test function insertToPassengerCount
+     * test measuring querying time
+     * test that a complex query succeed from Passengers Count table
+     * @throws SQLException
+     */
     @Test
     public void queryTimePC()throws SQLException {
         insertToDB.insertToPassengerCount("Passengers Count.csv");
@@ -209,6 +259,11 @@ public class tablesQueries extends BaseModelTest{
     }
 
 
+    /**
+     * testing querying from stop table
+     * testing measuring querying time
+     * @throws SQLException
+     */
     @Test
     public void queryTimeStations()throws SQLException {
         insertToDB.insertToStops("stops.txt");
