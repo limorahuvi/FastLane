@@ -6,6 +6,9 @@ import org.postgis.Point;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * handles the visualization query
+ */
 public class QueryHandler {
 
     public VisualizationForm form;
@@ -30,6 +33,9 @@ public class QueryHandler {
         features.add(feature);
     }
 
+    /**
+     * creates area to be calculates from the coordinates chosen by the user
+     */
     private void getSquareArea() {
         String coor1=form.getCoor1();
         String[] coor1_x_y= coor1.split(",");

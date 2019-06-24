@@ -6,6 +6,9 @@ import play.data.validation.Constraints.Validate;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * form for passengers count visualization
+ */
 public class PassengersCountForm extends VisualizationForm{
     @Constraints.Required
     @Constraints.Min(1)
@@ -24,6 +27,9 @@ public class PassengersCountForm extends VisualizationForm{
         this.minPassengersForPublicLane=minPassengersForPublicLane;
     }
 
+    /**
+     * @return description of chosen parameters
+     */
     public String getParametersList(){
         String strDate="";
         String strDate2="";

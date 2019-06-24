@@ -2,6 +2,10 @@ package models.queries.passengersCount;
 
 import models.queries.GeojsonTemplates.QueryFeature;
 
+/**
+ * represents single feature in the geojsons feature collection
+ * the feature represents 2 points and the load of passengers between them
+ */
 public class passengersCountFeature extends QueryFeature {
 
     public properties properties;

@@ -2,19 +2,11 @@ package models.queries.stations;
 
 import models.queries.GeojsonTemplates.QueryFeature;
 
+/**
+ * represents single feature in the geojsons feature collection
+ * the feature contains the id and the name of the station
+ */
 public class StationFeature extends QueryFeature {
-    /*[
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates":  [ 34.788481,31.245344 ]
-      },
-      "properties": {
-        "id":669,
-        "name":"שדרות דוד טוביהו/סוקולוב"
-      }
-    }*/
     public geometry geometry;
     public properties properties;
 

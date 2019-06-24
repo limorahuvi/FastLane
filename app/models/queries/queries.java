@@ -22,40 +22,41 @@ import java.util.List;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+/**
+ * handles visualizations queries
+ */
 public class queries {
 
     static JsonNode stations = null;
     public static ObjectMapper mapper = new ObjectMapper();
 
 
+    /**
+     * @return geojson of all stations (ONLY beer sheva)
+     */
     public static JsonNode getStations(){
         stationsQueryHandler handler = new stationsQueryHandler(null);
         return handler.getResults();
-//        return readJsonFromFile("stations");
     }
 
     /* VISUALIZATIONS */
+    /**
+     * @param form - passengers count parameters filtering
+     * @return
+     */
     public static JsonNode getResults(PassengersCountForm form){
         passengersCountQueryHandler handler = new passengersCountQueryHandler(form);
         return handler.getResult();
-       // return readJsonFromFile("passengersCount");
     }
 
+    /**
+     * @param form - DevSched parameters filtering
+     * @return
+     */
     public static JsonNode getResults(DevSchedForm form){
         devSchedQueryHandler handler = new devSchedQueryHandler(form);
         return handler.getResult();
     }
 
-
-    /* for demo files */
-    private static JsonNode readJsonFromFile(String fileName){
-        try {
-            File initialFile = new File("app/models/queries/"+fileName+".json");
-            InputStream targetStream = new FileInputStream(initialFile);
-            return Json.parse(targetStream);
-        } catch (IOException e) {
-            return null;
-        }
-    }
 
 }

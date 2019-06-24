@@ -1,5 +1,8 @@
 package models.queries.passengersCount;
 
+/**
+ * geometry of a feature in the geojsons collection
+ */
 public class geometry {
     public String type = "LineString";
     public double[][] coordinates = new double[2][2];
