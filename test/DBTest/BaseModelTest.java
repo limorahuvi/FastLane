@@ -4,6 +4,9 @@ import org.junit.*;
 import play.Application;
 import play.test.Helpers;
 
+/**
+ * class for creating test database
+ */
 public class BaseModelTest {
 
     public static Application app;

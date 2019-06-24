@@ -13,21 +13,34 @@ import java.util.Date;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+/**
+ * Class for functional testing
+ */
 public class unitTestsInsertToDB {
 
     String destDir = utilitiesDBtest.createPath("outTest");
-
+    /**
+     * Create log file for this specific test
+     */
     @BeforeClass
     public static void setup() throws IOException {
         utilitiesFunc.writeToLog("LogTest_unitTestsInsertToDB.log");
         utilitiesFunc.logger.info("unitTests Unser To DB TEST starts: \n");
     }
 
+    /**
+     * write to log that test is done
+     * @throws IOException
+     */
     @AfterClass
     public static void teardown() throws IOException {
         utilitiesFunc.logger.info("tablesQueries test ends... \n");
     }
 
+    /**
+     * test that unzip the gtfs.zip succeed
+     * @throws Exception
+     */
     @Test
     public void testUnzip() throws Exception {
         File dir = new File(destDir);
@@ -37,6 +50,10 @@ public class unitTestsInsertToDB {
         assertTrue(!destDir.isEmpty());
     }
 
+    /**
+     * Test for measuring time for the function unzip
+     * @throws IOException
+     */
     @Test
     public void testTimeUnzip() throws IOException {
         /*test to check if time for unzipping file is less than 2 min*/
@@ -54,8 +71,9 @@ public class unitTestsInsertToDB {
         //deleteOutpuTest(destDir);
     }
 
-
-
+    /**
+     * test the function mergeDays
+     */
     @Test
     public void mergeDaysTest(){
         Calendar c = new Calendar();
