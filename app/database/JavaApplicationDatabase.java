@@ -7,6 +7,10 @@ import play.db.*;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
 
+/**
+ * his class responsible for the access to JDBC datasource.
+ * The play.db package provides access to the default datasource, primarily through the play.db.Database class.
+ */
 @Singleton
 class JavaApplicationDatabase {
 
