@@ -44,10 +44,9 @@ public class ImportManagerActor extends AbstractActor {
             utilitiesFunc.writeToLog("LogFile.log");
             utilitiesFunc.unzip(destDir);
             utilitiesFunc.logger.info("Start insert to shapes table");
-            //new insertToDB(destDir);
             insertToDB.startInsert();
 
-        } 
+        }
         catch (IOException e) {
             e.printStackTrace();
         }

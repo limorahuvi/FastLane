@@ -33,16 +33,16 @@ public class insertToDB {
         try {
             utilitiesFunc.logger.info("starting to insert DB: (time = " + new Date() +" )");
             Logger.info("starting to insert DB: (time = " + new Date() +" )");
-            insertToSiriCsv("BS_01_Mar_2019");
-//            insertToPassengerCount("Passengers Count.csv");
-//            insertToAgency("agency.txt");
-//            insertToRoutes("routes.txt");
-//            insertToStops("stops.txt");
-//            insertToCalendar("calendar.txt");
-//            insertSIRItoRealTime("Historical real-time.csv");
-//            insertToShape("shapes.txt");
-//            insertToTrips("trips.txt");
-//            insertToStopTimes("stop_times.txt");
+            insertToPassengerCount("Passengers Count.csv");
+            insertToAgency("agency.txt");
+            insertToRoutes("routes.txt");
+            insertToStops("stops.txt");
+            insertToCalendar("calendar.txt");
+            insertSIRItoRealTime("Historical real-time.csv");
+            insertToShape("shapes.txt");
+            insertToTrips("trips.txt");
+            insertToStopTimes("stop_times.txt");
+            insertToSiriCsv("BS_01_Mar_2019.csv");
             utilitiesFunc.logger.info("Done to insert DB: (time = " + new Date() +" )");
 
         } catch (SQLException e) {
@@ -56,7 +56,7 @@ public class insertToDB {
 
         try {
             int i=0;
-            BufferedReader br = readFileToBuffer(sourceDir+"/"+tableFile);
+            BufferedReader br = readFileToBuffer(sourceDir+"\\"+tableFile);
             String line = br.readLine();
             while (line!=null)
             {
@@ -84,7 +84,7 @@ public class insertToDB {
                     String csv_recorded_date = recorded_time_and_date.substring(0, 11);
                     String csv_recorded_time = recorded_time_and_date.substring(12, 20);
 
-                    Date recordDate = dateformat.parse(csv_recorded_date );
+                    Date recordDate = dateformat.parse(csv_recorded_date);
                     long lRecord_time = time_format.parse(csv_recorded_time).getTime();
                     Time record_time = new Time(lRecord_time);
 
@@ -129,7 +129,7 @@ public class insertToDB {
                     // Longitude + Latitude -> Location
                     Float csv_longitude = Float.parseFloat(cleanQuotationMarks(tmp[9]));
                     Float csv_latitude = Float.parseFloat(cleanQuotationMarks(tmp[10]));
-                    Point csv_location = new Point(csv_latitude , csv_longitude);
+                    Point csv_location = new Point(csv_latitude, csv_longitude);
                     csv_location.setSrid(4326);
 
                     csv_record.setLocation(csv_location);
@@ -143,7 +143,7 @@ public class insertToDB {
                     String csv_expected_date = expected_time_and_date.substring(0, 11);
                     String csv_expected_time = expected_time_and_date.substring(12, 20);
 
-                    recordDate = dateformat.parse(csv_expected_date );
+                    recordDate = dateformat.parse(csv_expected_date);
                     lRecord_time = time_format.parse(csv_expected_time).getTime();
                     record_time = new Time(lRecord_time);
 
@@ -151,21 +151,23 @@ public class insertToDB {
                     csv_record.setExpectedArrivalTime(record_time);
 
                     // AimedArrivalTime
-                    String aimed_time_and_date = cleanQuotationMarks(tmp[14]);
-                    String csv_aimed_date = aimed_time_and_date.substring(0, 11);
-                    String csv_aimed_time = aimed_time_and_date.substring(12, 20);
+                    if (tmp.length == 15) {
+                        String aimed_time_and_date = cleanQuotationMarks(tmp[14]);
+                        String csv_aimed_date = aimed_time_and_date.substring(0, 11);
+                        String csv_aimed_time = aimed_time_and_date.substring(12, 20);
 
-                    recordDate = dateformat.parse(csv_aimed_date );
-                    lRecord_time = time_format.parse(csv_aimed_time).getTime();
-                    record_time = new Time(lRecord_time);
+                        recordDate = dateformat.parse(csv_aimed_date);
+                        lRecord_time = time_format.parse(csv_aimed_time).getTime();
+                        record_time = new Time(lRecord_time);
 
-                    csv_record.setAimedArrivalDate(recordDate);
-                    csv_record.setAimedArrivalTime(record_time);
+                        csv_record.setAimedArrivalDate(recordDate);
+                        csv_record.setAimedArrivalTime(record_time);
 
-                    // Save record
-                    csv_record.save();
-                    System.out.println (csv_record);
-                    i++;
+                        // Save record
+                        csv_record.save();
+                        System.out.println(csv_record);
+                        i++;
+                    }
                 }
                 if ((line = br.readLine()) ==null || i==100){
                     transaction.commit();
@@ -175,8 +177,12 @@ public class insertToDB {
             }
             br.close();
         }
-        catch(IOException e) { e.printStackTrace(); }
-        catch (ParseException e) { e.printStackTrace();}
+        catch(IOException e) {
+            e.printStackTrace();
+        }
+        catch (ParseException e) {
+            e.printStackTrace();
+        }
         printToLogFile("done" , "Real Time");
     }
 

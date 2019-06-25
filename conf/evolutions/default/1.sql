@@ -60,6 +60,24 @@ create table shape (
   constraint pk_shape primary key (shape_id,shape_pt_sequence)
 );
 
+create table siri_csv (
+  id                            bigserial not null,
+  recorded_at_date              timestamptz,
+  recorded_at_time              time,
+  stop                          integer,
+  route                         integer,
+  dest_stop                     integer,
+  origin_aimed_departure_date   timestamptz,
+  origin_aimed_departure_time   time,
+  location                      geometry(point,4326),
+  vehicle_ref                   integer not null,
+  expected_arrival_date         timestamptz,
+  expected_arrival_time         time,
+  aimed_arrival_date            timestamptz,
+  aimed_arrival_time            time,
+  constraint pk_siri_csv primary key (id)
+);
+
 create table stop (
   stop_id                       serial not null,
   stop_code                     integer,
@@ -98,6 +116,15 @@ alter table real_time add constraint fk_real_time_stop foreign key (stop) refere
 create index ix_routes_agency_id on routes (agency_id);
 alter table routes add constraint fk_routes_agency_id foreign key (agency_id) references agency (agency_id) on delete restrict on update restrict;
 
+create index ix_siri_csv_stop on siri_csv (stop);
+alter table siri_csv add constraint fk_siri_csv_stop foreign key (stop) references stop (stop_id) on delete restrict on update restrict;
+
+create index ix_siri_csv_route on siri_csv (route);
+alter table siri_csv add constraint fk_siri_csv_route foreign key (route) references routes (route_id) on delete restrict on update restrict;
+
+create index ix_siri_csv_dest_stop on siri_csv (dest_stop);
+alter table siri_csv add constraint fk_siri_csv_dest_stop foreign key (dest_stop) references stop (stop_id) on delete restrict on update restrict;
+
 create index ix_stop_parent_station_id on stop (parent_station_id);
 alter table stop add constraint fk_stop_parent_station_id foreign key (parent_station_id) references stop (stop_id) on delete restrict on update restrict;
 
@@ -121,6 +148,15 @@ drop index if exists ix_real_time_stop;
 
 alter table if exists routes drop constraint if exists fk_routes_agency_id;
 drop index if exists ix_routes_agency_id;
+
+alter table if exists siri_csv drop constraint if exists fk_siri_csv_stop;
+drop index if exists ix_siri_csv_stop;
+
+alter table if exists siri_csv drop constraint if exists fk_siri_csv_route;
+drop index if exists ix_siri_csv_route;
+
+alter table if exists siri_csv drop constraint if exists fk_siri_csv_dest_stop;
+drop index if exists ix_siri_csv_dest_stop;
 
 alter table if exists stop drop constraint if exists fk_stop_parent_station_id;
 drop index if exists ix_stop_parent_station_id;
@@ -148,6 +184,8 @@ drop table if exists real_time cascade;
 drop table if exists routes cascade;
 
 drop table if exists shape cascade;
+
+drop table if exists siri_csv cascade;
 
 drop table if exists stop cascade;
 
