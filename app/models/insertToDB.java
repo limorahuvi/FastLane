@@ -20,15 +20,19 @@ import java.sql.Time;
 import java.util.List;
 
 
-
+/**
+ * This class insert gtfs, real time and passengers count data to the database.
+ */
 public class insertToDB {
 
     private static String sourceDir = utilitiesFunc.createPath("sources");
 
-    public insertToDB() {
+    public insertToDB() {}
 
-    }
-
+    /**
+     * This is the main function, it calls to all functions that insert each data to its table
+     * The order of this calls is important because of tables referencing to one another.
+     */
     public static void startInsert(){
         try {
             utilitiesFunc.logger.info("starting to insert DB: (time = " + new Date() +" )");
@@ -186,22 +190,44 @@ public class insertToDB {
         printToLogFile("done" , "Real Time");
     }
 
+    /**
+     * This javadoc is relate to all the following functions starts with "insertTo":
+     * This function reads the @param and add data to its table in the database
+     * @param tableFile file name of the data to insert to table
+     * @throws SQLException
+     */
     public static void insertToPassengerCount(String tableFile) throws SQLException {
+        /**
+         * write to log file that insertion started
+         */
         printToLogFile("start" , "Passenger Count");
 
         try {
             int i=0;
+            /**
+             * read from data file to bufferReader
+             * and go over this buffer line by line into string
+             */
             BufferedReader br = readFileToBuffer(sourceDir+"/"+tableFile);
 
             String line = br.readLine();
             while (line!=null)
             {
+                /**
+                 * get transaction and set the batch numner to 100
+                 */
                 Transaction transaction = getCurrentTransaction(100);
 
-                //Make sure the line is not null, not empty, and contains 2 comma char
+                /**
+                 * Make sure the line is not null, not empty, and contains 2 comma char
+                 * generate lines of data without the first line (with the columns name)
+                 */
                 if (lineCheckers(line, "IdReportRow")) {
                     try {
                         String tmp[] = line.split(",");
+                        /**
+                         * set all fields of this table object by the corresponding index from the file line
+                         */
                         if(tmp.length>56) {
                             PassengerCounts pc = new PassengerCounts();
                             pc.setTripId(Integer.parseInt(cleanQuotationMarks(tmp[56])));
@@ -218,7 +244,10 @@ public class insertToDB {
                             long hourKeyLong = time_format.parse(timeString).getTime();
                             Time hourKey = new Time(hourKeyLong);
                             pc.setHourKey(hourKey);
-
+                            /**
+                             * save will update the object if it was already exist,
+                             * if not it will generate a new object
+                             */
                             pc.save();
                         }
                         i++;
@@ -227,15 +256,26 @@ public class insertToDB {
                         e1.printStackTrace();
                     }
                 }
+                /**
+                 * if line is the EOF or we reached the batch number
+                 * True: close transaction and set the batch index to 0
+                 * False: continue reading lines and counting batch
+                 */
                 if ((line = br.readLine()) ==null || i==100){
                     closeTransaction(transaction);
                     i=0;
                 }
             }
+            /**
+             * close bufferReader, reached EOF
+             */
             br.close();
         }
         catch(IOException e) { e.printStackTrace(); }
         catch (ParseException e) { e.printStackTrace();}
+        /**
+         * print to log file that insertion for this table is finished
+         */
         printToLogFile("done" , "Passenger Count");
     }
 
@@ -261,7 +301,6 @@ public class insertToDB {
                     String all_record_date = cleanQuotationMarks(tmp[1]);
                     String sRecord_date = all_record_date.substring(0, 11);
                     String sRecord_time = all_record_date.substring(12, 20);
-                    //System.out.println("sRecord is: "+ sRecord_time);
                     SimpleDateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd");
                     Date recordDate = dateformat.parse(sRecord_date);
                     SimpleDateFormat time_format = new SimpleDateFormat("hh:mm:ss");
@@ -273,14 +312,9 @@ public class insertToDB {
                     siri.setPublishedLineName(cleanQuotationMarks(tmp[7]));
 
                     // Contact query bean
-                    //List<Stop> stopRefL =Stop.find.query().where().eq("stop_code" , Integer.parseInt(cleanQuotationMarks(tmp[16]))).findList(); //findOne();
-                    //System.out.println("stop code is: " + tmp[16]);
-                    //Stop stopRef=Stop.find.query().where().eq("stop_code" , Integer.parseInt(cleanQuotationMarks(tmp[16]))).findOne();//stopRefL.get(0);
                     List<Stop> stopRefL = Stop.find.query().where().eq("stop_code", Integer.parseInt(cleanQuotationMarks(tmp[16]))).findList();
-                    //  System.out.println(">> stop code is : " + tmp[16]  +"  list length : " + stopRefL.size() );
                     if (stopRefL.size() > 0) {
                         Stop stopRef = stopRefL.get(0);
-                        //System.out.println("stop is: "+ stopRef.getStop_id());
                         siri.setStop_id(stopRef);
                         siri.setLocation(stopRef.getLocation());
                     }
@@ -402,6 +436,10 @@ public class insertToDB {
                 //Make sure the line is not null, not empty, and contains 2 comma char
                 if (lineCheckers(line,"stop")) {
                     String tmp[] = line.split(",");
+                    /**
+                     * if the table contain a complex key we will use a table object
+                     * and search by the key this object by the corresponding index
+                     */
                     Stop stop = Stop.find.byId(Long.valueOf(Integer.parseInt(tmp[0])));
                     if (stop ==null)
                         stop = new Stop();
@@ -417,10 +455,8 @@ public class insertToDB {
                     stop.setLocation_type(Boolean.parseBoolean(tmp[6]));
 
                     if (tmp.length> 7 && !(tmp[7].equals(""))) {
-                        //if (!(tmp[7].equals(""))) {
                         Stop parent = Stop.find.byId(Long.valueOf(Integer.parseInt(tmp[7])));
                         stop.setParent_station(parent);
-                        // }
                     }
                     stop.save();
                     i++;
@@ -550,7 +586,6 @@ public class insertToDB {
         printToLogFile("start" , "Stop Times");
         try{
             int i=0;
-            int index =0 ;
             BufferedReader br =  readFileToBuffer(sourceDir+"/"+tableFile);
             String line = br.readLine();
             while (line!=null)
@@ -595,8 +630,13 @@ public class insertToDB {
         printToLogFile("done" , "Stop Times");
     }
 
-    /*================ utilities Function ================*/
+    /**================ utilities Function ================**/
 
+    /**
+     * Print to log file the progress of insertion with the timestamp
+     * @param action start or done
+     * @param tableName
+     */
     private static void printToLogFile(String action , String tableName) {
         if (action=="start")
             utilitiesFunc.logger.info("Starting insert to "+tableName+" table.   (Start time = " + new Date() +" )");
@@ -605,12 +645,26 @@ public class insertToDB {
 
     }
 
+    /**
+     * read file to bufferReader
+     * @param fileName
+     * @return buffer
+     * @throws IOException
+     */
     private static BufferedReader readFileToBuffer(String fileName) throws IOException {
         BufferedReader br=  new BufferedReader(new InputStreamReader(
                 new FileInputStream(fileName), StandardCharsets.UTF_8));
         return br;
     }
 
+    /**
+     * Using this function to create controlled access to database by using batch
+     * We define a number of calls (batchNumber) that after that amount of accesses, the transaction
+     * access to the database and save all records once.
+     * This is minimize the amount of accesses to DB and optimize runtime
+     * @param batchNumber
+     * @return current transaction if it doesn't exist already
+     */
     private static Transaction getCurrentTransaction(int batchNumber) {
         Transaction transaction = Ebean.currentTransaction();
         if (transaction == null) {
@@ -621,11 +675,22 @@ public class insertToDB {
         return transaction;
     }
 
+    /**
+     * This function gets a transaction and commits all records (during this transaction) to database
+     * and closes this transaction
+     * @param transaction
+     */
     private static void closeTransaction(Transaction transaction) {
         transaction.commit();
         transaction.end();
     }
 
+    /**
+     * parameter testing for the first line in data files.
+     * @param line
+     * @param guideWord
+     * @return contains params or not
+     */
     private static Boolean lineCheckers(String line , String guideWord){
         return line != null &&
                 !line.equals("") &&
@@ -633,6 +698,12 @@ public class insertToDB {
                 !line.contains(guideWord);
     }
 
+    /**
+     * convert string to point object
+     * @param lat
+     * @param lon
+     * @return Point
+     */
     private static Point stringToPoint(String lat , String lon){
         Double pt_lat =  Double.parseDouble(lat);
         Double pt_lon =  Double.parseDouble(lon);

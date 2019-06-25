@@ -10,6 +10,9 @@ import models.queries.GeojsonTemplates.QueryFeatureCollection;
 import models.queries.GeojsonTemplates.QueryHandler;
 import models.queries.queries;
 
+/**
+ * handles the passengers count query
+ */
 public class passengersCountQueryHandler extends QueryHandler {
 
     private final int STOP1 = 0;
@@ -62,16 +65,5 @@ public class passengersCountQueryHandler extends QueryHandler {
             return coor;
         }
 
-    /*private passengersCountTotalLoad getDemoPassengersCountTotalLoad() {
-        passengersCountTotalLoad totalLoad = new passengersCountTotalLoad();
-        double[] coor13933 = {34.798108,31.23819};
-        double[] coor18613 = {34.808931,31.226122};
-        double[] coor11783 = {34.812412,31.219766};
-        double[] coor18622 = {34.809946,31.213571};
-        totalLoad.addFeature(coor13933, coor18613, 11,((PassengersCountForm)(form)).getMinPassengersForPublicLane());
-        totalLoad.addFeature(coor18613, coor11783, 8,((PassengersCountForm)(form)).getMinPassengersForPublicLane());
-        totalLoad.addFeature(coor11783, coor18622, 7,((PassengersCountForm)(form)).getMinPassengersForPublicLane());
-        return totalLoad;
-    }*/
 
 }

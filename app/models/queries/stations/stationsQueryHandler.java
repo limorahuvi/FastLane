@@ -8,7 +8,10 @@ import models.queries.GeojsonTemplates.QueryHandler;
 import models.queries.queries;
 
 import java.util.List;
-
+/**
+ * handles the stations query
+ * returns only stops in beer sheva
+ */
 public class stationsQueryHandler extends QueryHandler {
     public stationsQueryHandler(VisualizationForm form) {
         super(form);

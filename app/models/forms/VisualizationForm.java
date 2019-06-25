@@ -6,6 +6,10 @@ import play.data.validation.ValidationError;
 import play.data.validation.Constraints.Validatable;
 import play.data.validation.Constraints.Validate;
 
+/**
+ * simplest form for visualization
+ * contains the basic parameters to filter
+ */
 @Validate
 public abstract class VisualizationForm implements Validatable<ValidationError>{
 
@@ -96,6 +100,11 @@ public abstract class VisualizationForm implements Validatable<ValidationError>{
 
     public void setCoor2(String coor){this.coor2=coor;}
 
+    /**
+     * validates data that needs to be validate:
+     * start hour/date <= end hour/date
+     * @returns error if exists
+     */
     @Override
     public ValidationError validate() {
         if (endDate!=null&&startDate!=null&&endDate.before(startDate)) {

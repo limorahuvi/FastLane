@@ -6,6 +6,9 @@ import models.queries.queries;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * handles the feature collection returns in geojson
+ */
 public class QueryFeatureCollection {
 
     public String type = "FeatureCollection";
