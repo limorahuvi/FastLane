@@ -1,4 +1,4 @@
-package models.forms;
+package models;
 import models.VisualizationForm;
 
 import java.text.SimpleDateFormat;

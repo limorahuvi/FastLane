@@ -1,7 +1,7 @@
 package controllers;
 import models.DevSchedForm;
 import models.PassengersCountForm;
-import models.forms.SiriCsvForm;
+import models.SiriCsvForm;
 import play.data.Form;
 import play.data.FormFactory;
 import javax.inject.Inject;

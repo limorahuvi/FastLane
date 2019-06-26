@@ -3,7 +3,7 @@ import actors.ImportManagerActorProtocol;
 import akka.actor.ActorRef;
 import models.DevSchedForm;
 import models.PassengersCountForm;
-import models.forms.SiriCsvForm;
+import models.SiriCsvForm;
 import play.data.Form;
 import play.data.FormFactory;
 import play.mvc.*;
