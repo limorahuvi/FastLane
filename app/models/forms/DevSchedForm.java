@@ -4,8 +4,11 @@ import  play.libs.Json;
 import models.VisualizationForm;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-public class DevSchedForm extends VisualizationForm{
+/**
+ * form for real time(deviation in schedule) visualization
+ */
 
+public class DevSchedForm extends VisualizationForm{
 
     public DevSchedForm(){
 
