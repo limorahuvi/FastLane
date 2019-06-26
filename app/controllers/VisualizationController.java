@@ -1,6 +1,7 @@
 package controllers;
 import models.DevSchedForm;
 import models.PassengersCountForm;
+import models.forms.SiriCsvForm;
 import play.data.Form;
 import play.data.FormFactory;
 import javax.inject.Inject;
@@ -24,30 +25,39 @@ public class VisualizationController extends Controller {
     FormFactory formFactory;
 
 
-    public Result calculatePassengersCount() throws java.io.IOException{
+    public Result calculatePassengersCount() throws java.io.IOException {
         Form<PassengersCountForm> form = formFactory.form(PassengersCountForm.class).bindFromRequest();
-        if(form.hasErrors()){
-            flash("danger","Please Correct the Form Below");
+        if (form.hasErrors()) {
+            flash("danger", "Please Correct the Form Below");
             return badRequest(views.html.visualizations.passengersCount.passengersCount.render(form));
         }
         PassengersCountForm request = form.get();
         request.setResult(models.queries.queries.getResults(request));
-        flash("success","Form Sent Successfully");
+        flash("success", "Form Sent Successfully");
         return ok(views.html.visualizations.passengersCount.passengersCountResult.render(request));
     }
 
-    public Result calculateDevSched() throws java.io.IOException{
+    public Result calculateDevSched() throws java.io.IOException {
         Form<DevSchedForm> form = formFactory.form(DevSchedForm.class).bindFromRequest();
-        if(form.hasErrors()){
-            flash("danger","Please Correct the Form Below");
+        if (form.hasErrors()) {
+            flash("danger", "Please Correct the Form Below");
             return badRequest(views.html.visualizations.deviationSched.deviationSched.render(form));
         }
         DevSchedForm request = form.get();
         request.setResult(models.queries.queries.getResults(request));
-        flash("success","Form Sent Successfully");
+        flash("success", "Form Sent Successfully");
         return ok(views.html.visualizations.deviationSched.devSchedResult.render(request));
     }
 
-
-
+    public Result calculateSiriCsv() throws java.io.IOException {
+        Form<SiriCsvForm> form = formFactory.form(SiriCsvForm.class).bindFromRequest();
+        if (form.hasErrors()) {
+            flash("danger", "Please Correct the Form Below");
+            return badRequest(views.html.visualizations.siriCsv.siriCsv.render(form));
+        }
+            SiriCsvForm request = form.get();
+            request.setResult(models.queries.queries.getResults(request));
+            flash("success", "Form Sent Successfully");
+            return ok(views.html.visualizations.siriCsv.siriCsvResult.render(request));
+    }
 }

@@ -23,5 +23,7 @@ libraryDependencies ++= Seq(
   "io.ebean" % "querybean-generator" % "11.37.1",
   "org.apache.poi" % "poi" % "3.10-FINAL",
   "org.apache.poi" % "poi-ooxml" % "3.10-FINAL",
-  "org.apache.poi" % "poi-scratchpad" % "3.2-FINAL"
+  "org.apache.poi" % "poi-scratchpad" % "3.2-FINAL",
+  "org.glassfish.jaxb" % "jaxb-core" % "2.3.0.1",
+  "org.glassfish.jaxb" % "jaxb-runtime" % "2.3.2" 
 )

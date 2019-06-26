@@ -1,0 +1,11 @@
+@(form : Form[SiriCsvForm])
+
+@visualizations.layouts.calculateDataLayout("{new visualization}"){
+    {description}
+}{
+    @helper.form(action = routes.VisualizationController.calculateSiriCsv()){
+        @visualizations.parameters.visualizationFormParameters(form.asInstanceOf[play.data.Form[models.VisualizationForm]])
+        {fill other fields here}
+        <input type="submit" value="Calculate" id="submit"  onclick="showDiv()">
+
+    }

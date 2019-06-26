@@ -46,11 +46,148 @@ public class insertToDB {
             insertToShape("shapes.txt");
             insertToTrips("trips.txt");
             insertToStopTimes("stop_times.txt");
+            insertToSiriCsv("BS_01_Mar_2019.csv");
             utilitiesFunc.logger.info("Done to insert DB: (time = " + new Date() +" )");
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void insertToSiriCsv(String tableFile) throws SQLException {
+        printToLogFile("start" , "SiriCsv");
+
+
+        try {
+            int i=0;
+            BufferedReader br = readFileToBuffer(sourceDir+"\\"+tableFile);
+            String line = br.readLine();
+            while (line!=null)
+            {
+                Transaction transaction = Ebean.currentTransaction();
+                if(transaction== null){
+                    transaction = Ebean.beginTransaction();
+                    transaction.setBatchMode(true);  // use JDBC batch
+                    transaction.setBatchSize(100);
+                }
+                //Make sure the line is not null, not empty, and contains 2 comma char
+                if (line != null && !line.equals("") && line.matches(".*[,].*[,].*") && !line.contains("id")&& !line.contains("a")) {
+                    String tmp[] = line.split(",");
+                    Long csv_record_id = Long.parseLong(cleanQuotationMarks(tmp[0]));
+                    SiriCsv csv_record = SiriCsv.find.byId(csv_record_id);
+                    if (csv_record == null)
+                        csv_record = new SiriCsv();
+
+                    // id field
+                    csv_record.setId(Long.parseLong(cleanQuotationMarks(tmp[0])));
+
+                    // RecordedAtTime field
+                    SimpleDateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd");
+                    SimpleDateFormat time_format = new SimpleDateFormat("hh:mm:ss");
+                    String recorded_time_and_date = cleanQuotationMarks(tmp[1]);
+                    String csv_recorded_date = recorded_time_and_date.substring(0, 11);
+                    String csv_recorded_time = recorded_time_and_date.substring(12, 20);
+
+                    Date recordDate = dateformat.parse(csv_recorded_date);
+                    long lRecord_time = time_format.parse(csv_recorded_time).getTime();
+                    Time record_time = new Time(lRecord_time);
+
+                    csv_record.setRecordedAtDate(recordDate);
+                    csv_record.setRecordedAtTime(record_time);
+
+                    // MonitoringRef -> stop
+                    List<Stop> stopRefL = Stop.find.query().where().eq("stop_code", Integer.parseInt(cleanQuotationMarks(tmp[2]))).findList();
+                    if (stopRefL.size() > 0) {
+                        Stop stopRef = stopRefL.get(0);
+                        csv_record.setStop(stopRef);
+                    }
+
+                    // LineRef -> route
+                    // Fetching the relevant route by the lineRef
+                    List<Routes> routesRefL = Routes.find.query().where().eq("route_id", Integer.parseInt(cleanQuotationMarks(tmp[3]))).findList();
+                    if (routesRefL.size() > 0) {
+                        Routes route = routesRefL.get(0);
+                        //System.out.println("stop is: "+ stopRef.getStop_id());
+                        csv_record.setRoute(route);
+                    }
+
+                    // DestinationRef -> destination stop
+                    List<Stop> dest_stopRefL = Stop.find.query().where().eq("stop_code", Integer.parseInt(cleanQuotationMarks(tmp[7]))).findList();
+                    if (stopRefL.size() > 0) {
+                        Stop stopRef = stopRefL.get(0);
+                        csv_record.setStop(stopRef);
+                    }
+
+                    // OriginAimedDepartureTime field
+                    String csv_origin_time_and_date = cleanQuotationMarks(tmp[8]);
+                    String csv_origin_date = csv_origin_time_and_date.substring(0, 11);
+                    String csv_origin_time = csv_origin_time_and_date.substring(12, 20);
+
+                    Date originDate = dateformat.parse(csv_origin_date);
+                    lRecord_time = time_format.parse(csv_origin_time).getTime();
+                    record_time = new Time(lRecord_time);
+
+                    csv_record.setRecordedAtDate(recordDate);
+                    csv_record.setRecordedAtTime(record_time);
+
+                    // Longitude + Latitude -> Location
+                    Float csv_longitude = Float.parseFloat(cleanQuotationMarks(tmp[9]));
+                    Float csv_latitude = Float.parseFloat(cleanQuotationMarks(tmp[10]));
+                    Point csv_location = new Point(csv_latitude, csv_longitude);
+                    csv_location.setSrid(4326);
+
+                    csv_record.setLocation(csv_location);
+
+                    //VehicleRef
+                    int csv_vehicleref = Integer.parseInt(cleanQuotationMarks(tmp[11]));
+                    csv_record.setVehicleRef(csv_vehicleref);
+
+                    // ExpectedArrivalTime
+                    String expected_time_and_date = cleanQuotationMarks(tmp[13]);
+                    String csv_expected_date = expected_time_and_date.substring(0, 11);
+                    String csv_expected_time = expected_time_and_date.substring(12, 20);
+
+                    recordDate = dateformat.parse(csv_expected_date);
+                    lRecord_time = time_format.parse(csv_expected_time).getTime();
+                    record_time = new Time(lRecord_time);
+
+                    csv_record.setExpectedArrivalDate(recordDate);
+                    csv_record.setExpectedArrivalTime(record_time);
+
+                    // AimedArrivalTime
+                    if (tmp.length == 15) {
+                        String aimed_time_and_date = cleanQuotationMarks(tmp[14]);
+                        String csv_aimed_date = aimed_time_and_date.substring(0, 11);
+                        String csv_aimed_time = aimed_time_and_date.substring(12, 20);
+
+                        recordDate = dateformat.parse(csv_aimed_date);
+                        lRecord_time = time_format.parse(csv_aimed_time).getTime();
+                        record_time = new Time(lRecord_time);
+
+                        csv_record.setAimedArrivalDate(recordDate);
+                        csv_record.setAimedArrivalTime(record_time);
+
+                        // Save record
+                        csv_record.save();
+                        System.out.println(csv_record);
+                        i++;
+                    }
+                }
+                if ((line = br.readLine()) ==null || i==100){
+                    transaction.commit();
+                    transaction.end();
+                    i=0;
+                }
+            }
+            br.close();
+        }
+        catch(IOException e) {
+            e.printStackTrace();
+        }
+        catch (ParseException e) {
+            e.printStackTrace();
+        }
+        printToLogFile("done" , "Real Time");
     }
 
     /**
