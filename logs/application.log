@@ -1,14 +1,134 @@
-2019-06-23 20:02:46,295 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-2 - Database [default] initialized at jdbc:postgresql://localhost:5432/db_fast_lane
-2019-06-23 20:02:46,321 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-2 - Creating Pool for datasource 'default'
-2019-06-23 20:02:46,726 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-2 - Database [test] initialized at jdbc:postgresql://localhost:5432/test
-2019-06-23 20:02:46,726 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-2 - Creating Pool for datasource 'test'
-2019-06-23 20:02:47,776 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-2 - application.conf @ file:/C:/Users/hshidlov/Desktop/private/Project/masterAfterMerge1706/FastLane/target/scala-2.12/classes/application.conf: 14: applyEvolutions.default is deprecated, use play.evolutions.db.default.autoApply instead
-2019-06-23 20:02:47,777 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-2 - application.conf @ file:/C:/Users/hshidlov/Desktop/private/Project/masterAfterMerge1706/FastLane/target/scala-2.12/classes/application.conf: 15: applyDownEvolutions.default is deprecated, use play.evolutions.db.default.autoApplyDowns instead
-2019-06-23 20:02:47,778 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-2 - application.conf @ file:/C:/Users/hshidlov/Desktop/private/Project/masterAfterMerge1706/FastLane/target/scala-2.12/classes/application.conf: 13: applyEvolutions.db is deprecated, use play.evolutions.db.db.autoApply instead
-2019-06-23 20:02:50,330 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-2 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+2019-06-24 22:19:31,359 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-8 - Database [default] initialized at jdbc:postgresql://localhost:5432/db_fast_lane
+2019-06-24 22:19:31,378 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-8 - Creating Pool for datasource 'default'
+2019-06-24 22:19:31,689 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-8 - Database [test] initialized at jdbc:postgresql://localhost:5432/test
+2019-06-24 22:19:31,689 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-8 - Creating Pool for datasource 'test'
+2019-06-24 22:19:32,079 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-8 - application.conf @ file:/C:/Users/limor/OneDrive/Documents/UNI/Final%20Project/FastLane/target/scala-2.12/classes/application.conf: 14: applyEvolutions.default is deprecated, use play.evolutions.db.default.autoApply instead
+2019-06-24 22:19:32,079 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-8 - application.conf @ file:/C:/Users/limor/OneDrive/Documents/UNI/Final%20Project/FastLane/target/scala-2.12/classes/application.conf: 15: applyDownEvolutions.default is deprecated, use play.evolutions.db.default.autoApplyDowns instead
+2019-06-24 22:19:32,080 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-8 - application.conf @ file:/C:/Users/limor/OneDrive/Documents/UNI/Final%20Project/FastLane/target/scala-2.12/classes/application.conf: 13: applyEvolutions.db is deprecated, use play.evolutions.db.db.autoApply instead
+2019-06-24 22:19:34,330 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-8 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
 
     play.filters.csrf.CSRFFilter
     play.filters.hosts.AllowedHostsFilter
 
-2019-06-23 20:02:50,336 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-2 - Application started (Dev)
-2019-06-23 20:04:15,386 [INFO] from application in application-akka.actor.default-dispatcher-6 - starting to insert DB: (time = Sun Jun 23 20:04:15 IDT 2019 )
+2019-06-24 22:19:34,337 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-8 - Application started (Dev)
+2019-06-24 22:22:22,037 [INFO] from application in application-akka.actor.default-dispatcher-5 - Shutting down connection pool.
+2019-06-24 22:22:22,053 [INFO] from application in application-akka.actor.default-dispatcher-5 - Shutting down connection pool.
+2019-06-24 22:22:22,608 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-15 - Database [default] initialized at jdbc:postgresql://localhost:5432/db_fast_lane
+2019-06-24 22:22:22,609 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-15 - Creating Pool for datasource 'default'
+2019-06-24 22:22:22,673 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-15 - Database [test] initialized at jdbc:postgresql://localhost:5432/test
+2019-06-24 22:22:22,673 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-15 - Creating Pool for datasource 'test'
+2019-06-24 22:22:23,016 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-15 - application.conf @ file:/C:/Users/limor/OneDrive/Documents/UNI/Final%20Project/FastLane/target/scala-2.12/classes/application.conf: 14: applyEvolutions.default is deprecated, use play.evolutions.db.default.autoApply instead
+2019-06-24 22:22:23,017 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-15 - application.conf @ file:/C:/Users/limor/OneDrive/Documents/UNI/Final%20Project/FastLane/target/scala-2.12/classes/application.conf: 15: applyDownEvolutions.default is deprecated, use play.evolutions.db.default.autoApplyDowns instead
+2019-06-24 22:22:23,017 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-15 - application.conf @ file:/C:/Users/limor/OneDrive/Documents/UNI/Final%20Project/FastLane/target/scala-2.12/classes/application.conf: 13: applyEvolutions.db is deprecated, use play.evolutions.db.db.autoApply instead
+2019-06-24 22:22:23,258 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-15 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.csrf.CSRFFilter
+    play.filters.hosts.AllowedHostsFilter
+
+2019-06-24 22:22:23,259 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-15 - Application started (Dev)
+2019-06-24 22:22:59,243 [ERROR] from application in play-dev-mode-akka.actor.default-dispatcher-11 - 
+
+! @7cac2k7hm - Internal server error, for (GET) [/] ->
+ 
+play.sbt.PlayExceptions$CompilationException: Compilation error[not found: value stations]
+	at play.sbt.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:34)
+	at play.sbt.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:34)
+	at scala.Option.map(Option.scala:146)
+	at play.sbt.run.PlayReload$.$anonfun$taskFailureHandler$1(PlayReload.scala:33)
+	at scala.Option.map(Option.scala:146)
+	at play.sbt.run.PlayReload$.taskFailureHandler(PlayReload.scala:28)
+	at play.sbt.run.PlayReload$.compileFailure(PlayReload.scala:24)
+	at play.sbt.run.PlayReload$.$anonfun$compile$3(PlayReload.scala:51)
+	at scala.util.Either$LeftProjection.map(Either.scala:573)
+	at play.sbt.run.PlayReload$.compile(PlayReload.scala:51)
+	at play.sbt.run.PlayRun$.$anonfun$playRunTask$4(PlayRun.scala:76)
+	at play.runsupport.Reloader.$anonfun$reload$1(Reloader.scala:412)
+	at play.runsupport.Reloader$$anon$5.run(Reloader.scala:50)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at play.runsupport.Reloader$.play$runsupport$Reloader$$withReloaderContextClassLoader(Reloader.scala:55)
+	at play.runsupport.Reloader.reload(Reloader.scala:412)
+	at play.core.server.DevServerStart$$anon$1.get(DevServerStart.scala:123)
+	at play.core.server.AkkaHttpServer.handleRequest(AkkaHttpServer.scala:241)
+	at play.core.server.AkkaHttpServer.$anonfun$createServerBinding$1(AkkaHttpServer.scala:138)
+	at akka.stream.impl.fusing.MapAsyncUnordered$$anon$26.onPush(Ops.scala:1304)
+	at akka.stream.impl.fusing.GraphInterpreter.processPush(GraphInterpreter.scala:519)
+	at akka.stream.impl.fusing.GraphInterpreter.processEvent(GraphInterpreter.scala:482)
+	at akka.stream.impl.fusing.GraphInterpreter.execute(GraphInterpreter.scala:378)
+	at akka.stream.impl.fusing.GraphInterpreterShell.runBatch(ActorGraphInterpreter.scala:588)
+	at akka.stream.impl.fusing.GraphInterpreterShell$AsyncInput.execute(ActorGraphInterpreter.scala:472)
+	at akka.stream.impl.fusing.GraphInterpreterShell.processEvent(ActorGraphInterpreter.scala:563)
+	at akka.stream.impl.fusing.ActorGraphInterpreter.akka$stream$impl$fusing$ActorGraphInterpreter$$processEvent(ActorGraphInterpreter.scala:745)
+	at akka.stream.impl.fusing.ActorGraphInterpreter$$anonfun$receive$1.applyOrElse(ActorGraphInterpreter.scala:760)
+	at akka.actor.Actor.aroundReceive(Actor.scala:517)
+	at akka.actor.Actor.aroundReceive$(Actor.scala:515)
+	at akka.stream.impl.fusing.ActorGraphInterpreter.aroundReceive(ActorGraphInterpreter.scala:670)
+	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:588)
+	at akka.actor.ActorCell.invoke(ActorCell.scala:557)
+	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:258)
+	at akka.dispatch.Mailbox.run(Mailbox.scala:225)
+	at akka.dispatch.Mailbox.exec(Mailbox.scala:235)
+	at akka.dispatch.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)
+	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
+	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
+	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
+2019-06-24 22:24:50,080 [ERROR] from application in play-dev-mode-akka.actor.default-dispatcher-13 - 
+
+! @7cac30fmn - Internal server error, for (GET) [/] ->
+ 
+play.sbt.PlayExceptions$CompilationException: Compilation error[no arguments allowed for nullary method apply: ()play.twirl.api.HtmlFormat.Appendable in object main]
+	at play.sbt.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:34)
+	at play.sbt.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:34)
+	at scala.Option.map(Option.scala:146)
+	at play.sbt.run.PlayReload$.$anonfun$taskFailureHandler$1(PlayReload.scala:33)
+	at scala.Option.map(Option.scala:146)
+	at play.sbt.run.PlayReload$.taskFailureHandler(PlayReload.scala:28)
+	at play.sbt.run.PlayReload$.compileFailure(PlayReload.scala:24)
+	at play.sbt.run.PlayReload$.$anonfun$compile$3(PlayReload.scala:51)
+	at scala.util.Either$LeftProjection.map(Either.scala:573)
+	at play.sbt.run.PlayReload$.compile(PlayReload.scala:51)
+	at play.sbt.run.PlayRun$.$anonfun$playRunTask$4(PlayRun.scala:76)
+	at play.runsupport.Reloader.$anonfun$reload$1(Reloader.scala:412)
+	at play.runsupport.Reloader$$anon$5.run(Reloader.scala:50)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at play.runsupport.Reloader$.play$runsupport$Reloader$$withReloaderContextClassLoader(Reloader.scala:55)
+	at play.runsupport.Reloader.reload(Reloader.scala:412)
+	at play.core.server.DevServerStart$$anon$1.get(DevServerStart.scala:123)
+	at play.core.server.AkkaHttpServer.handleRequest(AkkaHttpServer.scala:241)
+	at play.core.server.AkkaHttpServer.$anonfun$createServerBinding$1(AkkaHttpServer.scala:138)
+	at akka.stream.impl.fusing.MapAsyncUnordered$$anon$26.onPush(Ops.scala:1304)
+	at akka.stream.impl.fusing.GraphInterpreter.processPush(GraphInterpreter.scala:519)
+	at akka.stream.impl.fusing.GraphInterpreter.processEvent(GraphInterpreter.scala:482)
+	at akka.stream.impl.fusing.GraphInterpreter.execute(GraphInterpreter.scala:378)
+	at akka.stream.impl.fusing.GraphInterpreterShell.runBatch(ActorGraphInterpreter.scala:588)
+	at akka.stream.impl.fusing.GraphInterpreterShell$AsyncInput.execute(ActorGraphInterpreter.scala:472)
+	at akka.stream.impl.fusing.GraphInterpreterShell.processEvent(ActorGraphInterpreter.scala:563)
+	at akka.stream.impl.fusing.ActorGraphInterpreter.akka$stream$impl$fusing$ActorGraphInterpreter$$processEvent(ActorGraphInterpreter.scala:745)
+	at akka.stream.impl.fusing.ActorGraphInterpreter$$anonfun$receive$1.applyOrElse(ActorGraphInterpreter.scala:760)
+	at akka.actor.Actor.aroundReceive(Actor.scala:517)
+	at akka.actor.Actor.aroundReceive$(Actor.scala:515)
+	at akka.stream.impl.fusing.ActorGraphInterpreter.aroundReceive(ActorGraphInterpreter.scala:670)
+	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:588)
+	at akka.actor.ActorCell.invoke(ActorCell.scala:557)
+	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:258)
+	at akka.dispatch.Mailbox.run(Mailbox.scala:225)
+	at akka.dispatch.Mailbox.exec(Mailbox.scala:235)
+	at akka.dispatch.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)
+	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
+	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
+	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
+2019-06-24 22:25:26,313 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-14 - Shutting down connection pool.
+2019-06-24 22:25:26,328 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-14 - Shutting down connection pool.
+2019-06-24 22:25:26,803 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-14 - Database [default] initialized at jdbc:postgresql://localhost:5432/db_fast_lane
+2019-06-24 22:25:26,803 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-14 - Creating Pool for datasource 'default'
+2019-06-24 22:25:26,855 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-14 - Database [test] initialized at jdbc:postgresql://localhost:5432/test
+2019-06-24 22:25:26,855 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-14 - Creating Pool for datasource 'test'
+2019-06-24 22:25:27,026 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-14 - application.conf @ file:/C:/Users/limor/OneDrive/Documents/UNI/Final%20Project/FastLane/target/scala-2.12/classes/application.conf: 14: applyEvolutions.default is deprecated, use play.evolutions.db.default.autoApply instead
+2019-06-24 22:25:27,026 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-14 - application.conf @ file:/C:/Users/limor/OneDrive/Documents/UNI/Final%20Project/FastLane/target/scala-2.12/classes/application.conf: 15: applyDownEvolutions.default is deprecated, use play.evolutions.db.default.autoApplyDowns instead
+2019-06-24 22:25:27,026 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-14 - application.conf @ file:/C:/Users/limor/OneDrive/Documents/UNI/Final%20Project/FastLane/target/scala-2.12/classes/application.conf: 13: applyEvolutions.db is deprecated, use play.evolutions.db.db.autoApply instead
+2019-06-24 22:25:27,471 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-14 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.csrf.CSRFFilter
+    play.filters.hosts.AllowedHostsFilter
+
+2019-06-24 22:25:27,472 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-14 - Application started (Dev)
+2019-06-24 22:25:53,062 [WARN] from play in application-akka.actor.default-dispatcher-2 - You are using status code '200' with flashing, which should only be used with a redirect status!
