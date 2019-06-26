@@ -3,6 +3,7 @@ import actors.ImportManagerActorProtocol;
 import akka.actor.ActorRef;
 import models.DevSchedForm;
 import models.PassengersCountForm;
+import models.forms.SiriCsvForm;
 import play.data.Form;
 import play.data.FormFactory;
 import play.mvc.*;
@@ -46,6 +47,12 @@ public class HomeController extends Controller {
         return ok(views.html.index.render(models.queries.queries.getStations().toString()));
 
     }
+
+    public Result siriCsv() {
+        Form<SiriCsvForm> form = formFactory.form(SiriCsvForm.class);
+        return ok(views.html.visualizations.siriCsv.siriCsv.render(form));
+    }
+
     public Result passengersCount(){
         Form<PassengersCountForm> form = formFactory.form(PassengersCountForm.class);
         return ok(views.html.visualizations.passengersCount.passengersCount.render(form));

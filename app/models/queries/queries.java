@@ -4,8 +4,10 @@ import com.fasterxml.jackson.databind.JsonNode;
 import models.DevSchedForm;
 import models.PassengersCountForm;
 import models.entities.RealTime;
+import models.forms.SiriCsvForm;
 import models.queries.passengersCount.passengersCountQueryHandler;
 import models.queries.devSched.devSchedQueryHandler;
+import models.queries.siriCsv.siriCsvQueryHandler;
 import models.queries.stations.stationsQueryHandler;
 import org.postgis.Point;
 import play.libs.Json;
@@ -55,6 +57,12 @@ public class queries {
      */
     public static JsonNode getResults(DevSchedForm form){
         devSchedQueryHandler handler = new devSchedQueryHandler(form);
+        return handler.getResult();
+    }
+
+
+    public static JsonNode getResults(SiriCsvForm form){
+        siriCsvQueryHandler handler = new siriCsvQueryHandler(form);
         return handler.getResult();
     }
 

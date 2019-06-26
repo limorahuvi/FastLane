@@ -1,0 +1,12 @@
+@(result: SiriCsvForm)
+
+@visualizations.layouts.resultLayout("SiriCsv result") {
+    @* {styles needed}}*@
+    {
+    @result.getParametersList()
+    }{
+    {visualization ('data': JSON.parse('@result.getResultString()'.replace(/&quot;/g,'"')))}
+    }{
+    {index}
+    }
+}
