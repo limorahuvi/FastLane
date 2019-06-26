@@ -1,5 +1,8 @@
 package models.queries.devSched;
 
+/**
+ * handles the real time query
+ */
 import models.DevSchedForm;
 import java.time.LocalTime;
 import java.util.*;
@@ -10,6 +13,7 @@ import models.queries.queries;
 import org.postgis.Point;
 import models.queries.GeojsonTemplates.QueryFeatureCollection;
 import models.queries.GeojsonTemplates.QueryHandler;
+
 public class devSchedQueryHandler extends QueryHandler   {
 
 
