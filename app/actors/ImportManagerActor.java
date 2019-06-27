@@ -4,7 +4,6 @@ import akka.actor.AbstractActor;
 import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
 import akka.actor.Props;
-import models.initializeDB;
 import models.insertToDB;
 import models.utilitiesFunc;
 import actors.ImportManagerActorProtocol.*;
