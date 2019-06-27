@@ -49,7 +49,7 @@ make sure you created database for testing using this [link](https://docs.google
 
 use this [link](https://docs.google.com/document/d/1i9PuP6IPbM7SjClE43RJl3bM79P2j55hoY1tYSJaHPY/edit) to run E2E testing, database and unit testing.
 
-###### Developer
+## Developer
 For contribute and continue developing this project use this [link](https://docs.google.com/document/d/1p6B4DNinn-pm4KdRIBDS08R6pTfOj6m7v-5aJGqwZ_s/edit?usp=sharing) for additional instructions. 
 For creating new visualization use this [link](https://docs.google.com/document/d/1ohu_bT1EgAYFuTEh2MZ2a2kKdhr_p22ElIZTER2UIE0/edit#heading=h.s0qyti2gav3y) for additional instructions.  
 More documentation can be found [here](https://drive.google.com/drive/folders/11rVF2LPh-_DzSAQzox4Z1606Vy8Ijhts?usp=sharing).
