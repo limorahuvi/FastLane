@@ -9,3 +9,4 @@ LogTest_unitTestsInsertToDB.log
 LogTest_tableQueries.log
 /sources
 /sources/gtfs.zip
+/logs
