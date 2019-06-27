@@ -3,7 +3,10 @@ import java.util.ArrayList;
 import java.util.List;
 import models.queries.GeojsonTemplates.QueryFeature;
 
-
+/**
+ * represents single feature in the geojsons feature collection
+ * the feature represents point and list of properties in geojsons
+ */
 
 public class devSchedSingleFeature extends QueryFeature  {
 

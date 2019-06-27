@@ -19,7 +19,10 @@ import static org.junit.Assert.assertTrue;
 
 public class selenuimCheckResponseTimeNew {
 
-
+    /**
+     * check the response time for calculate passengers count visualization(<2 minutes)
+     * @throws IOException
+     */
     @Test
     public void E2E_5_1() throws IOException {//check response time for passengers count vis
         System.setProperty("webdriver.gecko.driver", "test\\uiTests\\geckodriver.exe");
@@ -43,6 +46,11 @@ public class selenuimCheckResponseTimeNew {
         long totalTime = ((finish - start) / 1000) / 60;//minutes
         assertTrue(totalTime < 2);
     }
+
+    /**
+     * check the response time for calculate real time visualization(<2 minutes)
+     * @throws IOException
+     */
     @Test
     public void E2E_5_2() throws IOException {//check response time for real time vis
         System.setProperty("webdriver.gecko.driver", "test\\uiTests\\geckodriver.exe");
